@@ -1,0 +1,18 @@
+/*!
+Name: editor-style
+Author: inc2734
+Author URI: http://2inc.org
+Version: 1.0.0
+License: GNU General Public License
+License URI: license.txt
+*/
+@import 'bootstrap-variables';
+@import '../../assets/bootstrap/stylesheets/bootstrap-compass';
+@import '../../assets/bootstrap/stylesheets/bootstrap';
+@import '../../assets/genericons/genericons.css';
+@import 'content';
+
+body {
+	padding: 0;
+	margin: 10px;
+}

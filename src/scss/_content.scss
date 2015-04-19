@@ -1,0 +1,158 @@
+/*==================================================
+ * Tags
+ *================================================*/
+/**
+ * heading
+ */
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+/**
+ * img
+ */
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+/**
+ * a
+ */
+a {
+	transition: color 0.2s linear 0, background-color 0.2s linear 0, border-color 0.2s linear 0;
+}
+
+/**
+ * blockquote
+ */
+blockquote {
+	font-size: 100%;
+}
+
+/**
+ * media
+ */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/**
+ * table
+ */
+table {
+	small {
+		font-weight: normal;
+	}
+}
+
+/*==================================================
+ * WordPress Classes
+ *================================================*/
+/**
+ * .wp-caption
+ */
+.wp-caption {
+	border: none;
+	text-align: left;
+	background-color: transparent;
+	padding: 0;
+	margin: 20px 0 0;
+	border-radius: 0;
+	max-width: 100%;
+}
+.wp-caption-text {
+	margin-top: 5px;
+	font-size: 12px;
+	line-height: 1.4;
+}
+.gallery-caption {
+	font-size: 12px;
+}
+
+/**
+ * alignment
+ */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**
+ * .bypostauthor
+ */
+.bypostauthor {
+}
+
+/*==================================================
+ * Classes
+ *================================================*/
+/**
+ * .hentry
+ */
+.hentry {
+	.entry-title {
+		margin-top: 0;
+	}
+	.entry-content {
+		> *:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+/**
+ * .section
+ */
+.section {
+	border-top: #eee solid 1px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	.section-title {
+		font-size: $font-size-h2;
+		margin: 0 0 45px;
+		text-align: center;
+		.small {
+			margin-top: 10px;
+		}
+	}
+	.section {
+		border-top: none;
+		padding-top: 0;
+		padding-bottom: 0;
+		.section-title {
+			margin: 0 0 20px;
+			text-align: left;
+		}
+	}
+}
+
+/**
+ * .section-image
+ */
+.section-image {
+	background-size: cover;
+	color: #fff;
+}
+
+/**
+ * .section-fixed
+ */
+.section-fixed {
+	background-attachment: fixed;
+}
