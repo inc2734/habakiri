@@ -76,7 +76,8 @@ Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
 = Navigation =
 
 * Global navigation ( in header )
-* Social navigation ( in footer )
+* Social navigation ( in footer )  
+  If you enter the URL of the social service, icon appears.
 
 = Useful CSS class =
 
