@@ -44,6 +44,10 @@ Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
 
 == Theme features ==
 
+= Logo setting =
+
+You can upload and setting logo image in Customizer.
+
 = 6 page templates =
 
 * Right Sidebar ( default )
