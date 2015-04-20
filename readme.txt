@@ -38,6 +38,10 @@ Genericons
 License: GPL
 Source : http://genericons.com/
 
+Unsplash - Photo for screenshot.png
+License: CC0
+Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
+
 == Theme features ==
 
 = 6 page templates =
