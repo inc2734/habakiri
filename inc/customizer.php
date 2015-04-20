@@ -54,6 +54,12 @@ class Habakiri_Customizer {
 	protected $is_displaying_related_posts_choices = array();
 
 	/**
+	 * ページヘッダーにリードを表示
+	 * @var array
+	 */
+	protected $is_displaying_page_header_lead_choices = array();
+
+	/**
 	 * __construct
 	 */
 	public function __construct() {
@@ -86,6 +92,10 @@ class Habakiri_Customizer {
 			'true'  => __( 'Yes', 'habakiri' ),
 			'false' => __( 'No', 'habakiri' ),
 		);
+		$this->is_displaying_page_header_lead_choices = array(
+			'true'  => __( 'Yes', 'habakiri' ),
+			'false' => __( 'No', 'habakiri' ),
+		);
 	}
 
 	/**
@@ -98,23 +108,24 @@ class Habakiri_Customizer {
 		self::$defaults = apply_filters(
 			'habakiri_theme_mods_defaults',
 			array(
-				'logo'                        => '',
-				'header'                      => 'header-default',
-				'header_fixed'                => '',
-				'footer_columns'              => 'col-md-4',
-				'blog_template'               => 'right-sidebar',
-				'is_displaying_thumbnail'     => 'true',
-				'is_displaying_related_posts' => 'true',
-				'link_color'                  => '#337ab7',
-				'link_hover_color'            => '#23527c',
-				'gnav_link_color'             => '#000',
-				'gnav_link_hover_color'       => '#337ab7',
-				'header_bg_color'             => '#fff',
-				'footer_bg_color'             => '#111113',
-				'footer_text_color'           => '#555',
-				'footer_link_color'           => '#777',
-				'page_header_bg_color'        => '#222',
-				'page_header_text_color'      => '#fff',
+				'logo'                           => '',
+				'header'                         => 'header-default',
+				'header_fixed'                   => '',
+				'footer_columns'                 => 'col-md-4',
+				'blog_template'                  => 'right-sidebar',
+				'is_displaying_thumbnail'        => 'true',
+				'is_displaying_related_posts'    => 'true',
+				'is_displaying_page_header_lead' => 'true',
+				'link_color'                     => '#337ab7',
+				'link_hover_color'               => '#23527c',
+				'gnav_link_color'                => '#000',
+				'gnav_link_hover_color'          => '#337ab7',
+				'header_bg_color'                => '#fff',
+				'footer_bg_color'                => '#111113',
+				'footer_text_color'              => '#555',
+				'footer_link_color'              => '#777',
+				'page_header_bg_color'           => '#222',
+				'page_header_text_color'         => '#fff',
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
@@ -218,6 +229,19 @@ class Habakiri_Customizer {
 			'type'     => 'radio',
 			'choices'  => $this->is_displaying_thumbnail_choices,
 		) ) );
+
+		$wp_customize->add_setting( 'is_displaying_page_header_lead', array(
+			'default'           => self::get_default( 'is_displaying_page_header_lead' ),
+			'sanitize_callback' => array( $this, 'sanitize_is_displaying_page_header_lead' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_page_header_lead', array(
+			'label'    => __( 'Displaying lead of page header in single page', 'habakiri' ),
+			'section'  => 'habakiri_design',
+			'settings' => 'is_displaying_page_header_lead',
+			'type'     => 'radio',
+			'choices'  => $this->is_displaying_page_header_lead_choices,
+		) ) );
+
 		$wp_customize->add_setting( 'link_color', array(
 			'default'           => self::get_default( 'link_color' ),
 			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
@@ -338,7 +362,9 @@ class Habakiri_Customizer {
 		.global-nav a:active,
 		.global-nav ul li.current-menu-item > a,
 		.global-nav ul li.current-menu-ancestor > a,
-		.global-nav ul li.current-menu-parent > a {
+		.global-nav ul li.current-menu-parent > a,
+		.global-nav ul li.current_page_item > a,
+		.global-nav ul li.current_page_parent > a {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_hover_color' ) ); ?>;
 		}
 		.entries .hentry .media .media-left .no-thumbnail {
@@ -479,5 +505,18 @@ class Habakiri_Customizer {
 			return $value;
 		}
 		return self::get_default( 'is_displaying_related_posts' );
+	}
+
+	/**
+	 * is_displaying_page_header_lead のサニタイズ
+	 *
+	 * @param string $value
+	 * @return string $value
+	 */
+	public function sanitize_is_displaying_page_header_lead( $value ) {
+		if ( array_key_exists( $value, $this->is_displaying_page_header_lead_choices ) ) {
+			return $value;
+		}
+		return self::get_default( 'is_displaying_page_header_lead' );
 	}
 }

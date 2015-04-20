@@ -44,6 +44,8 @@ class Habakiri_Base_Functions {
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 		) );
 
+		add_post_type_support( 'page', 'excerpt' );
+
 		$this->customizer();
 		$this->register_nav_menus();
 
@@ -312,11 +314,13 @@ class Habakiri_Base_Functions {
 	 * @param int $post_id
 	 */
 	public static function the_page_header( $post_id = null ) {
+		global $post;
+
 		$title = get_the_title( $post_id );
 		if ( is_404() ) {
 			$title = __( 'Woops! Page not found.', 'habakiri' );
 		} elseif ( is_search() ) {
-			$title = sprintf( __( 'Search Results for: %s', 'habakiri' ), '<span>' . get_search_query() . '</span>');
+			$title = sprintf( __( 'Search Results for: %s', 'habakiri' ), get_search_query() );
 		}
 
 		$class = '';
@@ -325,11 +329,18 @@ class Habakiri_Base_Functions {
 		}
 		$class = apply_filters( 'habakiri_title_class_in_page_header', $class );
 		?>
-		<div class="page-header">
+		<div class="page-header text-center">
 			<div class="container">
 				<h1 <?php if ( !empty( $class ) ) : ?>class="<?php echo esc_attr( $class ); ?>"<?php endif; ?>>
 					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
 				</h1>
+				<?php while ( have_posts() ) : the_post(); ?>
+				<?php if ( is_page() && get_the_excerpt() && !empty( $post->post_excerpt ) && Habakiri::get( 'is_displaying_page_header_lead' ) !== 'false' ) : ?>
+				<div class="page-header-description">
+					<?php the_excerpt(); ?>
+				<!-- end .page-description --></div>
+				<?php endif; ?>
+				<?php endwhile; ?>
 			<!-- end .container --></div>
 		<!-- end .page-header --></div>
 		<?php

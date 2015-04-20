@@ -3,23 +3,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: habakiri 1.0.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/habakiri\n"
-"POT-Creation-Date: 2015-04-19 16:40:17+00:00\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
+"POT-Creation-Date: 2015-04-20 04:42:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
-"Language-Team: \n"
-"X-Generator: Poedit 1.7.5\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Language: ja_JP\n"
-"X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ..\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: comments.php:17
-msgid "This post is password protected. Enter the password to view any comments."
+msgid ""
+"This post is password protected. Enter the password to view any comments."
 msgstr ""
 
 #: comments.php:29
@@ -31,7 +26,9 @@ msgid "No comments."
 msgstr ""
 
 #: comments.php:61
-msgid "It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to write comment."
+msgid ""
+"It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to "
+"write comment."
 msgstr ""
 
 #: comments.php:80
@@ -46,7 +43,7 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: content-none.php:19 functions.php:317
+#: content-none.php:19 functions.php:321
 msgid "Woops! Page not found."
 msgstr ""
 
@@ -59,58 +56,60 @@ msgid "Please search this serch box."
 msgstr ""
 
 #: content-none.php:30
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
 #: content-none.php:39
 msgid "No posts."
 msgstr ""
 
-#: functions.php:83
+#: functions.php:85
 msgid "Global Navigation"
 msgstr ""
 
-#: functions.php:84
+#: functions.php:86
 msgid "Social Navigation"
 msgstr ""
 
-#: functions.php:93 functions.php:95
+#: functions.php:95 functions.php:97
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:100
+#: functions.php:102
 msgid "Footer"
 msgstr ""
 
-#: functions.php:102
+#: functions.php:104
 msgid "Footer Widget Area"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:144
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:147
+#: functions.php:149
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr ""
 
-#: functions.php:184
+#: functions.php:186
 msgid "Monkey Wrench"
 msgstr ""
 
-#: functions.php:189
+#: functions.php:191
 msgid "WordPress"
 msgstr ""
 
-#: functions.php:191
+#: functions.php:193
 msgid "Habakiri theme by %s"
 msgstr ""
 
-#: functions.php:193
+#: functions.php:195
 msgid "Powered by %s"
 msgstr ""
 
-#: functions.php:319
+#: functions.php:323
 msgid "Search Results for: %s"
 msgstr ""
 
@@ -138,133 +137,148 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: inc/customizer.php:61
+#: inc/customizer.php:67
 msgid "Default"
 msgstr ""
 
-#: inc/customizer.php:62
+#: inc/customizer.php:68
 msgid "2 rows"
 msgstr ""
 
-#: inc/customizer.php:63
+#: inc/customizer.php:69
 msgid "Center Logo"
 msgstr ""
 
-#: inc/customizer.php:66 inc/customizer.php:83 inc/customizer.php:87
+#: inc/customizer.php:72 inc/customizer.php:89 inc/customizer.php:93
+#: inc/customizer.php:97
 msgid "No"
 msgstr ""
 
-#: inc/customizer.php:67 inc/customizer.php:82 inc/customizer.php:86
+#: inc/customizer.php:73 inc/customizer.php:88 inc/customizer.php:92
+#: inc/customizer.php:96
 msgid "Yes"
 msgstr ""
 
-#: inc/customizer.php:70
+#: inc/customizer.php:76
 msgid "2 Columns"
 msgstr ""
 
-#: inc/customizer.php:71
+#: inc/customizer.php:77
 msgid "3 Columns"
 msgstr ""
 
-#: inc/customizer.php:72
+#: inc/customizer.php:78
 msgid "4 Columns"
 msgstr ""
 
-#: inc/customizer.php:75
+#: inc/customizer.php:81
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/customizer.php:76
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:82
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/customizer.php:77
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:83
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/customizer.php:78
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:84
 msgid "Full Width ( Fixed )"
 msgstr ""
 
-#: inc/customizer.php:79
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:85
 msgid "Full Width ( Fluid )"
 msgstr ""
 
-#: inc/customizer.php:132
+#: inc/customizer.php:143
 msgid "settings"
 msgstr ""
 
-#: inc/customizer.php:136
+#: inc/customizer.php:147
 msgid "color"
 msgstr ""
 
-#: inc/customizer.php:145
+#: inc/customizer.php:156
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:155
+#: inc/customizer.php:166
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:167
+#: inc/customizer.php:178
 msgid "Header Fixed"
 msgstr ""
 
-#: inc/customizer.php:179
+#: inc/customizer.php:190
 msgid "Number of footer columns"
 msgstr ""
 
-#: inc/customizer.php:191
+#: inc/customizer.php:202
 msgid "Blog Template"
 msgstr ""
 
-#: inc/customizer.php:203
+#: inc/customizer.php:214
 msgid "Displaying thumbnail in archive page"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:226
 msgid "Displaying related posts in single page"
 msgstr ""
 
-#: inc/customizer.php:226
+#: inc/customizer.php:238
+msgid "Displaying lead of page header in single page"
+msgstr ""
+
+#: inc/customizer.php:250
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:236
+#: inc/customizer.php:260
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:246
+#: inc/customizer.php:270
 msgid "Global Navigation Link Color"
 msgstr ""
 
-#: inc/customizer.php:256
+#: inc/customizer.php:280
 msgid "Global Navigation Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:266
+#: inc/customizer.php:290
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:276
+#: inc/customizer.php:300
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer.php:286
+#: inc/customizer.php:310
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/customizer.php:296
+#: inc/customizer.php:320
 msgid "Footer Link Color"
 msgstr ""
 
-#: inc/customizer.php:306
+#: inc/customizer.php:330
 msgid "Page Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:316
+#: inc/customizer.php:340
 msgid "Page Header Text Color"
 msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "habakiri"
 msgstr ""
@@ -274,7 +288,12 @@ msgid "https://github.com/inc2734/habakiri"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Habakiri is a simple theme for the web site. This theme based on Twitter Bootstrap. Features, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, many hooks, displaying related posts in single page, using minify CSS and JavaScript, using Gulp, Sass and PHP Class in functions.php."
+msgid ""
+"Habakiri is a simple theme for the web site. This theme based on Twitter "
+"Bootstrap. Features, 100% responsive layouts, the Glyphicons and Genericons "
+"icons, 6 page templates, 6 header design patterns, many color settings, many "
+"hooks, displaying related posts in single page, using minify CSS and "
+"JavaScript, using Gulp, Sass and PHP Class in functions.php."
 msgstr ""
 
 #. Author of the plugin/theme

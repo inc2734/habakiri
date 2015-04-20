@@ -12,8 +12,12 @@
 <?php get_header(); ?>
 
 <?php
-if ( $page_for_posts = get_option( 'page_for_posts' ) ) {
+$show_on_front  = get_option( 'show_on_front' );
+$page_for_posts = get_option( 'page_for_posts' );
+if ( $show_on_front === 'page' && $page_for_posts ) {
 	Habakiri::the_page_header( $page_for_posts );
+} else {
+	printf( '<div class="no-page-header"></div>' );
 }
 ?>
 
