@@ -48,6 +48,12 @@ class Habakiri_Customizer {
 	protected $is_displaying_thumbnail_choices = array();
 
 	/**
+	 * パンくずリストの表示
+	 * @var array
+	 */
+	protected $is_displaying_bread_crumb_choices = array();
+
+	/**
 	 * 関連記事表示
 	 * @var array
 	 */
@@ -88,6 +94,10 @@ class Habakiri_Customizer {
 			'true'  => __( 'Yes', 'habakiri' ),
 			'false' => __( 'No', 'habakiri' ),
 		);
+		$this->is_displaying_bread_crumb_choices = array(
+			'true'  => __( 'Yes', 'habakiri' ),
+			'false' => __( 'No', 'habakiri' ),
+		);
 		$this->is_displaying_related_posts_choices = array(
 			'true'  => __( 'Yes', 'habakiri' ),
 			'false' => __( 'No', 'habakiri' ),
@@ -114,6 +124,7 @@ class Habakiri_Customizer {
 				'footer_columns'                 => 'col-md-4',
 				'blog_template'                  => 'right-sidebar',
 				'is_displaying_thumbnail'        => 'true',
+				'is_displaying_bread_crumb'      => 'true',
 				'is_displaying_related_posts'    => 'true',
 				'is_displaying_page_header_lead' => 'true',
 				'link_color'                     => '#337ab7',
@@ -218,6 +229,18 @@ class Habakiri_Customizer {
 			'choices'  => $this->is_displaying_thumbnail_choices,
 		) ) );
 
+		$wp_customize->add_setting( 'is_displaying_bread_crumb', array(
+			'default'           => self::get_default( 'is_displaying_bread_crumb' ),
+			'sanitize_callback' => array( $this, 'sanitize_is_displaying_bread_crumb' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_bread_crumb', array(
+			'label'    => __( 'Displaying the Braed Crumb', 'habakiri' ),
+			'section'  => 'habakiri_design',
+			'settings' => 'is_displaying_bread_crumb',
+			'type'     => 'radio',
+			'choices'  => $this->is_displaying_bread_crumb_choices,
+		) ) );
+
 		$wp_customize->add_setting( 'is_displaying_related_posts', array(
 			'default'           => self::get_default( 'is_displaying_related_posts' ),
 			'sanitize_callback' => array( $this, 'sanitize_is_displaying_related_posts' ),
@@ -227,7 +250,7 @@ class Habakiri_Customizer {
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_related_posts',
 			'type'     => 'radio',
-			'choices'  => $this->is_displaying_thumbnail_choices,
+			'choices'  => $this->is_displaying_related_posts_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_page_header_lead', array(
@@ -492,6 +515,19 @@ class Habakiri_Customizer {
 			return $value;
 		}
 		return self::get_default( 'is_displaying_thumbnail' );
+	}
+
+	/**
+	 * is_displaying_bread_crumb のサニタイズ
+	 *
+	 * @param string $value
+	 * @return string $value
+	 */
+	public function sanitize_is_displaying_bread_crumb( $value ) {
+		if ( array_key_exists( $value, $this->is_displaying_bread_crumb_choices ) ) {
+			return $value;
+		}
+		return self::get_default( 'is_displaying_bread_crumb' );
 	}
 
 	/**

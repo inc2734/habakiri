@@ -1,5 +1,6 @@
 <?php
 require_once get_template_directory() . '/inc/customizer.php';
+require_once get_template_directory() . '/inc/class.bread-crumb.php';
 require_once get_template_directory() . '/inc/class.entry-meta.php';
 require_once get_template_directory() . '/inc/class.related-posts.php';
 
@@ -344,6 +345,14 @@ class Habakiri_Base_Functions {
 			<!-- end .container --></div>
 		<!-- end .page-header --></div>
 		<?php
+	}
+
+	/**
+	 * パンくずリストを表示
+	 */
+	public static function the_bread_crumb() {
+		$BreadCrumb = new Habakiri_Bread_Crumb();
+		$BreadCrumb->display();
 	}
 
 	/**

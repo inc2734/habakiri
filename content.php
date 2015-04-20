@@ -11,6 +11,7 @@
 ?>
 <?php if ( is_single() ) : ?>
 
+<?php Habakiri::the_bread_crumb(); ?>
 <article>
 	<h1 class="entry-title"><?php the_title(); ?></h1>
 	<?php Habakiri::the_entry_meta(); ?>

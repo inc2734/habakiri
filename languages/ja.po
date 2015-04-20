@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habakiri 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-04-20 04:42:22+00:00\n"
-"PO-Revision-Date: 2015-04-20 13:50+0900\n"
+"POT-Creation-Date: 2015-04-20 06:40:07+00:00\n"
+"PO-Revision-Date: 2015-04-20 15:40+0900\n"
 "Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -53,7 +53,7 @@ msgstr "トラックバックはありません。"
 msgid "TrackBack URL"
 msgstr "トラックバック URL"
 
-#: content-none.php:19 functions.php:321
+#: content-none.php:19 functions.php:322
 msgid "Woops! Page not found."
 msgstr "ページが見つかりませんでした。"
 
@@ -77,53 +77,61 @@ msgstr ""
 msgid "No posts."
 msgstr "投稿がありません。"
 
-#: functions.php:85
+#: functions.php:86
 msgid "Global Navigation"
 msgstr "グローバルナビゲーション"
 
-#: functions.php:86
+#: functions.php:87
 msgid "Social Navigation"
 msgstr "ソーシャルナビゲーション"
 
-#: functions.php:95 functions.php:97
+#: functions.php:96 functions.php:98
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:102
+#: functions.php:103
 msgid "Footer"
 msgstr "フッター"
 
-#: functions.php:104
+#: functions.php:105
 msgid "Footer Widget Area"
 msgstr "フッターウィジェットエリア"
 
-#: functions.php:144
+#: functions.php:145
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:149
+#: functions.php:150
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
-#: functions.php:186
+#: functions.php:187
 msgid "Monkey Wrench"
 msgstr "モンキーレンチ"
 
-#: functions.php:191
+#: functions.php:192
 msgid "WordPress"
 msgstr "WordPress"
 
-#: functions.php:193
+#: functions.php:194
 msgid "Habakiri theme by %s"
 msgstr "Habakiri theme by %s"
 
-#: functions.php:195
+#: functions.php:196
 msgid "Powered by %s"
 msgstr "Powered by %s"
 
-#: functions.php:323
+#: functions.php:324 inc/class.bread-crumb.php:131
 msgid "Search Results for: %s"
 msgstr "「%s」の検索結果"
+
+#: inc/class.bread-crumb.php:36
+msgid "Home"
+msgstr "ホーム"
+
+#: inc/class.bread-crumb.php:122
+msgid "Page not found"
+msgstr "ページが見つかりません"
 
 #: inc/class.entry-meta.php:43
 msgid "Author"
@@ -149,141 +157,145 @@ msgstr "タグ"
 msgid "Related posts"
 msgstr "関連記事"
 
-#: inc/customizer.php:67
+#: inc/customizer.php:73
 msgid "Default"
 msgstr "デフォルト"
 
-#: inc/customizer.php:68
+#: inc/customizer.php:74
 msgid "2 rows"
 msgstr "2行"
 
-#: inc/customizer.php:69
+#: inc/customizer.php:75
 msgid "Center Logo"
 msgstr "中央ロゴ"
 
-#: inc/customizer.php:72 inc/customizer.php:89 inc/customizer.php:93
-#: inc/customizer.php:97
+#: inc/customizer.php:78 inc/customizer.php:95 inc/customizer.php:99
+#: inc/customizer.php:103 inc/customizer.php:107
 msgid "No"
 msgstr "いいえ"
 
-#: inc/customizer.php:73 inc/customizer.php:88 inc/customizer.php:92
-#: inc/customizer.php:96
+#: inc/customizer.php:79 inc/customizer.php:94 inc/customizer.php:98
+#: inc/customizer.php:102 inc/customizer.php:106
 msgid "Yes"
 msgstr "はい"
 
-#: inc/customizer.php:76
+#: inc/customizer.php:82
 msgid "2 Columns"
 msgstr "2カラム"
 
-#: inc/customizer.php:77
+#: inc/customizer.php:83
 msgid "3 Columns"
 msgstr "3カラム"
 
-#: inc/customizer.php:78
+#: inc/customizer.php:84
 msgid "4 Columns"
 msgstr "4カラム"
 
-#: inc/customizer.php:81
+#: inc/customizer.php:87
 msgid "Right Sidebar"
 msgstr "右サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:82
+#: inc/customizer.php:88
 msgid "Left Sidebar"
 msgstr "左サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:83
+#: inc/customizer.php:89
 msgid "No Sidebar"
 msgstr "サイドバー無し"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:84
+#: inc/customizer.php:90
 msgid "Full Width ( Fixed )"
 msgstr "全幅 ( 固定 )"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:85
+#: inc/customizer.php:91
 msgid "Full Width ( Fluid )"
 msgstr "全幅 ( リキッド )"
 
-#: inc/customizer.php:143
+#: inc/customizer.php:154
 msgid "settings"
 msgstr "設定"
 
-#: inc/customizer.php:147
+#: inc/customizer.php:158
 msgid "color"
 msgstr "色"
 
-#: inc/customizer.php:156
+#: inc/customizer.php:167
 msgid "Logo"
 msgstr "ロゴ"
 
-#: inc/customizer.php:166
+#: inc/customizer.php:177
 msgid "Header"
 msgstr "ヘッダー"
 
-#: inc/customizer.php:178
+#: inc/customizer.php:189
 msgid "Header Fixed"
 msgstr "ヘッダーを固定"
 
-#: inc/customizer.php:190
+#: inc/customizer.php:201
 msgid "Number of footer columns"
 msgstr "フッターのカラム数"
 
-#: inc/customizer.php:202
+#: inc/customizer.php:213
 msgid "Blog Template"
 msgstr "ブログテンプレート"
 
-#: inc/customizer.php:214
+#: inc/customizer.php:225
 msgid "Displaying thumbnail in archive page"
 msgstr "アーカイブページでのサムネイル表示"
 
-#: inc/customizer.php:226
+#: inc/customizer.php:237
+msgid "Displaying the Braed Crumb"
+msgstr "パンくずリストを表示"
+
+#: inc/customizer.php:249
 msgid "Displaying related posts in single page"
 msgstr "個別投稿ページでの関連記事表示"
 
-#: inc/customizer.php:238
+#: inc/customizer.php:261
 msgid "Displaying lead of page header in single page"
 msgstr "個別投稿ページのページヘッダーのリード文を表示"
 
-#: inc/customizer.php:250
+#: inc/customizer.php:273
 msgid "Link Color"
 msgstr "リンク色"
 
-#: inc/customizer.php:260
+#: inc/customizer.php:283
 msgid "Link Hover Color"
 msgstr "リンク色 ( ホバー時 )"
 
-#: inc/customizer.php:270
+#: inc/customizer.php:293
 msgid "Global Navigation Link Color"
 msgstr "グローバルナビゲーションのリンク色"
 
-#: inc/customizer.php:280
+#: inc/customizer.php:303
 msgid "Global Navigation Link Hover Color"
 msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
 
-#: inc/customizer.php:290
+#: inc/customizer.php:313
 msgid "Header Background Color"
 msgstr "ヘッダーの背景色"
 
-#: inc/customizer.php:300
+#: inc/customizer.php:323
 msgid "Footer Background Color"
 msgstr "フッターの背景色"
 
-#: inc/customizer.php:310
+#: inc/customizer.php:333
 msgid "Footer Text Color"
 msgstr "フッターの文字色"
 
-#: inc/customizer.php:320
+#: inc/customizer.php:343
 msgid "Footer Link Color"
 msgstr "フッターのリンク色"
 
-#: inc/customizer.php:330
+#: inc/customizer.php:353
 msgid "Page Header Background Color"
 msgstr "ページヘッダーの背景色"
 
-#: inc/customizer.php:340
+#: inc/customizer.php:363
 msgid "Page Header Text Color"
 msgstr "ページヘッダーの文字色"
 
@@ -320,3 +332,6 @@ msgstr "http://2inc.org"
 #. Template Name of the plugin/theme
 msgid "For Front Page"
 msgstr "固定ページ用"
+
+#~ msgid "Search results for \"%s\""
+#~ msgstr "「%s」の検索結果"

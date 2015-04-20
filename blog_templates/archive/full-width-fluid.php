@@ -12,20 +12,7 @@
 <div class="container-fluid">
 	<main id="main" role="main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<div class="entries">
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content' ); ?>
-				<?php endwhile; ?>
-			<!-- end .entries --></div>
-			<?php Habakiri::the_pager(); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'content', 'none' ); ?>
-
-		<?php endif; ?>
+		<?php get_template_part( 'content', 'archive' ); ?>
 		
 	<!-- end #main --></main>
 <!-- end .container-fluid --></div>
