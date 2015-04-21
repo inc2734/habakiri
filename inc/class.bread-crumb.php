@@ -12,7 +12,8 @@
 class Habakiri_Bread_Crumb {
 
 	/**
-	 * $bread_crumb
+	 * パンくずの各項目を昇順で格納する配列
+	 * @var array
 	 */
 	protected $bread_crumb = array();
 
@@ -23,7 +24,7 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * display
+	 * パンくずリストを表示
 	 */
 	public function display() {
 		if ( Habakiri::get( 'is_displaying_bread_crumb' ) === 'false' ) {
@@ -32,12 +33,21 @@ class Habakiri_Bread_Crumb {
 
 		global $wp_query;
 
-		$page_on_front = get_option( 'page_on_front' );
-		$home_label    = esc_html__( 'Home', 'habakiri' );
-		if ( $page_on_front ) {
-			$home_label = get_the_title( $page_on_front );
+		// パンくずリストにホームを設定
+		$home_label = $this->get_home_label();
+		$this->set( $home_label, home_url( '/' ) );
+
+		// パンくずリストにブログを設定
+		$post_type = $this->get_post_type();
+		if ( ( is_category() || is_tag() || is_date() || is_author() ) || ( is_single() && $post_type === 'post' ) ) {
+			$show_on_front  = get_option( 'show_on_front' );
+			$page_for_posts = get_option( 'page_for_posts' );
+			if ( $show_on_front === 'page' && $page_for_posts ) {
+				$this->set( get_the_title( $page_for_posts ), get_permalink( $page_for_posts ) );
+			}
 		}
 
+		// パンくずリストに現在および先祖のページを設定
 		if ( is_404() ) {
 			$this->set_for_404();
 		}
@@ -74,27 +84,11 @@ class Habakiri_Bread_Crumb {
 		elseif ( is_year() ) {
 			$this->set_for_year();
 		}
-		else {
-			if ( !is_front_page() ) {
-				$this->set( wp_title( '', false, '' ) );
-			}
+		elseif ( is_home() && !is_front_page() ) {
+			$this->set_for_blog();
 		}
 
-		$bread_crumb   = array();
-		$bread_crumb[] = sprintf( '<a href="%s">%s</a>',
-			esc_url( home_url() ),
-			esc_html( $home_label )
-		);
-		$post_type = $this->get_post_type();
-		if ( ( is_category() || is_tag() || is_date() || is_author() ) ||
-			 ( is_single() && $post_type === 'post' ) ) {
-			if ( $page_for_posts = get_option( 'page_for_posts' ) ) {
-				$bread_crumb[] = sprintf( '<a href="%s">%s</a>',
-					esc_url( get_permalink( $page_for_posts ) ),
-					esc_html( get_the_title( $page_for_posts ) )
-				);
-			}
-		}
+		$bread_crumb = array();
 		foreach ( $this->bread_crumb as $_bread_crumb ) {
 			if ( !empty( $_bread_crumb['link'] ) ) {
 				$bread_crumb[] = sprintf(
@@ -116,26 +110,64 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_404
+	 * トップページ用のラベルを返す
+	 *
+	 * @return string
 	 */
-	protected function set_for_404() {
-		$this->set( esc_html__( 'Page not found', 'habakiri' ) );
+	protected function get_home_label() {
+		$page_on_front = get_option( 'page_on_front' );
+		$home_label    = __( 'Home', 'habakiri' );
+		if ( $page_on_front ) {
+			$home_label = get_the_title( $page_on_front );
+		}
+		return $home_label;
 	}
 
 	/**
-	 * set_for_search
+	 * パンくず項目を追加
+	 *
+	 * @param string $title リンクタイトル
+	 * @param string $link リンクURL
+	 */
+	protected function set( $title, $link = '' ) {
+		$this->bread_crumb[] = array(
+			'title' => $title,
+			'link'  => $link,
+		);
+	}
+
+	/**
+	 * ブログトップページ表示時のパンくず項目を追加
+	 */
+	protected function set_for_blog() {
+		$page_for_posts = get_option( 'page_for_posts' );
+		if ( $page_for_posts ) {
+			$title = get_the_title( $page_for_posts );
+			$this->set( $title );
+		}
+	}
+
+	/**
+	 * 404ページ表示時のパンくず項目を追加
+	 */
+	protected function set_for_404() {
+		$this->set( __( 'Page not found', 'habakiri' ) );
+	}
+
+	/**
+	 * 検索ページ表示時のパンくず項目を追加
 	 */
 	protected function set_for_search() {
 		$this->set(
 			sprintf(
-				esc_html__( 'Search Results for: %s', 'habakiri' ),
+				__( 'Search Results for: %s', 'habakiri' ),
 				get_search_query()
 			)
 		);
 	}
 
 	/**
-	 * set_for_tax
+	 * タクソノミーアーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_tax() {
 		$taxonomy = get_query_var( 'taxonomy' );
@@ -145,14 +177,8 @@ class Habakiri_Bread_Crumb {
 		$post_types = $taxonomy_objects->object_type;
 		$post_type = array_shift( $post_types );
 		if ( $post_type ) {
-			$template_page = $this->get_template_used_page( $post_type );
-			if ( !empty( $template_page->ID ) ) {
-				$this->set_ancestors( $template_page->ID, 'page' );
-				$label = get_the_title( $template_page->ID );
-			} else {
-				$post_type_object = get_post_type_object( $post_type );
-				$label = $post_type_object->labels->singular_name;
-			}
+			$post_type_object = get_post_type_object( $post_type );
+			$label = $post_type_object->labels->singular_name;
 			$this->set( $label, $this->get_post_type_archive_link( $post_type ) );
 		}
 
@@ -163,14 +189,14 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_attachment
+	 * 添付ファイル表示時のパンくず項目を追加
 	 */
 	protected function set_for_attachment() {
 		$this->set( get_the_title() );
 	}
 
 	/**
-	 * set_for_page
+	 * 固定ページ表示時のパンくず項目を追加
 	 */
 	protected function set_for_page() {
 		$this->set_ancestors( get_the_ID(), 'page' );
@@ -178,19 +204,13 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_single
+	 * 個別投稿ページ表示時のパンくず項目を追加
 	 */
 	protected function set_for_single() {
 		$post_type = $this->get_post_type();
 		if ( $post_type && $post_type !== 'post' ) {
 			$post_type_object = get_post_type_object( $post_type );
-			$template_page    = $this->get_template_used_page( $post_type );
-			if ( !empty( $template_page->ID ) ) {
-				$this->set_ancestors( $template_page->ID, 'page' );
-				$label = get_the_title( $template_page->ID );
-			} else {
-				$label = $post_type_object->labels->singular_name;
-			}
+			$label = $post_type_object->labels->singular_name;
 			$this->set( $label, $this->get_post_type_archive_link( $post_type ) );
 
 			$taxonomies = $post_type_object->taxonomies;
@@ -200,7 +220,7 @@ class Habakiri_Bread_Crumb {
 				if ( $terms ) {
 					$term = array_shift( $terms );
 					$this->set_ancestors( $term->term_id, $taxonomy );
-					$this->set( $ancestor->name );
+					$this->set( $term->name, get_term_link( $term ) );
 				}
 			}
 		}
@@ -209,14 +229,14 @@ class Habakiri_Bread_Crumb {
 			if ( $categories ) {
 				$category = array_shift( $categories );
 				$this->set_ancestors( $category->term_id, 'category' );
-				$this->set( $category->name );
+				$this->set( $category->name, get_term_link( $category ) );
 			}
 		}
 		$this->set( get_the_title() );
 	}
 
 	/**
-	 * set_for_category
+	 * カテゴリーアーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_category() {
 		$category_name = single_cat_title( '', false );
@@ -226,14 +246,14 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_tag
+	 * タグアーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_tag() {
 		$this->set( single_tag_title( '', false ) );
 	}
 
 	/**
-	 * set_for_author
+	 * 著者ページ表示時のパンくず項目を追加
 	 */
 	protected function set_for_author() {
 		$author_id = get_query_var( 'author' );
@@ -241,7 +261,7 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_day
+	 * 日アーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_day() {
 		$year = get_query_var( 'year' );
@@ -260,7 +280,7 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_month
+	 * 月アーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_month() {
 		$year = get_query_var( 'year' );
@@ -276,7 +296,7 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set_for_year
+	 * 年アーカイブ表示時のパンくず項目を追加
 	 */
 	protected function set_for_year() {
 		$year = get_query_var( 'year' );
@@ -288,21 +308,9 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * set
-	 * @param string $title リンクタイトル
-	 * @param string $link リンクURL
-	 */
-	protected function set( $title, $link = '' ) {
-		$this->bread_crumb[] = array(
-			'title' => $title,
-			'link'  => $link,
-		);
-	}
-
-	/**
-	 * set_ancestors
-	 * 自分の先祖をセット
-	 * @param int $object_id
+	 * 指定されたページもしくはタクソノミーの先祖をセット
+	 *
+	 * @param int $object_id 投稿ID もしくは タームID
 	 * @param string $object_type
 	 */
 	protected function set_ancestors( $object_id, $object_type ) {
@@ -321,51 +329,23 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * get_post_type_archive_link
+	 * 投稿タイプアーカイブページのURLを返す
+	 *
 	 * @param string $post_type カスタム投稿タイプ名
-	 * @return string カスタム投稿アーカイブURL
+	 * @return null|string
 	 */
 	protected function get_post_type_archive_link( $post_type ) {
 		$post_type_archive_link = get_post_type_archive_link( $post_type );
-		if ( !$post_type_archive_link ) {
-			$template_page = $this->get_template_used_page( $post_type );
-			if ( !empty( $template_page->ID ) ) {
-				$post_type_archive_link = get_permalink( $template_page->ID );
-			}
-		}
-		return $post_type_archive_link;
-	}
-
-	/**
-	 * get_template_used_page
-	 * これに一致するテンプレートを使っている固定ページはカスタム投稿アーカイブ用とみなす
-	 * @param string $post_type
-	 * @return int Post ID
-	 */
-	protected function get_template_used_page( $post_type ) {
-		$template = apply_filters(
-			MW_WP_Hacks_Config::NAME . '-bread-crumb-template-filename',
-			'template-archive-' . $post_type . '.php',
-			$post_type
-		);
-		$template_pages = get_posts( array(
-			'post_type'  => 'page',
-			'meta_query' => array(
-				array(
-					'key'   => '_wp_page_template',
-					'value' => $template,
-				),
-			),
-		) );
-		if ( !empty( $template_pages[0] ) ) {
-			return $template_pages[0];
+		if ( $post_type_archive_link ) {
+			return $post_type_archive_link;
 		}
 	}
 
 	/**
-	 * year
+	 * 年のラベルを返す
+	 *
 	 * @param string $year
-	 * @return string $year
+	 * @return string
 	 */
 	protected function year( $year ) {
 		if ( get_locale() === 'ja' ) {
@@ -375,9 +355,10 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * month
+	 * 月のラベルを返す
+	 *
 	 * @param string $month
-	 * @return string $month
+	 * @return string
 	 */
 	protected function month( $month ) {
 		if ( get_locale() === 'ja' ) {
@@ -403,9 +384,10 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * day
+	 * 日のラベルを返す
+	 *
 	 * @param string $day
-	 * @return string $day
+	 * @return string
 	 */
 	protected function day( $day ) {
 		if ( get_locale() === 'ja' ) {
@@ -415,7 +397,9 @@ class Habakiri_Bread_Crumb {
 	}
 
 	/**
-	 * get_post_type
+	 * 現在の投稿タイプを取得
+	 *
+	 * @return string
 	 */
 	private function get_post_type() {
 		global $wp_query;
