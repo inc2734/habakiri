@@ -42,33 +42,20 @@ class Habakiri_Customizer {
 	protected $blog_template_choices = array();
 
 	/**
-	 * ブログのサムネイル表示
+	 * false, true の選択肢
 	 * @var array
 	 */
-	protected $is_displaying_thumbnail_choices = array();
-
-	/**
-	 * パンくずリストの表示
-	 * @var array
-	 */
-	protected $is_displaying_bread_crumb_choices = array();
-
-	/**
-	 * 関連記事表示
-	 * @var array
-	 */
-	protected $is_displaying_related_posts_choices = array();
-
-	/**
-	 * ページヘッダーにリードを表示
-	 * @var array
-	 */
-	protected $is_displaying_page_header_lead_choices = array();
+	protected $boolean_choices = array();
 
 	/**
 	 * __construct
 	 */
 	public function __construct() {
+		$this->boolean_choices = array(
+			'false' => __( 'No', 'habakiri' ),
+			'true'  => __( 'Yes', 'habakiri' ),
+		);
+
 		$this->header_choices = array(
 			'header-default' => __( 'Default', 'habakiri' ),
 			'header-2row'    => __( '2 rows', 'habakiri' ),
@@ -89,22 +76,6 @@ class Habakiri_Customizer {
 			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
 			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
 			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
-		);
-		$this->is_displaying_thumbnail_choices = array(
-			'true'  => __( 'Yes', 'habakiri' ),
-			'false' => __( 'No', 'habakiri' ),
-		);
-		$this->is_displaying_bread_crumb_choices = array(
-			'true'  => __( 'Yes', 'habakiri' ),
-			'false' => __( 'No', 'habakiri' ),
-		);
-		$this->is_displaying_related_posts_choices = array(
-			'true'  => __( 'Yes', 'habakiri' ),
-			'false' => __( 'No', 'habakiri' ),
-		);
-		$this->is_displaying_page_header_lead_choices = array(
-			'true'  => __( 'Yes', 'habakiri' ),
-			'false' => __( 'No', 'habakiri' ),
 		);
 	}
 
@@ -226,7 +197,7 @@ class Habakiri_Customizer {
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_thumbnail',
 			'type'     => 'radio',
-			'choices'  => $this->is_displaying_thumbnail_choices,
+			'choices'  => $this->boolean_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_bread_crumb', array(
@@ -238,7 +209,7 @@ class Habakiri_Customizer {
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_bread_crumb',
 			'type'     => 'radio',
-			'choices'  => $this->is_displaying_bread_crumb_choices,
+			'choices'  => $this->boolean_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_related_posts', array(
@@ -250,7 +221,7 @@ class Habakiri_Customizer {
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_related_posts',
 			'type'     => 'radio',
-			'choices'  => $this->is_displaying_related_posts_choices,
+			'choices'  => $this->boolean_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_page_header_lead', array(
@@ -262,7 +233,7 @@ class Habakiri_Customizer {
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_page_header_lead',
 			'type'     => 'radio',
-			'choices'  => $this->is_displaying_page_header_lead_choices,
+			'choices'  => $this->boolean_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'link_color', array(
@@ -453,16 +424,32 @@ class Habakiri_Customizer {
 	}
 
 	/**
+	 * 選択肢項目のサニタイズ
+	 *
+	 * @param bool|string|int $value 選択肢のキー
+	 * @param array $choices キー => ラベル の配列
+	 * @param string $default デフォルト値
+	 * @return string
+	 */
+	protected function sanitize_choices( $value, $choices, $default ) {
+		if ( array_key_exists( $value, $choices ) ) {
+			return $value;
+		}
+		return $default;
+	}
+
+	/**
 	 * header のサニタイズ
 	 *
 	 * @param string $value
 	 * @return string $value
 	 */
 	public function sanitize_header( $value ) {
-		if ( array_key_exists( $value, $this->header_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'header' );
+		return $this->sanitize_choices(
+			$value,
+			$this->header_choices,
+			self::get_default( 'header' )
+		);
 	}
 
 	/**
@@ -472,10 +459,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_header_fixed( $value ) {
-		if ( array_key_exists( $value, $this->header_fixed_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'header_fixed' );
+		return $this->sanitize_choices(
+			$value,
+			$this->header_fixed_choices,
+			self::get_default( 'header_fixed' )
+		);
 	}
 
 	/**
@@ -485,10 +473,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_footer_columns( $value ) {
-		if ( array_key_exists( $value, $this->footer_columns_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'footer_columns' );
+		return $this->sanitize_choices(
+			$value,
+			$this->footer_columns_choices,
+			self::get_default( 'footer_columns' )
+		);
 	}
 
 	/**
@@ -498,10 +487,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_blog_template( $value ) {
-		if ( array_key_exists( $value, $this->blog_template_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'blog_template' );
+		return $this->sanitize_choices(
+			$value,
+			$this->blog_template_choices,
+			self::get_default( 'blog_template' )
+		);
 	}
 
 	/**
@@ -511,10 +501,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_is_displaying_thumbnail( $value ) {
-		if ( array_key_exists( $value, $this->is_displaying_thumbnail_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'is_displaying_thumbnail' );
+		return $this->sanitize_choices(
+			$value,
+			$this->boolean_choices,
+			self::get_default( 'is_displaying_thumbnail' )
+		);
 	}
 
 	/**
@@ -524,10 +515,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_is_displaying_bread_crumb( $value ) {
-		if ( array_key_exists( $value, $this->is_displaying_bread_crumb_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'is_displaying_bread_crumb' );
+		return $this->sanitize_choices(
+			$value,
+			$this->boolean_choices,
+			self::get_default( 'is_displaying_bread_crumb' )
+		);
 	}
 
 	/**
@@ -537,10 +529,11 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_is_displaying_related_posts( $value ) {
-		if ( array_key_exists( $value, $this->is_displaying_related_posts_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'is_displaying_related_posts' );
+		return $this->sanitize_choices(
+			$value,
+			$this->boolean_choices,
+			self::get_default( 'is_displaying_related_posts' )
+		);
 	}
 
 	/**
@@ -550,9 +543,10 @@ class Habakiri_Customizer {
 	 * @return string $value
 	 */
 	public function sanitize_is_displaying_page_header_lead( $value ) {
-		if ( array_key_exists( $value, $this->is_displaying_page_header_lead_choices ) ) {
-			return $value;
-		}
-		return self::get_default( 'is_displaying_page_header_lead' );
+		return $this->sanitize_choices(
+			$value,
+			$this->boolean_choices,
+			self::get_default( 'is_displaying_page_header_lead' )
+		);
 	}
 }
