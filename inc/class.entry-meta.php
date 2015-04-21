@@ -20,9 +20,9 @@ class Habakiri_Entry_Meta {
 		<div class="entry-meta">
 			<ul>
 				<?php
-				$entry_meta  = $this->author();
-				$entry_meta .= $this->published();
+				$entry_meta  = $this->published();
 				$entry_meta .= $this->updated();
+				$entry_meta .= $this->author();
 				$entry_meta .= $this->categories();
 				$entry_meta .= $this->tags();
 				$entry_meta .= $this->taxonomies();
@@ -38,9 +38,11 @@ class Habakiri_Entry_Meta {
 	 * 著者を取得
 	 */
 	protected function author() {
+		global $post;
 		return sprintf(
-			'<li class="vCard author">%s: <span class="fn">%s</span></li>',
+			'<li class="vCard author">%s: <a href="%s"><span class="fn">%s</span></li></a>',
 			__( 'Author', 'habakiri' ),
+			esc_url( get_author_posts_url( $post->post_author ) ),
 			esc_attr( get_the_author() )
 		);
 	}
