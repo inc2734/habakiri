@@ -44,6 +44,14 @@ class Habakiri_Base_Functions {
 		add_theme_support( 'html5', array(
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 		) );
+		add_theme_support( 'custom-header', array(
+			'width'                  => 1366,
+			'height'                 => 768,
+			'flex-height'            => false,
+			'flex-width'             => false,
+			'uploads'                => true,
+			'random-default'         => true,
+		) );
 
 		add_post_type_support( 'page', 'excerpt' );
 
@@ -330,7 +338,7 @@ class Habakiri_Base_Functions {
 		}
 		$class = apply_filters( 'habakiri_title_class_in_page_header', $class );
 		?>
-		<div class="page-header text-center">
+		<div class="page-header text-center" <?php if ( get_header_image() ) : ?>style="background-image: url( <?php header_image(); ?> )"<?php endif; ?>>
 			<div class="container">
 				<h1 <?php if ( !empty( $class ) ) : ?>class="<?php echo esc_attr( $class ); ?>"<?php endif; ?>>
 					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
