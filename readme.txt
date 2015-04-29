@@ -161,6 +161,8 @@ Template: habakiri
 * Fixed a related posts bug.
 * Fixed customizer bugs.
 * Change license in package.json
+* Update Tags.
+* browserify is implemented.
 
 = 1.0.0 =
 * Initial Release
