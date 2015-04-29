@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.0.0\n"
+"Project-Id-Version: habakiri 1.0.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-04-21 14:26:01+00:00\n"
+"POT-Creation-Date: 2015-04-29 09:06:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: content-none.php:20 functions.php:330
+#: content-none.php:20 functions.php:331
 msgid "Woops! Page not found."
 msgstr ""
 
@@ -65,51 +65,51 @@ msgstr ""
 msgid "No posts."
 msgstr ""
 
-#: functions.php:94
+#: functions.php:95
 msgid "Global Navigation"
 msgstr ""
 
-#: functions.php:95
+#: functions.php:96
 msgid "Social Navigation"
 msgstr ""
 
-#: functions.php:104 functions.php:106
+#: functions.php:105 functions.php:107
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:111
+#: functions.php:112
 msgid "Footer"
 msgstr ""
 
-#: functions.php:113
+#: functions.php:114
 msgid "Footer Widget Area"
 msgstr ""
 
-#: functions.php:153
+#: functions.php:154
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:158
+#: functions.php:159
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr ""
 
-#: functions.php:195
+#: functions.php:196
 msgid "Monkey Wrench"
 msgstr ""
 
-#: functions.php:200
+#: functions.php:201
 msgid "WordPress"
 msgstr ""
 
-#: functions.php:202
+#: functions.php:203
 msgid "Habakiri theme by %s"
 msgstr ""
 
-#: functions.php:204
+#: functions.php:205
 msgid "Powered by %s"
 msgstr ""
 
-#: functions.php:332 inc/class.bread-crumb.php:163
+#: functions.php:333 inc/class.bread-crumb.php:163
 msgid "Search Results for: %s"
 msgstr ""
 
@@ -181,25 +181,25 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.1)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:75
 msgid "Left Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.1)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:76
 msgid "No Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.1)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:77
 msgid "Full Width ( Fixed )"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.0.0)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.0.1)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:78
 msgid "Full Width ( Fluid )"
@@ -209,83 +209,79 @@ msgstr ""
 msgid "settings"
 msgstr ""
 
-#: inc/customizer.php:129
-msgid "color"
-msgstr ""
-
-#: inc/customizer.php:138
+#: inc/customizer.php:134
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:148
+#: inc/customizer.php:144
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:160
+#: inc/customizer.php:156
 msgid "Header Fixed"
 msgstr ""
 
-#: inc/customizer.php:172
+#: inc/customizer.php:168
 msgid "Number of footer columns"
 msgstr ""
 
-#: inc/customizer.php:184
+#: inc/customizer.php:180
 msgid "Blog Template"
 msgstr ""
 
-#: inc/customizer.php:196
+#: inc/customizer.php:192
 msgid "Displaying thumbnail in archive page"
 msgstr ""
 
-#: inc/customizer.php:208
+#: inc/customizer.php:204
 msgid "Displaying the Braed Crumb"
 msgstr ""
 
-#: inc/customizer.php:220
+#: inc/customizer.php:216
 msgid "Displaying related posts in single page"
 msgstr ""
 
-#: inc/customizer.php:232
+#: inc/customizer.php:228
 msgid "Displaying lead of page header in single page"
 msgstr ""
 
-#: inc/customizer.php:244
+#: inc/customizer.php:240
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:254
+#: inc/customizer.php:250
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:264
+#: inc/customizer.php:260
 msgid "Global Navigation Link Color"
 msgstr ""
 
-#: inc/customizer.php:274
+#: inc/customizer.php:270
 msgid "Global Navigation Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:284
+#: inc/customizer.php:280
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:290
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer.php:304
+#: inc/customizer.php:300
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/customizer.php:314
+#: inc/customizer.php:310
 msgid "Footer Link Color"
 msgstr ""
 
-#: inc/customizer.php:324
+#: inc/customizer.php:320
 msgid "Page Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:334
+#: inc/customizer.php:330
 msgid "Page Header Text Color"
 msgstr ""
 
