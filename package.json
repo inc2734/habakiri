@@ -1,12 +1,7 @@
 {
   "name": "habakiri",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Takashi Kitajima",
   "license": "GPLv2",
   "devDependencies": {
     "browserify": "^9.0.8",
