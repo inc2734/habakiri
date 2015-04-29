@@ -51,6 +51,7 @@ class Habakiri_Base_Functions {
 			'flex-width'             => false,
 			'uploads'                => true,
 			'random-default'         => true,
+			'header-text'            => false,
 		) );
 
 		add_post_type_support( 'page', 'excerpt' );

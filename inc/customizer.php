@@ -125,10 +125,6 @@ class Habakiri_Customizer {
 			'title'    => __( 'settings', 'habakiri' ),
 			'priority' => 100,
 		) );
-		$wp_customize->add_section( 'habakiri_color', array(
-			'title'    => __( 'color', 'habakiri' ),
-			'priority' => 100,
-		) );
 
 		$wp_customize->add_setting( 'logo', array(
 			'default'           => self::get_default( 'logo' ),
@@ -242,7 +238,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
 			'label'    => __( 'Link Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'link_color',
 		) ) );
 
@@ -252,7 +248,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
 			'label'    => __( 'Link Hover Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'link_hover_color',
 		) ) );
 
@@ -262,7 +258,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_link_color', array(
 			'label'    => __( 'Global Navigation Link Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'gnav_link_color',
 		) ) );
 
@@ -272,7 +268,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_link_hover_color', array(
 			'label'    => __( 'Global Navigation Link Hover Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'gnav_link_hover_color',
 		) ) );
 
@@ -282,7 +278,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
 			'label'    => __( 'Header Background Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'header_bg_color',
 		) ) );
 
@@ -292,7 +288,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
 			'label'    => __( 'Footer Background Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'footer_bg_color',
 		) ) );
 
@@ -302,7 +298,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
 			'label'    => __( 'Footer Text Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'footer_text_color',
 		) ) );
 
@@ -312,7 +308,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_link_color', array(
 			'label'    => __( 'Footer Link Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'footer_link_color',
 		) ) );
 
@@ -322,7 +318,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'page_header_bg_color', array(
 			'label'    => __( 'Page Header Background Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'page_header_bg_color',
 		) ) );
 
@@ -332,7 +328,7 @@ class Habakiri_Customizer {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'page_header_text_color', array(
 			'label'    => __( 'Page Header Text Color', 'habakiri' ),
-			'section'  => 'habakiri_color',
+			'section'  => 'colors',
 			'settings' => 'page_header_text_color',
 		) ) );
 	}
