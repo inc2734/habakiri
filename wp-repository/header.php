@@ -16,7 +16,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<!--[if lt IE 9]>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.min.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
 </head>

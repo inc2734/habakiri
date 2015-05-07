@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,27 +135,12 @@ function your_filter( $bar ) {
 add_filter( 'foo', 'your_filter' );
 `
 
-= Using bottstrap of habakiri =
-
-1. Copy themes/habakiri/package.json, gulpfile.js to themes/your_theme
-2. Move themes/your_theme and "npm install" in Terminal.
-3. Create themes/your_theme/scr/scss/style.scss
-`
-/*!
-Theme Name: your_theme
-Template: habakiri
-*/
-
-@import '../../../habakiri/src/scss/bootstrap-variables';
-@import '../../../habakiri/assets/bootstrap/stylesheets/bootstrap';
-@import '../../../habakiri/assets/genericons/genericons.css';
-@import '../../../habakiri/src/scss/layout';
-@import '../../../habakiri/src/scss/bootstrap-overwrite';
-@import '../../../habakiri/src/scss/content';
-`
-4. "gulp watch" in Terminal and edit style.scss.
-
 == Changelog ==
+
+= 1.0.2 =
+* Remove all files that are not necersarry for the productive version.
+* Fix invalid HTML.
+* Add uncompressed versions of JS files.
 
 = 1.0.1 =
 * Fixed a related posts bug.
