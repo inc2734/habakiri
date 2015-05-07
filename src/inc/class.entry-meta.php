@@ -40,7 +40,7 @@ class Habakiri_Entry_Meta {
 	protected function author() {
 		global $post;
 		return sprintf(
-			'<li class="vCard author">%s: <a href="%s"><span class="fn">%s</span></li></a>',
+			'<li class="vCard author">%s: <a href="%s"><span class="fn">%s</span></a></li>',
 			__( 'Author', 'habakiri' ),
 			esc_url( get_author_posts_url( $post->post_author ) ),
 			esc_attr( get_the_author() )
