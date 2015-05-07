@@ -36,7 +36,7 @@ class Habakiri_Base_Functions {
 		if ( !isset( $content_width ) ) $content_width = 940;
 		load_theme_textdomain( 'habakiri', get_template_directory() . '/languages' );
 
-		add_editor_style();
+		add_editor_style( './css/editor-style.min.css' );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'custom-background' );
 		add_theme_support( 'post-thumbnails' );
@@ -237,7 +237,7 @@ class Habakiri_Base_Functions {
 
 		wp_enqueue_style(
 			get_stylesheet(),
-			get_stylesheet_uri(),
+			$url . '/css/style.min.css',
 			$version
 		);
 

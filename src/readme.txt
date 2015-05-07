@@ -110,7 +110,7 @@ function habakiri_child_theme_setup() {
 		public function wp_enqueue_scripts() {
 			wp_enqueue_style(
 				get_template(),
-				get_template_directory_uri() . '/style.css',
+				get_template_directory_uri() . '/css/style.min.css',
 				null
 			);
 			parent::wp_enqueue_scripts();

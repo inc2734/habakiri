@@ -1,0 +1,55 @@
+/**
+ * .thumbnail
+ */
+div.thumbnail {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	> img {
+		text-align: center;
+	}
+	.caption {
+		padding: 0;
+	}
+}
+
+/**
+ * .page-header
+ */
+.page-header {
+	background-attachment: fixed;
+	background-size: cover;
+	margin: 0 0 40px;
+	padding: 64px 0;
+	h1 {
+		margin: 0;
+	}
+}
+
+/**
+ * .jumbotron
+ */
+.jumbotron {
+	margin-bottom: 0;
+	padding: 160px 15px;
+	.container &,
+	.container-fluid & {
+		border-radius: 0;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	p {
+		font-size: 100%;
+	}
+	.btn {
+		margin: 40px 0 0;
+	}
+	.btn-default {
+		background-color: transparent;
+		border-color: #fff;
+		color: #fff;
+		&:hover, &:active {
+			background-color: rgba( 255, 255, 255, 0.3 );
+		}
+	}
+}
