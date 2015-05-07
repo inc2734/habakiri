@@ -140,7 +140,7 @@ add_filter( 'foo', 'your_filter' );
 = 1.0.2 =
 * Remove all files that are not necersarry for the productive version.
 * Fix invalid HTML.
-* Add uncompressed versions of all CSS and JS files.
+* Add uncompressed versions of JS files.
 
 = 1.0.1 =
 * Fixed a related posts bug.
