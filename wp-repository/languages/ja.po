@@ -1,0 +1,334 @@
+# Copyright (C) 2015 inc2734
+# This file is distributed under the GNU General Public License.
+msgid ""
+msgstr ""
+"Project-Id-Version: habakiri 1.0.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
+"POT-Creation-Date: 2015-04-29 09:06:40+00:00\n"
+"PO-Revision-Date: 2015-04-29 18:08+0900\n"
+"Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.6\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: comments.php:17
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+"この投稿はパスワードで保護されています。コメントを見るためにパスワードを入力"
+"してください。"
+
+#: comments.php:29
+msgid "Comments on this post"
+msgstr "この投稿へのコメント"
+
+#: comments.php:53
+msgid "No comments."
+msgstr "コメントはありません。"
+
+#: comments.php:61
+msgid ""
+"It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to "
+"write comment."
+msgstr ""
+"コメントを入力するためには<a href=\"%/wp-login.php?redirect_to=%s\">ログイン"
+"</a>が必要です。"
+
+#: comments.php:80
+msgid "Trackbacks and Pingbacks on this post"
+msgstr "この投稿へのトラックバック"
+
+#: comments.php:91
+msgid "No trackbacks."
+msgstr "トラックバックはありません。"
+
+#: comments.php:96
+msgid "TrackBack URL"
+msgstr "トラックバック URL"
+
+#: content-none.php:20 functions.php:331
+msgid "Woops! Page not found."
+msgstr "ページが見つかりませんでした。"
+
+#: content-none.php:21
+msgid "The page you are looking for may be moved or deleted."
+msgstr "お探しのページが移動したか削除されています。"
+
+#: content-none.php:22
+msgid "Please search this serch box."
+msgstr "この検索ボックスから検索してください。"
+
+#: content-none.php:31
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
+"てみてください。"
+
+#: content-none.php:40
+msgid "No posts."
+msgstr "投稿がありません。"
+
+#: functions.php:95
+msgid "Global Navigation"
+msgstr "グローバルナビゲーション"
+
+#: functions.php:96
+msgid "Social Navigation"
+msgstr "ソーシャルナビゲーション"
+
+#: functions.php:105 functions.php:107
+msgid "Sidebar"
+msgstr "サイドバー"
+
+#: functions.php:112
+msgid "Footer"
+msgstr "フッター"
+
+#: functions.php:114
+msgid "Footer Widget Area"
+msgstr "フッターウィジェットエリア"
+
+#: functions.php:154
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです。"
+
+#: functions.php:159
+msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
+msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
+
+#: functions.php:196
+msgid "Monkey Wrench"
+msgstr "モンキーレンチ"
+
+#: functions.php:201
+msgid "WordPress"
+msgstr "WordPress"
+
+#: functions.php:203
+msgid "Habakiri theme by %s"
+msgstr "Habakiri theme by %s"
+
+#: functions.php:205
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+#: functions.php:333 inc/class.bread-crumb.php:163
+msgid "Search Results for: %s"
+msgstr "「%s」の検索結果"
+
+#: inc/class.bread-crumb.php:119
+msgid "Home"
+msgstr "ホーム"
+
+#: inc/class.bread-crumb.php:154
+msgid "Page not found"
+msgstr "ページが見つかりません"
+
+#: inc/class.entry-meta.php:44
+msgid "Author"
+msgstr "著者"
+
+#: inc/class.entry-meta.php:57
+msgid "Published"
+msgstr "公開日"
+
+#: inc/class.entry-meta.php:69
+msgid "Updated"
+msgstr "更新日"
+
+#: inc/class.entry-meta.php:89
+msgid "Category"
+msgstr "カテゴリー"
+
+#: inc/class.entry-meta.php:102
+msgid "Tags"
+msgstr "タグ"
+
+#: inc/class.related-posts.php:38
+msgid "Related posts"
+msgstr "関連記事"
+
+#: inc/customizer.php:55 inc/customizer.php:65
+msgid "No"
+msgstr "いいえ"
+
+#: inc/customizer.php:56 inc/customizer.php:66
+msgid "Yes"
+msgstr "はい"
+
+#: inc/customizer.php:60
+msgid "Default"
+msgstr "デフォルト"
+
+#: inc/customizer.php:61
+msgid "2 rows"
+msgstr "2行"
+
+#: inc/customizer.php:62
+msgid "Center Logo"
+msgstr "中央ロゴ"
+
+#: inc/customizer.php:69
+msgid "2 Columns"
+msgstr "2カラム"
+
+#: inc/customizer.php:70
+msgid "3 Columns"
+msgstr "3カラム"
+
+#: inc/customizer.php:71
+msgid "4 Columns"
+msgstr "4カラム"
+
+#: inc/customizer.php:74
+msgid "Right Sidebar"
+msgstr "右サイドバー"
+
+#. Template Name of the plugin/theme
+#: inc/customizer.php:75
+msgid "Left Sidebar"
+msgstr "左サイドバー"
+
+#. Template Name of the plugin/theme
+#: inc/customizer.php:76
+msgid "No Sidebar"
+msgstr "サイドバー無し"
+
+#. Template Name of the plugin/theme
+#: inc/customizer.php:77
+msgid "Full Width ( Fixed )"
+msgstr "全幅 ( 固定 )"
+
+#. Template Name of the plugin/theme
+#: inc/customizer.php:78
+msgid "Full Width ( Fluid )"
+msgstr "全幅 ( リキッド )"
+
+#: inc/customizer.php:125
+msgid "settings"
+msgstr "設定"
+
+#: inc/customizer.php:134
+msgid "Logo"
+msgstr "ロゴ"
+
+#: inc/customizer.php:144
+msgid "Header"
+msgstr "ヘッダー"
+
+#: inc/customizer.php:156
+msgid "Header Fixed"
+msgstr "ヘッダーを固定"
+
+#: inc/customizer.php:168
+msgid "Number of footer columns"
+msgstr "フッターのカラム数"
+
+#: inc/customizer.php:180
+msgid "Blog Template"
+msgstr "ブログテンプレート"
+
+#: inc/customizer.php:192
+msgid "Displaying thumbnail in archive page"
+msgstr "アーカイブページでのサムネイル表示"
+
+#: inc/customizer.php:204
+msgid "Displaying the Braed Crumb"
+msgstr "パンくずリストを表示"
+
+#: inc/customizer.php:216
+msgid "Displaying related posts in single page"
+msgstr "個別投稿ページでの関連記事表示"
+
+#: inc/customizer.php:228
+msgid "Displaying lead of page header in single page"
+msgstr "個別投稿ページのページヘッダーのリード文を表示"
+
+#: inc/customizer.php:240
+msgid "Link Color"
+msgstr "リンク色"
+
+#: inc/customizer.php:250
+msgid "Link Hover Color"
+msgstr "リンク色 ( ホバー時 )"
+
+#: inc/customizer.php:260
+msgid "Global Navigation Link Color"
+msgstr "グローバルナビゲーションのリンク色"
+
+#: inc/customizer.php:270
+msgid "Global Navigation Link Hover Color"
+msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
+
+#: inc/customizer.php:280
+msgid "Header Background Color"
+msgstr "ヘッダーの背景色"
+
+#: inc/customizer.php:290
+msgid "Footer Background Color"
+msgstr "フッターの背景色"
+
+#: inc/customizer.php:300
+msgid "Footer Text Color"
+msgstr "フッターの文字色"
+
+#: inc/customizer.php:310
+msgid "Footer Link Color"
+msgstr "フッターのリンク色"
+
+#: inc/customizer.php:320
+msgid "Page Header Background Color"
+msgstr "ページヘッダーの背景色"
+
+#: inc/customizer.php:330
+msgid "Page Header Text Color"
+msgstr "ページヘッダーの文字色"
+
+#. Theme Name of the plugin/theme
+msgid "habakiri"
+msgstr "habakiri"
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/inc2734/habakiri"
+msgstr "https://github.com/inc2734/habakiri"
+
+#. Description of the plugin/theme
+msgid ""
+"Habakiri is a simple theme for the web site. This theme based on Twitter "
+"Bootstrap. Features, 100% responsive layouts, the Glyphicons and Genericons "
+"icons, 6 page templates, 6 header design patterns, many color settings, many "
+"hooks, displaying related posts in single page, using minify CSS and "
+"JavaScript, using Gulp, Sass and PHP Class in functions.php."
+msgstr ""
+"Habakiri はウェブサイト用のシンプルなテーマです。このテーマは Twitter "
+"Bootstrap ベースです。100% レスポンシブデザイン、Glyphicons・Genericons アイ"
+"コン、6つのページテンプレート、6つのヘッダーデザインパターン、多くの色設定、"
+"多くのフック、個別投稿ページヘの関連記事表示、ミニファイされた CSS と "
+"JavaScript、Gulp・Sass、そして functions.php のクラス化が特徴です。"
+
+#. Author of the plugin/theme
+msgid "inc2734"
+msgstr "inc2734"
+
+#. Author URI of the plugin/theme
+msgid "http://2inc.org"
+msgstr "http://2inc.org"
+
+#. Template Name of the plugin/theme
+msgid "For Front Page"
+msgstr "固定ページ用"
+
+#~ msgid "color"
+#~ msgstr "色"
+
+#~ msgid "Search results for \"%s\""
+#~ msgstr "「%s」の検索結果"
