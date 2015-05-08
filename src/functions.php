@@ -220,20 +220,6 @@ class Habakiri_Base_Functions {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
-		
-		wp_enqueue_script(
-			'bootstrap',
-			$url . '/assets/bootstrap/javascripts/bootstrap.min.js',
-			array( 'jquery' ),
-			$version,
-			false
-		);
-
-		wp_enqueue_style(
-			'responsive-nav',
-			$url . '/src/js/jquery.responsive-nav/jquery.responsive-nav.css',
-			$version
-		);
 
 		wp_enqueue_style(
 			get_stylesheet(),
