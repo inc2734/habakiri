@@ -12,7 +12,9 @@ gulp.task( 'sass', function() {
 		.pipe( gulp.dest( './' ) )
 		.on( 'end', function() {
 			gulp.src( ['./*.css', '!./*.min.css'] )
-				.pipe( cssmin() )
+				.pipe( cssmin( {
+					keepSpecialComments: 0
+				} ) )
 				.pipe( rename( { suffix: '.min' } ) )
 				.pipe( gulp.dest( './' ) );
 		} );
