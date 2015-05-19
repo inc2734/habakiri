@@ -110,7 +110,7 @@ function habakiri_child_theme_setup() {
 		public function wp_enqueue_scripts() {
 			wp_enqueue_style(
 				get_template(),
-				get_template_directory_uri() . '/css/style.min.css',
+				get_template_directory_uri() . '/style.min.css',
 				null
 			);
 			parent::wp_enqueue_scripts();
@@ -136,6 +136,14 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed enqueue style and script bugs.
+* Fixed a comment reply link bug.
+* Fixed a related posts bug.
+* Fixed a bug that the side bar does not displayed.
+* Changed font size of page header.
+* Changed style for smartphone.
 
 = 1.0.3 =
 * Remove unnecessary css files.

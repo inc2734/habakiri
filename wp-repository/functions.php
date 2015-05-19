@@ -165,19 +165,22 @@ class Habakiri_Base_Functions {
 						?>
 					<!-- end .comment-meta --></div>
 					<?php comment_text() ?>
-					<div class="reply btn btn-sm btn-primary">
-						<?php
-						comment_reply_link(
-							array_merge(
-								$args,
-								array( 
-									'depth'     => $depth, 
-									'max_depth' => $args['max_depth'],
-								)
+					<?php
+					$comment_reply_link = get_comment_reply_link(
+						array_merge(
+							$args,
+							array( 
+								'depth'     => $depth, 
+								'max_depth' => $args['max_depth'],
 							)
-						);
-						?>
+						)
+					);
+					?>
+					<?php if ( !empty( $comment_reply_link ) ) : ?>
+					<div class="reply btn btn-sm btn-primary">
+						<?php echo $comment_reply_link; ?>
 					<!-- end .reply --></div>
+					<?php endif; ?>
 				</dd>
 			</dl>
 		</li>
@@ -221,14 +224,19 @@ class Habakiri_Base_Functions {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		if ( is_child_theme() ) {
+			$stylesheet = get_stylesheet_uri();
+		} else {
+			$stylesheet = $url . '/style.min.css';
+		}
 		wp_enqueue_style(
 			get_stylesheet(),
-			$url . '/css/style.min.css',
+			$stylesheet,
 			$version
 		);
 
 		wp_enqueue_script(
-			'habakiri',
+			get_template(),
 			$url . '/js/app.min.js',
 			array( 'jquery' ),
 			$version,

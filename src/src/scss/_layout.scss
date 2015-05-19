@@ -496,6 +496,15 @@
 }
 
 /*==================================================
+ * .single
+ *================================================*/
+.single {
+	.entry-title {
+		font-size: 32px;
+	}
+}
+
+/*==================================================
  * .search
  *================================================*/
 .search {
@@ -579,9 +588,9 @@
 		margin-bottom: 30px;
 		.media {
 			.media-left {
-				min-width: 74px;
+				min-width: 60px;
 				a {
-					@include square( 64px );
+					@include square( 48px );
 					color: #fff;
 					display: table-cell;
 					font-size: $font-size-large;
@@ -594,6 +603,12 @@
 						border-bottom: #fff solid 1px;
 						display: inline-block;
 						margin-bottom: 5px;
+					}
+				}
+				@media ( min-width: $screen-sm-min ) {
+					min-width: 74px;
+					a {
+						@include square( 64px );
 					}
 				}
 			}

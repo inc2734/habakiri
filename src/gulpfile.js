@@ -9,12 +9,12 @@ var source     = require( 'vinyl-source-stream' );
 
 gulp.task( 'sass', function() {
 	return sass( './src/scss' )
-		.pipe( gulp.dest( './css/' ) )
+		.pipe( gulp.dest( './' ) )
 		.on( 'end', function() {
-			gulp.src( ['./css/*.css', '!./css/*.min.css'] )
+			gulp.src( ['./*.css', '!./*.min.css'] )
 				.pipe( cssmin() )
 				.pipe( rename( { suffix: '.min' } ) )
-				.pipe( gulp.dest( './css/' ) );
+				.pipe( gulp.dest( './' ) );
 		} );
 } );
 

@@ -15,4 +15,6 @@
 			<?php get_template_part( 'content' ); ?>
 		<?php endwhile; ?>
 	<!-- end #main --></main>
+	
+	<?php get_sidebar(); ?>
 <!-- end .container --></div>

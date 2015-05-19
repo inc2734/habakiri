@@ -21,6 +21,8 @@
 			<?php get_template_part( 'content', 'page' ); ?>
 		<?php endwhile; ?>
 	<!-- end #main --></main>
+	
+	<?php get_sidebar(); ?>
 <!-- end .container-fluid --></div>
 
 <?php get_footer(); ?>

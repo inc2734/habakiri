@@ -80,16 +80,14 @@ class Habakiri_Related_Posts {
 			if ( $category_ids ) {
 				$tax_query[] = $this->get_tax_query_condition( 'category', $category_ids );
 			}
-			// TODO: test
 			$tag_ids = $this->get_the_tag_ids();
 			if ( $tag_ids ) {
-				$tax_query[] = $this->get_tax_query_condition( 'tag', $tag_ids );
+				$tax_query[] = $this->get_tax_query_condition( 'post_tag', $tag_ids );
 			}
 			return $tax_query;
 		}
 
 		if ( $post_type ) {
-			// TODO: test
 			$taxonomies = Habakiri::get_the_taxonomies();
 			foreach ( $taxonomies as $taxonomy_name ) {
 				$term_ids = $this->get_the_term_ids( $taxonomy_name );
@@ -109,10 +107,15 @@ class Habakiri_Related_Posts {
 	 * @return array
 	 */
 	protected function get_related_posts( $tax_query ) {
+		global $post;
+		if ( !$post ) {
+			return array();
+		}
 		$args = array(
-			'post_type'      => get_post_type(),
+			'post_type'      => get_post_type( $post->ID ),
 			'posts_per_page' => apply_filters( 'habakiri_relates_posts_per_page', 3 ),
 			'orderby'        => 'rand',
+			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array_merge(
 				array(
 					'relation' => 'AND',

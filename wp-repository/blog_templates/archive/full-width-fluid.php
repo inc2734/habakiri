@@ -15,4 +15,6 @@
 		<?php get_template_part( 'content', 'archive' ); ?>
 		
 	<!-- end #main --></main>
+	
+	<?php get_sidebar(); ?>
 <!-- end .container-fluid --></div>
