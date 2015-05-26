@@ -154,5 +154,7 @@ table {
  * .section-fixed
  */
 .section-fixed {
-	background-attachment: fixed;
+	@media ( min-width: $screen-sm-min ) {
+		background-attachment: fixed;
+	}
 }

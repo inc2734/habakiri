@@ -5757,8 +5757,9 @@ table small {
 /**
  * .section-fixed
  */
-.section-fixed {
-  background-attachment: fixed; }
+@media (min-width: 768px) {
+  .section-fixed {
+    background-attachment: fixed; } }
 
 body {
   padding: 0;

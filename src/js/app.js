@@ -2343,26 +2343,36 @@ if (typeof jQuery === 'undefined') {
 },{}],3:[function(require,module,exports){
 /**
  * jquery.responsive-nav
- * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ
- * Version: 1.1.3
- * Author: Takashi Kitajima
- * Autho URI: http://2inc.org
- * created : February 20, 2014
- * modified: February 5, 2015
- * package: jquery
- * License: GPLv2
+ * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
+ * Version    : 2.0.0
+ * Author     : Takashi Kitajima
+ * Autho URI  : http://2inc.org
+ * created    : February 20, 2014
+ * modified   : May 26, 2015
+ * package    : jquery
+ * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 ;( function( $ ) {
 	$.fn.responsive_nav = function( config ) {
-		var is_open     = false;
-		var container   = $( '#responsive-nav-wrapper' );
+		var config = $.extend( {
+			container: $( 'body' ),
+			contents : $( '#container' )
+		}, config );
+
+		var container      = config.container;
+		var contents       = config.contents;
 		var responsive_nav = this;
-		var offcanvas_nav;
+		var offcanvas_nav  = responsive_nav.clone( true );
 
 		return this.each( function( i, e ) {
-			offcanvas_nav = responsive_nav.clone( true );
+			container.addClass( 'responsive-nav-wrapper' );
+			contents.addClass( 'responsive-nav-contents' );
+			offcanvas_nav.addClass( 'off-canvas-nav' );
+
+			container.prepend( offcanvas_nav );
 			responsive_nav.addClass( 'responsive-nav' );
+
 			init();
 
 			var menu = $( this ).find( 'ul:first-child' );
@@ -2381,32 +2391,31 @@ if (typeof jQuery === 'undefined') {
 				children.removeClass( 'reverse-pulldown' );
 				children.find( 'ul' ).removeClass( 'reverse-pulldown' );
 				init();
-				if ( is_open ) {
-					nav_close();
-				}
 			} );
 
-			$( '#responsive-btn' ).click( function() {
-				if ( is_open ) {
+			$( '#responsive-btn' ).on( 'click touchend', function() {
+				if ( container.hasClass( 'open' ) ) {
 					nav_close();
 				} else {
 					nav_open();
 				}
 			} );
-			$( 'html' ).click( function() {
-				if ( is_open ) {
-					nav_close();
+
+			$( document ).on( 'click touchend', function( e ) {
+				var contain_btn = $( '#responsive-btn' ).get( 0 );
+				var contain_nav = offcanvas_nav.get( 0 );
+				var contained   = e.target;
+				if ( contain_btn != contained && !$.contains( contain_nav, contained ) && contain_nav != contained ) {
+					if ( container.hasClass( 'open' ) ) {
+						nav_close();
+					}
 				}
 			} );
 		} );
 
 		function init() {
-			if ( $( '#responsive-btn' ).css( 'display' ) !== 'none' ) {
-				wrap_all();
-			} else {
-				unwrap();
-				unset_off_canvas_nav();
-			}
+			offcanvas_nav.css( 'right', - get_slide_width() );
+			nav_close();
 		}
 
 		function get_slide_width() {
@@ -2415,44 +2424,13 @@ if (typeof jQuery === 'undefined') {
 
 		function nav_open() {
 			var height = get_window_height();
-			offcanvas_nav.css( {
-				height: height
-			} );
-			offcanvas_nav.show();
-			container.css( 'width', container.width() );
-			container.animate( {
-				marginLeft: get_slide_width()
-			}, 200, function() {
-				is_open = true;
-				$( 'body' ).addClass( 'nav-open' );
-			} );
+			var width  = get_slide_width();
+			container.addClass( 'open' );
 		}
 
 		function nav_close() {
-			container.animate( {
-				marginLeft: 0
-			}, 200, function() {
-				unwrap();
-				wrap_all();
-			} );
-		}
-
-		function unwrap() {
-			is_open = false;
-			container.css( {
-				'width'     : '',
-				'marginLeft': ''
-			} );
-			$( 'body' ).removeClass( 'nav-open' );
-			responsive_nav.show();
-			offcanvas_nav.remove();
-		}
-
-		function wrap_all() {
-			container.prepend( offcanvas_nav );
-			responsive_nav.hide();
-			offcanvas_nav.addClass( 'off-canvas-nav' );
-			offcanvas_nav.css( 'left', - get_slide_width() );
+			container.removeClass( 'open' );
+			container.css( 'height', '' );
 		}
 
 		function get_window_height() {
@@ -2460,11 +2438,6 @@ if (typeof jQuery === 'undefined') {
 			var html_margin = parseInt( $( 'html' ).css( 'marginTop' ) );
 			height = height - html_margin;
 			return height;
-		}
-
-		function unset_off_canvas_nav() {
-			offcanvas_nav.removeClass( 'off-canvas-nav' );
-			offcanvas_nav.css( 'display', 'block' );
 		}
 	}
 } )( jQuery );
