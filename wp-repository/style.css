@@ -6964,6 +6964,7 @@ div.thumbnail {
  * .page-header
  */
 .page-header {
+  background-position: center center;
   background-size: cover;
   margin: 0 0 40px;
   padding: 64px 0; }
