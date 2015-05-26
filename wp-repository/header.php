@@ -22,7 +22,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php do_action( 'habakiri_before_container' ); ?>
-<div id="responsive-nav-wrapper">
 <div id="container">
 	<header id="header" class="<?php echo esc_attr( Habakiri::get( 'header' ) ) ?> <?php echo esc_attr( Habakiri::get( 'header_fixed' ) ) ?>">
 		<?php do_action( 'habakiri_before_header_content' ); ?>

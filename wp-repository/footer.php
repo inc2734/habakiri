@@ -47,7 +47,6 @@
 		<?php do_action( 'habakiri_after_footer_content' ); ?>
 	<!-- end #footer --></footer>
 <!-- end #container --></div>
-<!-- end #responsive-nav-wrapper --></div>
 <?php wp_footer(); ?>
 </body>
 </html>
