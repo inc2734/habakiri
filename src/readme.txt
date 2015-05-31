@@ -139,7 +139,8 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.0.5 =
 * Update navigation for smart phone.
-* Fixed background fixed bugs.
+* Fixed a bug of the background fixed.
+* Compatibility with IE9
 
 = 1.0.4 =
 * Fixed enqueue style and script bugs.

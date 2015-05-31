@@ -235,6 +235,12 @@ class Habakiri_Base_Functions {
 			$version
 		);
 
+		wp_enqueue_style(
+			'genericons',
+			$url . '/assets/genericons/genericons.css',
+			$version
+		);
+
 		wp_enqueue_script(
 			get_template(),
 			$url . '/js/app.min.js',
