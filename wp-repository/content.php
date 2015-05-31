@@ -39,11 +39,11 @@
 
 	<?php else : ?>
 
-		<div class="media">
-			<div class="media-left">
+		<div class="summary-with-thumbnail">
+			<div class="summary-with-thumbnail-thumbnail">
 				<?php Habakiri::the_post_thumbnail(); ?>
 			<!-- end .media-left --></div>
-			<div class="media-body">
+			<div class="summary-with-thumbnail-body">
 				<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 				<div class="entry-summary">
 					<?php the_excerpt(); ?>

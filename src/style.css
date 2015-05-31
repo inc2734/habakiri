@@ -6515,15 +6515,29 @@ button.close {
       text-decoration: none;
       vertical-align: middle; }
       .entries .hentry .summary-with-thumbnail-thumbnail a .no-thumbnail-text {
-        border-bottom: #fff solid 1px;
-        display: inline-block;
-        margin-bottom: 5px; }
+        width: 48px;
+        height: 48px;
+        display: table-cell;
+        margin-bottom: 5px;
+        vertical-align: middle; }
+        .entries .hentry .summary-with-thumbnail-thumbnail a .no-thumbnail-text:after {
+          content: '';
+          display: block;
+          background: #fff;
+          margin: 0 auto;
+          height: 1px;
+          width: 1em;
+          position: relative;
+          top: -2px; }
     @media (min-width: 768px) {
       .entries .hentry .summary-with-thumbnail-thumbnail {
         width: 84px; }
         .entries .hentry .summary-with-thumbnail-thumbnail a {
           width: 64px;
-          height: 64px; } }
+          height: 64px; }
+          .entries .hentry .summary-with-thumbnail-thumbnail a .no-thumbnail-text {
+            width: 64px;
+            height: 64px; } }
   .entries .hentry .summary-with-thumbnail-body {
     overflow: hidden; }
     .entries .hentry .summary-with-thumbnail-body .entry-title {

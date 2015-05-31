@@ -382,15 +382,10 @@
 }
 
 #comment-form {
-	.comment-form-author,
-	.comment-form-email,
-	.comment-form-url,
-	.comment-form-comment {
-		input, textarea {
-			@extend .form-control;
-		}
+	input, textarea {
+		@extend .form-control;
 	}
-	.form-submit #submit {
+	#submit {
 		@extend .btn;
 		@extend .btn-default;
 	}
@@ -586,13 +581,14 @@
 .entries {
 	.hentry {
 		margin-bottom: 30px;
-		.media {
-			.media-left {
-				min-width: 60px;
+		.summary-with-thumbnail {
+			&-thumbnail {
+				float: left;
+				width: 60px;
 				a {
 					@include square( 48px );
 					color: #fff;
-					display: table-cell;
+					display: block;
 					font-size: $font-size-large;
 					font-weight: bold;
 					overflow: hidden;
@@ -600,19 +596,34 @@
 					text-decoration: none;
 					vertical-align: middle;
 					.no-thumbnail-text {
-						border-bottom: #fff solid 1px;
-						display: inline-block;
+						@include square( 48px );
+						display: table-cell;
 						margin-bottom: 5px;
+						vertical-align: middle;
+						&:after {
+							content: '';
+							display: block;
+							background: #fff;
+							margin: 0 auto;
+							height: 1px;
+							width: 1em;
+							position: relative;
+							top: -2px;
+						}
 					}
 				}
 				@media ( min-width: $screen-sm-min ) {
-					min-width: 74px;
+					width: 84px;
 					a {
 						@include square( 64px );
+						.no-thumbnail-text {
+							@include square( 64px );
+						}
 					}
 				}
 			}
-			.media-body {
+			&-body {
+				overflow: hidden;
 				.entry-title {
 					margin-top: 0;
 				}

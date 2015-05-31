@@ -357,7 +357,7 @@ class Habakiri_Customizer {
 		.global-nav ul li.current_page_parent > a {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_hover_color' ) ); ?>;
 		}
-		.entries .hentry .media .media-left .no-thumbnail {
+		.entries .hentry .summary-with-thumbnail .summary-with-thumbnail-thumbnail .no-thumbnail {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
 		.page-header {
