@@ -50,7 +50,7 @@
 				init();
 			} );
 
-			$( '#responsive-btn' ).on( 'click touchend', function() {
+			$( '#responsive-btn' ).on( 'click', function() {
 				if ( container.hasClass( 'open' ) ) {
 					nav_close();
 				} else {
@@ -58,7 +58,7 @@
 				}
 			} );
 
-			$( document ).on( 'click touchend', function( e ) {
+			$( document ).on( 'click', function( e ) {
 				var contain_btn = $( '#responsive-btn' ).get( 0 );
 				var contain_nav = offcanvas_nav.get( 0 );
 				var contained   = e.target;
@@ -82,12 +82,12 @@
 		function nav_open() {
 			var height = get_window_height();
 			var width  = get_slide_width();
+			offcanvas_nav.css( 'visibility', 'visible' );
 			container.addClass( 'open' );
 		}
 
 		function nav_close() {
 			container.removeClass( 'open' );
-			container.css( 'height', '' );
 		}
 
 		function get_window_height() {
