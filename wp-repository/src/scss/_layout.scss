@@ -598,8 +598,9 @@
 					.no-thumbnail-text {
 						@include square( 48px );
 						display: table-cell;
-						margin-bottom: 5px;
 						vertical-align: middle;
+						position: relative;
+						top: -2px;
 						&:after {
 							content: '';
 							display: block;
