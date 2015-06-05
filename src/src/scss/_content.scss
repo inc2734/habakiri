@@ -65,12 +65,10 @@ table {
 	max-width: 100%;
 }
 .wp-caption-text {
+	color: $gray;
 	margin-top: 5px;
-	font-size: 12px;
+	font-size: $font-size-small;
 	line-height: 1.4;
-}
-.gallery-caption {
-	font-size: 12px;
 }
 
 /**
@@ -97,6 +95,37 @@ table {
  * .bypostauthor
  */
 .bypostauthor {
+}
+
+/**
+ * Galleries
+ */
+.gallery {
+	margin: 0 0 ($line-height-computed / 2);
+}
+.gallery-item {
+	display: inline-block;
+	padding: 1.79104477%;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+	@for $i from 2 through 9 {
+		.gallery-columns-#{$i} & {
+			max-width: percentage( 1 / $i );
+		}
+	}
+}
+.gallery-icon img {
+	margin: 0 auto;
+}
+.gallery-caption {
+	display: block;
+	.gallery-columns-6 &,
+	.gallery-columns-7 &,
+	.gallery-columns-8 &,
+	.gallery-columns-9 & {
+		display: none;
+	}
 }
 
 /*==================================================
