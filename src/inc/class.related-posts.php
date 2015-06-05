@@ -26,7 +26,7 @@ class Habakiri_Related_Posts {
 			$posts = $this->get_related_posts( $tax_query );
 		}
 
-		if ( !$posts ) {
+		if ( empty( $posts ) ) {
 			return;
 		}
 
