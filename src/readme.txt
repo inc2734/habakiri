@@ -9,7 +9,7 @@ License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
-Habakiri is a simple theme for the web site. This theme based on Twitter Bootstrap. Features, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, many hooks, displaying related posts in single page, using minify CSS and JavaScript, using Gulp, Sass and PHP Class in functions.php.
+Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
 
 == Installation ==
 
@@ -24,7 +24,7 @@ Habakiri is a simple theme for the web site. This theme based on Twitter Bootstr
 = Activiation and Use =
 1. Activate the Theme through the "Themes" menu in WordPress.
 
-== The following third-party resources ==
+== Third-party resources ==
 
 Bootstrap
 License: MIT
@@ -46,13 +46,13 @@ Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
 
 = Logo setting =
 
-You can upload and setting logo image in Customizer.
+You can upload a logo image in Customizer.
 
 = 6 page templates =
 
 * Right Sidebar ( default )
 * Left Sidebar
-* No Sodebar
+* No Sidebar
 * Full Width ( Fixed )
 * Full Width ( Fluid )
 * For Front Page
@@ -61,7 +61,7 @@ You can upload and setting logo image in Customizer.
 
 * Right Sidebar ( default )
 * Left Sidebar
-* No Sodebar
+* No Sidebar
 * Full Width ( Fixed )
 * Full Width ( Fluid )
 
@@ -70,7 +70,7 @@ You can upload and setting logo image in Customizer.
 * Left logo + Right global navigation ( default )
 * Top Left logo + Bottom Left global navigation
 * Top Center logo + Bottom Center global navigation
-* The fixed and non-fixed to each.
+* The fixed and non-fixed layout are provided for each layouts above.
 
 = Widget areas =
 
@@ -81,16 +81,33 @@ You can upload and setting logo image in Customizer.
 
 * Global navigation ( in header )
 * Social navigation ( in footer )  
-  If you enter the URL of the social service, icon appears.
+  If you enter URLs of social services, their icons will appear.
+
+= HTML5, Microformats compatible =
+
+HTML5 mark upped. Page structure follows Bootstrap and it's kept as simple as possible.
+
+Micro formats compatible. WordPress, by default, outputs a class "hentry", which belongs to microformats and so this theme adjust everything with it.
+
+= Front end page speed optimization =
+
+Front end page optimization for speed is done by the theme. Compression/combining of CSS/Javascript files, and loading Javascripts on footer. Original files and SASS files are also bundled (but not loaded) in the theme, so you can use them on customizing.
 
 = Useful CSS class =
 
-* .section
-* .section.section-image
-* .section.section-fixed
-* .section .section-title
+* .section: A class for sectioning contents with margins in, for example, one page design.
+* .section.section-image: A class to adjust background image for a section.
+* .section.section-fixed: A fixed version of section.section-image class.
+* .section .section-title: A class for section title.
+* jumbotron .btn-default: A class which is provided in Bootstrap but I've customized it into Ghost style.
+
+= Off campus navigation on mobiles =
+
+Global menu goes off campus on mobiles. You don't need to add another menu for mobile phones.
 
 = Using child theme =
+
+While you can @import or wp_enqueue_script the style.min.css from your child theme, I want to introduce you another way of creating a child theme, which you can utilize the variables and functions of Sassified Bootstrap. Set a Sass file in your child theme and @import /habakiri/src/scss/style so that you can compile them with Gulp and such.
 
 This is a example of customizing functions.php in child theme.
 
