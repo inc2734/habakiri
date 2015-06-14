@@ -103,7 +103,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 
 = Off campus navigation on mobiles =
 
-Global menu goes off campus on mobiles. You don't need to add another menu for mobile phones.
+Global menu goes off canvas on mobiles. You don't need to add another menu for mobile phones.
 
 = Using child theme =
 
