@@ -36,7 +36,10 @@ class Habakiri_Base_Functions {
 		if ( !isset( $content_width ) ) $content_width = 940;
 		load_theme_textdomain( 'habakiri', get_template_directory() . '/languages' );
 
-		add_editor_style( './editor-style.min.css' );
+		add_editor_style( array(
+			'./editor-style.min.css',
+			'./assets/genericons/genericons.css',
+		) );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'custom-background' );
 		add_theme_support( 'post-thumbnails' );
