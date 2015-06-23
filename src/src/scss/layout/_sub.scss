@@ -1,0 +1,27 @@
+.sidebar {
+	font-size: 93%;
+	
+	.widget {
+		margin: 0 0 20px;
+		.widgettitle {
+			@extend .h4;
+			font-weight: bold;
+			margin-top: 0;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			li {
+				margin: 0 0 5px;
+				padding: 0;
+				ul {
+					margin-left: 1em;
+					li {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}

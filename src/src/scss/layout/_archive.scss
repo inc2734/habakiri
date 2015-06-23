@@ -1,0 +1,61 @@
+/**
+ * .entries
+ */
+.entries {
+	.hentry {
+		margin-bottom: 30px;
+		.summary-with-thumbnail {
+			&-thumbnail {
+				float: left;
+				width: 60px;
+				a {
+					@include square( 48px );
+					color: #fff;
+					display: block;
+					font-size: $font-size-large;
+					font-weight: bold;
+					overflow: hidden;
+					text-align: center;
+					text-decoration: none;
+					vertical-align: middle;
+					.no-thumbnail-text {
+						@include square( 48px );
+						display: table-cell;
+						vertical-align: middle;
+						position: relative;
+						top: -2px;
+						&:after {
+							content: '';
+							display: block;
+							background: #fff;
+							margin: 0 auto;
+							height: 1px;
+							width: 1em;
+							position: relative;
+							top: -2px;
+						}
+					}
+				}
+				@media ( min-width: $screen-sm-min ) {
+					width: 84px;
+					a {
+						@include square( 64px );
+						.no-thumbnail-text {
+							@include square( 64px );
+						}
+					}
+				}
+			}
+			&-body {
+				overflow: hidden;
+				.entry-title {
+					margin-top: 0;
+				}
+				.entry-meta {
+					border-bottom: none;
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+}

@@ -13,6 +13,6 @@ Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-colu
 @import 'bootstrap-variables';
 @import '../../assets/bootstrap/stylesheets/bootstrap';
 @import '../habakiri/src/js/jquery.responsive-nav/jquery.responsive-nav.css';
+@import 'mixin';
 @import 'layout';
-@import 'bootstrap-overwrite';
 @import 'content';

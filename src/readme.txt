@@ -160,6 +160,7 @@ add_filter( 'foo', 'your_filter' );
 * Changed html structure.
 * Fixed a related posts bug.
 * Remove jquery.smoothScrolle.js
+* Changed Sass structure.
 
 = 1.0.6 =
 * Fixed a gallery style bug.
