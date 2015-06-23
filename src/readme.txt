@@ -158,6 +158,7 @@ add_filter( 'foo', 'your_filter' );
 * Update readme.txt.
 * Compatibility with IE9 in wysiwyg editor.
 * Changed html structure.
+* Fixed a related posts bug.
 
 = 1.0.6 =
 * Fixed a gallery style bug.

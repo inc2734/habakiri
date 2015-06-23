@@ -31,8 +31,10 @@ class Habakiri_Related_Posts {
 		}
 
 		global $post, $wp_query;
-		$default_is_single = $wp_query->is_single;
-		$wp_query->is_single = false;
+		$default_query         = clone $wp_query;
+		$wp_query->is_single   = false;
+		$wp_query->is_page     = false;
+		$wp_query->is_singular = false;
 		?>
 		<div class="related-posts">
 			<h2><?php _e( 'Related posts', 'habakiri' ); ?></h2>
@@ -42,12 +44,12 @@ class Habakiri_Related_Posts {
 					setup_postdata( $post );
 					get_template_part( 'content' );
 				}
+				wp_reset_postdata();
 				?>
 			</div>
 		</div>
 		<?php
-		wp_reset_postdata();
-		$wp_query->is_single = $default_is_single;
+		$wp_query = $default_query;
 	}
 
 	/**
