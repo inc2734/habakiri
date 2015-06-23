@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : June 23, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -28,20 +28,20 @@
 		<div class="container">
 			<div class="row header-content">
 				<div class="col-xs-10 header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-4' : 'col-md-12'; ?>">
-					<div class="site-branding">
+					<div class="site-branding" role="logo">
 						<h1><?php Habakiri::the_logo(); ?></h1>
 					<!-- end .site-branding --></div>
 				<!-- end .col-md-4 --></div>
 				<div class="col-xs-2 header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-8' : 'col-md-12'; ?> global-nav-wrapper clearfix">
 					<?php do_action( 'habakiri_before_global_navigation' ); ?>
-					<div class="global-nav">
+					<nav class="global-nav" role="navigation">
 						<?php
 						wp_nav_menu( array(
 							'theme_location' => 'global-nav',
 							'depth'          => 0,
 						) );
 						?>
-					<!-- end .global-nav --></div>
+					<!-- end .global-nav --></nav>
 					<?php do_action( 'habakiri_after_global_navigation' ); ?>
 					<div id="responsive-btn" class="hidden-md hidden-lg"></div>
 				<!-- end .col-md-8 --></div>

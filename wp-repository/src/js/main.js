@@ -8,7 +8,6 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 require( '../../assets/bootstrap/javascripts/bootstrap.js' );
-require( './jquery.smoothScroll.js' );
 require( './jquery.responsive-nav/jquery.responsive-nav.js' );
 
 jQuery( function( $ ) {

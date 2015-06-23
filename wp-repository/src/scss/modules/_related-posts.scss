@@ -1,0 +1,17 @@
+.related-posts {
+	border-top: #ddd solid 1px;
+	margin-top: 30px;
+	padding-top: 30px;
+	h2 {
+		@extend .h3;
+		margin: 0 0 20px
+	}
+	.entries {
+		.entry-title {
+			@extend .h4;
+		}
+		.entry-meta {
+			margin-bottom: 0;
+		}
+	}
+}
