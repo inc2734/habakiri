@@ -157,6 +157,7 @@ add_filter( 'foo', 'your_filter' );
 = 1.0.7 =
 * Update readme.txt.
 * Compatibility with IE9 in wysiwyg editor.
+* Changed html structure.
 
 = 1.0.6 =
 * Fixed a gallery style bug.
