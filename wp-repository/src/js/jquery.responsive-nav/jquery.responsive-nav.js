@@ -1,11 +1,11 @@
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.0.0
+ * Version    : 2.1.0
  * Author     : Takashi Kitajima
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : May 26, 2015
+ * modified   : June 25, 2015
  * package    : jquery
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -84,10 +84,17 @@
 			var width  = get_slide_width();
 			offcanvas_nav.css( 'visibility', 'visible' );
 			container.addClass( 'open' );
+
+			if ( is_ios() ) {
+				$( 'html' ).addClass( 'open-for-ios' );
+			}
 		}
 
 		function nav_close() {
 			container.removeClass( 'open' );
+
+			container.removeClass( 'open-for-ios' );
+			$( 'html' ).removeClass( 'open-for-ios' );
 		}
 
 		function get_window_height() {
@@ -95,6 +102,35 @@
 			var html_margin = parseInt( $( 'html' ).css( 'marginTop' ) );
 			height = height - html_margin;
 			return height;
+		}
+
+		function is_iphone () {
+			var _ret = false;
+			if ( navigator.userAgent.match( /iPhone/i ) ) {
+				_ret = true;
+			}
+			return _ret;
+		}
+		function is_ipad () {
+			var _ret = false;
+			if ( navigator.userAgent.match( /iPad/i ) ) {
+				_ret = true;
+			}
+			return _ret;
+		}
+		function is_ipod () {
+			var _ret = false;
+			if ( navigator.userAgent.match( /iPod/i ) ) {
+				_ret = true;
+			}
+			return _ret;
+		}
+		function is_ios () {
+			var _ret = false;
+			if ( is_iphone() || is_ipad() || is_ipod() ) {
+				_ret = true;
+			}
+			return _ret;
 		}
 	}
 } )( jQuery );

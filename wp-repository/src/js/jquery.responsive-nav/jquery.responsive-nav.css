@@ -1,10 +1,10 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.0.0
+ * Version    : 2.1.0
  * Author     : Takashi Kitajima
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : May 26, 2015
+ * modified   : June 25, 2015
  * package    : jquery
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -38,7 +38,7 @@
 		-ms-transform: translate( -300px, 0 );
 	-webkit-transform: translate( -300px, 0 );
 }
-@media ( max-width: 300px ) {
+@media ( max-width: 320px ) {
 	.off-canvas-nav {
 		width: 220px;
 	}
@@ -168,6 +168,7 @@
 	position: fixed !important;
 	top: 0 !important;
 	bottom: 0 !important;
+	right: -100%;
 }
 .off-canvas-nav * {
 	background-image: none !important;
@@ -227,4 +228,14 @@
 .off-canvas-nav ul .current_page_parent > a {
 	background-color: #2f2f2f !important;
 	color: #fff;
+}
+
+/* For iOS */
+.open-for-ios,
+.open-for-ios .responsive-nav-wrapper {
+	overflow: hidden;
+	height: 100%;
+}
+.open-for-ios .off-canvas-nav {
+	position: absolute !important;
 }
