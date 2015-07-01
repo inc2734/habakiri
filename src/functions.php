@@ -391,7 +391,8 @@ class Habakiri_Base_Functions {
 		<a href="<?php the_permalink(); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php
-				the_post_thumbnail( 'thumbnail', array(
+				$size = apply_filters( 'habakiri_post_thumbnail_size', 'thumbnail' );
+				the_post_thumbnail( $size, array(
 					'class' => '',
 				) );
 				?>

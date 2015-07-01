@@ -159,6 +159,7 @@ add_filter( 'foo', 'your_filter' );
 * Add filter hook habakiri_copyright.
 * Add filter hook habakiri_no_thumbnail_text.
 * Add filter hook habakiri_post_thumbnail_link_classes.
+* Add filter hook habakiri_post_thumbnail_size.
 * Add action hook habakiri_prepend_entry_content_front_page_template.
 * Add action hook habakiri_append_entry_content_front_page_template.
 * Add page header displaying setting in customizer.
