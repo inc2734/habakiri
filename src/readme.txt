@@ -154,6 +154,9 @@ add_filter( 'foo', 'your_filter' );
 
 == Changelog ==
 
+= 1.1.0 =
+* Fixed comments html bug.
+
 = 1.0.9 =
 * Fixed a offcanvas menu bug in iOS7.1.
 
