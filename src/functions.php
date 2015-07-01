@@ -386,6 +386,7 @@ class Habakiri_Base_Functions {
 		if ( !has_post_thumbnail() ) {
 			$classes[] = 'no-thumbnail';
 		}
+		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
 		?>
 		<a href="<?php the_permalink(); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
@@ -396,7 +397,7 @@ class Habakiri_Base_Functions {
 				?>
 			<?php else : ?>
 				<span class="no-thumbnail-text">
-					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) );?>
+					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>
 		</a>
