@@ -205,9 +205,15 @@ class Habakiri_Base_Functions {
 			esc_url( $wordpress_url ),
 			__( 'WordPress', 'habakiri' )
 		);
-		printf( __( 'Habakiri theme by %s', 'habakiri' ), $theme_link );
-		echo '&nbsp;';
-		printf( __( 'Powered by %s', 'habakiri' ), $wordpress_link );
+		$theme_by   = sprintf( __( 'Habakiri theme by %s', 'habakiri' ), $theme_link );
+		$powered_by = sprintf( __( 'Powered by %s', 'habakiri' ), $wordpress_link );
+		$copyright  = sprintf(
+			'%s&nbsp;%s',
+			$theme_by,
+			$powered_by
+		);
+
+		echo apply_filters( 'habakiri_copyright', $copyright );
 	}
 
 	/**

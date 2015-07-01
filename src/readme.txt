@@ -156,6 +156,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.0 =
 * Fixed comments html bug.
+* Add filter hook habakiri_copyright.
 
 = 1.0.9 =
 * Fixed a offcanvas menu bug in iOS7.1.
