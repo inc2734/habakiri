@@ -166,6 +166,7 @@ add_filter( 'foo', 'your_filter' );
 * Add action hook habakiri_after_title
 * Add page header displaying setting in customizer.
 * Add method Habakiri::the_title()
+* Some css fixes.
 
 = 1.0.9 =
 * Fixed a offcanvas menu bug in iOS7.1.

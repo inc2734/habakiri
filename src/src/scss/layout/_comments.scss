@@ -3,13 +3,12 @@
 	margin-top: 30px;
 	padding-top: 30px;
 	h2 {
-		@extend .h3;
 		margin: 0 0 20px
 	}
 }
 
 #comment-form {
-	input, textarea {
+	input[type="text"], textarea {
 		@extend .form-control;
 	}
 	#submit {

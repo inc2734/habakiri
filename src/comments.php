@@ -26,7 +26,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 <div id="commentarea">
 	<?php if ( 'open' == $post->comment_status ) : ?>
 	<div id="comments">
-		<h2><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
+		<h2 class="h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['comment'] ) ) : ?>
 		<ol class="commentlist">
 			<?php
@@ -77,7 +77,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 
 	<?php if ( 'open' == $post->ping_status ) : ?>
 	<div id="trackback">
-		<h2><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
+		<h2 class="h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
 		<?php if ( ! empty($comments_by_type['pings']) ) : ?>
 		<ol class="trackbacklist">
 			<?php

@@ -37,7 +37,7 @@ class Habakiri_Related_Posts {
 		$wp_query->is_singular = false;
 		?>
 		<div class="related-posts">
-			<h2><?php _e( 'Related posts', 'habakiri' ); ?></h2>
+			<h2 class="h3"><?php _e( 'Related posts', 'habakiri' ); ?></h2>
 			<div class="entries">
 				<?php
 				foreach ( $posts as $post ) {
