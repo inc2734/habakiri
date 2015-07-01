@@ -2,11 +2,11 @@
 /**
  * Template Name: For Front Page
  *
- * Version      : 1.0.0
+ * Version      : 1.1.0
  * Author       : Takashi Kitajima
  * Author URI   : http://2inc.org
  * Created      : April 17, 2015
- * Modified     : 
+ * Modified     : July 1, 2015
  * License      : GPLv2
  * License URI  : http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -21,6 +21,7 @@
 				<?php do_action( 'habakiri_before_entry_content' ); ?>
 				<h1 class="entry-title hidden"><?php the_title(); ?></h1>
 				<div class="entry-content">
+					<?php do_action( 'habakiri_prepend_entry_content_front_page_template' ); ?>
 					<?php the_content(); ?>
 				<!-- end .entry-content --></div>
 				<?php do_action( 'habakiri_after_entry_content' ); ?>
