@@ -18,7 +18,7 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.0.1
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
@@ -332,6 +332,10 @@ class Habakiri_Base_Functions {
 	 * @param int $post_id
 	 */
 	public static function the_page_header( $post_id = null ) {
+		if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
+			return;
+		}
+
 		global $post;
 
 		$title = get_the_title( $post_id );
