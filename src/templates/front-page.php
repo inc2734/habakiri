@@ -23,6 +23,7 @@
 				<div class="entry-content">
 					<?php do_action( 'habakiri_prepend_entry_content_front_page_template' ); ?>
 					<?php the_content(); ?>
+					<?php do_action( 'habakiri_append_entry_content_front_page_template' ); ?>
 				<!-- end .entry-content --></div>
 				<?php do_action( 'habakiri_after_entry_content' ); ?>
 			</article>
