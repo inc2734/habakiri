@@ -162,7 +162,10 @@ add_filter( 'foo', 'your_filter' );
 * Add filter hook habakiri_post_thumbnail_size.
 * Add action hook habakiri_prepend_entry_content_front_page_template.
 * Add action hook habakiri_append_entry_content_front_page_template.
+* Add action hook habakiri_before_title
+* Add action hook habakiri_after_title
 * Add page header displaying setting in customizer.
+* Add method Habakiri::the_title()
 
 = 1.0.9 =
 * Fixed a offcanvas menu bug in iOS7.1.

@@ -489,4 +489,29 @@ class Habakiri_Base_Functions {
 			'pagelink'         => '<span>%</span>',
 		) );
 	}
+
+	/**
+	 * ページ見出しを表示
+	 *
+	 * @param int|null $post_id
+	 */
+	public static function the_title( $post_id = null ) {
+		global $post;
+		if ( !is_null( $post_id ) ) {
+			$post = get_post( $post_id );
+			setup_postdata( $post );
+		}
+		do_action( 'habakiri_before_title' );
+		?>
+		<?php if ( is_front_page() ) : ?>
+		<h1 class="entry-title hidden"><?php the_title(); ?></h1>
+		<?php elseif ( is_single() ) : ?>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<?php else : ?>
+		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php endif; ?>
+		<?php
+		do_action( 'habakiri_after_title' );
+		wp_reset_postdata();
+	}
 }

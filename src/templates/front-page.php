@@ -19,7 +19,7 @@
 			<?php while ( have_posts() ) : the_post(); ?>
 			<article>
 				<?php do_action( 'habakiri_before_entry_content' ); ?>
-				<h1 class="entry-title hidden"><?php the_title(); ?></h1>
+				<?php Habakiri::the_title(); ?>
 				<div class="entry-content">
 					<?php do_action( 'habakiri_prepend_entry_content_front_page_template' ); ?>
 					<?php the_content(); ?>

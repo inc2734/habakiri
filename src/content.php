@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : July 1, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -25,13 +25,22 @@
 	<?php comments_template( '', true ); ?>
 </article>
 
+<?php elseif ( is_search() ) : ?>
+
+<article <?php post_class(); ?>>
+	<?php Habakiri::the_title(); ?>
+	<div class="entry-summary">
+		<?php the_excerpt(); ?>
+	<!-- end .entry-summary --></div>
+</article>
+
 <?php else : ?>
 
 <article <?php post_class(); ?>>
 	
 	<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
-		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php Habakiri::the_title(); ?>
 		<div class="entry-summary">
 			<?php the_excerpt(); ?>
 		<!-- end .entry-summary --></div>
@@ -44,7 +53,7 @@
 				<?php Habakiri::the_post_thumbnail(); ?>
 			<!-- end .media-left --></div>
 			<div class="summary-with-thumbnail-body">
-				<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+				<?php Habakiri::the_title(); ?>
 				<div class="entry-summary">
 					<?php the_excerpt(); ?>
 				<!-- end .entry-summary --></div>
