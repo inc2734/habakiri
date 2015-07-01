@@ -395,7 +395,9 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="no-thumbnail-text"><?php the_time( 'd' ); ?></span>
+				<span class="no-thumbnail-text">
+					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) );?>
+				</span>
 			<?php endif; ?>
 		</a>
 		<?php
