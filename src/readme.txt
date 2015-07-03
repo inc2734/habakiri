@@ -167,6 +167,7 @@ add_filter( 'foo', 'your_filter' );
 * Add page header displaying setting in customizer.
 * Add logo text color setting in customizer.
 * Add method Habakiri::the_title()
+* Changed that posted comments to be displayed even if comment posting is not available.
 * Some css fixes.
 
 = 1.0.9 =

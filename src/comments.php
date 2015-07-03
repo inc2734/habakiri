@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : July 3, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -22,9 +22,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 	}
 }
 ?>
-<?php if ( 'open' == $post->comment_status || 'open' == $post->ping_status ) : ?>
 <div id="commentarea">
-	<?php if ( 'open' == $post->comment_status ) : ?>
 	<div id="comments">
 		<h2 class="h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['comment'] ) ) : ?>
@@ -53,6 +51,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<p class="nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
+		<?php if ( 'open' == $post->comment_status ) : ?>
 		<div id="respond">
 			<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
 			<p>
@@ -72,10 +71,9 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 			<!-- end #comment-form --></div>
 			<?php endif; ?>
 		<!-- end #respond --></div>
+		<?php endif; ?>
 	<!-- end #comments --></div>
-	<?php endif; ?>
 
-	<?php if ( 'open' == $post->ping_status ) : ?>
 	<div id="trackback">
 		<h2 class="h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
 		<?php if ( ! empty($comments_by_type['pings']) ) : ?>
@@ -91,13 +89,13 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<p class="nocomments"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
+		<?php if ( 'open' == $post->ping_status ) : ?>
 		<div class="trackback-url">
 			<dl>
 				<dt><?php _e( 'TrackBack URL', 'habakiri' ); ?></dt>
 				<dd><input id="tburl" type="text" size="50" value="<?php trackback_url( true ); ?>" readonly="readonly" /></dd>
 			</dl>
 		<!-- end .trackback-url --></div>
+		<?php endif; ?>
 	<!-- end #trackback --></div>
-	<?php endif; ?>
 <!-- end #commentarea --></div>
-<?php endif; ?>
