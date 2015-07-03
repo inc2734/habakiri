@@ -165,6 +165,7 @@ add_filter( 'foo', 'your_filter' );
 * Add action hook habakiri_before_title
 * Add action hook habakiri_after_title
 * Add page header displaying setting in customizer.
+* Add logo text color setting in customizer.
 * Add method Habakiri::the_title()
 * Some css fixes.
 

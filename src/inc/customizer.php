@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.0.0
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 1, 2015
+ * Modified   : July 3, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -90,6 +90,7 @@ class Habakiri_Customizer {
 			'habakiri_theme_mods_defaults',
 			array(
 				'logo'                           => '',
+				'logo_text_color'                => '#000',
 				'header'                         => 'header-default',
 				'header_fixed'                   => '',
 				'footer_columns'                 => 'col-md-4',
@@ -135,6 +136,16 @@ class Habakiri_Customizer {
 			'label'    => __( 'Logo', 'habakiri' ),
 			'section'  => 'habakiri_design',
 			'settings' => 'logo',
+		) ) );
+
+		$wp_customize->add_setting( 'logo_text_color', array(
+			'default'           => self::get_default( 'logo_text_color' ),
+			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logo_text_color', array(
+			'label'    => __( 'Logo Text Color', 'habakiri' ),
+			'section'  => 'colors',
+			'settings' => 'logo_text_color',
 		) ) );
 
 		$wp_customize->add_setting( 'header', array(
@@ -357,6 +368,9 @@ class Habakiri_Customizer {
 		}
 		a:focus, a:active, a:hover {
 			color: <?php echo esc_html( Habakiri::get( 'link_hover_color' ) ); ?>;
+		}
+		.site-branding a {
+			color: <?php echo esc_html( Habakiri::get( 'logo_text_color' ) ); ?>;
 		}
 		.global-nav a {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_color' ) ); ?>;
