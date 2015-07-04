@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.0.0
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : July 1, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -186,7 +186,6 @@ class Habakiri_Base_Functions {
 					<?php endif; ?>
 				</dd>
 			</dl>
-		</li>
 		<?php
 	}
 
@@ -206,9 +205,15 @@ class Habakiri_Base_Functions {
 			esc_url( $wordpress_url ),
 			__( 'WordPress', 'habakiri' )
 		);
-		printf( __( 'Habakiri theme by %s', 'habakiri' ), $theme_link );
-		echo '&nbsp;';
-		printf( __( 'Powered by %s', 'habakiri' ), $wordpress_link );
+		$theme_by   = sprintf( __( 'Habakiri theme by %s', 'habakiri' ), $theme_link );
+		$powered_by = sprintf( __( 'Powered by %s', 'habakiri' ), $wordpress_link );
+		$copyright  = sprintf(
+			'%s&nbsp;%s',
+			$theme_by,
+			$powered_by
+		);
+
+		echo apply_filters( 'habakiri_copyright', $copyright );
 	}
 
 	/**
@@ -327,6 +332,10 @@ class Habakiri_Base_Functions {
 	 * @param int $post_id
 	 */
 	public static function the_page_header( $post_id = null ) {
+		if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
+			return;
+		}
+
 		global $post;
 
 		$title = get_the_title( $post_id );
@@ -377,16 +386,20 @@ class Habakiri_Base_Functions {
 		if ( !has_post_thumbnail() ) {
 			$classes[] = 'no-thumbnail';
 		}
+		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
 		?>
 		<a href="<?php the_permalink(); ?>" class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php
-				the_post_thumbnail( 'thumbnail', array(
+				$size = apply_filters( 'habakiri_post_thumbnail_size', 'thumbnail' );
+				the_post_thumbnail( $size, array(
 					'class' => '',
 				) );
 				?>
 			<?php else : ?>
-				<span class="no-thumbnail-text"><?php the_time( 'd' ); ?></span>
+				<span class="no-thumbnail-text">
+					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
+				</span>
 			<?php endif; ?>
 		</a>
 		<?php
@@ -475,5 +488,30 @@ class Habakiri_Base_Functions {
 			'previouspagelink' => '%lt;',
 			'pagelink'         => '<span>%</span>',
 		) );
+	}
+
+	/**
+	 * ページ見出しを表示
+	 *
+	 * @param int|null $post_id
+	 */
+	public static function the_title( $post_id = null ) {
+		global $post;
+		if ( !is_null( $post_id ) ) {
+			$post = get_post( $post_id );
+			setup_postdata( $post );
+		}
+		do_action( 'habakiri_before_title' );
+		?>
+		<?php if ( is_front_page() ) : ?>
+		<h1 class="entry-title hidden"><?php the_title(); ?></h1>
+		<?php elseif ( is_single() ) : ?>
+		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<?php else : ?>
+		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php endif; ?>
+		<?php
+		do_action( 'habakiri_after_title' );
+		wp_reset_postdata();
 	}
 }

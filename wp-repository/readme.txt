@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,22 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.1.0 =
+* Fixed comments html bug.
+* Add filter hook habakiri_copyright.
+* Add filter hook habakiri_no_thumbnail_text.
+* Add filter hook habakiri_post_thumbnail_link_classes.
+* Add filter hook habakiri_post_thumbnail_size.
+* Add action hook habakiri_prepend_entry_content_front_page_template.
+* Add action hook habakiri_append_entry_content_front_page_template.
+* Add action hook habakiri_before_title
+* Add action hook habakiri_after_title
+* Add page header displaying setting in customizer.
+* Add logo text color setting in customizer.
+* Add method Habakiri::the_title()
+* Changed that posted comments to be displayed even if comment posting is not available.
+* Some css fixes.
 
 = 1.0.9 =
 * Fixed a offcanvas menu bug in iOS7.1.

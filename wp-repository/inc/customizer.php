@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.0.0
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : July 3, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -90,6 +90,7 @@ class Habakiri_Customizer {
 			'habakiri_theme_mods_defaults',
 			array(
 				'logo'                           => '',
+				'logo_text_color'                => '#000',
 				'header'                         => 'header-default',
 				'header_fixed'                   => '',
 				'footer_columns'                 => 'col-md-4',
@@ -97,6 +98,7 @@ class Habakiri_Customizer {
 				'is_displaying_thumbnail'        => 'true',
 				'is_displaying_bread_crumb'      => 'true',
 				'is_displaying_related_posts'    => 'true',
+				'is_displaying_page_header'      => 'true',
 				'is_displaying_page_header_lead' => 'true',
 				'link_color'                     => '#337ab7',
 				'link_hover_color'               => '#23527c',
@@ -134,6 +136,16 @@ class Habakiri_Customizer {
 			'label'    => __( 'Logo', 'habakiri' ),
 			'section'  => 'habakiri_design',
 			'settings' => 'logo',
+		) ) );
+
+		$wp_customize->add_setting( 'logo_text_color', array(
+			'default'           => self::get_default( 'logo_text_color' ),
+			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logo_text_color', array(
+			'label'    => __( 'Logo Text Color', 'habakiri' ),
+			'section'  => 'colors',
+			'settings' => 'logo_text_color',
 		) ) );
 
 		$wp_customize->add_setting( 'header', array(
@@ -216,6 +228,18 @@ class Habakiri_Customizer {
 			'label'    => __( 'Displaying related posts in single page', 'habakiri' ),
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_related_posts',
+			'type'     => 'radio',
+			'choices'  => $this->boolean_choices,
+		) ) );
+
+		$wp_customize->add_setting( 'is_displaying_page_header', array(
+			'default'           => self::get_default( 'is_displaying_page_header' ),
+			'sanitize_callback' => array( $this, 'sanitize_is_displaying_page_header' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_page_header', array(
+			'label'    => __( 'Displaying page header', 'habakiri' ),
+			'section'  => 'habakiri_design',
+			'settings' => 'is_displaying_page_header',
 			'type'     => 'radio',
 			'choices'  => $this->boolean_choices,
 		) ) );
@@ -344,6 +368,9 @@ class Habakiri_Customizer {
 		}
 		a:focus, a:active, a:hover {
 			color: <?php echo esc_html( Habakiri::get( 'link_hover_color' ) ); ?>;
+		}
+		.site-branding a {
+			color: <?php echo esc_html( Habakiri::get( 'logo_text_color' ) ); ?>;
 		}
 		.global-nav a {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_color' ) ); ?>;
@@ -529,6 +556,20 @@ class Habakiri_Customizer {
 			$value,
 			$this->boolean_choices,
 			self::get_default( 'is_displaying_related_posts' )
+		);
+	}
+
+	/**
+	 * is_displaying_page_header のサニタイズ
+	 *
+	 * @param string $value
+	 * @return string $value
+	 */
+	public function sanitize_is_displaying_page_header( $value ) {
+		return $this->sanitize_choices(
+			$value,
+			$this->boolean_choices,
+			self::get_default( 'is_displaying_page_header' )
 		);
 	}
 
