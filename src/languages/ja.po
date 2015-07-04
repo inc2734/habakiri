@@ -2,17 +2,17 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.0.1\n"
+"Project-Id-Version: habakiri 1.1.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-04-29 09:06:40+00:00\n"
-"PO-Revision-Date: 2015-04-29 18:08+0900\n"
+"POT-Creation-Date: 2015-07-04 21:18+0900\n"
+"PO-Revision-Date: 2015-07-04 21:23+0900\n"
 "Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e\n"
 "X-Poedit-Basepath: .\n"
@@ -25,15 +25,15 @@ msgstr ""
 "この投稿はパスワードで保護されています。コメントを見るためにパスワードを入力"
 "してください。"
 
-#: comments.php:29
+#: comments.php:27
 msgid "Comments on this post"
 msgstr "この投稿へのコメント"
 
-#: comments.php:53
+#: comments.php:51
 msgid "No comments."
 msgstr "コメントはありません。"
 
-#: comments.php:61
+#: comments.php:60
 msgid ""
 "It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to "
 "write comment."
@@ -41,19 +41,19 @@ msgstr ""
 "コメントを入力するためには<a href=\"%/wp-login.php?redirect_to=%s\">ログイン"
 "</a>が必要です。"
 
-#: comments.php:80
+#: comments.php:78
 msgid "Trackbacks and Pingbacks on this post"
 msgstr "この投稿へのトラックバック"
 
-#: comments.php:91
+#: comments.php:89
 msgid "No trackbacks."
 msgstr "トラックバックはありません。"
 
-#: comments.php:96
+#: comments.php:95
 msgid "TrackBack URL"
 msgstr "トラックバック URL"
 
-#: content-none.php:20 functions.php:331
+#: content-none.php:20 functions.php:343
 msgid "Woops! Page not found."
 msgstr "ページが見つかりませんでした。"
 
@@ -77,51 +77,51 @@ msgstr ""
 msgid "No posts."
 msgstr "投稿がありません。"
 
-#: functions.php:95
+#: functions.php:98
 msgid "Global Navigation"
 msgstr "グローバルナビゲーション"
 
-#: functions.php:96
+#: functions.php:99
 msgid "Social Navigation"
 msgstr "ソーシャルナビゲーション"
 
-#: functions.php:105 functions.php:107
+#: functions.php:108 functions.php:110
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:112
+#: functions.php:115
 msgid "Footer"
 msgstr "フッター"
 
-#: functions.php:114
+#: functions.php:117
 msgid "Footer Widget Area"
 msgstr "フッターウィジェットエリア"
 
-#: functions.php:154
+#: functions.php:157
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:159
+#: functions.php:162
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
-#: functions.php:196
+#: functions.php:201
 msgid "Monkey Wrench"
 msgstr "モンキーレンチ"
 
-#: functions.php:201
+#: functions.php:206
 msgid "WordPress"
 msgstr "WordPress"
 
-#: functions.php:203
+#: functions.php:208
 msgid "Habakiri theme by %s"
 msgstr "Habakiri theme by %s"
 
-#: functions.php:205
+#: functions.php:209
 msgid "Powered by %s"
 msgstr "Powered by %s"
 
-#: functions.php:333 inc/class.bread-crumb.php:163
+#: functions.php:345 inc/class.bread-crumb.php:163
 msgid "Search Results for: %s"
 msgstr "「%s」の検索結果"
 
@@ -153,7 +153,7 @@ msgstr "カテゴリー"
 msgid "Tags"
 msgstr "タグ"
 
-#: inc/class.related-posts.php:38
+#: inc/class.related-posts.php:40
 msgid "Related posts"
 msgstr "関連記事"
 
@@ -213,83 +213,91 @@ msgstr "全幅 ( 固定 )"
 msgid "Full Width ( Fluid )"
 msgstr "全幅 ( リキッド )"
 
-#: inc/customizer.php:125
+#: inc/customizer.php:127
 msgid "settings"
 msgstr "設定"
 
-#: inc/customizer.php:134
+#: inc/customizer.php:136
 msgid "Logo"
 msgstr "ロゴ"
 
-#: inc/customizer.php:144
+#: inc/customizer.php:146
+msgid "Logo Text Color"
+msgstr "ロゴテキストの色"
+
+#: inc/customizer.php:156
 msgid "Header"
 msgstr "ヘッダー"
 
-#: inc/customizer.php:156
+#: inc/customizer.php:168
 msgid "Header Fixed"
 msgstr "ヘッダーを固定"
 
-#: inc/customizer.php:168
+#: inc/customizer.php:180
 msgid "Number of footer columns"
 msgstr "フッターのカラム数"
 
-#: inc/customizer.php:180
+#: inc/customizer.php:192
 msgid "Blog Template"
 msgstr "ブログテンプレート"
 
-#: inc/customizer.php:192
+#: inc/customizer.php:204
 msgid "Displaying thumbnail in archive page"
 msgstr "アーカイブページでのサムネイル表示"
 
-#: inc/customizer.php:204
+#: inc/customizer.php:216
 msgid "Displaying the Braed Crumb"
 msgstr "パンくずリストを表示"
 
-#: inc/customizer.php:216
+#: inc/customizer.php:228
 msgid "Displaying related posts in single page"
 msgstr "個別投稿ページでの関連記事表示"
 
-#: inc/customizer.php:228
+#: inc/customizer.php:240
+msgid "Displaying page header"
+msgstr "ページヘッダーを表示"
+
+#: inc/customizer.php:252
 msgid "Displaying lead of page header in single page"
 msgstr "個別投稿ページのページヘッダーのリード文を表示"
 
-#: inc/customizer.php:240
+#: inc/customizer.php:264
 msgid "Link Color"
 msgstr "リンク色"
 
-#: inc/customizer.php:250
+#: inc/customizer.php:274
 msgid "Link Hover Color"
 msgstr "リンク色 ( ホバー時 )"
 
-#: inc/customizer.php:260
+#: inc/customizer.php:284
 msgid "Global Navigation Link Color"
 msgstr "グローバルナビゲーションのリンク色"
 
-#: inc/customizer.php:270
+#: inc/customizer.php:294
 msgid "Global Navigation Link Hover Color"
 msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
 
-#: inc/customizer.php:280
+#: inc/customizer.php:304
 msgid "Header Background Color"
 msgstr "ヘッダーの背景色"
 
-#: inc/customizer.php:290
+#: inc/customizer.php:314
 msgid "Footer Background Color"
 msgstr "フッターの背景色"
 
-#: inc/customizer.php:300
+#: inc/customizer.php:324
 msgid "Footer Text Color"
 msgstr "フッターの文字色"
 
-#: inc/customizer.php:310
+#: inc/customizer.php:334
 msgid "Footer Link Color"
 msgstr "フッターのリンク色"
 
-#: inc/customizer.php:320
+#: inc/customizer.php:344
 msgid "Page Header Background Color"
 msgstr "ページヘッダーの背景色"
 
-#: inc/customizer.php:330
+#: inc/customizer.php:354
 msgid "Page Header Text Color"
 msgstr "ページヘッダーの文字色"
 
@@ -303,17 +311,19 @@ msgstr "https://github.com/inc2734/habakiri"
 
 #. Description of the plugin/theme
 msgid ""
-"Habakiri is a simple theme for the web site. This theme based on Twitter "
-"Bootstrap. Features, 100% responsive layouts, the Glyphicons and Genericons "
-"icons, 6 page templates, 6 header design patterns, many color settings, many "
-"hooks, displaying related posts in single page, using minify CSS and "
-"JavaScript, using Gulp, Sass and PHP Class in functions.php."
+"Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is "
+"to create a responsive, bootstrap based WordPress theme quickly. The design "
+"is kept simple to keep the simplicity of the Bootstrap. Features are, 100% "
+"responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 "
+"header design patterns, many color settings, a lot of hooks, related posts, "
+"minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php."
 msgstr ""
-"Habakiri はウェブサイト用のシンプルなテーマです。このテーマは Twitter "
-"Bootstrap ベースです。100% レスポンシブデザイン、Glyphicons・Genericons アイ"
-"コン、6つのページテンプレート、6つのヘッダーデザインパターン、多くの色設定、"
-"多くのフック、個別投稿ページヘの関連記事表示、ミニファイされた CSS と "
-"JavaScript、Gulp・Sass、そして functions.php のクラス化が特徴です。"
+"Habakiri は Bootstrap ベースのシンプルなテーマです。素早くレスポンシブな "
+"Bootstrap ベースのテーマを作ることができます。デザインはほぼ素の Bootstrap の"
+"ままのシンプルなものとしています。100% レスポンシブデザイン、Glyphicons・"
+"Genericons アイコン、6つのページテンプレート、6つのヘッダーデザインパターン、"
+"多くの色設定、多くのフック、個別投稿ページヘの関連記事表示、ミニファイされた "
+"CSS と JavaScript、Gulp・Sass、そして functions.php のクラス化が特徴です。"
 
 #. Author of the plugin/theme
 msgid "inc2734"
