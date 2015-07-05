@@ -10,6 +10,11 @@
  */
 ?>
 <article>
+	<?php
+	if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
+		Habakiri::the_title();
+	}
+	?>
 	<?php do_action( 'habakiri_before_entry_content' ); ?>
 	<div class="entry-content">
 		<?php the_content(); ?>

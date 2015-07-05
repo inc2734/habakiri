@@ -12,7 +12,7 @@
 <?php if ( is_single() ) : ?>
 
 <article>
-	<h1 class="entry-title"><?php the_title(); ?></h1>
+	<?php Habakiri::the_title(); ?>
 	<?php Habakiri::the_entry_meta(); ?>
 	<?php do_action( 'habakiri_before_entry_content' ); ?>
 	<div class="entry-content">

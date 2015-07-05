@@ -157,6 +157,8 @@ add_filter( 'foo', 'your_filter' );
 = 1.1.3 =
 * Fixed a comments area bug.
 * Changed how to include content templates.
+* Fixed a entry title bug in single page.
+* Display the entry title in page when setting that does not display the page header.
 
 = 1.1.2 =
 * Fixed a Habakiri::the_title() bug.
