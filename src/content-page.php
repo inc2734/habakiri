@@ -1,6 +1,6 @@
 <?php
 /**
- * Version    : 1.0.1
+ * Version    : 1.1.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
@@ -9,7 +9,6 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 ?>
-<?php Habakiri::the_bread_crumb(); ?>
 <article>
 	<?php do_action( 'habakiri_before_entry_content' ); ?>
 	<div class="entry-content">

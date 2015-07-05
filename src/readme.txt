@@ -156,6 +156,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.3 =
 * Fixed a comments area bug.
+* Changed how to include content templates.
 
 = 1.1.2 =
 * Fixed a Habakiri::the_title() bug.

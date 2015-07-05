@@ -1,6 +1,6 @@
 <?php
 /**
- * Version    : 1.1.1
+ * Version    : 1.2.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
@@ -11,7 +11,6 @@
 ?>
 <?php if ( is_single() ) : ?>
 
-<?php Habakiri::the_bread_crumb(); ?>
 <article>
 	<h1 class="entry-title"><?php the_title(); ?></h1>
 	<?php Habakiri::the_entry_meta(); ?>
@@ -27,15 +26,6 @@
 		comments_template( '', true );
 	}
 	?>
-</article>
-
-<?php elseif ( is_search() ) : ?>
-
-<article <?php post_class(); ?>>
-	<?php Habakiri::the_title(); ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	<!-- end .entry-summary --></div>
 </article>
 
 <?php else : ?>
