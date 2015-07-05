@@ -503,7 +503,7 @@ class Habakiri_Base_Functions {
 		}
 		do_action( 'habakiri_before_title' );
 		?>
-		<?php if ( is_front_page() ) : ?>
+		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
 		<h1 class="entry-title hidden"><?php the_title(); ?></h1>
 		<?php elseif ( is_single() ) : ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
