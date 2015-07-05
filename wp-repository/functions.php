@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.0
+ * Version    : 1.1.1
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 1, 2015
+ * Modified   : July 5, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -505,7 +505,7 @@ class Habakiri_Base_Functions {
 		?>
 		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
 		<h1 class="entry-title hidden"><?php the_title(); ?></h1>
-		<?php elseif ( is_single() ) : ?>
+		<?php elseif ( is_singular() ) : ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php else : ?>
 		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>

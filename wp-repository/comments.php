@@ -1,28 +1,20 @@
 <?php
 /**
- * Version    : 1.1.0
+ * Version    : 1.1.1
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 3, 2015
+ * Modified   : July 5, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-	die ( '<p lang=\"ja\">Don\'t direct access this page.' );
-	if ( !empty( $post->post_password ) ) {
-		if ( $_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password ) { ?>
-			<p class="nocomments">
-				<?php _e( 'This post is password protected. Enter the password to view any comments.', 'habakiri' ); ?>
-			<p>
-			<?php
-			return;
-		}
-	}
+if ( post_password_required() ) {
+	return;
 }
 ?>
 <div id="commentarea">
+	<?php if ( !empty( $comments_by_type['comment'] ) || comments_open() ) : ?>
 	<div id="comments">
 		<h2 class="h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['comment'] ) ) : ?>
@@ -51,7 +43,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<p class="nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
-		<?php if ( 'open' == $post->comment_status ) : ?>
+		<?php if ( comments_open() ) : ?>
 		<div id="respond">
 			<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
 			<p>
@@ -73,14 +65,16 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<!-- end #respond --></div>
 		<?php endif; ?>
 	<!-- end #comments --></div>
+	<?php endif; ?>
 
+	<?php if ( !empty( $comments_by_type['pings'] ) || pings_open() ) : ?>
 	<div id="trackback">
 		<h2 class="h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
-		<?php if ( ! empty($comments_by_type['pings']) ) : ?>
+		<?php if ( !empty( $comments_by_type['pings'] ) ) : ?>
 		<ol class="trackbacklist">
 			<?php
 			wp_list_comments( array(
-				'type' => 'pings',
+				'type'     => 'pings',
 				'callback' => 'Habakiri::the_comments'
 			) );
 			?>
@@ -89,7 +83,7 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<p class="nocomments"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
-		<?php if ( 'open' == $post->ping_status ) : ?>
+		<?php if ( pings_open() ) : ?>
 		<div class="trackback-url">
 			<dl>
 				<dt><?php _e( 'TrackBack URL', 'habakiri' ); ?></dt>
@@ -98,4 +92,5 @@ if ( 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		<!-- end .trackback-url --></div>
 		<?php endif; ?>
 	<!-- end #trackback --></div>
+	<?php endif; ?>
 <!-- end #commentarea --></div>
