@@ -158,6 +158,7 @@ add_filter( 'foo', 'your_filter' );
 * Fixed a bread crumb bug.
 * Add filter hook habakiri_custom_background_defaults.
 * Add filter hook habakiri_custom_header_defaults.
+* Improvement of footer widget area UX.
 
 = 1.1.3 =
 * Fixed a comments area bug.

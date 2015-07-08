@@ -125,7 +125,7 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget col-md-4 %2$s">',
 			'after_widget'  => '</div>',
 		) );
 
@@ -139,7 +139,9 @@ class Habakiri_Base_Functions {
 		?>
 		<script>
 		jQuery( function( $ ) {
-			$( '#footer .widget' ).addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
+			$( '#footer .widget' )
+				.removeClass( 'col-md-4' )
+				.addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
 		} );
 		</script>
 		<?php
