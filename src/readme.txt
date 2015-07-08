@@ -159,6 +159,7 @@ add_filter( 'foo', 'your_filter' );
 * Add filter hook habakiri_custom_background_defaults.
 * Add filter hook habakiri_custom_header_defaults.
 * Improvement of footer widget area UX.
+* Update .section style.
 
 = 1.1.3 =
 * Fixed a comments area bug.
