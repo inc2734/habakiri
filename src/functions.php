@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.1
+ * Version    : 1.1.2
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 5, 2015
+ * Modified   : July 8, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -48,13 +48,13 @@ class Habakiri_Base_Functions {
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 		) );
 		add_theme_support( 'custom-header', array(
-			'width'                  => 1366,
-			'height'                 => 768,
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'uploads'                => true,
-			'random-default'         => true,
-			'header-text'            => false,
+			'width'          => 1366,
+			'height'         => 768,
+			'flex-height'    => false,
+			'flex-width'     => false,
+			'uploads'        => true,
+			'random-default' => true,
+			'header-text'    => false,
 		) );
 
 		add_post_type_support( 'page', 'excerpt' );
@@ -372,8 +372,10 @@ class Habakiri_Base_Functions {
 	 * パンくずリストを表示
 	 */
 	public static function the_bread_crumb() {
-		$BreadCrumb = new Habakiri_Bread_Crumb();
-		$BreadCrumb->display();
+		if ( !is_front_page() ) {
+			$BreadCrumb = new Habakiri_Bread_Crumb();
+			$BreadCrumb->display();
+		}
 	}
 
 	/**
