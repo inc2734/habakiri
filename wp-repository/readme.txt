@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,13 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.1.4 =
+* Fixed a bread crumb bug.
+* Add filter hook habakiri_custom_background_defaults.
+* Add filter hook habakiri_custom_header_defaults.
+* Improvement of footer widget area UX.
+* Update .section style.
 
 = 1.1.3 =
 * Fixed a comments area bug.

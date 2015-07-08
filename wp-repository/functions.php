@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.1
+ * Version    : 1.1.2
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 5, 2015
+ * Modified   : July 8, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -41,21 +41,31 @@ class Habakiri_Base_Functions {
 			'./assets/genericons/genericons.css',
 		) );
 		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'custom-background' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array(
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 		) );
-		add_theme_support( 'custom-header', array(
-			'width'                  => 1366,
-			'height'                 => 768,
-			'flex-height'            => false,
-			'flex-width'             => false,
-			'uploads'                => true,
-			'random-default'         => true,
-			'header-text'            => false,
-		) );
+
+		$custom_background_defaults = array();
+		add_theme_support(
+			'custom-background',
+			apply_filters( 'habakiri_custom_background_defaults', $custom_background_defaults )
+		);
+
+		$custom_header_defaults = array(
+			'width'          => 1366,
+			'height'         => 768,
+			'flex-height'    => false,
+			'flex-width'     => false,
+			'uploads'        => true,
+			'random-default' => true,
+			'header-text'    => false,
+		);
+		add_theme_support(
+			'custom-header',
+			apply_filters( 'habakiri_custom_header_defaults', $custom_header_defaults )
+		);
 
 		add_post_type_support( 'page', 'excerpt' );
 
@@ -115,7 +125,7 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget col-md-4 %2$s">',
 			'after_widget'  => '</div>',
 		) );
 
@@ -129,7 +139,9 @@ class Habakiri_Base_Functions {
 		?>
 		<script>
 		jQuery( function( $ ) {
-			$( '#footer .widget' ).addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
+			$( '#footer .widget' )
+				.removeClass( 'col-md-4' )
+				.addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
 		} );
 		</script>
 		<?php
@@ -372,8 +384,10 @@ class Habakiri_Base_Functions {
 	 * パンくずリストを表示
 	 */
 	public static function the_bread_crumb() {
-		$BreadCrumb = new Habakiri_Bread_Crumb();
-		$BreadCrumb->display();
+		if ( !is_front_page() ) {
+			$BreadCrumb = new Habakiri_Bread_Crumb();
+			$BreadCrumb->display();
+		}
 	}
 
 	/**

@@ -5995,7 +5995,6 @@ table small {
  * .section
  */
 .section {
-  border-top: #eee solid 1px;
   padding-top: 50px;
   padding-bottom: 50px; }
   .section .section-title {
@@ -6005,7 +6004,6 @@ table small {
     .section .section-title .small {
       margin-top: 10px; }
   .section .section {
-    border-top: none;
     padding-top: 0;
     padding-bottom: 0; }
     .section .section .section-title {
