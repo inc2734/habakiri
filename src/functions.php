@@ -41,13 +41,19 @@ class Habakiri_Base_Functions {
 			'./assets/genericons/genericons.css',
 		) );
 		add_theme_support( 'automatic-feed-links' );
-		add_theme_support( 'custom-background' );
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array(
 			'comment-list', 'comment-form', 'search-form', 'gallery', 'caption'
 		) );
-		add_theme_support( 'custom-header', array(
+
+		$custom_background_defaults = array();
+		add_theme_support(
+			'custom-background',
+			apply_filters( 'habakiri_custom_background_defaults', $custom_background_defaults )
+		);
+
+		$custom_header_defaults = array(
 			'width'          => 1366,
 			'height'         => 768,
 			'flex-height'    => false,
@@ -55,7 +61,11 @@ class Habakiri_Base_Functions {
 			'uploads'        => true,
 			'random-default' => true,
 			'header-text'    => false,
-		) );
+		);
+		add_theme_support(
+			'custom-header',
+			apply_filters( 'habakiri_custom_header_defaults', $custom_header_defaults )
+		);
 
 		add_post_type_support( 'page', 'excerpt' );
 

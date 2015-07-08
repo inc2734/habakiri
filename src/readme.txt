@@ -156,6 +156,8 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.4 =
 * Fixed a bread crumb bug.
+* Add filter hook habakiri_custom_background_defaults.
+* Add filter hook habakiri_custom_header_defaults.
 
 = 1.1.3 =
 * Fixed a comments area bug.
