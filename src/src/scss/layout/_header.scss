@@ -109,21 +109,7 @@
 	.sub-menu, .children {
 		li {
 			a {
-				background-color: #000;
-				color: $gray-light;
 				padding: 10px;
-				&:hover, &:active {
-					background-color: #222;
-				}
-			}
-			&.current-menu-item,
-			&.current-menu-ancestor,
-			&.current-menu-parent,
-			&.current_page_item,
-			&.current_page_parent {
-				> a {
-					background-color: #222;
-				}
 			}
 		}
 	}

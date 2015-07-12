@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habakiri 1.1.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-07-12 10:27:04+00:00\n"
+"POT-Creation-Date: 2015-07-12 11:12:47+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,91 +200,103 @@ msgstr ""
 msgid "Full Width ( Fluid )"
 msgstr ""
 
-#: inc/customizer.php:127
+#: inc/customizer.php:130
 msgid "settings"
 msgstr ""
 
-#: inc/customizer.php:136
+#: inc/customizer.php:139
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:146
+#: inc/customizer.php:149
 msgid "Logo Text Color"
 msgstr ""
 
-#: inc/customizer.php:156
+#: inc/customizer.php:159
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:168
+#: inc/customizer.php:171
 msgid "Header Fixed"
 msgstr ""
 
-#: inc/customizer.php:180
+#: inc/customizer.php:183
 msgid "Number of footer columns"
 msgstr ""
 
-#: inc/customizer.php:192
+#: inc/customizer.php:195
 msgid "Blog Template"
 msgstr ""
 
-#: inc/customizer.php:204
+#: inc/customizer.php:207
 msgid "Displaying thumbnail in archive page"
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:219
 msgid "Displaying the Braed Crumb"
 msgstr ""
 
-#: inc/customizer.php:228
+#: inc/customizer.php:231
 msgid "Displaying related posts in single page"
 msgstr ""
 
-#: inc/customizer.php:240
+#: inc/customizer.php:243
 msgid "Displaying page header"
 msgstr ""
 
-#: inc/customizer.php:252
+#: inc/customizer.php:255
 msgid "Displaying lead of page header in single page"
 msgstr ""
 
-#: inc/customizer.php:264
+#: inc/customizer.php:267
 msgid "Link Color"
 msgstr ""
 
-#: inc/customizer.php:274
+#: inc/customizer.php:277
 msgid "Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:284
+#: inc/customizer.php:287
 msgid "Global Navigation Link Color"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:297
 msgid "Global Navigation Link Hover Color"
 msgstr ""
 
-#: inc/customizer.php:304
+#: inc/customizer.php:307
+msgid "Global Navigation Pulldown Link Color"
+msgstr ""
+
+#: inc/customizer.php:317
+msgid "Global Navigation Pulldown Background Color"
+msgstr ""
+
+#: inc/customizer.php:327
+msgid "Global Navigation Pulldown Background Hover Color"
+msgstr ""
+
+#: inc/customizer.php:337
 msgid "Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:314
+#: inc/customizer.php:347
 msgid "Footer Background Color"
 msgstr ""
 
-#: inc/customizer.php:324
+#: inc/customizer.php:357
 msgid "Footer Text Color"
 msgstr ""
 
-#: inc/customizer.php:334
+#: inc/customizer.php:367
 msgid "Footer Link Color"
 msgstr ""
 
-#: inc/customizer.php:344
+#: inc/customizer.php:377
 msgid "Page Header Background Color"
 msgstr ""
 
-#: inc/customizer.php:354
+#: inc/customizer.php:387
 msgid "Page Header Text Color"
 msgstr ""
 

@@ -157,6 +157,7 @@ add_filter( 'foo', 'your_filter' );
 = 1.1.5 =
 * Fixed a html invalid error.
 * Changee Theme URL.
+* Add global navigation pulldown color setting in customizer.
 
 = 1.1.4 =
 * Fixed a bread crumb bug.

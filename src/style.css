@@ -6333,21 +6333,7 @@ button.close {
     padding: 15px;
     text-decoration: none; }
   .global-nav .sub-menu li a, .global-nav .children li a {
-    background-color: #000;
-    color: #777777;
     padding: 10px; }
-    .global-nav .sub-menu li a:hover, .global-nav .sub-menu li a:active, .global-nav .children li a:hover, .global-nav .children li a:active {
-      background-color: #222; }
-  .global-nav .sub-menu li.current-menu-item > a,
-  .global-nav .sub-menu li.current-menu-ancestor > a,
-  .global-nav .sub-menu li.current-menu-parent > a,
-  .global-nav .sub-menu li.current_page_item > a,
-  .global-nav .sub-menu li.current_page_parent > a, .global-nav .children li.current-menu-item > a,
-  .global-nav .children li.current-menu-ancestor > a,
-  .global-nav .children li.current-menu-parent > a,
-  .global-nav .children li.current_page_item > a,
-  .global-nav .children li.current_page_parent > a {
-    background-color: #222; }
   .header-default .global-nav .menu {
     float: right; }
   .header-center .global-nav {
