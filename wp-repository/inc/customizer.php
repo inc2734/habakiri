@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.1.0
+ * Version    : 1.2.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 3, 2015
+ * Modified   : July 12, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -104,6 +104,9 @@ class Habakiri_Customizer {
 				'link_hover_color'               => '#23527c',
 				'gnav_link_color'                => '#000',
 				'gnav_link_hover_color'          => '#337ab7',
+				'gnav_pulldown_link_color'       => '#777',
+				'gnav_pulldown_bg_color'         => '#000',
+				'gnav_pulldown_bg_hover_color'   => '#222',
 				'header_bg_color'                => '#fff',
 				'footer_bg_color'                => '#111113',
 				'footer_text_color'              => '#555',
@@ -296,6 +299,36 @@ class Habakiri_Customizer {
 			'settings' => 'gnav_link_hover_color',
 		) ) );
 
+		$wp_customize->add_setting( 'gnav_pulldown_link_color', array(
+			'default'           => self::get_default( 'gnav_pulldown_link_color' ),
+			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_link_color', array(
+			'label'    => __( 'Global Navigation Pulldown Link Color', 'habakiri' ),
+			'section'  => 'colors',
+			'settings' => 'gnav_pulldown_link_color',
+		) ) );
+
+		$wp_customize->add_setting( 'gnav_pulldown_bg_color', array(
+			'default'           => self::get_default( 'gnav_pulldown_bg_color' ),
+			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_bg_color', array(
+			'label'    => __( 'Global Navigation Pulldown Background Color', 'habakiri' ),
+			'section'  => 'colors',
+			'settings' => 'gnav_pulldown_bg_color',
+		) ) );
+
+		$wp_customize->add_setting( 'gnav_pulldown_bg_hover_color', array(
+			'default'           => self::get_default( 'gnav_pulldown_bg_hover_color' ),
+			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_bg_hover_color', array(
+			'label'    => __( 'Global Navigation Pulldown Background Hover Color', 'habakiri' ),
+			'section'  => 'colors',
+			'settings' => 'gnav_pulldown_bg_hover_color',
+		) ) );
+
 		$wp_customize->add_setting( 'header_bg_color', array(
 			'default'           => self::get_default( 'header_bg_color' ),
 			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
@@ -383,6 +416,20 @@ class Habakiri_Customizer {
 		.global-nav ul li.current_page_item > a,
 		.global-nav ul li.current_page_parent > a {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_hover_color' ) ); ?>;
+		}
+		.global-nav .sub-menu a,
+		.global-nav .children a {
+			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_color' ) ); ?>;
+			color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_link_color' ) ); ?>;
+		}
+		.global-nav .sub-menu a:hover,
+		.global-nav .children a:active,
+		.global-nav .children .current-menu-item,
+		.global-nav .children .current-menu-ancestor,
+		.global-nav .children .current-menu-parent,
+		.global-nav .children .current_page_item,
+		.global-nav .children .current_page_parent {
+			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
 		}
 		.entries .hentry .summary-with-thumbnail .summary-with-thumbnail-thumbnail .no-thumbnail {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;

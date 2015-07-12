@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,11 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.1.5 =
+* Fixed a html invalid error.
+* Changee Theme URL.
+* Add global navigation pulldown color setting in customizer.
 
 = 1.1.4 =
 * Fixed a bread crumb bug.

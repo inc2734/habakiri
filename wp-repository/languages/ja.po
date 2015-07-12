@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.1.1\n"
+"Project-Id-Version: habakiri 1.1.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-07-04 21:18+0900\n"
-"PO-Revision-Date: 2015-07-04 21:23+0900\n"
+"POT-Creation-Date: 2015-07-12 20:13+0900\n"
+"PO-Revision-Date: 2015-07-12 20:13+0900\n"
 "Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -18,22 +18,15 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: comments.php:17
-msgid ""
-"This post is password protected. Enter the password to view any comments."
-msgstr ""
-"この投稿はパスワードで保護されています。コメントを見るためにパスワードを入力"
-"してください。"
-
-#: comments.php:27
+#: comments.php:19
 msgid "Comments on this post"
 msgstr "この投稿へのコメント"
 
-#: comments.php:51
+#: comments.php:43
 msgid "No comments."
 msgstr "コメントはありません。"
 
-#: comments.php:60
+#: comments.php:52
 msgid ""
 "It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to "
 "write comment."
@@ -41,31 +34,31 @@ msgstr ""
 "コメントを入力するためには<a href=\"%/wp-login.php?redirect_to=%s\">ログイン"
 "</a>が必要です。"
 
-#: comments.php:78
+#: comments.php:72
 msgid "Trackbacks and Pingbacks on this post"
 msgstr "この投稿へのトラックバック"
 
-#: comments.php:89
+#: comments.php:83
 msgid "No trackbacks."
 msgstr "トラックバックはありません。"
 
-#: comments.php:95
+#: comments.php:89
 msgid "TrackBack URL"
 msgstr "トラックバック URL"
 
-#: content-none.php:20 functions.php:343
+#: content-none.php:19 functions.php:355
 msgid "Woops! Page not found."
 msgstr "ページが見つかりませんでした。"
 
-#: content-none.php:21
+#: content-none.php:20
 msgid "The page you are looking for may be moved or deleted."
 msgstr "お探しのページが移動したか削除されています。"
 
-#: content-none.php:22
+#: content-none.php:21
 msgid "Please search this serch box."
 msgstr "この検索ボックスから検索してください。"
 
-#: content-none.php:31
+#: content-none.php:30
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -73,55 +66,55 @@ msgstr ""
 "ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
 "てみてください。"
 
-#: content-none.php:40
+#: content-none.php:39
 msgid "No posts."
 msgstr "投稿がありません。"
 
-#: functions.php:98
+#: functions.php:108
 msgid "Global Navigation"
 msgstr "グローバルナビゲーション"
 
-#: functions.php:99
+#: functions.php:109
 msgid "Social Navigation"
 msgstr "ソーシャルナビゲーション"
 
-#: functions.php:108 functions.php:110
+#: functions.php:118 functions.php:120
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:115
+#: functions.php:125
 msgid "Footer"
 msgstr "フッター"
 
-#: functions.php:117
+#: functions.php:127
 msgid "Footer Widget Area"
 msgstr "フッターウィジェットエリア"
 
-#: functions.php:157
+#: functions.php:169
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:162
+#: functions.php:174
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
-#: functions.php:201
+#: functions.php:213
 msgid "Monkey Wrench"
 msgstr "モンキーレンチ"
 
-#: functions.php:206
+#: functions.php:218
 msgid "WordPress"
 msgstr "WordPress"
 
-#: functions.php:208
+#: functions.php:220
 msgid "Habakiri theme by %s"
 msgstr "Habakiri theme by %s"
 
-#: functions.php:209
+#: functions.php:221
 msgid "Powered by %s"
 msgstr "Powered by %s"
 
-#: functions.php:345 inc/class.bread-crumb.php:163
+#: functions.php:357 inc/class.bread-crumb.php:163
 msgid "Search Results for: %s"
 msgstr "「%s」の検索結果"
 
@@ -213,91 +206,103 @@ msgstr "全幅 ( 固定 )"
 msgid "Full Width ( Fluid )"
 msgstr "全幅 ( リキッド )"
 
-#: inc/customizer.php:127
+#: inc/customizer.php:130
 msgid "settings"
 msgstr "設定"
 
-#: inc/customizer.php:136
+#: inc/customizer.php:139
 msgid "Logo"
 msgstr "ロゴ"
 
-#: inc/customizer.php:146
+#: inc/customizer.php:149
 msgid "Logo Text Color"
 msgstr "ロゴテキストの色"
 
-#: inc/customizer.php:156
+#: inc/customizer.php:159
 msgid "Header"
 msgstr "ヘッダー"
 
-#: inc/customizer.php:168
+#: inc/customizer.php:171
 msgid "Header Fixed"
 msgstr "ヘッダーを固定"
 
-#: inc/customizer.php:180
+#: inc/customizer.php:183
 msgid "Number of footer columns"
 msgstr "フッターのカラム数"
 
-#: inc/customizer.php:192
+#: inc/customizer.php:195
 msgid "Blog Template"
 msgstr "ブログテンプレート"
 
-#: inc/customizer.php:204
+#: inc/customizer.php:207
 msgid "Displaying thumbnail in archive page"
 msgstr "アーカイブページでのサムネイル表示"
 
-#: inc/customizer.php:216
+#: inc/customizer.php:219
 msgid "Displaying the Braed Crumb"
 msgstr "パンくずリストを表示"
 
-#: inc/customizer.php:228
+#: inc/customizer.php:231
 msgid "Displaying related posts in single page"
 msgstr "個別投稿ページでの関連記事表示"
 
-#: inc/customizer.php:240
+#: inc/customizer.php:243
 msgid "Displaying page header"
 msgstr "ページヘッダーを表示"
 
-#: inc/customizer.php:252
+#: inc/customizer.php:255
 msgid "Displaying lead of page header in single page"
 msgstr "個別投稿ページのページヘッダーのリード文を表示"
 
-#: inc/customizer.php:264
+#: inc/customizer.php:267
 msgid "Link Color"
 msgstr "リンク色"
 
-#: inc/customizer.php:274
+#: inc/customizer.php:277
 msgid "Link Hover Color"
 msgstr "リンク色 ( ホバー時 )"
 
-#: inc/customizer.php:284
+#: inc/customizer.php:287
 msgid "Global Navigation Link Color"
 msgstr "グローバルナビゲーションのリンク色"
 
-#: inc/customizer.php:294
+#: inc/customizer.php:297
 msgid "Global Navigation Link Hover Color"
 msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
 
-#: inc/customizer.php:304
+#: inc/customizer.php:307
+msgid "Global Navigation Pulldown Link Color"
+msgstr "グローバルナビゲーションプルダウンのリンク色"
+
+#: inc/customizer.php:317
+msgid "Global Navigation Pulldown Background Color"
+msgstr "グローバルナビゲーションプルダウンの背景色"
+
+#: inc/customizer.php:327
+msgid "Global Navigation Pulldown Background Hover Color"
+msgstr "グローバルナビゲーションプルダウンの背景色 ( ホバー時 )"
+
+#: inc/customizer.php:337
 msgid "Header Background Color"
 msgstr "ヘッダーの背景色"
 
-#: inc/customizer.php:314
+#: inc/customizer.php:347
 msgid "Footer Background Color"
 msgstr "フッターの背景色"
 
-#: inc/customizer.php:324
+#: inc/customizer.php:357
 msgid "Footer Text Color"
 msgstr "フッターの文字色"
 
-#: inc/customizer.php:334
+#: inc/customizer.php:367
 msgid "Footer Link Color"
 msgstr "フッターのリンク色"
 
-#: inc/customizer.php:344
+#: inc/customizer.php:377
 msgid "Page Header Background Color"
 msgstr "ページヘッダーの背景色"
 
-#: inc/customizer.php:354
+#: inc/customizer.php:387
 msgid "Page Header Text Color"
 msgstr "ページヘッダーの文字色"
 
@@ -306,8 +311,8 @@ msgid "habakiri"
 msgstr "habakiri"
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/inc2734/habakiri"
-msgstr "https://github.com/inc2734/habakiri"
+msgid "http://habakiri.2inc.org"
+msgstr "http://habakiri.2inc.org"
 
 #. Description of the plugin/theme
 msgid ""
@@ -336,6 +341,15 @@ msgstr "http://2inc.org"
 #. Template Name of the plugin/theme
 msgid "For Front Page"
 msgstr "固定ページ用"
+
+#~ msgid ""
+#~ "This post is password protected. Enter the password to view any comments."
+#~ msgstr ""
+#~ "この投稿はパスワードで保護されています。コメントを見るためにパスワードを入"
+#~ "力してください。"
+
+#~ msgid "https://github.com/inc2734/habakiri"
+#~ msgstr "https://github.com/inc2734/habakiri"
 
 #~ msgid "color"
 #~ msgstr "色"
