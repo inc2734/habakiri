@@ -156,6 +156,8 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.5 =
 * Fixed a html invalid error.
+* Changee Theme URL.
+
 = 1.1.4 =
 * Fixed a bread crumb bug.
 * Add filter hook habakiri_custom_background_defaults.
