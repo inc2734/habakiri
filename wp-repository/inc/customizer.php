@@ -216,7 +216,7 @@ class Habakiri_Customizer {
 			'sanitize_callback' => array( $this, 'sanitize_is_displaying_bread_crumb' ),
 		) );
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_bread_crumb', array(
-			'label'    => __( 'Displaying the Braed Crumb', 'habakiri' ),
+			'label'    => __( 'Displaying the Bread Crumb', 'habakiri' ),
 			'section'  => 'habakiri_design',
 			'settings' => 'is_displaying_bread_crumb',
 			'type'     => 'radio',
