@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.1.5\n"
+"Project-Id-Version: habakiri 1.1.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-07-12 20:13+0900\n"
-"PO-Revision-Date: 2015-07-12 20:13+0900\n"
+"POT-Creation-Date: 2015-07-28 22:21+0900\n"
+"PO-Revision-Date: 2015-07-28 22:22+0900\n"
 "Last-Translator: Takashi Kitajima <inc@2inc.org>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -46,19 +46,19 @@ msgstr "トラックバックはありません。"
 msgid "TrackBack URL"
 msgstr "トラックバック URL"
 
-#: content-none.php:19 functions.php:355
+#: content-none.php:20 functions.php:355
 msgid "Woops! Page not found."
 msgstr "ページが見つかりませんでした。"
 
-#: content-none.php:20
+#: content-none.php:21
 msgid "The page you are looking for may be moved or deleted."
 msgstr "お探しのページが移動したか削除されています。"
 
-#: content-none.php:21
+#: content-none.php:22
 msgid "Please search this serch box."
 msgstr "この検索ボックスから検索してください。"
 
-#: content-none.php:30
+#: content-none.php:31
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -66,7 +66,7 @@ msgstr ""
 "ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
 "てみてください。"
 
-#: content-none.php:39
+#: content-none.php:40
 msgid "No posts."
 msgstr "投稿がありません。"
 

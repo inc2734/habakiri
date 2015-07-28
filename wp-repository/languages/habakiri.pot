@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.1.5\n"
+"Project-Id-Version: habakiri 1.1.6\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-07-12 11:12:47+00:00\n"
+"POT-Creation-Date: 2015-07-28 13:13:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,25 +38,25 @@ msgstr ""
 msgid "TrackBack URL"
 msgstr ""
 
-#: content-none.php:19 functions.php:355
+#: content-none.php:20 functions.php:355
 msgid "Woops! Page not found."
 msgstr ""
 
-#: content-none.php:20
+#: content-none.php:21
 msgid "The page you are looking for may be moved or deleted."
 msgstr ""
 
-#: content-none.php:21
+#: content-none.php:22
 msgid "Please search this serch box."
 msgstr ""
 
-#: content-none.php:30
+#: content-none.php:31
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: content-none.php:39
+#: content-none.php:40
 msgid "No posts."
 msgstr ""
 
@@ -176,25 +176,25 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.1.5)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.1.6)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:75
 msgid "Left Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.1.5)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.1.6)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:76
 msgid "No Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.1.5)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.1.6)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:77
 msgid "Full Width ( Fixed )"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 1.1.5)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 1.1.6)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:78
 msgid "Full Width ( Fluid )"
