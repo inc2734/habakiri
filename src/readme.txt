@@ -156,12 +156,13 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.6 =
 * Add entries-* classes.
+* Changed article html structure.
 * Fixed a related posts excerpt bug.
 * Fixed typo.
 
 = 1.1.5 =
 * Fixed a html invalid error.
-* Changee Theme URL.
+* Change Theme URL.
 * Add global navigation pulldown color setting in customizer.
 
 = 1.1.4 =
