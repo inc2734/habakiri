@@ -34,6 +34,6 @@ gulp.task( 'browserify', function() {
 } );
 
 gulp.task( 'watch', ['sass', 'browserify'], function() {
-	gulp.watch( './src/scss/*.scss', ['sass'] );
+	gulp.watch( ['./src/scss/**/*.scss', './src/scss/*.scss'], ['sass'] );
 	gulp.watch( ['./src/js/**/*.js', './src/js/*.js'], ['browserify'] );
 } );
