@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.2
+ * Version    : 1.1.3
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 8, 2015
+ * Modified   : July 28, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -510,22 +510,18 @@ class Habakiri_Base_Functions {
 	 * @param int|null $post_id
 	 */
 	public static function the_title( $post_id = null ) {
-		global $post;
-		if ( !is_null( $post_id ) ) {
-			$post = get_post( $post_id );
-			setup_postdata( $post );
-		}
+		$post    = get_post( $post_id );
+		$post_id = isset( $post->ID ) ? $post->ID : 0;
 		do_action( 'habakiri_before_title' );
 		?>
 		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
-		<h1 class="entry-title hidden"><?php the_title(); ?></h1>
+		<h1 class="entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php elseif ( is_singular() ) : ?>
-		<h1 class="entry-title"><?php the_title(); ?></h1>
+		<h1 class="entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
-		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );
-		wp_reset_postdata();
 	}
 }
