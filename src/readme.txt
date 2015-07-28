@@ -159,6 +159,7 @@ add_filter( 'foo', 'your_filter' );
 * Changed article html structure.
 * Fixed a related posts excerpt bug.
 * Fixed typo.
+* Bootstrap print css is disabled.
 
 = 1.1.5 =
 * Fixed a html invalid error.
