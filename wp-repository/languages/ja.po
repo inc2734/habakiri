@@ -239,7 +239,7 @@ msgid "Displaying thumbnail in archive page"
 msgstr "アーカイブページでのサムネイル表示"
 
 #: inc/customizer.php:219
-msgid "Displaying the Braed Crumb"
+msgid "Displaying the Bread Crumb"
 msgstr "パンくずリストを表示"
 
 #: inc/customizer.php:231
