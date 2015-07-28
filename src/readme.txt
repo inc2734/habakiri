@@ -155,6 +155,7 @@ add_filter( 'foo', 'your_filter' );
 == Changelog ==
 
 = 1.1.6 =
+* Add entries-* classes.
 * Fixed a related posts excerpt bug.
 * Fixed typo.
 

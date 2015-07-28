@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.0.1
+ * Version    : 1.0.2
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : April 24, 2015
+ * Modified   : July 28, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -38,7 +38,7 @@ class Habakiri_Related_Posts {
 		?>
 		<div class="related-posts">
 			<h2 class="h3"><?php _e( 'Related posts', 'habakiri' ); ?></h2>
-			<div class="entries">
+			<div class="entries entries-related-posts">
 				<?php
 				foreach ( $posts as $post ) {
 					setup_postdata( $post );
