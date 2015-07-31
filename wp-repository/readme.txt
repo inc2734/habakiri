@@ -1,10 +1,10 @@
 === Habakiri ===
-Contributors: inc2734
+Contributors: inc2734, shinichin
 Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GNU General Public License v2.0
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -153,6 +153,13 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.1.7 =
+* Fixed a bug that instagram icon isn't shown in social nav.
+* Fixed a bread crumb bug in custom post type archive.
+* Fixed incorrect microformats in archive page.
+* Add search page template setting in customizer.
+* Add 404 page template setting in customizer.
 
 = 1.1.6 =
 * Add entries-* classes.
