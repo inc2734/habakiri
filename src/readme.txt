@@ -158,6 +158,7 @@ add_filter( 'foo', 'your_filter' );
 * Fixed a bug that instagram icon isn't shown in social nav.
 * Fixed a bread crumb bug in custom post type archive.
 * Add search page template setting in customizer.
+* Add 404 page template setting in customizer.
 
 = 1.1.6 =
 * Add entries-* classes.

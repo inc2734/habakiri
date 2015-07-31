@@ -48,6 +48,12 @@ class Habakiri_Customizer {
 	protected $search_template_choices = array();
 
 	/**
+	 * 404ページのテンプレート
+	 * @var array
+	 */
+	protected $_404_template_choices = array();
+
+	/**
 	 * false, true の選択肢
 	 * @var array
 	 */
@@ -90,6 +96,13 @@ class Habakiri_Customizer {
 			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
 			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
 		);
+		$this->_404_template_choices = array(
+			'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
+			'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
+			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
+			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
+			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
+		);
 	}
 
 	/**
@@ -109,6 +122,7 @@ class Habakiri_Customizer {
 				'footer_columns'                 => 'col-md-4',
 				'blog_template'                  => 'right-sidebar',
 				'search_template'                => 'right-sidebar',
+				'404_template'                   => 'right-sidebar',
 				'is_displaying_thumbnail'        => 'true',
 				'is_displaying_bread_crumb'      => 'true',
 				'is_displaying_related_posts'    => 'true',
@@ -223,6 +237,18 @@ class Habakiri_Customizer {
 			'settings' => 'search_template',
 			'type'     => 'radio',
 			'choices'  => $this->search_template_choices,
+		) ) );
+
+		$wp_customize->add_setting( '404_template', array(
+			'default'           => self::get_default( '404_template' ),
+			'sanitize_callback' => array( $this, 'sanitize_404_template' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, '404_template', array(
+			'label'    => __( '404 Template', 'habakiri' ),
+			'section'  => 'habakiri_design',
+			'settings' => '404_template',
+			'type'     => 'radio',
+			'choices'  => $this->_404_template_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_thumbnail', array(
@@ -601,6 +627,20 @@ class Habakiri_Customizer {
 			$value,
 			$this->search_template_choices,
 			self::get_default( 'search_template' )
+		);
+	}
+
+	/**
+	 * 404_template のサニタイズ
+	 *
+	 * @param string $value
+	 * @return string $value
+	 */
+	public function sanitize_404_template( $value ) {
+		return $this->sanitize_choices(
+			$value,
+			$this->_404_template_choices,
+			self::get_default( '404_template' )
 		);
 	}
 
