@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.2.0
+ * Version    : 1.3.0
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 12, 2015
+ * Modified   : July 31, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -40,6 +40,12 @@ class Habakiri_Customizer {
 	 * @var array
 	 */
 	protected $blog_template_choices = array();
+
+	/**
+	 * 検索ページのテンプレート
+	 * @var array
+	 */
+	protected $search_template_choices = array();
 
 	/**
 	 * false, true の選択肢
@@ -77,6 +83,13 @@ class Habakiri_Customizer {
 			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
 			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
 		);
+		$this->search_template_choices = array(
+			'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
+			'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
+			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
+			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
+			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
+		);
 	}
 
 	/**
@@ -95,6 +108,7 @@ class Habakiri_Customizer {
 				'header_fixed'                   => '',
 				'footer_columns'                 => 'col-md-4',
 				'blog_template'                  => 'right-sidebar',
+				'search_template'                => 'right-sidebar',
 				'is_displaying_thumbnail'        => 'true',
 				'is_displaying_bread_crumb'      => 'true',
 				'is_displaying_related_posts'    => 'true',
@@ -197,6 +211,18 @@ class Habakiri_Customizer {
 			'settings' => 'blog_template',
 			'type'     => 'radio',
 			'choices'  => $this->blog_template_choices,
+		) ) );
+
+		$wp_customize->add_setting( 'search_template', array(
+			'default'           => self::get_default( 'search_template' ),
+			'sanitize_callback' => array( $this, 'sanitize_search_template' ),
+		) );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'search_template', array(
+			'label'    => __( 'Search Template', 'habakiri' ),
+			'section'  => 'habakiri_design',
+			'settings' => 'search_template',
+			'type'     => 'radio',
+			'choices'  => $this->search_template_choices,
 		) ) );
 
 		$wp_customize->add_setting( 'is_displaying_thumbnail', array(
@@ -561,6 +587,20 @@ class Habakiri_Customizer {
 			$value,
 			$this->blog_template_choices,
 			self::get_default( 'blog_template' )
+		);
+	}
+
+	/**
+	 * search_template のサニタイズ
+	 *
+	 * @param string $value
+	 * @return string $value
+	 */
+	public function sanitize_search_template( $value ) {
+		return $this->sanitize_choices(
+			$value,
+			$this->search_template_choices,
+			self::get_default( 'search_template' )
 		);
 	}
 
