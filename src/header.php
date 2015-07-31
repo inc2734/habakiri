@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.2
+ * Version    : 1.0.3
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 12, 2015
+ * Modified   : July 31, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -49,5 +49,5 @@
 		<!-- end .container --></div>
 		<?php do_action( 'habakiri_after_header_content' ); ?>
 	<!-- end #header --></header>
-	<div id="contents" <?php if ( is_singular() ) post_class(); ?>>
+	<div id="contents" <?php ( is_singular() ) ? post_class() : print( 'class="hentry"' ); ?>>
 		<?php do_action( 'habakiri_before_contents_content' ); ?>
