@@ -156,6 +156,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.
+* Fixed a bread crumb bug in custom post type archive.
 
 = 1.1.6 =
 * Add entries-* classes.

@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Bread Crumb
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : Takashi Kitajima
  * Author URI : http://2inc.org
  * Created    : April 20, 2015
- * Modified   : 
+ * Modified   : July 31, 2015
  * License    : GPLv2
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -62,6 +62,9 @@ class Habakiri_Bread_Crumb {
 		}
 		elseif ( is_page() && !is_front_page() ) {
 			$this->set_for_page();
+		}
+		elseif ( is_post_type_archive() ) {
+			$this->set_for_post_type_archive();
 		}
 		elseif ( is_single() ) {
 			$this->set_for_single();
@@ -201,6 +204,18 @@ class Habakiri_Bread_Crumb {
 	protected function set_for_page() {
 		$this->set_ancestors( get_the_ID(), 'page' );
 		$this->set( get_the_title() );
+	}
+
+	/**
+	 * カスタム投稿タイプアーカイブ表示時のパンくず項目を追加
+	 */
+	protected function set_for_post_type_archive() {
+		$post_type = $this->get_post_type();
+		if ( $post_type && $post_type !== 'post' ) {
+			$post_type_object = get_post_type_object( $post_type );
+			$label = $post_type_object->labels->singular_name;
+			$this->set( $label );
+		}
 	}
 
 	/**
