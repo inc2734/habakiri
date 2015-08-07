@@ -1,14 +1,14 @@
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.0
+ * Version    : 2.1.1
  * Author     : Takashi Kitajima
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : June 25, 2015
+ * modified   : August 7, 2015
  * package    : jquery
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ;( function( $ ) {
 	$.fn.responsive_nav = function( config ) {
@@ -17,6 +17,7 @@
 			contents : $( '#container' )
 		}, config );
 
+		var resize_timer   = false;
 		var container      = config.container;
 		var contents       = config.contents;
 		var responsive_nav = this;
@@ -44,10 +45,16 @@
 			} );
 
 			$( window ).resize( function() {
-				var children = menu.children( 'li' ).children( 'ul' ).children( 'li' );
-				children.removeClass( 'reverse-pulldown' );
-				children.find( 'ul' ).removeClass( 'reverse-pulldown' );
-				init();
+				nav_close();
+				if ( resize_timer !== false ) {
+					clearTimeout( resize_timer );
+				}
+				resize_timer = setTimeout( function() {
+					var children = menu.children( 'li' ).children( 'ul' ).children( 'li' );
+					children.removeClass( 'reverse-pulldown' );
+					children.find( 'ul' ).removeClass( 'reverse-pulldown' );
+					init();
+				}, 300 );
 			} );
 
 			$( '#responsive-btn' ).on( 'click', function() {

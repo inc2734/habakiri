@@ -1,13 +1,13 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.1.0
+ * Version    : 2.1.1
  * Author     : Takashi Kitajima
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
  * modified   : June 25, 2015
  * package    : jquery
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 
 /**
@@ -211,8 +211,10 @@
 	background-color: transparent !important;
 	border: none !important;
 	display: block !important;
+	height: auto !important;
 	padding: 10px 20px 7px !important;
 	text-decoration: none !important;
+	text-indent: 0 !important;
 }
 .off-canvas-nav ul li a:hover,
 .off-canvas-nav ul li a:active {

@@ -23,8 +23,8 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
  * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 class Habakiri_Base_Functions {
 

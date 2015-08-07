@@ -4,9 +4,9 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.1.7
-License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.1.8
+License: GPLv2 or later
+License URI: license.txt
 
 == Description ==
 Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
@@ -153,6 +153,10 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.1.8 =
+* Fixed offcanvas-nav bugs.
+* Fixed mistake of license.
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.

@@ -5,8 +5,8 @@
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
  * Modified   : 
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ?>
 		<?php do_action( 'habakiri_after_contents_content' ); ?>
