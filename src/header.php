@@ -23,16 +23,16 @@
 <body <?php body_class(); ?>>
 <?php do_action( 'habakiri_before_container' ); ?>
 <div id="container">
-	<header id="header" class="<?php echo esc_attr( Habakiri::get( 'header' ) ) ?> <?php echo esc_attr( Habakiri::get( 'header_fixed' ) ) ?>">
+	<header id="header" class="header <?php echo esc_attr( Habakiri::get( 'header' ) ) ?> <?php echo esc_attr( Habakiri::get( 'header_fixed' ) ) ?>">
 		<?php do_action( 'habakiri_before_header_content' ); ?>
 		<div class="container">
-			<div class="row header-content">
-				<div class="col-xs-10 header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-4' : 'col-md-12'; ?>">
+			<div class="row header__content header-content">
+				<div class="col-xs-10 header__content__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-4' : 'col-md-12'; ?>">
 					<div class="site-branding">
-						<h1><?php Habakiri::the_logo(); ?></h1>
+						<h1 class="site-branding__logo"><?php Habakiri::the_logo(); ?></h1>
 					<!-- end .site-branding --></div>
 				<!-- end .col-md-4 --></div>
-				<div class="col-xs-2 header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-8' : 'col-md-12'; ?> global-nav-wrapper clearfix">
+				<div class="col-xs-2 header__content__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-8' : 'col-md-12'; ?> global-nav-wrapper clearfix">
 					<?php do_action( 'habakiri_before_global_navigation' ); ?>
 					<nav class="global-nav" role="navigation">
 						<?php

@@ -327,6 +327,13 @@ class Habakiri_Base_Functions {
 	public static function get( $key ) {
 		$default   = Habakiri_Customizer::get_default( $key );
 		$theme_mod = get_theme_mod( $key );
+
+		/**
+		 * backward compatible
+		 * @since 1.1.8
+		 */
+		$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
+
 		if ( $theme_mod ) {
 			return $theme_mod;
 		}
@@ -339,13 +346,12 @@ class Habakiri_Base_Functions {
 	 * @return bool
 	 */
 	public static function is_one_row_header() {
-		$headers = array( 'header-default' );
+		$headers = array( 'header--default' );
 		if ( in_array( Habakiri::get( 'header' ), $headers ) ) {
 			return true;
 		}
 		return false;
 	}
-
 
 	/**
 	 * ロゴを表示

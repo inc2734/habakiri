@@ -69,13 +69,13 @@ class Habakiri_Customizer {
 		);
 
 		$this->header_choices = array(
-			'header-default' => __( 'Default', 'habakiri' ),
-			'header-2row'    => __( '2 rows', 'habakiri' ),
-			'header-center'  => __( 'Center Logo', 'habakiri' ),
+			'header--default' => __( 'Default', 'habakiri' ),
+			'header--2row'    => __( '2 rows', 'habakiri' ),
+			'header--center'  => __( 'Center Logo', 'habakiri' ),
 		);
 		$this->header_fixed_choices = array(
 			''             => __( 'No', 'habakiri' ),
-			'header-fixed' => __( 'Yes', 'habakiri' ),
+			'header--fixed' => __( 'Yes', 'habakiri' ),
 		);
 		$this->footer_columns_choices = array(
 			'col-md-6' => __( '2 Columns', 'habakiri' ),
