@@ -1,7 +1,5 @@
-.search {
-	.entries {
-		article {
-			margin-bottom: 50px;
-		}
+.entries--search {
+	&__article {
+		margin-bottom: 40px;
 	}
 }

@@ -1,22 +1,22 @@
 <?php
 /**
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : July 5, 2015
- * Modified   : July 28, 2015
+ * Modified   : August 7, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
 ?>
 <?php if ( have_posts() ) : ?>
 
-	<div class="entries entries-search">
+	<div class="entries entries--search">
 		<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class(); ?>>
-			<div class="entry">
+		<article <?php post_class( array( 'entries__article', 'entries--search__article' ) ); ?>>
+			<div class="entries__article__entry entry">
 				<?php Habakiri::the_title(); ?>
-				<div class="entry-summary">
+				<div class="entries__article__entry__summary entry-summary">
 					<?php the_excerpt(); ?>
 				<!-- end .entry-summary --></div>
 			<!-- end .entry --></div>

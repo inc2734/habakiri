@@ -6707,8 +6707,8 @@ button.close {
 /*==================================================
  * .search
  *================================================*/
-.search .entries article {
-  margin-bottom: 50px; }
+.entries--search__article {
+  margin-bottom: 40px; }
 
 /*==================================================
  * classes

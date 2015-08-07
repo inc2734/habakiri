@@ -40,7 +40,7 @@ if ( is_archive() ) {
 }
 ?>
 <article <?php post_class( $post_class ); ?>>
-	<div class="entry entries__article__entry">
+	<div class="entries__article__entry entry">
 
 		<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
