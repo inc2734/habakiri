@@ -13,10 +13,10 @@
 
 	<div class="entries entries--search">
 		<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class( array( 'entries__article', 'entries--search__article' ) ); ?>>
-			<div class="entries__article__entry entry">
+		<article <?php post_class( array( 'article' ) ); ?>>
+			<div class="article__entry entry">
 				<?php Habakiri::the_title(); ?>
-				<div class="entries__article__entry__summary entry-summary">
+				<div class="article__entry__summary entry-summary">
 					<?php the_excerpt(); ?>
 				<!-- end .entry-summary --></div>
 			<!-- end .entry --></div>

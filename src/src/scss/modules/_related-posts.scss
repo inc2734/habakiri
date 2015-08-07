@@ -1,16 +1,21 @@
 .related-posts {
-	border-top: #ddd solid 1px;
+	border-top: 1px solid #ddd;
 	margin-top: 30px;
 	padding-top: 30px;
-	h2 {
+
+	&__title {
 		margin: 0 0 20px
 	}
-	.entries {
-		.entry-title {
-			@extend .h4;
+
+	.article {
+		&__entry {
+			&__title {
+				@extend .h4;
+			}
 		}
-		.entry-meta {
-			margin-bottom: 0;
-		}
+	}
+
+	.entry-meta--in-entries {
+		margin-bottom: 0;
 	}
 }

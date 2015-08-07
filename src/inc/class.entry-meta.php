@@ -17,13 +17,15 @@ class Habakiri_Entry_Meta {
 	public function display() {
 		do_action( 'habakiri_before_entry_meta' );
 
-		$classes[] = 'entry-meta';
+		$meta_class      = '';
+		$meta_list_class = '';
 		if ( !is_singular() ) {
-			$classes[] = 'entries__article__entry__meta';
+			$meta_class      = 'entry-meta--in-entries';
+			$meta_list_class = $meta_class . '__list';
 		}
 		?>
-		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
-			<ul>
+		<div class="<?php echo esc_attr( $meta_class ); ?> entry-meta">
+			<ul class="<?php echo esc_attr( $meta_list_class ); ?> entry-meta__list">
 				<?php
 				$entry_meta  = $this->published();
 				$entry_meta .= $this->updated();
@@ -45,7 +47,7 @@ class Habakiri_Entry_Meta {
 	protected function author() {
 		global $post;
 		return sprintf(
-			'<li class="vCard author">%s: <a href="%s"><span class="fn">%s</span></a></li>',
+			'<li class="entry-meta__list__item vCard author">%s: <a href="%s"><span class="fn">%s</span></a></li>',
 			__( 'Author', 'habakiri' ),
 			esc_url( get_author_posts_url( $post->post_author ) ),
 			esc_attr( get_the_author() )
@@ -57,7 +59,7 @@ class Habakiri_Entry_Meta {
 	 */
 	protected function published() {
 		return sprintf(
-			'<li class="published"><time datetime="%s">%s: %s</time></li>',
+			'<li class="entry-meta__list__item published"><time datetime="%s">%s: %s</time></li>',
 			esc_attr( get_the_date( 'c' ) ),
 			__( 'Published', 'habakiri' ),
 			esc_html( get_the_date() )
@@ -69,7 +71,7 @@ class Habakiri_Entry_Meta {
 	 */
 	protected function updated() {
 		return sprintf(
-			'<li class="updated hidden"><time datetime="%s">%s: %s</time></li>',
+			'<li class="entry-meta__list__item updated hidden"><time datetime="%s">%s: %s</time></li>',
 			esc_attr( get_the_modified_date( 'c' ) ),
 			__( 'Updated', 'habakiri' ),
 			esc_html( get_the_modified_date() )
@@ -90,7 +92,7 @@ class Habakiri_Entry_Meta {
 				);
 			}
 			return sprintf(
-				'<li class="categories">%s: %s</li>',
+				'<li class="entry-meta__list__item categories">%s: %s</li>',
 				__( 'Category', 'habakiri' ),
 				implode( ', ', $categories )
 			);
@@ -103,7 +105,7 @@ class Habakiri_Entry_Meta {
 	protected function tags() {
 		if ( $tags_list = get_the_tag_list( '', ', ' ) ) {
 			return sprintf(
-				'<li class="tags">%s: %s</li>',
+				'<li class="entry-meta__list__item tags">%s: %s</li>',
 				__( 'Tags', 'habakiri' ),
 				$tags_list
 			);
@@ -119,7 +121,7 @@ class Habakiri_Entry_Meta {
 		foreach ( $taxonomies as $taxonomy_name ) {
 			$term_list = get_the_term_list( get_the_ID(), $taxonomy_name, '', ', ', '' );
 			$taxonomy = sprintf(
-				'<li class="%s">%s: %s</li>',
+				'<li class="entry-meta__list__item %s">%s: %s</li>',
 				esc_attr( $taxonomy_name ),
 				esc_attr( get_taxonomy( $taxonomy_name)->labels->name ),
 				$term_list

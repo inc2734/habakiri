@@ -2,7 +2,7 @@
  * .entries
  */
 .entries {
-	&__article {
+	.article {
 		&__entry {
 			margin-bottom: 30px;
 
@@ -62,11 +62,6 @@
 						margin-top: 0;
 					}
 				}
-			}
-
-			&__meta {
-				border-bottom: none;
-				padding-bottom: 0;
 			}
 		}
 	}

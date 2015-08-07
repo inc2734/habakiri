@@ -11,7 +11,7 @@
 ?>
 <?php if ( have_posts() ) : ?>
 
-	<div class="entries entries-archive entries--archive">
+	<div class="entries entries--archive entries-archive">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'content' ); ?>
 		<?php endwhile; ?>

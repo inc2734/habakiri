@@ -11,12 +11,12 @@
 ?>
 <?php if ( is_single() ) : ?>
 
-<article>
-	<div class="entry">
+<article class="article">
+	<div class="article__entry entry">
 		<?php Habakiri::the_title(); ?>
 		<?php Habakiri::the_entry_meta(); ?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
-		<div class="entry-content">
+		<div class="article__entry__content entry-content">
 			<?php the_content(); ?>
 		<!-- end .entry-content --></div>
 		<?php do_action( 'habakiri_after_entry_content' ); ?>
@@ -33,32 +33,26 @@
 
 <?php else : ?>
 
-<?php
-$post_class[] = 'entries__article';
-if ( is_archive() ) {
-	$post_class[] = 'entries--archive__article';
-}
-?>
-<article <?php post_class( $post_class ); ?>>
-	<div class="entries__article__entry entry">
+<article <?php post_class( array( 'article' ) ); ?>>
+	<div class="article__entry entry">
 
 		<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
 			<?php Habakiri::the_title(); ?>
-			<div class="entries__article__entry__summary entry-summary">
+			<div class="article__entry__summary entry-summary">
 				<?php the_excerpt(); ?>
 			<!-- end .entry-summary --></div>
 			<?php Habakiri::the_entry_meta(); ?>
 
 		<?php else : ?>
 
-			<div class="summary-with-thumbnail entries__article__entry--has-thumbnail">
-				<div class="summary-with-thumbnail-thumbnail entries__article__entry--has-thumbnail__thumbnail">
+			<div class="article__entry--has-thumbnail summary-with-thumbnail">
+				<div class="article__entry--has-thumbnail__thumbnail summary-with-thumbnail-thumbnail">
 					<?php Habakiri::the_post_thumbnail(); ?>
 				<!-- end .media-left --></div>
-				<div class="summary-with-thumbnail-body entries__article__entry--has-thumbnail__body">
+				<div class="article__entry--has-thumbnail__body summary-with-thumbnail-body">
 					<?php Habakiri::the_title(); ?>
-					<div class="entries__article__entry__summary entry-summary">
+					<div class="article__entry__summary entry-summary">
 						<?php the_excerpt(); ?>
 					<!-- end .entry-summary --></div>
 					<?php Habakiri::the_entry_meta(); ?>
