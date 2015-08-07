@@ -5837,8 +5837,16 @@ object {
 /**
  * table
  */
-table small {
-  font-weight: normal; }
+table {
+  margin-bottom: 11.5px; }
+  table small {
+    font-weight: normal; }
+
+/**
+ * list
+ */
+dl {
+  margin-bottom: 11.5px; }
 
 /*==================================================
  * WordPress Classes
