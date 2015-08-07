@@ -157,18 +157,18 @@ class Habakiri_Base_Functions {
 	public static function the_comments( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		?>
-		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="comment-item">
-				<dt class="comment-header">
-					<div class="comment-author">
+		<li <?php comment_class( array( 'commentarea__comments__list__comment' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="commentarea__comments__list__comment__item comment-item">
+				<dt class="commentarea__comments__list__comment__item__header comment-header">
+					<div class="commentarea__comments__list__comment__item__header__author comment-author">
 						<?php echo get_avatar( $comment, '48' ); ?>
 					<!-- end .comment-author --></div>
 				</dt>
-				<dd class="comment-body">
+				<dd class="commentarea__comments__list__comment__item__body comment-body">
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', 'habakiri' ) ?></em>
 					<?php endif; ?>
-					<div class="comment-meta commentmetadata vcard">
+					<div class="commentarea__comments__list__comment__item__body__meta comment-meta commentmetadata vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -192,10 +192,40 @@ class Habakiri_Base_Functions {
 					);
 					?>
 					<?php if ( !empty( $comment_reply_link ) ) : ?>
-					<div class="reply btn btn-sm btn-primary">
+					<div class="commentarea__comments__list__comment__item__body__reply reply btn btn-sm btn-primary">
 						<?php echo $comment_reply_link; ?>
 					<!-- end .reply --></div>
 					<?php endif; ?>
+				</dd>
+			</dl>
+		<?php
+	}
+
+	/**
+	 * トラックバックを表示
+	 *
+	 * @param object $comment
+	 * @param array $args
+	 * @param int $depth
+	 */
+	public static function the_pings( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+		?>
+		<li <?php comment_class( array( 'commentarea__trackbacks__list__trackback' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="commentarea__trackbacks__list__trackback__item comment-item">
+				<dd class="commentarea__trackbacks__list__trackback__item__body comment-body">
+					<div class="commentarea__trackbacks__list__trackback__item__body__meta comment-meta commentmetadata vcard">
+						<?php
+						printf(
+							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
+							get_comment_author_link(),
+							get_comment_date(),
+							get_comment_time()
+						);
+						edit_comment_link( 'edit', '  ', '' );
+						?>
+					<!-- end .comment-meta --></div>
+					<?php comment_text() ?>
 				</dd>
 			</dl>
 		<?php

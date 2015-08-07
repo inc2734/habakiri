@@ -1,108 +1,127 @@
-#comments, #trackback {
-	border-top: #ddd solid 1px;
-	margin-top: 30px;
-	padding-top: 30px;
-	h2 {
-		margin: 0 0 20px
-	}
-}
+.commentarea {
+	&__comments, &__trackbacks {
+		border-top: 1px solid #ddd;
+		margin-top: 30px;
+		padding-top: 30px;
 
-#comment-form {
-	input[type="text"],
-	input[type="email"],
-	input[type="url"],
-	textarea {
-		@extend .form-control;
+		&__title {
+			margin: 0 0 20px
+		}
 	}
-	#submit {
-		@extend .btn;
-		@extend .btn-default;
-	}
-}
 
-.commentlist {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	.comment {
-		margin-left: 0;
-		padding-left: 0;
-		.comment-item {
-			margin: 0;
-			margin-bottom: 10px;
-			padding: 0;
-			.comment-header {
-				float: left;
-				margin-right: 10px;
-				.comment-author {
-					font-size: $font-size-small;
-					line-height: 1.4;
-					width: 50px;
-					img {
-						margin: 0 0 5px;
-					}
-					cite.fn {}
-				}
-			}
-			.comment-body {
-				@include clearfix();
-				border: #ddd solid 1px;
-				border-radius: 5px;
-				padding: 20px 20px 10px;
-				overflow: hidden;
-				*zoom: 1;
-				.comment-meta {
-					font-size: $font-size-small;
-					margin-bottom: 10px;
-				}
-				.reply {
-					margin-bottom: 10px;
-					a {
-						color: #fff;
-						text-decoration: none;
-					}
-				}
-				p {
-					margin: 0 0 10px;
-				}
-			}
-		}
-		&.bypostauthor .comment-item .comment-header {
-			float: right;
-			margin: 0 0 0 10px;
-		}
-		ul.children {
+	&__comments {
+		&__list {
 			list-style: none;
 			margin: 0;
-			padding: 0 0 0 70px;
-			li {}
+			padding: 0;
+
+			&__comment {
+				margin-left: 0;
+				padding-left: 0;
+
+				&__item {
+					margin: 0;
+					margin-bottom: 10px;
+					padding: 0;
+
+					&__header {
+						float: left;
+						margin-right: 10px;
+
+						&__author {
+							font-size: $font-size-small;
+							line-height: 1.4;
+							width: 50px;
+
+							img {
+								margin: 0 0 5px;
+							}
+						}
+
+						.bypostauthor & {
+							float: right;
+							margin: 0 0 0 10px;
+						}
+					}
+
+					&__body {
+						@extend .clearfix;
+						border: 1px solid #ddd;
+						border-radius: 5px;
+						padding: 20px 20px 10px;
+						overflow: hidden;
+
+						&__meta {
+							font-size: $font-size-small;
+							margin-bottom: 10px;
+						}
+
+						&__reply {
+							margin-bottom: 10px;
+
+							a {
+								color: #fff;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
+				.children {
+					list-style: none;
+					margin: 0;
+					padding: 0 0 0 60px;
+				}
+			}
+		}
+
+		&__form {
+			input[type="text"],
+			input[type="email"],
+			input[type="url"],
+			textarea {
+				@extend .form-control;
+			}
+
+			#submit {
+				@extend .btn;
+				@extend .btn-default;
+			}
+		}
+	}
+
+	&__trackbacks {
+		&__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			&__trackback {
+				&__item {
+					border-left: 3px solid $gray-lighter;
+					margin: 0 0 20px;
+					padding-left: 20px;
+
+					&__body {
+						margin-left: 0;
+					}
+
+					&__meta {
+						.fn {
+							display: block;
+						}
+					}
+				}
+			}
 		}
 	}
 }
+
 
 .reply-title {
 	@extend .h4;
 }
 
-.trackbacklist {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	.pingback, .trackback {
-		border-left: $gray-lighter solid 3px;
-		margin-left: 0;
-		padding-left: 20px;
-		.comment-body {
-			margin-left: 0;
-			.comment-meta .fn {
-				display: block;
-			}
-			p, ul, ol, dl, table {
-				margin-top: 10px;
-			}
-		}
-	}
-}
 #tburl {
 	@extend .form-control;
 }
