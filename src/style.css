@@ -6716,9 +6716,12 @@ button.close {
   @media (min-width: 768px) {
     .page-header {
       background-attachment: fixed; } }
-  .page-header h1 {
+  .page-header__title {
     font-size: 28px;
     margin: 0; }
+  .page-header__description {
+    margin-top: 20px;
+    margin-bottom: -11.5px; }
 
 /**
  * .no-page-header
@@ -6726,13 +6729,6 @@ button.close {
 .no-page-header {
   height: 40px;
   visibility: hidden; }
-
-/**
- * .page-header-description
- */
-.page-header-description {
-  margin-top: 20px;
-  margin-bottom: -11.5px; }
 
 .bread-crumb {
   margin-bottom: 20px;

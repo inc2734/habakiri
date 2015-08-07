@@ -6,12 +6,19 @@
 	background-size: cover;
 	margin: 0 0 40px;
 	padding: 64px 0;
+
 	@media ( min-width: $screen-sm-min ) {
 		background-attachment: fixed;
 	}
-	h1 {
+
+	&__title {
 		font-size: 28px;
 		margin: 0;
+	}
+
+	&__description {
+		margin-top: 20px;
+		margin-bottom: -($line-height-computed / 2);
 	}
 }
 
@@ -21,12 +28,4 @@
 .no-page-header {
 	height: 40px;
 	visibility: hidden;
-}
-
-/**
- * .page-header-description
- */
-.page-header-description {
-	margin-top: 20px;
-	margin-bottom: -($line-height-computed / 2);
 }

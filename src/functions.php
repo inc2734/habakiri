@@ -404,12 +404,12 @@ class Habakiri_Base_Functions {
 		?>
 		<div class="page-header text-center" <?php if ( get_header_image() ) : ?>style="background-image: url( <?php header_image(); ?> )"<?php endif; ?>>
 			<div class="container">
-				<h1 <?php if ( !empty( $class ) ) : ?>class="<?php echo esc_attr( $class ); ?>"<?php endif; ?>>
+				<h1 class="page-header__title <?php echo ( !empty( $class ) ) ? esc_attr( $class ) : ''; ?>">
 					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
 				</h1>
 				<?php while ( have_posts() ) : the_post(); ?>
 				<?php if ( is_page() && get_the_excerpt() && !empty( $post->post_excerpt ) && Habakiri::get( 'is_displaying_page_header_lead' ) !== 'false' ) : ?>
-				<div class="page-header-description">
+				<div class="page-header__description page-header-description">
 					<?php the_excerpt(); ?>
 				<!-- end .page-description --></div>
 				<?php endif; ?>
