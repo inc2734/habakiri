@@ -1,18 +1,26 @@
 <?php
 /**
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 28, 2015
+ * Modified   : August 7, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
 ?>
-<article>
-	<div class="entry">
+<?php
+$modifer = 'none';
+if ( is_404() ) {
+	$modifer = '404';
+} elseif ( is_search() ) {
+	$modifer = 'search';
+}
+?>
+<article class="entries__article entries__article--<?php echo esc_attr( $modifer ); ?>">
+	<div class="entries__article__entry entries__article--<?php echo esc_attr( $modifer ); ?>__entry entry">
 
-		<div class="entry-content">
+		<div class="entries__article__entry__content entries__article--<?php echo esc_attr( $modifer ); ?>__entry__content entry-content">
 
 			<?php if ( is_404() ) : ?>
 
