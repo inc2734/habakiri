@@ -4,8 +4,10 @@
 .footer-widget-area {
 	font-size: $font-size-small;
 	padding: 60px 0 0;
+}
 
-	.widgettitle {
+.footer__widget {
+	&__title {
 		font-size: $font-size-large;
 		font-weight: normal;
 		margin: 0 0 20px;
