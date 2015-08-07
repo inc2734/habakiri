@@ -19,7 +19,7 @@ class Habakiri_Entry_Meta {
 
 		$classes[] = 'entry-meta';
 		if ( !is_singular() ) {
-			$classes[] = 'entries__article__entry__entry-meta';
+			$classes[] = 'entries__article__entry__meta';
 		}
 		?>
 		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
