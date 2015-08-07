@@ -6735,7 +6735,7 @@ button.close {
   font-size: 12px;
   color: #777777; }
 
-.sticky .entry-title:before {
+.sticky .article__entry__title:before {
   content: 'FEATURED';
   display: inline-block;
   background-color: #333333;
