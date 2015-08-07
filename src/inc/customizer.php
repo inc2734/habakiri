@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.3.0
- * Author     : Takashi Kitajima
+ * Version    : 1.3.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 31, 2015
+ * Modified   : August 7, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -132,7 +132,7 @@ class Habakiri_Customizer {
 				'link_hover_color'               => '#23527c',
 				'gnav_link_color'                => '#000',
 				'gnav_link_hover_color'          => '#337ab7',
-				'gnav_pulldown_link_color'       => '#777',
+				'gnav_pulldown_link_color'       => '#151515',
 				'gnav_pulldown_bg_color'         => '#000',
 				'gnav_pulldown_bg_hover_color'   => '#222',
 				'header_bg_color'                => '#fff',

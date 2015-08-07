@@ -158,6 +158,7 @@ add_filter( 'foo', 'your_filter' );
 * Fixed offcanvas-nav bugs.
 * Fixed mistake of license.
 * Fixed comment form css bug.
+* Changed global navigation pulldown menu background color.
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.
