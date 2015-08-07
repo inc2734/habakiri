@@ -18,11 +18,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.3
- * Author     : Takashi Kitajima
+ * Version    : 1.1.4
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 28, 2015
+ * Modified   : August 8, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -411,7 +411,7 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="no-thumbnail-text">
+				<span class="no-thumbnail-text entries__article__entry--has-thumbnail__thumbnail__no-thumbnail-text">
 					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>
@@ -519,7 +519,7 @@ class Habakiri_Base_Functions {
 		<?php elseif ( is_singular() ) : ?>
 		<h1 class="entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
-		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
+		<h1 class="entries__article__entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );

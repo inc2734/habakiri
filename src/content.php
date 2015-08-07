@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.3.0
- * Author     : Takashi Kitajima
+ * Version    : 1.3.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 28, 2015
+ * Modified   : August 7, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -33,26 +33,32 @@
 
 <?php else : ?>
 
-<article <?php post_class(); ?>>
-	<div class="entry">
+<?php
+$post_class[] = 'entries__article';
+if ( is_archive() ) {
+	$post_class[] = 'entries--archive__article';
+}
+?>
+<article <?php post_class( $post_class ); ?>>
+	<div class="entry entries__article__entry">
 
 		<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
 			<?php Habakiri::the_title(); ?>
-			<div class="entry-summary">
+			<div class="entries__article__entry__summary entry-summary">
 				<?php the_excerpt(); ?>
 			<!-- end .entry-summary --></div>
 			<?php Habakiri::the_entry_meta(); ?>
 
 		<?php else : ?>
 
-			<div class="summary-with-thumbnail">
-				<div class="summary-with-thumbnail-thumbnail">
+			<div class="summary-with-thumbnail entries__article__entry--has-thumbnail">
+				<div class="summary-with-thumbnail-thumbnail entries__article__entry--has-thumbnail__thumbnail">
 					<?php Habakiri::the_post_thumbnail(); ?>
 				<!-- end .media-left --></div>
-				<div class="summary-with-thumbnail-body">
+				<div class="summary-with-thumbnail-body entries__article__entry--has-thumbnail__body">
 					<?php Habakiri::the_title(); ?>
-					<div class="entry-summary">
+					<div class="entries__article__entry__summary entry-summary">
 						<?php the_excerpt(); ?>
 					<!-- end .entry-summary --></div>
 					<?php Habakiri::the_entry_meta(); ?>

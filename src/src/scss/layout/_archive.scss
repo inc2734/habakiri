@@ -2,28 +2,46 @@
  * .entries
  */
 .entries {
-	.hentry {
-		margin-bottom: 30px;
-		.summary-with-thumbnail {
-			&-thumbnail {
-				float: left;
-				width: 60px;
-				a {
-					@include square( 48px );
-					color: #fff;
-					display: block;
-					font-size: $font-size-large;
-					font-weight: bold;
-					overflow: hidden;
-					text-align: center;
-					text-decoration: none;
-					vertical-align: middle;
-					.no-thumbnail-text {
+	&__article {
+		&__entry {
+			margin-bottom: 30px;
+
+			&--has-thumbnail {
+				&__thumbnail {
+					float: left;
+					width: 60px;
+
+					@media ( min-width: $screen-sm-min ) {
+						width: 84px;
+					}
+
+					a {
+						@include square( 48px );
+						color: #fff;
+						display: block;
+						font-size: $font-size-large;
+						font-weight: bold;
+						overflow: hidden;
+						text-align: center;
+						text-decoration: none;
+						vertical-align: middle;
+
+						@media ( min-width: $screen-sm-min ) {
+							@include square( 64px );
+						}
+					}
+
+					&__no-thumbnail-text {
 						@include square( 48px );
 						display: table-cell;
 						vertical-align: middle;
 						position: relative;
 						top: -2px;
+
+						@media ( min-width: $screen-sm-min ) {
+							@include square( 64px );
+						}
+
 						&:after {
 							content: '';
 							display: block;
@@ -36,25 +54,19 @@
 						}
 					}
 				}
-				@media ( min-width: $screen-sm-min ) {
-					width: 84px;
-					a {
-						@include square( 64px );
-						.no-thumbnail-text {
-							@include square( 64px );
-						}
+
+				&__body {
+					overflow: hidden;
+
+					&__title {
+						margin-top: 0;
 					}
 				}
 			}
-			&-body {
-				overflow: hidden;
-				.entry-title {
-					margin-top: 0;
-				}
-				.entry-meta {
-					border-bottom: none;
-					padding-bottom: 0;
-				}
+
+			&__entry-meta {
+				border-bottom: none;
+				padding-bottom: 0;
 			}
 		}
 	}

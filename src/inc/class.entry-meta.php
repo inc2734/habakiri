@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Entry Meta
- * Version    : 1.0.0
- * Author     : Takashi Kitajima
+ * Version    : 1.0.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : 
+ * Modified   : August 7, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -16,8 +16,13 @@ class Habakiri_Entry_Meta {
 	 */
 	public function display() {
 		do_action( 'habakiri_before_entry_meta' );
+
+		$classes[] = 'entry-meta';
+		if ( !is_singular() ) {
+			$classes[] = 'entries__article__entry__entry-meta';
+		}
 		?>
-		<div class="entry-meta">
+		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>">
 			<ul>
 				<?php
 				$entry_meta  = $this->published();
