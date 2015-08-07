@@ -2251,7 +2251,10 @@ output {
   line-height: 1.7;
   color: #555555; }
 
-.form-control, #comment-form input[type="text"], #comment-form textarea, #tburl, .search-form .search-field,
+.form-control, #comment-form input[type="text"],
+#comment-form input[type="email"],
+#comment-form input[type="url"],
+#comment-form textarea, #tburl, .search-form .search-field,
 .widget_search .search-field {
   display: block;
   width: 100%;
@@ -2269,35 +2272,54 @@ output {
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; }
-  .form-control:focus, #comment-form input[type="text"]:focus, #comment-form textarea:focus, #tburl:focus, .search-form .search-field:focus,
+  .form-control:focus, #comment-form input[type="text"]:focus,
+  #comment-form input[type="email"]:focus,
+  #comment-form input[type="url"]:focus,
+  #comment-form textarea:focus, #tburl:focus, .search-form .search-field:focus,
   .widget_search .search-field:focus {
     border-color: #66afe9;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
-  .form-control::-moz-placeholder, #comment-form input[type="text"]::-moz-placeholder, #comment-form textarea::-moz-placeholder, #tburl::-moz-placeholder, .search-form .search-field::-moz-placeholder,
+  .form-control::-moz-placeholder, #comment-form input[type="text"]::-moz-placeholder,
+  #comment-form input[type="email"]::-moz-placeholder,
+  #comment-form input[type="url"]::-moz-placeholder,
+  #comment-form textarea::-moz-placeholder, #tburl::-moz-placeholder, .search-form .search-field::-moz-placeholder,
   .widget_search .search-field::-moz-placeholder {
     color: #999;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, #comment-form input[type="text"]:-ms-input-placeholder, #comment-form textarea:-ms-input-placeholder, #tburl:-ms-input-placeholder, .search-form .search-field:-ms-input-placeholder,
+  .form-control:-ms-input-placeholder, #comment-form input[type="text"]:-ms-input-placeholder,
+  #comment-form input[type="email"]:-ms-input-placeholder,
+  #comment-form input[type="url"]:-ms-input-placeholder,
+  #comment-form textarea:-ms-input-placeholder, #tburl:-ms-input-placeholder, .search-form .search-field:-ms-input-placeholder,
   .widget_search .search-field:-ms-input-placeholder {
     color: #999; }
-  .form-control::-webkit-input-placeholder, #comment-form input[type="text"]::-webkit-input-placeholder, #comment-form textarea::-webkit-input-placeholder, #tburl::-webkit-input-placeholder, .search-form .search-field::-webkit-input-placeholder,
+  .form-control::-webkit-input-placeholder, #comment-form input[type="text"]::-webkit-input-placeholder,
+  #comment-form input[type="email"]::-webkit-input-placeholder,
+  #comment-form input[type="url"]::-webkit-input-placeholder,
+  #comment-form textarea::-webkit-input-placeholder, #tburl::-webkit-input-placeholder, .search-form .search-field::-webkit-input-placeholder,
   .widget_search .search-field::-webkit-input-placeholder {
     color: #999; }
   .form-control[disabled],
   #comment-form input[disabled][type="text"],
+  #comment-form input[disabled][type="email"],
+  #comment-form input[disabled][type="url"],
   #comment-form textarea[disabled],
   [disabled]#tburl,
   .search-form [disabled].search-field,
   .widget_search [disabled].search-field,
   .form-control[readonly],
   #comment-form input[readonly][type="text"],
+  #comment-form input[readonly][type="email"],
+  #comment-form input[readonly][type="url"],
   #comment-form textarea[readonly],
   [readonly]#tburl,
   .search-form [readonly].search-field,
   .widget_search [readonly].search-field,
-  fieldset[disabled] .form-control, fieldset[disabled] #comment-form input[type="text"], #comment-form fieldset[disabled] input[type="text"], fieldset[disabled] #comment-form textarea, #comment-form fieldset[disabled] textarea, fieldset[disabled] #tburl, fieldset[disabled] .search-form .search-field, .search-form fieldset[disabled] .search-field,
+  fieldset[disabled] .form-control, fieldset[disabled] #comment-form input[type="text"], #comment-form fieldset[disabled] input[type="text"],
+  fieldset[disabled] #comment-form input[type="email"], #comment-form fieldset[disabled] input[type="email"],
+  fieldset[disabled] #comment-form input[type="url"], #comment-form fieldset[disabled] input[type="url"],
+  fieldset[disabled] #comment-form textarea, #comment-form fieldset[disabled] textarea, fieldset[disabled] #tburl, fieldset[disabled] .search-form .search-field, .search-form fieldset[disabled] .search-field,
   fieldset[disabled] .widget_search .search-field, .widget_search fieldset[disabled] .search-field {
     cursor: not-allowed;
     background-color: #eeeeee;
@@ -2318,7 +2340,10 @@ input[type="search"] {
     line-height: 37px; }
     input[type="date"].input-sm,
     .input-group-sm > input[type="date"].form-control,
-    #comment-form .input-group-sm > input[type="date"][type="text"], .input-group-sm > input[type="date"]#tburl,
+    #comment-form .input-group-sm > input[type="date"][type="text"],
+    #comment-form .input-group-sm > input[type="date"][type="email"],
+    #comment-form .input-group-sm > input[type="date"][type="url"],
+    .input-group-sm > input[type="date"]#tburl,
     .search-form .input-group-sm > input[type="date"].search-field,
     .widget_search .input-group-sm > input[type="date"].search-field, .input-group-sm > input[type="date"].input-group-addon,
     .input-group-sm > .input-group-btn > input[type="date"].btn,
@@ -2326,7 +2351,10 @@ input[type="search"] {
     .widget_search .input-group-sm > .input-group-btn > input[type="date"].search-submit, .input-group-sm input[type="date"],
     input[type="time"].input-sm,
     .input-group-sm > input[type="time"].form-control,
-    #comment-form .input-group-sm > input[type="time"][type="text"], .input-group-sm > input[type="time"]#tburl,
+    #comment-form .input-group-sm > input[type="time"][type="text"],
+    #comment-form .input-group-sm > input[type="time"][type="email"],
+    #comment-form .input-group-sm > input[type="time"][type="url"],
+    .input-group-sm > input[type="time"]#tburl,
     .search-form .input-group-sm > input[type="time"].search-field,
     .widget_search .input-group-sm > input[type="time"].search-field, .input-group-sm > input[type="time"].input-group-addon,
     .input-group-sm > .input-group-btn > input[type="time"].btn,
@@ -2334,7 +2362,10 @@ input[type="search"] {
     .widget_search .input-group-sm > .input-group-btn > input[type="time"].search-submit, .input-group-sm input[type="time"],
     input[type="datetime-local"].input-sm,
     .input-group-sm > input[type="datetime-local"].form-control,
-    #comment-form .input-group-sm > input[type="datetime-local"][type="text"], .input-group-sm > input[type="datetime-local"]#tburl,
+    #comment-form .input-group-sm > input[type="datetime-local"][type="text"],
+    #comment-form .input-group-sm > input[type="datetime-local"][type="email"],
+    #comment-form .input-group-sm > input[type="datetime-local"][type="url"],
+    .input-group-sm > input[type="datetime-local"]#tburl,
     .search-form .input-group-sm > input[type="datetime-local"].search-field,
     .widget_search .input-group-sm > input[type="datetime-local"].search-field, .input-group-sm > input[type="datetime-local"].input-group-addon,
     .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
@@ -2342,7 +2373,10 @@ input[type="search"] {
     .widget_search .input-group-sm > .input-group-btn > input[type="datetime-local"].search-submit, .input-group-sm input[type="datetime-local"],
     input[type="month"].input-sm,
     .input-group-sm > input[type="month"].form-control,
-    #comment-form .input-group-sm > input[type="month"][type="text"], .input-group-sm > input[type="month"]#tburl,
+    #comment-form .input-group-sm > input[type="month"][type="text"],
+    #comment-form .input-group-sm > input[type="month"][type="email"],
+    #comment-form .input-group-sm > input[type="month"][type="url"],
+    .input-group-sm > input[type="month"]#tburl,
     .search-form .input-group-sm > input[type="month"].search-field,
     .widget_search .input-group-sm > input[type="month"].search-field, .input-group-sm > input[type="month"].input-group-addon,
     .input-group-sm > .input-group-btn > input[type="month"].btn,
@@ -2351,7 +2385,10 @@ input[type="search"] {
       line-height: 30px; }
     input[type="date"].input-lg,
     .input-group-lg > input[type="date"].form-control,
-    #comment-form .input-group-lg > input[type="date"][type="text"], .input-group-lg > input[type="date"]#tburl,
+    #comment-form .input-group-lg > input[type="date"][type="text"],
+    #comment-form .input-group-lg > input[type="date"][type="email"],
+    #comment-form .input-group-lg > input[type="date"][type="url"],
+    .input-group-lg > input[type="date"]#tburl,
     .search-form .input-group-lg > input[type="date"].search-field,
     .widget_search .input-group-lg > input[type="date"].search-field, .input-group-lg > input[type="date"].input-group-addon,
     .input-group-lg > .input-group-btn > input[type="date"].btn,
@@ -2359,7 +2396,10 @@ input[type="search"] {
     .widget_search .input-group-lg > .input-group-btn > input[type="date"].search-submit, .input-group-lg input[type="date"],
     input[type="time"].input-lg,
     .input-group-lg > input[type="time"].form-control,
-    #comment-form .input-group-lg > input[type="time"][type="text"], .input-group-lg > input[type="time"]#tburl,
+    #comment-form .input-group-lg > input[type="time"][type="text"],
+    #comment-form .input-group-lg > input[type="time"][type="email"],
+    #comment-form .input-group-lg > input[type="time"][type="url"],
+    .input-group-lg > input[type="time"]#tburl,
     .search-form .input-group-lg > input[type="time"].search-field,
     .widget_search .input-group-lg > input[type="time"].search-field, .input-group-lg > input[type="time"].input-group-addon,
     .input-group-lg > .input-group-btn > input[type="time"].btn,
@@ -2367,7 +2407,10 @@ input[type="search"] {
     .widget_search .input-group-lg > .input-group-btn > input[type="time"].search-submit, .input-group-lg input[type="time"],
     input[type="datetime-local"].input-lg,
     .input-group-lg > input[type="datetime-local"].form-control,
-    #comment-form .input-group-lg > input[type="datetime-local"][type="text"], .input-group-lg > input[type="datetime-local"]#tburl,
+    #comment-form .input-group-lg > input[type="datetime-local"][type="text"],
+    #comment-form .input-group-lg > input[type="datetime-local"][type="email"],
+    #comment-form .input-group-lg > input[type="datetime-local"][type="url"],
+    .input-group-lg > input[type="datetime-local"]#tburl,
     .search-form .input-group-lg > input[type="datetime-local"].search-field,
     .widget_search .input-group-lg > input[type="datetime-local"].search-field, .input-group-lg > input[type="datetime-local"].input-group-addon,
     .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
@@ -2375,7 +2418,10 @@ input[type="search"] {
     .widget_search .input-group-lg > .input-group-btn > input[type="datetime-local"].search-submit, .input-group-lg input[type="datetime-local"],
     input[type="month"].input-lg,
     .input-group-lg > input[type="month"].form-control,
-    #comment-form .input-group-lg > input[type="month"][type="text"], .input-group-lg > input[type="month"]#tburl,
+    #comment-form .input-group-lg > input[type="month"][type="text"],
+    #comment-form .input-group-lg > input[type="month"][type="email"],
+    #comment-form .input-group-lg > input[type="month"][type="url"],
+    .input-group-lg > input[type="month"]#tburl,
     .search-form .input-group-lg > input[type="month"].search-field,
     .widget_search .input-group-lg > input[type="month"].search-field, .input-group-lg > input[type="month"].input-group-addon,
     .input-group-lg > .input-group-btn > input[type="month"].btn,
@@ -2452,13 +2498,19 @@ fieldset[disabled] .checkbox label {
   margin-bottom: 0; }
   .form-control-static.input-lg,
   .input-group-lg > .form-control-static.form-control,
-  #comment-form .input-group-lg > input.form-control-static[type="text"], #comment-form .input-group-lg > textarea.form-control-static, .input-group-lg > .form-control-static#tburl,
+  #comment-form .input-group-lg > input.form-control-static[type="text"],
+  #comment-form .input-group-lg > input.form-control-static[type="email"],
+  #comment-form .input-group-lg > input.form-control-static[type="url"],
+  #comment-form .input-group-lg > textarea.form-control-static, .input-group-lg > .form-control-static#tburl,
   .search-form .input-group-lg > .form-control-static.search-field,
   .widget_search .input-group-lg > .form-control-static.search-field, .input-group-lg > .form-control-static.input-group-addon,
   .input-group-lg > .input-group-btn > .form-control-static.btn,
   #comment-form .input-group-lg > .input-group-btn > .form-control-static#submit, .search-form .input-group-lg > .input-group-btn > .form-control-static.search-submit,
   .widget_search .input-group-lg > .input-group-btn > .form-control-static.search-submit, .form-control-static.input-sm, .input-group-sm > .form-control-static.form-control,
-  #comment-form .input-group-sm > input.form-control-static[type="text"], #comment-form .input-group-sm > textarea.form-control-static, .input-group-sm > .form-control-static#tburl,
+  #comment-form .input-group-sm > input.form-control-static[type="text"],
+  #comment-form .input-group-sm > input.form-control-static[type="email"],
+  #comment-form .input-group-sm > input.form-control-static[type="url"],
+  #comment-form .input-group-sm > textarea.form-control-static, .input-group-sm > .form-control-static#tburl,
   .search-form .input-group-sm > .form-control-static.search-field,
   .widget_search .input-group-sm > .form-control-static.search-field, .input-group-sm > .form-control-static.input-group-addon,
   .input-group-sm > .input-group-btn > .form-control-static.btn, #comment-form .input-group-sm > .input-group-btn > .form-control-static#submit, .search-form .input-group-sm > .input-group-btn > .form-control-static.search-submit,
@@ -2467,7 +2519,10 @@ fieldset[disabled] .checkbox label {
     padding-right: 0; }
 
 .input-sm, .input-group-sm > .form-control,
-#comment-form .input-group-sm > input[type="text"], #comment-form .input-group-sm > textarea, .input-group-sm > #tburl,
+#comment-form .input-group-sm > input[type="text"],
+#comment-form .input-group-sm > input[type="email"],
+#comment-form .input-group-sm > input[type="url"],
+#comment-form .input-group-sm > textarea, .input-group-sm > #tburl,
 .search-form .input-group-sm > .search-field,
 .widget_search .input-group-sm > .search-field, .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn, #comment-form .input-group-sm > .input-group-btn > #submit, .search-form .input-group-sm > .input-group-btn > .search-submit,
@@ -2502,7 +2557,10 @@ textarea.input-sm,
 .widget_search .input-group-sm > .input-group-btn > select[multiple].search-submit {
   height: auto; }
 
-.form-group-sm .form-control, .form-group-sm #comment-form input[type="text"], #comment-form .form-group-sm input[type="text"], .form-group-sm #comment-form textarea, #comment-form .form-group-sm textarea, .form-group-sm #tburl, .form-group-sm .search-form .search-field, .search-form .form-group-sm .search-field,
+.form-group-sm .form-control, .form-group-sm #comment-form input[type="text"], #comment-form .form-group-sm input[type="text"],
+.form-group-sm #comment-form input[type="email"], #comment-form .form-group-sm input[type="email"],
+.form-group-sm #comment-form input[type="url"], #comment-form .form-group-sm input[type="url"],
+.form-group-sm #comment-form textarea, #comment-form .form-group-sm textarea, .form-group-sm #tburl, .form-group-sm .search-form .search-field, .search-form .form-group-sm .search-field,
 .form-group-sm .widget_search .search-field, .widget_search .form-group-sm .search-field {
   height: 30px;
   padding: 5px 10px;
@@ -2532,7 +2590,10 @@ textarea.input-sm,
   line-height: 1.5; }
 
 .input-lg, .input-group-lg > .form-control,
-#comment-form .input-group-lg > input[type="text"], #comment-form .input-group-lg > textarea, .input-group-lg > #tburl,
+#comment-form .input-group-lg > input[type="text"],
+#comment-form .input-group-lg > input[type="email"],
+#comment-form .input-group-lg > input[type="url"],
+#comment-form .input-group-lg > textarea, .input-group-lg > #tburl,
 .search-form .input-group-lg > .search-field,
 .widget_search .input-group-lg > .search-field, .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn, #comment-form .input-group-lg > .input-group-btn > #submit, .search-form .input-group-lg > .input-group-btn > .search-submit,
@@ -2567,7 +2628,10 @@ textarea.input-lg,
 .widget_search .input-group-lg > .input-group-btn > select[multiple].search-submit {
   height: auto; }
 
-.form-group-lg .form-control, .form-group-lg #comment-form input[type="text"], #comment-form .form-group-lg input[type="text"], .form-group-lg #comment-form textarea, #comment-form .form-group-lg textarea, .form-group-lg #tburl, .form-group-lg .search-form .search-field, .search-form .form-group-lg .search-field,
+.form-group-lg .form-control, .form-group-lg #comment-form input[type="text"], #comment-form .form-group-lg input[type="text"],
+.form-group-lg #comment-form input[type="email"], #comment-form .form-group-lg input[type="email"],
+.form-group-lg #comment-form input[type="url"], #comment-form .form-group-lg input[type="url"],
+.form-group-lg #comment-form textarea, #comment-form .form-group-lg textarea, .form-group-lg #tburl, .form-group-lg .search-form .search-field, .search-form .form-group-lg .search-field,
 .form-group-lg .widget_search .search-field, .widget_search .form-group-lg .search-field {
   height: 46px;
   padding: 10px 16px;
@@ -2598,7 +2662,10 @@ textarea.input-lg,
 
 .has-feedback {
   position: relative; }
-  .has-feedback .form-control, .has-feedback #comment-form input[type="text"], #comment-form .has-feedback input[type="text"], .has-feedback #comment-form textarea, #comment-form .has-feedback textarea, .has-feedback #tburl, .has-feedback .search-form .search-field, .search-form .has-feedback .search-field,
+  .has-feedback .form-control, .has-feedback #comment-form input[type="text"], #comment-form .has-feedback input[type="text"],
+  .has-feedback #comment-form input[type="email"], #comment-form .has-feedback input[type="email"],
+  .has-feedback #comment-form input[type="url"], #comment-form .has-feedback input[type="url"],
+  .has-feedback #comment-form textarea, #comment-form .has-feedback textarea, .has-feedback #tburl, .has-feedback .search-form .search-field, .search-form .has-feedback .search-field,
   .has-feedback .widget_search .search-field, .widget_search .has-feedback .search-field {
     padding-right: 46.25px; }
 
@@ -2615,7 +2682,10 @@ textarea.input-lg,
   pointer-events: none; }
 
 .input-lg + .form-control-feedback, .input-group-lg > .form-control + .form-control-feedback,
-#comment-form .input-group-lg > input[type="text"] + .form-control-feedback, #comment-form .input-group-lg > textarea + .form-control-feedback, .input-group-lg > #tburl + .form-control-feedback,
+#comment-form .input-group-lg > input[type="text"] + .form-control-feedback,
+#comment-form .input-group-lg > input[type="email"] + .form-control-feedback,
+#comment-form .input-group-lg > input[type="url"] + .form-control-feedback,
+#comment-form .input-group-lg > textarea + .form-control-feedback, .input-group-lg > #tburl + .form-control-feedback,
 .search-form .input-group-lg > .search-field + .form-control-feedback,
 .widget_search .input-group-lg > .search-field + .form-control-feedback, .input-group-lg > .input-group-addon + .form-control-feedback,
 .input-group-lg > .input-group-btn > .btn + .form-control-feedback, #comment-form .input-group-lg > .input-group-btn > #submit + .form-control-feedback, .search-form .input-group-lg > .input-group-btn > .search-submit + .form-control-feedback,
@@ -2625,7 +2695,10 @@ textarea.input-lg,
   line-height: 46px; }
 
 .input-sm + .form-control-feedback, .input-group-sm > .form-control + .form-control-feedback,
-#comment-form .input-group-sm > input[type="text"] + .form-control-feedback, #comment-form .input-group-sm > textarea + .form-control-feedback, .input-group-sm > #tburl + .form-control-feedback,
+#comment-form .input-group-sm > input[type="text"] + .form-control-feedback,
+#comment-form .input-group-sm > input[type="email"] + .form-control-feedback,
+#comment-form .input-group-sm > input[type="url"] + .form-control-feedback,
+#comment-form .input-group-sm > textarea + .form-control-feedback, .input-group-sm > #tburl + .form-control-feedback,
 .search-form .input-group-sm > .search-field + .form-control-feedback,
 .widget_search .input-group-sm > .search-field + .form-control-feedback, .input-group-sm > .input-group-addon + .form-control-feedback,
 .input-group-sm > .input-group-btn > .btn + .form-control-feedback, #comment-form .input-group-sm > .input-group-btn > #submit + .form-control-feedback, .search-form .input-group-sm > .input-group-btn > .search-submit + .form-control-feedback,
@@ -2646,12 +2719,18 @@ textarea.input-lg,
 .has-success.checkbox-inline label {
   color: #3c763d; }
 
-.has-success .form-control, .has-success #comment-form input[type="text"], #comment-form .has-success input[type="text"], .has-success #comment-form textarea, #comment-form .has-success textarea, .has-success #tburl, .has-success .search-form .search-field, .search-form .has-success .search-field,
+.has-success .form-control, .has-success #comment-form input[type="text"], #comment-form .has-success input[type="text"],
+.has-success #comment-form input[type="email"], #comment-form .has-success input[type="email"],
+.has-success #comment-form input[type="url"], #comment-form .has-success input[type="url"],
+.has-success #comment-form textarea, #comment-form .has-success textarea, .has-success #tburl, .has-success .search-form .search-field, .search-form .has-success .search-field,
 .has-success .widget_search .search-field, .widget_search .has-success .search-field {
   border-color: #3c763d;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-success .form-control:focus, .has-success #comment-form input[type="text"]:focus, #comment-form .has-success input[type="text"]:focus, .has-success #comment-form textarea:focus, #comment-form .has-success textarea:focus, .has-success #tburl:focus, .has-success .search-form .search-field:focus, .search-form .has-success .search-field:focus,
+  .has-success .form-control:focus, .has-success #comment-form input[type="text"]:focus, #comment-form .has-success input[type="text"]:focus,
+  .has-success #comment-form input[type="email"]:focus, #comment-form .has-success input[type="email"]:focus,
+  .has-success #comment-form input[type="url"]:focus, #comment-form .has-success input[type="url"]:focus,
+  .has-success #comment-form textarea:focus, #comment-form .has-success textarea:focus, .has-success #tburl:focus, .has-success .search-form .search-field:focus, .search-form .has-success .search-field:focus,
   .has-success .widget_search .search-field:focus, .widget_search .has-success .search-field:focus {
     border-color: #2b542c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
@@ -2677,12 +2756,18 @@ textarea.input-lg,
 .has-warning.checkbox-inline label {
   color: #8a6d3b; }
 
-.has-warning .form-control, .has-warning #comment-form input[type="text"], #comment-form .has-warning input[type="text"], .has-warning #comment-form textarea, #comment-form .has-warning textarea, .has-warning #tburl, .has-warning .search-form .search-field, .search-form .has-warning .search-field,
+.has-warning .form-control, .has-warning #comment-form input[type="text"], #comment-form .has-warning input[type="text"],
+.has-warning #comment-form input[type="email"], #comment-form .has-warning input[type="email"],
+.has-warning #comment-form input[type="url"], #comment-form .has-warning input[type="url"],
+.has-warning #comment-form textarea, #comment-form .has-warning textarea, .has-warning #tburl, .has-warning .search-form .search-field, .search-form .has-warning .search-field,
 .has-warning .widget_search .search-field, .widget_search .has-warning .search-field {
   border-color: #8a6d3b;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-warning .form-control:focus, .has-warning #comment-form input[type="text"]:focus, #comment-form .has-warning input[type="text"]:focus, .has-warning #comment-form textarea:focus, #comment-form .has-warning textarea:focus, .has-warning #tburl:focus, .has-warning .search-form .search-field:focus, .search-form .has-warning .search-field:focus,
+  .has-warning .form-control:focus, .has-warning #comment-form input[type="text"]:focus, #comment-form .has-warning input[type="text"]:focus,
+  .has-warning #comment-form input[type="email"]:focus, #comment-form .has-warning input[type="email"]:focus,
+  .has-warning #comment-form input[type="url"]:focus, #comment-form .has-warning input[type="url"]:focus,
+  .has-warning #comment-form textarea:focus, #comment-form .has-warning textarea:focus, .has-warning #tburl:focus, .has-warning .search-form .search-field:focus, .search-form .has-warning .search-field:focus,
   .has-warning .widget_search .search-field:focus, .widget_search .has-warning .search-field:focus {
     border-color: #66512c;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
@@ -2708,12 +2793,18 @@ textarea.input-lg,
 .has-error.checkbox-inline label {
   color: #a94442; }
 
-.has-error .form-control, .has-error #comment-form input[type="text"], #comment-form .has-error input[type="text"], .has-error #comment-form textarea, #comment-form .has-error textarea, .has-error #tburl, .has-error .search-form .search-field, .search-form .has-error .search-field,
+.has-error .form-control, .has-error #comment-form input[type="text"], #comment-form .has-error input[type="text"],
+.has-error #comment-form input[type="email"], #comment-form .has-error input[type="email"],
+.has-error #comment-form input[type="url"], #comment-form .has-error input[type="url"],
+.has-error #comment-form textarea, #comment-form .has-error textarea, .has-error #tburl, .has-error .search-form .search-field, .search-form .has-error .search-field,
 .has-error .widget_search .search-field, .widget_search .has-error .search-field {
   border-color: #a94442;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
-  .has-error .form-control:focus, .has-error #comment-form input[type="text"]:focus, #comment-form .has-error input[type="text"]:focus, .has-error #comment-form textarea:focus, #comment-form .has-error textarea:focus, .has-error #tburl:focus, .has-error .search-form .search-field:focus, .search-form .has-error .search-field:focus,
+  .has-error .form-control:focus, .has-error #comment-form input[type="text"]:focus, #comment-form .has-error input[type="text"]:focus,
+  .has-error #comment-form input[type="email"]:focus, #comment-form .has-error input[type="email"]:focus,
+  .has-error #comment-form input[type="url"]:focus, #comment-form .has-error input[type="url"]:focus,
+  .has-error #comment-form textarea:focus, #comment-form .has-error textarea:focus, .has-error #tburl:focus, .has-error .search-form .search-field:focus, .search-form .has-error .search-field:focus,
   .has-error .widget_search .search-field:focus, .widget_search .has-error .search-field:focus {
     border-color: #843534;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
@@ -2744,7 +2835,10 @@ textarea.input-lg,
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  .form-inline .form-control, .form-inline #comment-form input[type="text"], #comment-form .form-inline input[type="text"], .form-inline #comment-form textarea, #comment-form .form-inline textarea, .form-inline #tburl, .form-inline .search-form .search-field, .search-form .form-inline .search-field,
+  .form-inline .form-control, .form-inline #comment-form input[type="text"], #comment-form .form-inline input[type="text"],
+  .form-inline #comment-form input[type="email"], #comment-form .form-inline input[type="email"],
+  .form-inline #comment-form input[type="url"], #comment-form .form-inline input[type="url"],
+  .form-inline #comment-form textarea, #comment-form .form-inline textarea, .form-inline #tburl, .form-inline .search-form .search-field, .search-form .form-inline .search-field,
   .form-inline .widget_search .search-field, .widget_search .form-inline .search-field {
     display: inline-block;
     width: auto;
@@ -2756,10 +2850,16 @@ textarea.input-lg,
     vertical-align: middle; }
     .form-inline .input-group .input-group-addon,
     .form-inline .input-group .input-group-btn,
-    .form-inline .input-group .form-control, .form-inline .input-group #comment-form input[type="text"], #comment-form .form-inline .input-group input[type="text"], .form-inline .input-group #comment-form textarea, #comment-form .form-inline .input-group textarea, .form-inline .input-group #tburl, .form-inline .input-group .search-form .search-field, .search-form .form-inline .input-group .search-field,
+    .form-inline .input-group .form-control, .form-inline .input-group #comment-form input[type="text"], #comment-form .form-inline .input-group input[type="text"],
+    .form-inline .input-group #comment-form input[type="email"], #comment-form .form-inline .input-group input[type="email"],
+    .form-inline .input-group #comment-form input[type="url"], #comment-form .form-inline .input-group input[type="url"],
+    .form-inline .input-group #comment-form textarea, #comment-form .form-inline .input-group textarea, .form-inline .input-group #tburl, .form-inline .input-group .search-form .search-field, .search-form .form-inline .input-group .search-field,
     .form-inline .input-group .widget_search .search-field, .widget_search .form-inline .input-group .search-field {
       width: auto; }
-  .form-inline .input-group > .form-control, .form-inline #comment-form .input-group > input[type="text"], #comment-form .form-inline .input-group > input[type="text"], .form-inline #comment-form .input-group > textarea, #comment-form .form-inline .input-group > textarea, .form-inline .input-group > #tburl, .form-inline .search-form .input-group > .search-field, .search-form .form-inline .input-group > .search-field,
+  .form-inline .input-group > .form-control, .form-inline #comment-form .input-group > input[type="text"], #comment-form .form-inline .input-group > input[type="text"],
+  .form-inline #comment-form .input-group > input[type="email"], #comment-form .form-inline .input-group > input[type="email"],
+  .form-inline #comment-form .input-group > input[type="url"], #comment-form .form-inline .input-group > input[type="url"],
+  .form-inline #comment-form .input-group > textarea, #comment-form .form-inline .input-group > textarea, .form-inline .input-group > #tburl, .form-inline .search-form .input-group > .search-field, .search-form .form-inline .input-group > .search-field,
   .form-inline .widget_search .input-group > .search-field, .widget_search .form-inline .input-group > .search-field {
     width: 100%; }
   .form-inline .control-label {
@@ -3714,7 +3814,10 @@ tbody.collapse.in {
     float: none;
     padding-left: 0;
     padding-right: 0; }
-  .input-group .form-control, .input-group #comment-form input[type="text"], #comment-form .input-group input[type="text"], .input-group #comment-form textarea, #comment-form .input-group textarea, .input-group #tburl, .input-group .search-form .search-field, .search-form .input-group .search-field,
+  .input-group .form-control, .input-group #comment-form input[type="text"], #comment-form .input-group input[type="text"],
+  .input-group #comment-form input[type="email"], #comment-form .input-group input[type="email"],
+  .input-group #comment-form input[type="url"], #comment-form .input-group input[type="url"],
+  .input-group #comment-form textarea, #comment-form .input-group textarea, .input-group #tburl, .input-group .search-form .search-field, .search-form .input-group .search-field,
   .input-group .widget_search .search-field, .widget_search .input-group .search-field {
     position: relative;
     z-index: 2;
@@ -3724,12 +3827,18 @@ tbody.collapse.in {
 
 .input-group-addon,
 .input-group-btn,
-.input-group .form-control, .input-group #comment-form input[type="text"], #comment-form .input-group input[type="text"], .input-group #comment-form textarea, #comment-form .input-group textarea, .input-group #tburl, .input-group .search-form .search-field, .search-form .input-group .search-field,
+.input-group .form-control, .input-group #comment-form input[type="text"], #comment-form .input-group input[type="text"],
+.input-group #comment-form input[type="email"], #comment-form .input-group input[type="email"],
+.input-group #comment-form input[type="url"], #comment-form .input-group input[type="url"],
+.input-group #comment-form textarea, #comment-form .input-group textarea, .input-group #tburl, .input-group .search-form .search-field, .search-form .input-group .search-field,
 .input-group .widget_search .search-field, .widget_search .input-group .search-field {
   display: table-cell; }
   .input-group-addon:not(:first-child):not(:last-child),
   .input-group-btn:not(:first-child):not(:last-child),
-  .input-group .form-control:not(:first-child):not(:last-child), .input-group #comment-form input[type="text"]:not(:first-child):not(:last-child), #comment-form .input-group input[type="text"]:not(:first-child):not(:last-child), .input-group #comment-form textarea:not(:first-child):not(:last-child), #comment-form .input-group textarea:not(:first-child):not(:last-child), .input-group #tburl:not(:first-child):not(:last-child), .input-group .search-form .search-field:not(:first-child):not(:last-child), .search-form .input-group .search-field:not(:first-child):not(:last-child),
+  .input-group .form-control:not(:first-child):not(:last-child), .input-group #comment-form input[type="text"]:not(:first-child):not(:last-child), #comment-form .input-group input[type="text"]:not(:first-child):not(:last-child),
+  .input-group #comment-form input[type="email"]:not(:first-child):not(:last-child), #comment-form .input-group input[type="email"]:not(:first-child):not(:last-child),
+  .input-group #comment-form input[type="url"]:not(:first-child):not(:last-child), #comment-form .input-group input[type="url"]:not(:first-child):not(:last-child),
+  .input-group #comment-form textarea:not(:first-child):not(:last-child), #comment-form .input-group textarea:not(:first-child):not(:last-child), .input-group #tburl:not(:first-child):not(:last-child), .input-group .search-form .search-field:not(:first-child):not(:last-child), .search-form .input-group .search-field:not(:first-child):not(:last-child),
   .input-group .widget_search .search-field:not(:first-child):not(:last-child), .widget_search .input-group .search-field:not(:first-child):not(:last-child) {
     border-radius: 0; }
 
@@ -3749,7 +3858,10 @@ tbody.collapse.in {
   background-color: #eeeeee;
   border: 1px solid #ccc;
   border-radius: 4px; }
-  .input-group-addon.input-sm, #comment-form .input-group-sm > input.input-group-addon[type="text"], #comment-form .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-addon#tburl,
+  .input-group-addon.input-sm, #comment-form .input-group-sm > input.input-group-addon[type="text"],
+  #comment-form .input-group-sm > input.input-group-addon[type="email"],
+  #comment-form .input-group-sm > input.input-group-addon[type="url"],
+  #comment-form .input-group-sm > textarea.input-group-addon, .input-group-sm > .input-group-addon#tburl,
   .search-form .input-group-sm > .input-group-addon.search-field,
   .widget_search .input-group-sm > .input-group-addon.search-field, .input-group-sm > .input-group-addon,
   .input-group-sm > .input-group-btn > .input-group-addon.btn, #comment-form .input-group-sm > .input-group-btn > .input-group-addon#submit, .search-form .input-group-sm > .input-group-btn > .input-group-addon.search-submit,
@@ -3757,7 +3869,10 @@ tbody.collapse.in {
     padding: 5px 10px;
     font-size: 12px;
     border-radius: 3px; }
-  .input-group-addon.input-lg, #comment-form .input-group-lg > input.input-group-addon[type="text"], #comment-form .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-addon#tburl,
+  .input-group-addon.input-lg, #comment-form .input-group-lg > input.input-group-addon[type="text"],
+  #comment-form .input-group-lg > input.input-group-addon[type="email"],
+  #comment-form .input-group-lg > input.input-group-addon[type="url"],
+  #comment-form .input-group-lg > textarea.input-group-addon, .input-group-lg > .input-group-addon#tburl,
   .search-form .input-group-lg > .input-group-addon.search-field,
   .widget_search .input-group-lg > .input-group-addon.search-field, .input-group-lg > .input-group-addon,
   .input-group-lg > .input-group-btn > .input-group-addon.btn, #comment-form .input-group-lg > .input-group-btn > .input-group-addon#submit, .search-form .input-group-lg > .input-group-btn > .input-group-addon.search-submit,
@@ -3771,7 +3886,12 @@ tbody.collapse.in {
 
 .input-group .form-control:first-child,
 .input-group #comment-form input[type="text"]:first-child,
-#comment-form .input-group input[type="text"]:first-child, .input-group #comment-form textarea:first-child,
+#comment-form .input-group input[type="text"]:first-child,
+.input-group #comment-form input[type="email"]:first-child,
+#comment-form .input-group input[type="email"]:first-child,
+.input-group #comment-form input[type="url"]:first-child,
+#comment-form .input-group input[type="url"]:first-child,
+.input-group #comment-form textarea:first-child,
 #comment-form .input-group textarea:first-child, .input-group #tburl:first-child,
 .input-group .search-form .search-field:first-child,
 .search-form .input-group .search-field:first-child,
@@ -3794,7 +3914,12 @@ tbody.collapse.in {
 
 .input-group .form-control:last-child,
 .input-group #comment-form input[type="text"]:last-child,
-#comment-form .input-group input[type="text"]:last-child, .input-group #comment-form textarea:last-child,
+#comment-form .input-group input[type="text"]:last-child,
+.input-group #comment-form input[type="email"]:last-child,
+#comment-form .input-group input[type="email"]:last-child,
+.input-group #comment-form input[type="url"]:last-child,
+#comment-form .input-group input[type="url"]:last-child,
+.input-group #comment-form textarea:last-child,
 #comment-form .input-group textarea:last-child, .input-group #tburl:last-child,
 .input-group .search-form .search-field:last-child,
 .search-form .input-group .search-field:last-child,
@@ -4172,7 +4297,10 @@ tbody.collapse.in {
       display: inline-block;
       margin-bottom: 0;
       vertical-align: middle; }
-    .navbar-form .form-control, .navbar-form #comment-form input[type="text"], #comment-form .navbar-form input[type="text"], .navbar-form #comment-form textarea, #comment-form .navbar-form textarea, .navbar-form #tburl, .navbar-form .search-form .search-field, .search-form .navbar-form .search-field,
+    .navbar-form .form-control, .navbar-form #comment-form input[type="text"], #comment-form .navbar-form input[type="text"],
+    .navbar-form #comment-form input[type="email"], #comment-form .navbar-form input[type="email"],
+    .navbar-form #comment-form input[type="url"], #comment-form .navbar-form input[type="url"],
+    .navbar-form #comment-form textarea, #comment-form .navbar-form textarea, .navbar-form #tburl, .navbar-form .search-form .search-field, .search-form .navbar-form .search-field,
     .navbar-form .widget_search .search-field, .widget_search .navbar-form .search-field {
       display: inline-block;
       width: auto;
@@ -4184,10 +4312,16 @@ tbody.collapse.in {
       vertical-align: middle; }
       .navbar-form .input-group .input-group-addon,
       .navbar-form .input-group .input-group-btn,
-      .navbar-form .input-group .form-control, .navbar-form .input-group #comment-form input[type="text"], #comment-form .navbar-form .input-group input[type="text"], .navbar-form .input-group #comment-form textarea, #comment-form .navbar-form .input-group textarea, .navbar-form .input-group #tburl, .navbar-form .input-group .search-form .search-field, .search-form .navbar-form .input-group .search-field,
+      .navbar-form .input-group .form-control, .navbar-form .input-group #comment-form input[type="text"], #comment-form .navbar-form .input-group input[type="text"],
+      .navbar-form .input-group #comment-form input[type="email"], #comment-form .navbar-form .input-group input[type="email"],
+      .navbar-form .input-group #comment-form input[type="url"], #comment-form .navbar-form .input-group input[type="url"],
+      .navbar-form .input-group #comment-form textarea, #comment-form .navbar-form .input-group textarea, .navbar-form .input-group #tburl, .navbar-form .input-group .search-form .search-field, .search-form .navbar-form .input-group .search-field,
       .navbar-form .input-group .widget_search .search-field, .widget_search .navbar-form .input-group .search-field {
         width: auto; }
-    .navbar-form .input-group > .form-control, .navbar-form #comment-form .input-group > input[type="text"], #comment-form .navbar-form .input-group > input[type="text"], .navbar-form #comment-form .input-group > textarea, #comment-form .navbar-form .input-group > textarea, .navbar-form .input-group > #tburl, .navbar-form .search-form .input-group > .search-field, .search-form .navbar-form .input-group > .search-field,
+    .navbar-form .input-group > .form-control, .navbar-form #comment-form .input-group > input[type="text"], #comment-form .navbar-form .input-group > input[type="text"],
+    .navbar-form #comment-form .input-group > input[type="email"], #comment-form .navbar-form .input-group > input[type="email"],
+    .navbar-form #comment-form .input-group > input[type="url"], #comment-form .navbar-form .input-group > input[type="url"],
+    .navbar-form #comment-form .input-group > textarea, #comment-form .navbar-form .input-group > textarea, .navbar-form .input-group > #tburl, .navbar-form .search-form .input-group > .search-field, .search-form .navbar-form .input-group > .search-field,
     .navbar-form .widget_search .input-group > .search-field, .widget_search .navbar-form .input-group > .search-field {
       width: 100%; }
     .navbar-form .control-label {

@@ -8,7 +8,10 @@
 }
 
 #comment-form {
-	input[type="text"], textarea {
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
 		@extend .form-control;
 	}
 	#submit {

@@ -157,6 +157,7 @@ add_filter( 'foo', 'your_filter' );
 = 1.1.8 =
 * Fixed offcanvas-nav bugs.
 * Fixed mistake of license.
+* Fixed comment form css bug.
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.
