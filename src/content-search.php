@@ -1,7 +1,7 @@
 <?php
 /**
  * Version    : 1.2.0
- * Author     : Takashi Kitajima
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : July 5, 2015
  * Modified   : July 28, 2015

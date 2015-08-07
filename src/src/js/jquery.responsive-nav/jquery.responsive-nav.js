@@ -2,7 +2,7 @@
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
  * Version    : 2.1.1
- * Author     : Takashi Kitajima
+ * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
  * modified   : August 7, 2015

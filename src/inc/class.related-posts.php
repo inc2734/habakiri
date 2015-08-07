@@ -2,7 +2,7 @@
 /**
  * Name       : Habakiri Related Posts
  * Version    : 1.0.2
- * Author     : Takashi Kitajima
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
  * Modified   : July 28, 2015

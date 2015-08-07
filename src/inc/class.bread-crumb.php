@@ -2,7 +2,7 @@
 /**
  * Name       : Habakiri Bread Crumb
  * Version    : 1.0.1
- * Author     : Takashi Kitajima
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 20, 2015
  * Modified   : July 31, 2015

@@ -1,7 +1,7 @@
 {
   "name": "habakiri",
   "version": "1.0.0",
-  "author": "Takashi Kitajima",
+  "author": "inc2734",
   "license": "GPLv2",
   "devDependencies": {
     "browserify": "^9.0.8",
