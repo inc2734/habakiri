@@ -160,6 +160,7 @@ add_filter( 'foo', 'your_filter' );
 * Fixed comment form css bug.
 * Fixed page header bug in 404 and search page.
 * Changed global navigation pulldown menu background color.
+* Changed CSS to BEM format.
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.

@@ -2,69 +2,68 @@
  * .entries
  */
 .entries {
-	.article {
-		&__entry {
-			margin-bottom: 40px;
+	.entry {
+		margin-bottom: 40px;
 
-			&--use_thumbnail {
-				margin-bottom: 30px;
-				
-				&__thumbnail {
-					float: left;
-					width: 60px;
+		&--has_media {
+			margin-bottom: 30px;
+			
+			&__media {
+				float: left;
+				width: 60px;
 
-					@media ( min-width: $screen-sm-min ) {
-						width: 84px;
-					}
+				@media ( min-width: $screen-sm-min ) {
+					width: 84px;
+				}
+			}
 
-					&__link {
-						@include square( 48px );
-						color: #fff;
-						display: block;
-						font-size: $font-size-large;
-						font-weight: bold;
-						overflow: hidden;
-						text-align: center;
-						text-decoration: none;
-						vertical-align: middle;
+			&__link {
+				@include square( 48px );
+				color: #fff;
+				display: block;
+				font-size: $font-size-large;
+				font-weight: bold;
+				overflow: hidden;
+				text-align: center;
+				text-decoration: none;
+				vertical-align: middle;
 
-						@media ( min-width: $screen-sm-min ) {
-							@include square( 64px );
-						}
-
-						&--no_thumbnail {
-							&__text {
-								@include square( 48px );
-								display: table-cell;
-								vertical-align: middle;
-								position: relative;
-								top: -2px;
-
-								@media ( min-width: $screen-sm-min ) {
-									@include square( 64px );
-								}
-
-								&:after {
-									content: '';
-									display: block;
-									background: #fff;
-									margin: 0 auto;
-									height: 1px;
-									width: 1em;
-									position: relative;
-									top: -2px;
-								}
-							}
-						}
-					}
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 64px );
 				}
 
-				&__body {
-					overflow: hidden;
+				&--text {
+				}
+			}
+				
+			&__text {
+				@include square( 48px );
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				top: -2px;
 
-					&__title {
-						margin-top: 0;
-					}
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 64px );
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					background: #fff;
+					margin: 0 auto;
+					height: 1px;
+					width: 1em;
+					position: relative;
+					top: -2px;
+				}
+			}
+
+			&__body {
+				overflow: hidden;
+
+				&__title {
+					margin-top: 0;
 				}
 			}
 		}

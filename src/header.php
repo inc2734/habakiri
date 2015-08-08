@@ -29,7 +29,7 @@
 			<div class="row header__content header-content">
 				<div class="col-xs-10 header__content__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-4' : 'col-md-12'; ?>">
 					<div class="site-branding">
-						<h1 class="site-branding__logo"><?php Habakiri::the_logo(); ?></h1>
+						<h1 class="site-branding__heading"><?php Habakiri::the_logo(); ?></h1>
 					<!-- end .site-branding --></div>
 				<!-- end .col-md-4 --></div>
 				<div class="col-xs-2 header__content__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-8' : 'col-md-12'; ?> global-nav-wrapper clearfix">

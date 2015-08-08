@@ -160,18 +160,18 @@ class Habakiri_Base_Functions {
 	public static function the_comments( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		?>
-		<li <?php comment_class( array( 'commentarea__comments__list__comment' ) ); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="commentarea__comments__list__comment__item comment-item">
-				<dt class="commentarea__comments__list__comment__item__header comment-header">
-					<div class="commentarea__comments__list__comment__item__header__author comment-author">
+		<li <?php comment_class( array( 'comments__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="comment comment-item">
+				<dt class="comment__header comment-header">
+					<div class="comment__author comment-author">
 						<?php echo get_avatar( $comment, '48' ); ?>
 					<!-- end .comment-author --></div>
 				</dt>
-				<dd class="commentarea__comments__list__comment__item__body comment-body">
+				<dd class="comment__body comment-body">
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', 'habakiri' ) ?></em>
 					<?php endif; ?>
-					<div class="commentarea__comments__list__comment__item__body__meta comment-meta commentmetadata vcard">
+					<div class="comment__meta comment-meta commentmetadata vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -195,7 +195,7 @@ class Habakiri_Base_Functions {
 					);
 					?>
 					<?php if ( !empty( $comment_reply_link ) ) : ?>
-					<div class="commentarea__comments__list__comment__item__body__reply reply btn btn-sm btn-primary">
+					<div class="comment__reply reply btn btn-sm btn-primary">
 						<?php echo $comment_reply_link; ?>
 					<!-- end .reply --></div>
 					<?php endif; ?>
@@ -214,10 +214,10 @@ class Habakiri_Base_Functions {
 	public static function the_pings( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		?>
-		<li <?php comment_class( array( 'commentarea__trackbacks__list__trackback' ) ); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="commentarea__trackbacks__list__trackback__item comment-item">
-				<dd class="commentarea__trackbacks__list__trackback__item__body comment-body">
-					<div class="commentarea__trackbacks__list__trackback__item__body__meta comment-meta commentmetadata vcard">
+		<li <?php comment_class( array( 'trackbacks__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="trackback comment-item">
+				<dd class="trackback__body comment-body">
+					<div class="trackback__meta comment-meta commentmetadata vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -363,7 +363,7 @@ class Habakiri_Base_Functions {
 		$header_logo = Habakiri::get( 'logo' );
 		if ( $header_logo ) {
 			$header_logo = sprintf(
-				'<img src="%s" alt="%s" />',
+				'<img src="%s" alt="%s" class="site-branding__logo" />',
 				esc_url( $header_logo ),
 				get_bloginfo( 'name' )
 			);
@@ -435,11 +435,11 @@ class Habakiri_Base_Functions {
 	public static function the_post_thumbnail() {
 		$classes = array(
 			'img-circle',
-			'article__entry--use_thumbnail__thumbnail__link',
+			'entry--has_media__link',
 		);
 		if ( !has_post_thumbnail() ) {
 			$classes[] = 'no-thumbnail';
-			$classes[] = 'article__entry--use_thumbnail__thumbnail__link--no_thumbnail';
+			$classes[] = 'entry--has_media__link--text';
 		}
 		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
 		?>
@@ -452,7 +452,7 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="article__entry--use_thumbnail__thumbnail__link--no_thumbnail__text no-thumbnail-text">
+				<span class="entry--has_media__text no-thumbnail-text">
 					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>
@@ -556,11 +556,11 @@ class Habakiri_Base_Functions {
 		do_action( 'habakiri_before_title' );
 		?>
 		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
-		<h1 class="entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
+		<h1 class="entry__title entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php elseif ( is_singular() ) : ?>
-		<h1 class="article__entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
+		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
-		<h1 class="article__entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
+		<h1 class="entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );

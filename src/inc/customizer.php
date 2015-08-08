@@ -483,17 +483,17 @@ class Habakiri_Customizer {
 		.global-nav .children .current_page_parent {
 			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
 		}
-		.article__entry--use_thumbnail__thumbnail__link--no_thumbnail {
+		.entry--has_media__link--text {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
 		.page-header {
 			background-color: <?php echo esc_html( Habakiri::get( 'page_header_bg_color' ) ); ?>;
 			color: <?php echo esc_html( Habakiri::get( 'page_header_text_color' ) ); ?>;
 		}
-		.pagination>li>a, .pagination>li>span {
+		.pagination>li>a {
 			color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
-		.pagination .current {
+		.pagination>li>span {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 			border-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}

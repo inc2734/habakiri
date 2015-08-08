@@ -79,7 +79,7 @@
 		}
 	}
 
-	&__logo {
+	&__heading {
 		font-size: 24px;
 		line-height: 1;
 		margin: 0;
@@ -87,9 +87,15 @@
 		@media ( min-width: $screen-xs-min ) {
 			font-size: 26px;
 		}
+	}
 
-		img {
-			vertical-align: top;
+	&__logo {
+		font-size: 24px;
+		line-height: 1;
+		margin: 0;
+
+		@media ( min-width: $screen-xs-min ) {
+			font-size: 26px;
 		}
 	}
 

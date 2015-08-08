@@ -17,10 +17,10 @@ if ( is_404() ) {
 	$modifer = 'search';
 }
 ?>
-<article class="entries__article entries__article--<?php echo esc_attr( $modifer ); ?>">
-	<div class="entries__article__entry entries__article--<?php echo esc_attr( $modifer ); ?>__entry entry">
+<article class="article article--<?php echo esc_attr( $modifer ); ?>">
+	<div class="entry">
 
-		<div class="entries__article__entry__content entries__article--<?php echo esc_attr( $modifer ); ?>__entry__content entry-content">
+		<div class="entry__content entry-content">
 
 			<?php if ( is_404() ) : ?>
 

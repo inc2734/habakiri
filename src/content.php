@@ -12,7 +12,7 @@
 <?php if ( is_single() ) : ?>
 
 <article class="article">
-	<div class="article__entry entry">
+	<div class="entry">
 		<?php Habakiri::the_title(); ?>
 		<?php Habakiri::the_entry_meta(); ?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
@@ -37,9 +37,9 @@
 
 	<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
-		<div class="article__entry entry">
+		<div class="entry">
 			<?php Habakiri::the_title(); ?>
-			<div class="article__entry__summary entry-summary">
+			<div class="entry__summary entry-summary">
 				<?php the_excerpt(); ?>
 			<!-- end .entry-summary --></div>
 			<?php Habakiri::the_entry_meta(); ?>
@@ -47,14 +47,14 @@
 
 	<?php else : ?>
 
-		<div class="article__entry--use_thumbnail entry">
-			<div class="article__entry--use_thumbnail__inner summary-with-thumbnail">
-				<div class="article__entry--use_thumbnail__thumbnail summary-with-thumbnail-thumbnail">
+		<div class="entry--has_media entry">
+			<div class="entry--has_media__inner summary-with-thumbnail">
+				<div class="entry--has_media__media summary-with-thumbnail-thumbnail">
 					<?php Habakiri::the_post_thumbnail(); ?>
 				<!-- end .media-left --></div>
-				<div class="article__entry--use_thumbnail__body summary-with-thumbnail-body">
+				<div class="entry--has_media__body summary-with-thumbnail-body">
 					<?php Habakiri::the_title(); ?>
-					<div class="article__entry__summary entry-summary">
+					<div class="entry__summary entry-summary">
 						<?php the_excerpt(); ?>
 					<!-- end .entry-summary --></div>
 					<?php Habakiri::the_entry_meta(); ?>
