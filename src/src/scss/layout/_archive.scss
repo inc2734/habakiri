@@ -4,9 +4,11 @@
 .entries {
 	.article {
 		&__entry {
-			margin-bottom: 30px;
+			margin-bottom: 40px;
 
-			&--has-thumbnail {
+			&--use_thumbnail {
+				margin-bottom: 30px;
+				
 				&__thumbnail {
 					float: left;
 					width: 60px;
@@ -15,7 +17,7 @@
 						width: 84px;
 					}
 
-					a {
+					&__link {
 						@include square( 48px );
 						color: #fff;
 						display: block;
@@ -29,28 +31,30 @@
 						@media ( min-width: $screen-sm-min ) {
 							@include square( 64px );
 						}
-					}
 
-					&__no-thumbnail-text {
-						@include square( 48px );
-						display: table-cell;
-						vertical-align: middle;
-						position: relative;
-						top: -2px;
+						&--no_thumbnail {
+							&__text {
+								@include square( 48px );
+								display: table-cell;
+								vertical-align: middle;
+								position: relative;
+								top: -2px;
 
-						@media ( min-width: $screen-sm-min ) {
-							@include square( 64px );
-						}
+								@media ( min-width: $screen-sm-min ) {
+									@include square( 64px );
+								}
 
-						&:after {
-							content: '';
-							display: block;
-							background: #fff;
-							margin: 0 auto;
-							height: 1px;
-							width: 1em;
-							position: relative;
-							top: -2px;
+								&:after {
+									content: '';
+									display: block;
+									background: #fff;
+									margin: 0 auto;
+									height: 1px;
+									width: 1em;
+									position: relative;
+									top: -2px;
+								}
+							}
 						}
 					}
 				}
@@ -64,5 +68,10 @@
 				}
 			}
 		}
+	}
+
+	.entry-meta {
+		border-bottom: none;
+		padding-bottom: 0;
 	}
 }

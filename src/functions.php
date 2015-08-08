@@ -435,9 +435,11 @@ class Habakiri_Base_Functions {
 	public static function the_post_thumbnail() {
 		$classes = array(
 			'img-circle',
+			'article__entry--use_thumbnail__thumbnail__link',
 		);
 		if ( !has_post_thumbnail() ) {
 			$classes[] = 'no-thumbnail';
+			$classes[] = 'article__entry--use_thumbnail__thumbnail__link--no_thumbnail';
 		}
 		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
 		?>
@@ -450,7 +452,7 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="article__entry--has-thumbnail__thumbnail__no-thumbnail-text no-thumbnail-text">
+				<span class="article__entry--use_thumbnail__thumbnail__link--no_thumbnail__text no-thumbnail-text">
 					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>

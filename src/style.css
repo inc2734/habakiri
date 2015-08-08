@@ -6640,52 +6640,58 @@ button.close {
  * .entries
  */
 .entries .article__entry {
-  margin-bottom: 30px; }
-  .entries .article__entry--has-thumbnail__thumbnail {
-    float: left;
-    width: 60px; }
-    @media (min-width: 768px) {
-      .entries .article__entry--has-thumbnail__thumbnail {
-        width: 84px; } }
-    .entries .article__entry--has-thumbnail__thumbnail a {
-      width: 48px;
-      height: 48px;
-      color: #fff;
-      display: block;
-      font-size: 18px;
-      font-weight: bold;
-      overflow: hidden;
-      text-align: center;
-      text-decoration: none;
-      vertical-align: middle; }
+  margin-bottom: 40px; }
+  .entries .article__entry--use_thumbnail {
+    margin-bottom: 30px; }
+    .entries .article__entry--use_thumbnail__thumbnail {
+      float: left;
+      width: 60px; }
       @media (min-width: 768px) {
-        .entries .article__entry--has-thumbnail__thumbnail a {
-          width: 64px;
-          height: 64px; } }
-    .entries .article__entry--has-thumbnail__thumbnail__no-thumbnail-text {
-      width: 48px;
-      height: 48px;
-      display: table-cell;
-      vertical-align: middle;
-      position: relative;
-      top: -2px; }
-      @media (min-width: 768px) {
-        .entries .article__entry--has-thumbnail__thumbnail__no-thumbnail-text {
-          width: 64px;
-          height: 64px; } }
-      .entries .article__entry--has-thumbnail__thumbnail__no-thumbnail-text:after {
-        content: '';
+        .entries .article__entry--use_thumbnail__thumbnail {
+          width: 84px; } }
+      .entries .article__entry--use_thumbnail__thumbnail__link {
+        width: 48px;
+        height: 48px;
+        color: #fff;
         display: block;
-        background: #fff;
-        margin: 0 auto;
-        height: 1px;
-        width: 1em;
-        position: relative;
-        top: -2px; }
-  .entries .article__entry--has-thumbnail__body {
-    overflow: hidden; }
-    .entries .article__entry--has-thumbnail__body__title {
-      margin-top: 0; }
+        font-size: 18px;
+        font-weight: bold;
+        overflow: hidden;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle; }
+        @media (min-width: 768px) {
+          .entries .article__entry--use_thumbnail__thumbnail__link {
+            width: 64px;
+            height: 64px; } }
+        .entries .article__entry--use_thumbnail__thumbnail__link--no_thumbnail__text {
+          width: 48px;
+          height: 48px;
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          top: -2px; }
+          @media (min-width: 768px) {
+            .entries .article__entry--use_thumbnail__thumbnail__link--no_thumbnail__text {
+              width: 64px;
+              height: 64px; } }
+          .entries .article__entry--use_thumbnail__thumbnail__link--no_thumbnail__text:after {
+            content: '';
+            display: block;
+            background: #fff;
+            margin: 0 auto;
+            height: 1px;
+            width: 1em;
+            position: relative;
+            top: -2px; }
+    .entries .article__entry--use_thumbnail__body {
+      overflow: hidden; }
+      .entries .article__entry--use_thumbnail__body__title {
+        margin-top: 0; }
+
+.entries .entry-meta {
+  border-bottom: none;
+  padding-bottom: 0; }
 
 /*==================================================
  * Page
@@ -6695,12 +6701,6 @@ button.close {
 .blog-template-archive-full-width-fluid #main,
 .blog-template-archive-single-width-fluid #main {
   margin-bottom: 0; }
-
-/*==================================================
- * .search
- *================================================*/
-.entries--search .article {
-  margin-bottom: 40px; }
 
 /*==================================================
  * classes
@@ -6759,9 +6759,6 @@ button.close {
     .entry-meta__list__item {
       display: inline-block;
       margin-right: 10px; }
-  .entry-meta--in-entries {
-    border-bottom: none;
-    padding-bottom: 0; }
 
 .related-posts {
   border-top: 1px solid #ddd;

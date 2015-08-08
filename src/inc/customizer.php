@@ -483,7 +483,7 @@ class Habakiri_Customizer {
 		.global-nav .children .current_page_parent {
 			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
 		}
-		.entries .hentry .summary-with-thumbnail .summary-with-thumbnail-thumbnail .no-thumbnail {
+		.article__entry--use_thumbnail__thumbnail__link--no_thumbnail {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
 		.page-header {

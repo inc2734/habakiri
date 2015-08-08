@@ -27,7 +27,7 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
-		<div class="commentarea__comments__pager pager">
+		<div class="pager">
 			<p>
 				<?php
 				paginate_comments_links( array(

@@ -16,16 +16,9 @@ class Habakiri_Entry_Meta {
 	 */
 	public function display() {
 		do_action( 'habakiri_before_entry_meta' );
-
-		$meta_class      = '';
-		$meta_list_class = '';
-		if ( !is_singular() ) {
-			$meta_class      = 'entry-meta--in-entries';
-			$meta_list_class = $meta_class . '__list';
-		}
 		?>
-		<div class="<?php echo esc_attr( $meta_class ); ?> entry-meta">
-			<ul class="<?php echo esc_attr( $meta_list_class ); ?> entry-meta__list">
+		<div class="entry-meta">
+			<ul class="entry-meta__list">
 				<?php
 				$entry_meta  = $this->published();
 				$entry_meta .= $this->updated();

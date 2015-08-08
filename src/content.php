@@ -34,23 +34,25 @@
 <?php else : ?>
 
 <article <?php post_class( array( 'article' ) ); ?>>
-	<div class="article__entry entry">
 
-		<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
+	<?php if ( Habakiri::get( 'is_displaying_thumbnail' ) === 'false' ) : ?>
 
+		<div class="article__entry entry">
 			<?php Habakiri::the_title(); ?>
 			<div class="article__entry__summary entry-summary">
 				<?php the_excerpt(); ?>
 			<!-- end .entry-summary --></div>
 			<?php Habakiri::the_entry_meta(); ?>
+		<!-- end .entry --></div>
 
-		<?php else : ?>
+	<?php else : ?>
 
-			<div class="article__entry--has-thumbnail summary-with-thumbnail">
-				<div class="article__entry--has-thumbnail__thumbnail summary-with-thumbnail-thumbnail">
+		<div class="article__entry--use_thumbnail entry">
+			<div class="article__entry--use_thumbnail__inner summary-with-thumbnail">
+				<div class="article__entry--use_thumbnail__thumbnail summary-with-thumbnail-thumbnail">
 					<?php Habakiri::the_post_thumbnail(); ?>
 				<!-- end .media-left --></div>
-				<div class="article__entry--has-thumbnail__body summary-with-thumbnail-body">
+				<div class="article__entry--use_thumbnail__body summary-with-thumbnail-body">
 					<?php Habakiri::the_title(); ?>
 					<div class="article__entry__summary entry-summary">
 						<?php the_excerpt(); ?>
@@ -58,10 +60,10 @@
 					<?php Habakiri::the_entry_meta(); ?>
 				<!-- end .media-body --></div>
 			<!-- end .media --></div>
+		<!-- end .entry --></div>
 
-		<?php endif; ?>
+	<?php endif; ?>
 
-	<!-- end .entry --></div>
 </article>
 
 <?php endif; ?>
