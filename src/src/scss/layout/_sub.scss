@@ -1,13 +1,14 @@
 .sidebar {
 	font-size: 93%;
-	
-	&__widget {
-		margin: 0 0 20px;
+}
 
-		&__title {
-			@extend .h4;
-			font-weight: bold;
-			margin-top: 0;
-		}
+
+.sidebar-widget {
+	margin: 0 0 20px;
+
+	&__title {
+		@extend .h4;
+		font-weight: bold;
+		margin-top: 0;
 	}
 }
