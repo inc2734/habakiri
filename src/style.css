@@ -6487,7 +6487,7 @@ div.thumbnail {
   .widget_meta ul li li,
   .widget_pages ul li li,
   .widget_nav_menu ul li li {
-    padding-left: 2em; }
+    padding-left: 1.5em; }
   .widget_recent_entries ul li li li,
   .widget_recent_comments ul li li li,
   .widget_archive ul li li li,
@@ -6503,7 +6503,7 @@ div.thumbnail {
   .widget_meta ul li li li li,
   .widget_pages ul li li li li,
   .widget_nav_menu ul li li li li {
-    padding-left: 4em; }
+    padding-left: 4.5em; }
   .widget_recent_entries ul li li li li li,
   .widget_recent_comments ul li li li li li,
   .widget_archive ul li li li li li,
@@ -6511,7 +6511,7 @@ div.thumbnail {
   .widget_meta ul li li li li li,
   .widget_pages ul li li li li li,
   .widget_nav_menu ul li li li li li {
-    padding-left: 5em; }
+    padding-left: 6em; }
   .widget_recent_entries ul li li li li li li,
   .widget_recent_comments ul li li li li li li,
   .widget_archive ul li li li li li li,
@@ -6519,7 +6519,7 @@ div.thumbnail {
   .widget_meta ul li li li li li li,
   .widget_pages ul li li li li li li,
   .widget_nav_menu ul li li li li li li {
-    padding-left: 6em; }
+    padding-left: 7.5em; }
   .widget_recent_entries ul li ul,
   .widget_recent_comments ul li ul,
   .widget_archive ul li ul,
@@ -6536,7 +6536,7 @@ div.thumbnail {
     .widget_meta ul li ul ul,
     .widget_pages ul li ul ul,
     .widget_nav_menu ul li ul ul {
-      margin-left: -1em; }
+      margin-left: -1.5em; }
     .widget_recent_entries ul li ul ul ul,
     .widget_recent_comments ul li ul ul ul,
     .widget_archive ul li ul ul ul,
@@ -6544,7 +6544,7 @@ div.thumbnail {
     .widget_meta ul li ul ul ul,
     .widget_pages ul li ul ul ul,
     .widget_nav_menu ul li ul ul ul {
-      margin-left: -2em; }
+      margin-left: -3em; }
     .widget_recent_entries ul li ul ul ul ul,
     .widget_recent_comments ul li ul ul ul ul,
     .widget_archive ul li ul ul ul ul,
@@ -6552,7 +6552,7 @@ div.thumbnail {
     .widget_meta ul li ul ul ul ul,
     .widget_pages ul li ul ul ul ul,
     .widget_nav_menu ul li ul ul ul ul {
-      margin-left: -3em; }
+      margin-left: -4.5em; }
     .widget_recent_entries ul li ul ul ul ul ul,
     .widget_recent_comments ul li ul ul ul ul ul,
     .widget_archive ul li ul ul ul ul ul,
@@ -6560,15 +6560,7 @@ div.thumbnail {
     .widget_meta ul li ul ul ul ul ul,
     .widget_pages ul li ul ul ul ul ul,
     .widget_nav_menu ul li ul ul ul ul ul {
-      margin-left: -4em; }
-    .widget_recent_entries ul li ul ul ul ul ul ul,
-    .widget_recent_comments ul li ul ul ul ul ul ul,
-    .widget_archive ul li ul ul ul ul ul ul,
-    .widget_categories ul li ul ul ul ul ul ul,
-    .widget_meta ul li ul ul ul ul ul ul,
-    .widget_pages ul li ul ul ul ul ul ul,
-    .widget_nav_menu ul li ul ul ul ul ul ul {
-      margin-left: -5em; }
+      margin-left: -6em; }
 
 .widget_calendar table thead th {
   text-align: center; }
