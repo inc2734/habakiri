@@ -333,9 +333,11 @@ class Habakiri_Base_Functions {
 
 		/**
 		 * backward compatible
-		 * @since 1.1.8
+		 * @since 1.2.0
 		 */
-		$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
+		if ( in_array( $key, array( 'header', 'header_fixed' ) ) && !empty( $theme_mod ) ) {
+			$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
+		}
 
 		if ( $theme_mod ) {
 			return $theme_mod;

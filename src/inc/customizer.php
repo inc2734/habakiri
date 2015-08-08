@@ -117,7 +117,7 @@ class Habakiri_Customizer {
 			array(
 				'logo'                           => '',
 				'logo_text_color'                => '#000',
-				'header'                         => 'header-default',
+				'header'                         => 'header--default',
 				'header_fixed'                   => '',
 				'footer_columns'                 => 'col-md-4',
 				'blog_template'                  => 'right-sidebar',
