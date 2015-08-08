@@ -509,11 +509,16 @@ class Habakiri_Customizer {
 		#footer {
 			background-color: <?php echo esc_html( Habakiri::get( 'footer_bg_color' ) ); ?>;
 		}
-		#footer .footer-widget-area {
+		#footer .footer-widget-area,
+		#footer .footer-widget-area .widget_calendar #wp-calendar caption {
 			color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
 		}
 		#footer .footer-widget-area a {
 			color: <?php echo esc_html( Habakiri::get( 'footer_link_color' ) ); ?>;
+		}
+		#footer .footer-widget-area .widget_calendar #wp-calendar,
+		#footer .footer-widget-area .widget_calendar #wp-calendar * {
+			border-color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
 		}
 		</style>
 		<?php

@@ -118,7 +118,7 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Sidebar', 'habakiri' ),
 			'id'            => 'sidebar',
 			'description'   => __( 'Sidebar', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="sidebar__widget widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget sidebar__widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="sidebar__widget__title widgettitle">',
 		) );
@@ -127,7 +127,7 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="footer__widget widget col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer__widget col-md-4 %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="footer__widget__title widgettitle">',
 		) );

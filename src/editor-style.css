@@ -5954,7 +5954,7 @@ dl {
   .section .section {
     padding-top: 0;
     padding-bottom: 0; }
-    .section .section__title, .section .section-title {
+    .section .section .section__title, .section .section .section-title {
       margin: 0 0 20px;
       text-align: left; }
   .section--image, .section-image {
