@@ -118,18 +118,18 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Sidebar', 'habakiri' ),
 			'id'            => 'sidebar',
 			'description'   => __( 'Sidebar', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget sidebar__widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget sidebar-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="sidebar__widget__title widgettitle">',
+			'before_title'  => '<h2 class="sidebar-widget__title widgettitle">',
 		) );
 
 		register_sidebar( array(
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget footer__widget col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget col-md-4 %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="footer__widget__title widgettitle">',
+			'before_title'  => '<h2 class="footer-widget__title widgettitle">',
 		) );
 
 		add_action( 'wp_head', array( $this, 'add_footer_widget_class' ) );
