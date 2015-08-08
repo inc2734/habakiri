@@ -1,18 +1,26 @@
 <?php
 /**
- * Version    : 1.2.0
- * Author     : Takashi Kitajima
+ * Version    : 1.2.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 7, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ?>
-<article>
+<?php
+$modifer = 'none';
+if ( is_404() ) {
+	$modifer = '404';
+} elseif ( is_search() ) {
+	$modifer = 'search';
+}
+?>
+<article class="article article--<?php echo esc_attr( $modifer ); ?>">
 	<div class="entry">
 
-		<div class="entry-content">
+		<div class="entry__content entry-content">
 
 			<?php if ( is_404() ) : ?>
 

@@ -1,15 +1,15 @@
 <?php
 /**
  * Version    : 1.2.0
- * Author     : Takashi Kitajima
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
  * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ?>
-<article>
+<article class="article">
 	<div class="entry">
 		<?php
 		if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
@@ -17,7 +17,7 @@
 		}
 		?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
-		<div class="entry-content">
+		<div class="entry__content entry-content">
 			<?php the_content(); ?>
 		<!-- end .entry-content --></div>
 		<?php do_action( 'habakiri_after_entry_content' ); ?>

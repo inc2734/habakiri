@@ -4,9 +4,9 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.1.7
-License: GNU General Public License v2.0
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.2.0
+License: GPLv2 or later
+License URI: license.txt
 
 == Description ==
 Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
@@ -96,9 +96,9 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 = Useful CSS class =
 
 * .section: A class for sectioning contents with margins in, for example, one page design.
-* .section.section-image: A class to adjust background image for a section.
-* .section.section-fixed: A fixed version of section.section-image class.
-* .section .section-title: A class for section title.
+* .section.section--image: A class to adjust background image for a section.
+* .section.section--fixed: A fixed version of section.section--image class.
+* .section .section--title: A class for section title.
 * jumbotron .btn-default: A class which is provided in Bootstrap but I've customized it into Ghost style.
 
 = Off campus navigation on mobiles =
@@ -153,6 +153,15 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.2.0 =
+* Fixed offcanvas-nav bugs.
+* Fixed mistake of license.
+* Fixed comment form css bug.
+* Fixed page header bug in 404 and search page.
+* Changed global navigation pulldown menu background color.
+* Changed CSS to BEM format.
+* Update widgets styling.
 
 = 1.1.7 =
 * Fixed a bug that instagram icon isn't shown in social nav.

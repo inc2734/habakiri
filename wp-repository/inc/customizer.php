@@ -1,13 +1,13 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.3.0
- * Author     : Takashi Kitajima
+ * Version    : 1.3.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 31, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 7, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 class Habakiri_Customizer {
 
@@ -69,13 +69,13 @@ class Habakiri_Customizer {
 		);
 
 		$this->header_choices = array(
-			'header-default' => __( 'Default', 'habakiri' ),
-			'header-2row'    => __( '2 rows', 'habakiri' ),
-			'header-center'  => __( 'Center Logo', 'habakiri' ),
+			'header--default' => __( 'Default', 'habakiri' ),
+			'header--2row'    => __( '2 rows', 'habakiri' ),
+			'header--center'  => __( 'Center Logo', 'habakiri' ),
 		);
 		$this->header_fixed_choices = array(
 			''             => __( 'No', 'habakiri' ),
-			'header-fixed' => __( 'Yes', 'habakiri' ),
+			'header--fixed' => __( 'Yes', 'habakiri' ),
 		);
 		$this->footer_columns_choices = array(
 			'col-md-6' => __( '2 Columns', 'habakiri' ),
@@ -134,7 +134,7 @@ class Habakiri_Customizer {
 				'gnav_link_hover_color'          => '#337ab7',
 				'gnav_pulldown_link_color'       => '#777',
 				'gnav_pulldown_bg_color'         => '#000',
-				'gnav_pulldown_bg_hover_color'   => '#222',
+				'gnav_pulldown_bg_hover_color'   => '#191919',
 				'header_bg_color'                => '#fff',
 				'footer_bg_color'                => '#111113',
 				'footer_text_color'              => '#555',
@@ -483,17 +483,17 @@ class Habakiri_Customizer {
 		.global-nav .children .current_page_parent {
 			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
 		}
-		.entries .hentry .summary-with-thumbnail .summary-with-thumbnail-thumbnail .no-thumbnail {
+		.entry--has_media__link--text {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
 		.page-header {
 			background-color: <?php echo esc_html( Habakiri::get( 'page_header_bg_color' ) ); ?>;
 			color: <?php echo esc_html( Habakiri::get( 'page_header_text_color' ) ); ?>;
 		}
-		.pagination>li>a, .pagination>li>span {
+		.pagination>li>a {
 			color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
-		.pagination .current {
+		.pagination>li>span {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 			border-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}
@@ -509,11 +509,16 @@ class Habakiri_Customizer {
 		#footer {
 			background-color: <?php echo esc_html( Habakiri::get( 'footer_bg_color' ) ); ?>;
 		}
-		#footer .footer-widget-area {
+		#footer .footer-widget-area,
+		#footer .footer-widget-area .widget_calendar #wp-calendar caption {
 			color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
 		}
 		#footer .footer-widget-area a {
 			color: <?php echo esc_html( Habakiri::get( 'footer_link_color' ) ); ?>;
+		}
+		#footer .footer-widget-area .widget_calendar #wp-calendar,
+		#footer .footer-widget-area .widget_calendar #wp-calendar * {
+			border-color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
 		}
 		</style>
 		<?php

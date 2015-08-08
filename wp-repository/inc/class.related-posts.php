@@ -1,13 +1,13 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.0.2
- * Author     : Takashi Kitajima
+ * Version    : 1.0.3
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 8, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 class Habakiri_Related_Posts {
 
@@ -37,8 +37,8 @@ class Habakiri_Related_Posts {
 		$wp_query->is_singular = false;
 		?>
 		<div class="related-posts">
-			<h2 class="h3"><?php _e( 'Related posts', 'habakiri' ); ?></h2>
-			<div class="entries entries-related-posts">
+			<h2 class="related-posts__title h3"><?php _e( 'Related posts', 'habakiri' ); ?></h2>
+			<div class="entries entries--related-posts entries-related-posts">
 				<?php
 				foreach ( $posts as $post ) {
 					setup_postdata( $post );

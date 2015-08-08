@@ -3,7 +3,7 @@ Name: editor-style
 Author: inc2734
 Author URI: http://2inc.org
 Version: 1.0.0
-License: GNU General Public License
+License: GPLv2 or later
 License URI: license.txt
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
@@ -1131,7 +1131,7 @@ h6, .h6 {
     font-size: 75%; }
 
 h1, .h1 {
-  font-size: 36px; }
+  font-size: 33px; }
 
 h2, .h2 {
   font-size: 28px; }
@@ -5837,8 +5837,16 @@ object {
 /**
  * table
  */
-table small {
-  font-weight: normal; }
+table {
+  margin-bottom: 11.5px; }
+  table small {
+    font-weight: normal; }
+
+/**
+ * list
+ */
+dl {
+  margin-bottom: 11.5px; }
 
 /*==================================================
  * WordPress Classes
@@ -5854,12 +5862,11 @@ table small {
   margin: 0 0 11.5px;
   border-radius: 0;
   max-width: 100%; }
-
-.wp-caption-text {
-  color: #555555;
-  margin-top: 5px;
-  font-size: 12px;
-  line-height: 1.4; }
+  .wp-caption-text {
+    color: #555555;
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 1.4; }
 
 /**
  * alignment
@@ -5888,40 +5895,37 @@ table small {
  */
 .gallery {
   margin: 0 0 11.5px; }
-
-.gallery-item {
-  display: inline-block;
-  padding: 1.79104477%;
-  text-align: center;
-  vertical-align: top;
-  width: 100%; }
-  .gallery-columns-2 .gallery-item {
-    max-width: 50%; }
-  .gallery-columns-3 .gallery-item {
-    max-width: 33.33333%; }
-  .gallery-columns-4 .gallery-item {
-    max-width: 25%; }
-  .gallery-columns-5 .gallery-item {
-    max-width: 20%; }
-  .gallery-columns-6 .gallery-item {
-    max-width: 16.66667%; }
-  .gallery-columns-7 .gallery-item {
-    max-width: 14.28571%; }
-  .gallery-columns-8 .gallery-item {
-    max-width: 12.5%; }
-  .gallery-columns-9 .gallery-item {
-    max-width: 11.11111%; }
-
-.gallery-icon img {
-  margin: 0 auto; }
-
-.gallery-caption {
-  display: block; }
-  .gallery-columns-6 .gallery-caption,
-  .gallery-columns-7 .gallery-caption,
-  .gallery-columns-8 .gallery-caption,
-  .gallery-columns-9 .gallery-caption {
-    display: none; }
+  .gallery-item {
+    display: inline-block;
+    padding: 1.79104477%;
+    text-align: center;
+    vertical-align: top;
+    width: 100%; }
+    .gallery-columns-2 .gallery-item {
+      max-width: 50%; }
+    .gallery-columns-3 .gallery-item {
+      max-width: 33.33333%; }
+    .gallery-columns-4 .gallery-item {
+      max-width: 25%; }
+    .gallery-columns-5 .gallery-item {
+      max-width: 20%; }
+    .gallery-columns-6 .gallery-item {
+      max-width: 16.66667%; }
+    .gallery-columns-7 .gallery-item {
+      max-width: 14.28571%; }
+    .gallery-columns-8 .gallery-item {
+      max-width: 12.5%; }
+    .gallery-columns-9 .gallery-item {
+      max-width: 11.11111%; }
+  .gallery-icon img {
+    margin: 0 auto; }
+  .gallery-caption {
+    display: block; }
+    .gallery-columns-6 .gallery-caption,
+    .gallery-columns-7 .gallery-caption,
+    .gallery-columns-8 .gallery-caption,
+    .gallery-columns-9 .gallery-caption {
+      display: none; }
 
 /*==================================================
  * Classes
@@ -5929,10 +5933,10 @@ table small {
 /**
  * .hentry
  */
-.hentry .entry-title {
+.entry__title {
   margin-top: 0; }
 
-.hentry .entry-content > *:first-child {
+.entry__content > *:first-child {
   margin-top: 0; }
 
 /**
@@ -5941,32 +5945,26 @@ table small {
 .section {
   padding-top: 50px;
   padding-bottom: 50px; }
-  .section .section-title {
+  .section__title, .section-title {
     font-size: 28px;
     margin: 0 0 45px;
     text-align: center; }
-    .section .section-title .small {
+    .section__title .small, .section__title small, .section-title .small, .section-title small {
+      display: block;
+      font-size: 60%;
       margin-top: 10px; }
   .section .section {
     padding-top: 0;
     padding-bottom: 0; }
-    .section .section .section-title {
+    .section .section .section__title, .section .section .section-title {
       margin: 0 0 20px;
       text-align: left; }
-
-/**
- * .section-image
- */
-.section-image {
-  background-size: cover;
-  color: #fff; }
-
-/**
- * .section-fixed
- */
-@media (min-width: 768px) {
-  .section-fixed {
-    background-attachment: fixed; } }
+  .section--image, .section-image {
+    background-size: cover;
+    color: #fff; }
+  @media (min-width: 768px) {
+    .section--fixed, .section-fixed {
+      background-attachment: fixed; } }
 
 body {
   padding: 0;

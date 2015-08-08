@@ -3,6 +3,7 @@
 	.search-field {
 		@extend .form-control;
 	}
+	
 	.search-submit {
 		@extend .btn;
 		@extend .btn-default;

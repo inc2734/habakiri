@@ -1,11 +1,11 @@
 /**
- * Version    : 1.0.0
- * Author     : Takashi Kitajima
+ * Version    : 1.0.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 7, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 require( '../../assets/bootstrap/javascripts/bootstrap.js' );
 require( './jquery.responsive-nav/jquery.responsive-nav.js' );
@@ -21,7 +21,7 @@ jQuery( function( $ ) {
 	 * #header
 	 */
 	function set_padding_form_fixed_header() {
-		var header = $( '.header-fixed' );
+		var header = $( '.header--fixed' );
 		var height = header.outerHeight();
 		$( '#contents' ).css( 'marginTop', height );
 	}

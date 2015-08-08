@@ -1,24 +1,24 @@
 <?php
 /**
- * Version    : 1.1.1
- * Author     : Takashi Kitajima
+ * Version    : 1.1.2
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 5, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 8, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 
 if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="commentarea">
+<div id="commentarea" class="commentarea">
 	<?php if ( !empty( $comments_by_type['comment'] ) || comments_open() ) : ?>
-	<div id="comments">
-		<h2 class="h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
+	<div id="comments" class="comments">
+		<h2 class="comments__title h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['comment'] ) ) : ?>
-		<ol class="commentlist">
+		<ol class="comments__list commentlist">
 			<?php
 			wp_list_comments( array(
 				'type'     => 'comment',
@@ -40,11 +40,11 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 
 		<?php else : ?>
-		<p class="nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
+		<p class="comments__nocomments nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( comments_open() ) : ?>
-		<div id="respond">
+		<div id="respond" class="comments__respond">
 			<?php if ( get_option( 'comment_registration' ) && !$user_ID ) : ?>
 			<p>
 				<?php
@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 				?>
 			</p>
 			<?php else : ?>
-			<div id="comment-form">
+			<div id="comment-form" class="comments__form">
 				<?php
 				comment_form();
 				?>
@@ -68,23 +68,23 @@ if ( post_password_required() ) {
 	<?php endif; ?>
 
 	<?php if ( !empty( $comments_by_type['pings'] ) || pings_open() ) : ?>
-	<div id="trackback">
-		<h2 class="h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
+	<div id="trackback" class="trackbacks">
+		<h2 class="trackbacks__title h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['pings'] ) ) : ?>
-		<ol class="trackbacklist">
+		<ol class="trackbacks__list trackbacklist">
 			<?php
 			wp_list_comments( array(
 				'type'     => 'pings',
-				'callback' => 'Habakiri::the_comments'
+				'callback' => 'Habakiri::the_pings'
 			) );
 			?>
 		</ol>
 		<?php else : ?>
-		<p class="nocomments"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
+		<p class="trackbacks__notrackbacks nocomments"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( pings_open() ) : ?>
-		<div class="trackback-url">
+		<div class="trackbacks__trackback-url trackback-url">
 			<dl>
 				<dt><?php _e( 'TrackBack URL', 'habakiri' ); ?></dt>
 				<dd><input id="tburl" type="text" size="50" value="<?php trackback_url( true ); ?>" readonly="readonly" /></dd>

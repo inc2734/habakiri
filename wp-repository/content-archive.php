@@ -1,17 +1,17 @@
 <?php
 /**
- * Version    : 1.1.1
- * Author     : Takashi Kitajima
+ * Version    : 1.1.2
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 20, 2015
- * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 7, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ?>
 <?php if ( have_posts() ) : ?>
 
-	<div class="entries entries-archive">
+	<div class="entries entries--archive entries-archive">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php get_template_part( 'content' ); ?>
 		<?php endwhile; ?>

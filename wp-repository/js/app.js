@@ -1,12 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
- * Version    : 1.0.0
- * Author     : Takashi Kitajima
+ * Version    : 1.0.1
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 7, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 require( '../../assets/bootstrap/javascripts/bootstrap.js' );
 require( './jquery.responsive-nav/jquery.responsive-nav.js' );
@@ -22,7 +22,7 @@ jQuery( function( $ ) {
 	 * #header
 	 */
 	function set_padding_form_fixed_header() {
-		var header = $( '.header-fixed' );
+		var header = $( '.header--fixed' );
 		var height = header.outerHeight();
 		$( '#contents' ).css( 'marginTop', height );
 	}
@@ -31,6 +31,7 @@ jQuery( function( $ ) {
 		set_padding_form_fixed_header();
 	} );
 } );
+
 },{"../../assets/bootstrap/javascripts/bootstrap.js":2,"./jquery.responsive-nav/jquery.responsive-nav.js":3}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.2 (http://getbootstrap.com)
@@ -2343,14 +2344,14 @@ if (typeof jQuery === 'undefined') {
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.0
- * Author     : Takashi Kitajima
+ * Version    : 2.1.1
+ * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : June 25, 2015
+ * modified   : August 7, 2015
  * package    : jquery
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 ;( function( $ ) {
 	$.fn.responsive_nav = function( config ) {
@@ -2359,6 +2360,7 @@ if (typeof jQuery === 'undefined') {
 			contents : $( '#container' )
 		}, config );
 
+		var resize_timer   = false;
 		var container      = config.container;
 		var contents       = config.contents;
 		var responsive_nav = this;
@@ -2386,10 +2388,16 @@ if (typeof jQuery === 'undefined') {
 			} );
 
 			$( window ).resize( function() {
-				var children = menu.children( 'li' ).children( 'ul' ).children( 'li' );
-				children.removeClass( 'reverse-pulldown' );
-				children.find( 'ul' ).removeClass( 'reverse-pulldown' );
-				init();
+				nav_close();
+				if ( resize_timer !== false ) {
+					clearTimeout( resize_timer );
+				}
+				resize_timer = setTimeout( function() {
+					var children = menu.children( 'li' ).children( 'ul' ).children( 'li' );
+					children.removeClass( 'reverse-pulldown' );
+					children.find( 'ul' ).removeClass( 'reverse-pulldown' );
+					init();
+				}, 300 );
 			} );
 
 			$( '#responsive-btn' ).on( 'click', function() {

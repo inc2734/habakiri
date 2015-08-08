@@ -18,13 +18,13 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.3
- * Author     : Takashi Kitajima
+ * Version    : 1.1.4
+ * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 28, 2015
- * License    : GPLv2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Modified   : August 8, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
  */
 class Habakiri_Base_Functions {
 
@@ -118,15 +118,18 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Sidebar', 'habakiri' ),
 			'id'            => 'sidebar',
 			'description'   => __( 'Sidebar', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget sidebar__widget %2$s">',
 			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="sidebar__widget__title widgettitle">',
 		) );
+
 		register_sidebar( array(
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer__widget col-md-4 %2$s">',
 			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="footer__widget__title widgettitle">',
 		) );
 
 		add_action( 'wp_head', array( $this, 'add_footer_widget_class' ) );
@@ -157,18 +160,18 @@ class Habakiri_Base_Functions {
 	public static function the_comments( $comment, $args, $depth ) {
 		$GLOBALS['comment'] = $comment;
 		?>
-		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="comment-item">
-				<dt class="comment-header">
-					<div class="comment-author">
+		<li <?php comment_class( array( 'comments__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="comment comment-item">
+				<dt class="comment__header comment-header">
+					<div class="comment__author comment-author">
 						<?php echo get_avatar( $comment, '48' ); ?>
 					<!-- end .comment-author --></div>
 				</dt>
-				<dd class="comment-body">
+				<dd class="comment__body comment-body">
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', 'habakiri' ) ?></em>
 					<?php endif; ?>
-					<div class="comment-meta commentmetadata vcard">
+					<div class="comment__meta comment-meta commentmetadata vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -192,10 +195,40 @@ class Habakiri_Base_Functions {
 					);
 					?>
 					<?php if ( !empty( $comment_reply_link ) ) : ?>
-					<div class="reply btn btn-sm btn-primary">
+					<div class="comment__reply reply btn btn-sm btn-primary">
 						<?php echo $comment_reply_link; ?>
 					<!-- end .reply --></div>
 					<?php endif; ?>
+				</dd>
+			</dl>
+		<?php
+	}
+
+	/**
+	 * トラックバックを表示
+	 *
+	 * @param object $comment
+	 * @param array $args
+	 * @param int $depth
+	 */
+	public static function the_pings( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+		?>
+		<li <?php comment_class( array( 'trackbacks__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
+			<dl id="comment-<?php comment_ID(); ?>" class="trackback comment-item">
+				<dd class="trackback__body comment-body">
+					<div class="trackback__meta comment-meta commentmetadata vcard">
+						<?php
+						printf(
+							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
+							get_comment_author_link(),
+							get_comment_date(),
+							get_comment_time()
+						);
+						edit_comment_link( 'edit', '  ', '' );
+						?>
+					<!-- end .comment-meta --></div>
+					<?php comment_text() ?>
 				</dd>
 			</dl>
 		<?php
@@ -297,6 +330,13 @@ class Habakiri_Base_Functions {
 	public static function get( $key ) {
 		$default   = Habakiri_Customizer::get_default( $key );
 		$theme_mod = get_theme_mod( $key );
+
+		/**
+		 * backward compatible
+		 * @since 1.1.8
+		 */
+		$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
+
 		if ( $theme_mod ) {
 			return $theme_mod;
 		}
@@ -309,13 +349,12 @@ class Habakiri_Base_Functions {
 	 * @return bool
 	 */
 	public static function is_one_row_header() {
-		$headers = array( 'header-default' );
+		$headers = array( 'header--default' );
 		if ( in_array( Habakiri::get( 'header' ), $headers ) ) {
 			return true;
 		}
 		return false;
 	}
-
 
 	/**
 	 * ロゴを表示
@@ -324,7 +363,7 @@ class Habakiri_Base_Functions {
 		$header_logo = Habakiri::get( 'logo' );
 		if ( $header_logo ) {
 			$header_logo = sprintf(
-				'<img src="%s" alt="%s" />',
+				'<img src="%s" alt="%s" class="site-branding__logo" />',
 				esc_url( $header_logo ),
 				get_bloginfo( 'name' )
 			);
@@ -365,12 +404,12 @@ class Habakiri_Base_Functions {
 		?>
 		<div class="page-header text-center" <?php if ( get_header_image() ) : ?>style="background-image: url( <?php header_image(); ?> )"<?php endif; ?>>
 			<div class="container">
-				<h1 <?php if ( !empty( $class ) ) : ?>class="<?php echo esc_attr( $class ); ?>"<?php endif; ?>>
+				<h1 class="page-header__title <?php echo ( !empty( $class ) ) ? esc_attr( $class ) : ''; ?>">
 					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
 				</h1>
 				<?php while ( have_posts() ) : the_post(); ?>
 				<?php if ( is_page() && get_the_excerpt() && !empty( $post->post_excerpt ) && Habakiri::get( 'is_displaying_page_header_lead' ) !== 'false' ) : ?>
-				<div class="page-header-description">
+				<div class="page-header__description page-header-description">
 					<?php the_excerpt(); ?>
 				<!-- end .page-description --></div>
 				<?php endif; ?>
@@ -396,9 +435,11 @@ class Habakiri_Base_Functions {
 	public static function the_post_thumbnail() {
 		$classes = array(
 			'img-circle',
+			'entry--has_media__link',
 		);
 		if ( !has_post_thumbnail() ) {
 			$classes[] = 'no-thumbnail';
+			$classes[] = 'entry--has_media__link--text';
 		}
 		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
 		?>
@@ -411,7 +452,7 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="no-thumbnail-text">
+				<span class="entry--has_media__text no-thumbnail-text">
 					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>
@@ -515,11 +556,11 @@ class Habakiri_Base_Functions {
 		do_action( 'habakiri_before_title' );
 		?>
 		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
-		<h1 class="entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
+		<h1 class="entry__title entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php elseif ( is_singular() ) : ?>
-		<h1 class="entry-title"><?php echo get_the_title( $post_id ); ?></h1>
+		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
-		<h1 class="entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
+		<h1 class="entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );

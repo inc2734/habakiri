@@ -1,4 +1,18 @@
 /*==================================================
+ * classes
+ *================================================*/
+@import 'modules/page-header';
+@import 'modules/bread-crumb';
+@import 'modules/sticky';
+@import 'modules/entry-meta';
+@import 'modules/related-posts';
+@import 'modules/pagination';
+@import 'modules/search-form';
+@import 'modules/jumbotron';
+@import 'modules/thumbnail';
+@import 'modules/widget';
+
+/*==================================================
  * container
  *================================================*/
  @import 'layout/container';
@@ -14,7 +28,7 @@
  @import 'layout/main';
 
 /*==================================================
- * #sub
+ * sub
  *================================================*/
  @import 'layout/sub';
 
@@ -24,7 +38,7 @@
  @import 'layout/footer';
 
 /*==================================================
- * #commentarea
+ * commentarea
  *================================================*/
 @import 'layout/comments';
 
@@ -37,26 +51,3 @@
  * Page
  *================================================*/
 @import 'layout/page';
-
-/*==================================================
- * .single
- *================================================*/
-@import 'layout/single';
-
-/*==================================================
- * .search
- *================================================*/
-@import 'layout/search';
-
-/*==================================================
- * classes
- *================================================*/
-@import 'modules/page-header';
-@import 'modules/bread-crumb';
-@import 'modules/sticky';
-@import 'modules/entry-meta';
-@import 'modules/related-posts';
-@import 'modules/pagenation';
-@import 'modules/search-form';
-@import 'modules/jumbotron';
-@import 'modules/thumbnail';
