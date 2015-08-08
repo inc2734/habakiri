@@ -16,7 +16,7 @@
 		<?php Habakiri::the_title(); ?>
 		<?php Habakiri::the_entry_meta(); ?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
-		<div class="article__entry__content entry-content">
+		<div class="entry__content entry-content">
 			<?php the_content(); ?>
 		<!-- end .entry-content --></div>
 		<?php do_action( 'habakiri_after_entry_content' ); ?>

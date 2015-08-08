@@ -14,9 +14,9 @@
 	<div class="entries entries--search">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class( array( 'article' ) ); ?>>
-			<div class="article__entry entry">
+			<div class="entry">
 				<?php Habakiri::the_title(); ?>
-				<div class="article__entry__summary entry-summary">
+				<div class="entry__summary entry-summary">
 					<?php the_excerpt(); ?>
 				<!-- end .entry-summary --></div>
 			<!-- end .entry --></div>
