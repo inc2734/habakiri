@@ -35,7 +35,7 @@
 	.header--default & {
 		@include table;
 
-		&__col {
+		.header__col {
 			@include table-cell;
 		}
 	}
@@ -44,7 +44,7 @@
 		@media ( max-width: $screen-sm-max ) {
 			@include table;
 
-			&__col {
+			.header__col {
 				@include table-cell;
 			}
 		}
@@ -54,7 +54,7 @@
 		@media ( max-width: $screen-sm-max ) {
 			@include table;
 
-			&__col {
+			.header__col {
 				@include table-cell;
 			}
 		}
