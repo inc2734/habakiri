@@ -158,6 +158,7 @@ add_filter( 'foo', 'your_filter' );
 * Fixed offcanvas-nav bugs.
 * Fixed mistake of license.
 * Fixed comment form css bug.
+* Fixed page header bug in 404 and search page.
 * Changed global navigation pulldown menu background color.
 
 = 1.1.7 =
