@@ -2,17 +2,17 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 1.1.6\n"
+"Project-Id-Version: habakiri 1.2.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-07-28 22:21+0900\n"
-"PO-Revision-Date: 2015-07-28 22:22+0900\n"
+"POT-Creation-Date: 2015-08-08 19:53+0900\n"
+"PO-Revision-Date: 2015-08-08 19:55+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
-"Language-Team: \n"
+"Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e\n"
 "X-Poedit-Basepath: .\n"
@@ -46,19 +46,19 @@ msgstr "トラックバックはありません。"
 msgid "TrackBack URL"
 msgstr "トラックバック URL"
 
-#: content-none.php:20 functions.php:355
+#: content-none.php:28 functions.php:394
 msgid "Woops! Page not found."
 msgstr "ページが見つかりませんでした。"
 
-#: content-none.php:21
+#: content-none.php:29
 msgid "The page you are looking for may be moved or deleted."
 msgstr "お探しのページが移動したか削除されています。"
 
-#: content-none.php:22
+#: content-none.php:30
 msgid "Please search this serch box."
 msgstr "この検索ボックスから検索してください。"
 
-#: content-none.php:31
+#: content-none.php:39
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -66,7 +66,7 @@ msgstr ""
 "ご指定の検索条件に合う投稿がありませんでした。他のキーワードでもう一度検索し"
 "てみてください。"
 
-#: content-none.php:40
+#: content-none.php:48
 msgid "No posts."
 msgstr "投稿がありません。"
 
@@ -82,47 +82,47 @@ msgstr "ソーシャルナビゲーション"
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:125
+#: functions.php:127
 msgid "Footer"
 msgstr "フッター"
 
-#: functions.php:127
+#: functions.php:129
 msgid "Footer Widget Area"
 msgstr "フッターウィジェットエリア"
 
-#: functions.php:169
+#: functions.php:172
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:174
+#: functions.php:177 functions.php:223
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
-#: functions.php:213
+#: functions.php:246
 msgid "Monkey Wrench"
 msgstr "モンキーレンチ"
 
-#: functions.php:218
+#: functions.php:251
 msgid "WordPress"
 msgstr "WordPress"
 
-#: functions.php:220
+#: functions.php:253
 msgid "Habakiri theme by %s"
 msgstr "Habakiri theme by %s"
 
-#: functions.php:221
+#: functions.php:254
 msgid "Powered by %s"
 msgstr "Powered by %s"
 
-#: functions.php:357 inc/class.bread-crumb.php:163
+#: functions.php:396 inc/class.bread-crumb.php:166
 msgid "Search Results for: %s"
 msgstr "「%s」の検索結果"
 
-#: inc/class.bread-crumb.php:119
+#: inc/class.bread-crumb.php:122
 msgid "Home"
 msgstr "ホーム"
 
-#: inc/class.bread-crumb.php:154
+#: inc/class.bread-crumb.php:157
 msgid "Page not found"
 msgstr "ページが見つかりません"
 
@@ -150,159 +150,167 @@ msgstr "タグ"
 msgid "Related posts"
 msgstr "関連記事"
 
-#: inc/customizer.php:55 inc/customizer.php:65
+#: inc/customizer.php:67 inc/customizer.php:77
 msgid "No"
 msgstr "いいえ"
 
-#: inc/customizer.php:56 inc/customizer.php:66
+#: inc/customizer.php:68 inc/customizer.php:78
 msgid "Yes"
 msgstr "はい"
 
-#: inc/customizer.php:60
+#: inc/customizer.php:72
 msgid "Default"
 msgstr "デフォルト"
 
-#: inc/customizer.php:61
+#: inc/customizer.php:73
 msgid "2 rows"
 msgstr "2行"
 
-#: inc/customizer.php:62
+#: inc/customizer.php:74
 msgid "Center Logo"
 msgstr "中央ロゴ"
 
-#: inc/customizer.php:69
+#: inc/customizer.php:81
 msgid "2 Columns"
 msgstr "2カラム"
 
-#: inc/customizer.php:70
+#: inc/customizer.php:82
 msgid "3 Columns"
 msgstr "3カラム"
 
-#: inc/customizer.php:71
+#: inc/customizer.php:83
 msgid "4 Columns"
 msgstr "4カラム"
 
-#: inc/customizer.php:74
+#: inc/customizer.php:86 inc/customizer.php:93 inc/customizer.php:100
 msgid "Right Sidebar"
 msgstr "右サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:75
+#: inc/customizer.php:87 inc/customizer.php:94 inc/customizer.php:101
 msgid "Left Sidebar"
 msgstr "左サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:76
+#: inc/customizer.php:88 inc/customizer.php:95 inc/customizer.php:102
 msgid "No Sidebar"
 msgstr "サイドバー無し"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:77
+#: inc/customizer.php:89 inc/customizer.php:96 inc/customizer.php:103
 msgid "Full Width ( Fixed )"
 msgstr "全幅 ( 固定 )"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:78
+#: inc/customizer.php:90 inc/customizer.php:97 inc/customizer.php:104
 msgid "Full Width ( Fluid )"
 msgstr "全幅 ( リキッド )"
 
-#: inc/customizer.php:130
+#: inc/customizer.php:158
 msgid "settings"
 msgstr "設定"
 
-#: inc/customizer.php:139
+#: inc/customizer.php:167
 msgid "Logo"
 msgstr "ロゴ"
 
-#: inc/customizer.php:149
+#: inc/customizer.php:177
 msgid "Logo Text Color"
 msgstr "ロゴテキストの色"
 
-#: inc/customizer.php:159
+#: inc/customizer.php:187
 msgid "Header"
 msgstr "ヘッダー"
 
-#: inc/customizer.php:171
+#: inc/customizer.php:199
 msgid "Header Fixed"
 msgstr "ヘッダーを固定"
 
-#: inc/customizer.php:183
+#: inc/customizer.php:211
 msgid "Number of footer columns"
 msgstr "フッターのカラム数"
 
-#: inc/customizer.php:195
+#: inc/customizer.php:223
 msgid "Blog Template"
 msgstr "ブログテンプレート"
 
-#: inc/customizer.php:207
+#: inc/customizer.php:235
+msgid "Search Template"
+msgstr "検索結果テンプレート"
+
+#: inc/customizer.php:247
+msgid "404 Template"
+msgstr "404 テンプレート"
+
+#: inc/customizer.php:259
 msgid "Displaying thumbnail in archive page"
 msgstr "アーカイブページでのサムネイル表示"
 
-#: inc/customizer.php:219
+#: inc/customizer.php:271
 msgid "Displaying the Bread Crumb"
 msgstr "パンくずリストを表示"
 
-#: inc/customizer.php:231
+#: inc/customizer.php:283
 msgid "Displaying related posts in single page"
 msgstr "個別投稿ページでの関連記事表示"
 
-#: inc/customizer.php:243
+#: inc/customizer.php:295
 msgid "Displaying page header"
 msgstr "ページヘッダーを表示"
 
-#: inc/customizer.php:255
+#: inc/customizer.php:307
 msgid "Displaying lead of page header in single page"
 msgstr "個別投稿ページのページヘッダーのリード文を表示"
 
-#: inc/customizer.php:267
+#: inc/customizer.php:319
 msgid "Link Color"
 msgstr "リンク色"
 
-#: inc/customizer.php:277
+#: inc/customizer.php:329
 msgid "Link Hover Color"
 msgstr "リンク色 ( ホバー時 )"
 
-#: inc/customizer.php:287
+#: inc/customizer.php:339
 msgid "Global Navigation Link Color"
 msgstr "グローバルナビゲーションのリンク色"
 
-#: inc/customizer.php:297
+#: inc/customizer.php:349
 msgid "Global Navigation Link Hover Color"
 msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
 
-#: inc/customizer.php:307
+#: inc/customizer.php:359
 msgid "Global Navigation Pulldown Link Color"
 msgstr "グローバルナビゲーションプルダウンのリンク色"
 
-#: inc/customizer.php:317
+#: inc/customizer.php:369
 msgid "Global Navigation Pulldown Background Color"
 msgstr "グローバルナビゲーションプルダウンの背景色"
 
-#: inc/customizer.php:327
+#: inc/customizer.php:379
 msgid "Global Navigation Pulldown Background Hover Color"
 msgstr "グローバルナビゲーションプルダウンの背景色 ( ホバー時 )"
 
-#: inc/customizer.php:337
+#: inc/customizer.php:389
 msgid "Header Background Color"
 msgstr "ヘッダーの背景色"
 
-#: inc/customizer.php:347
+#: inc/customizer.php:399
 msgid "Footer Background Color"
 msgstr "フッターの背景色"
 
-#: inc/customizer.php:357
+#: inc/customizer.php:409
 msgid "Footer Text Color"
 msgstr "フッターの文字色"
 
-#: inc/customizer.php:367
+#: inc/customizer.php:419
 msgid "Footer Link Color"
 msgstr "フッターのリンク色"
 
-#: inc/customizer.php:377
+#: inc/customizer.php:429
 msgid "Page Header Background Color"
 msgstr "ページヘッダーの背景色"
 
-#: inc/customizer.php:387
+#: inc/customizer.php:439
 msgid "Page Header Text Color"
 msgstr "ページヘッダーの文字色"
 
