@@ -184,7 +184,9 @@ dl {
 		margin: 0 0 45px;
 		text-align: center;
 
-		.small {
+		.small, small {
+			display: block;
+			font-size: 60%;
 			margin-top: 10px;
 		}
 	}

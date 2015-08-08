@@ -7132,7 +7132,9 @@ dl {
     font-size: 28px;
     margin: 0 0 45px;
     text-align: center; }
-    .section__title .small, .section-title .small {
+    .section__title .small, .section__title small, .section-title .small, .section-title small {
+      display: block;
+      font-size: 60%;
       margin-top: 10px; }
   .section .section {
     padding-top: 0;
