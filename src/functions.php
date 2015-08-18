@@ -3,6 +3,7 @@ require_once get_template_directory() . '/inc/customizer.php';
 require_once get_template_directory() . '/inc/class.bread-crumb.php';
 require_once get_template_directory() . '/inc/class.entry-meta.php';
 require_once get_template_directory() . '/inc/class.related-posts.php';
+require_once get_template_directory() . '/inc/class.slider.php';
 
 function habakiri_parent_theme_setup() {
 	if ( !class_exists( 'Habakiri' ) ) {
@@ -18,11 +19,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.4
+ * Version    : 1.2.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 8, 2015
+ * Modified   : August 15, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -339,7 +340,7 @@ class Habakiri_Base_Functions {
 			$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
 		}
 
-		if ( $theme_mod ) {
+		if ( $theme_mod !== false ) {
 			return $theme_mod;
 		}
 		return $default;
@@ -468,6 +469,14 @@ class Habakiri_Base_Functions {
 	public static function the_related_posts() {
 		$RelatedPosts = new Habakiri_Related_Posts();
 		$RelatedPosts->display();
+	}
+
+	/**
+	 * スライダーを表示
+	 */
+	public static function the_slider() {
+		$Slider = new Habakiri_Slider();
+		$Slider->display();
 	}
 
 	/**

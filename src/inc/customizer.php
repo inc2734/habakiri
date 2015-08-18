@@ -54,6 +54,18 @@ class Habakiri_Customizer {
 	protected $_404_template_choices = array();
 
 	/**
+	 * トップページスライドショーのエフェクト
+	 * @var array
+	 */
+	protected $slider_option_effect_choices = array();
+
+	/**
+	 * トップページスライドショーの target 属性
+	 * @var array
+	 */
+	protected $slider_target_choices = array();
+
+	/**
 	 * false, true の選択肢
 	 * @var array
 	 */
@@ -103,6 +115,14 @@ class Habakiri_Customizer {
 			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
 			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
 		);
+		$this->slider_option_effect_choices = array(
+			'horizontal' => __( 'Slide', 'habakiri' ),
+			'fade'       => __( 'Fade', 'habakiri' ),
+		);
+		$this->slider_target_choices = array(
+			'_self'  => __( 'Same window', 'habakiri' ),
+			'_blank' => __( 'New window', 'habakiri' ),
+		);
 	}
 
 	/**
@@ -141,6 +161,10 @@ class Habakiri_Customizer {
 				'footer_link_color'              => '#777',
 				'page_header_bg_color'           => '#222',
 				'page_header_text_color'         => '#fff',
+				'slider_option_effect'          => 'horizontal',
+				'slider_option_interval'        => 4000,
+				'slider_option_speed'           => 500,
+				'slider_option_target'          => '_self',
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
@@ -440,6 +464,140 @@ class Habakiri_Customizer {
 			'section'  => 'colors',
 			'settings' => 'page_header_text_color',
 		) ) );
+
+		$wp_customize->add_panel( 'habakiri_slider', array(
+			'title'    => __( 'Front page Slider', 'habakiri' ),
+			'priority' => 105,
+		) );
+		$wp_customize->add_section( 'habakiri_slider_option', array(
+			'title' =>  __( 'Settings', 'habakiri' ),
+			'panel' => 'habakiri_slider',
+		) );
+		$wp_customize->add_setting( 'slider_option_effect', array(
+			'default' => self::get_default( 'slider_option_effect' ),
+			//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'slider_option_effect',
+				array(
+					'label'    => __( 'Effect', 'habakiri' ),
+					'section'  => 'habakiri_slider_option',
+					'settings' => 'slider_option_effect',
+					'type'     => 'radio',
+					'choices'  => $this->slider_option_effect_choices,
+				)
+			)
+		);
+		$wp_customize->add_setting( 'slider_option_interval', array(
+			'default' => self::get_default( 'slider_option_interval' ),
+			//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'slider_option_interval',
+				array(
+					'label'    => __( 'Interval (ms)', 'habakiri' ),
+					'section'  => 'habakiri_slider_option',
+					'settings' => 'slider_option_interval',
+					'type'     => 'text',
+				)
+			)
+		);
+		$wp_customize->add_setting( 'slider_option_speed', array(
+			'default' => self::get_default( 'slider_option_speed' ),
+			//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		) );
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'slider_option_speed',
+				array(
+					'label'    => __( 'Effect Speed (ms)', 'habakiri' ),
+					'section'  => 'habakiri_slider_option',
+					'settings' => 'slider_option_speed',
+					'type'     => 'text',
+				)
+			)
+		);
+		for ( $i = 1; $i <= 5; $i ++ ) {
+			$section_id = 'habakiri_slider_image_' . $i;
+			$wp_customize->add_section( $section_id, array(
+				'title' =>  sprintf( __( 'Image (%d)', 'habakiri' ), $i ),
+				'panel' => 'habakiri_slider',
+			) );
+
+			$setting_id = 'slider_image_' . $i;
+			$wp_customize->add_setting( $setting_id, array(
+				//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+			) );
+			$wp_customize->add_control(
+				new WP_Customize_Image_Control(
+					$wp_customize,
+					'slider_image_' . $i,
+					array(
+						'label'    => sprintf( 'Image', 'habakiri' ),
+						'section'  => $section_id,
+						'settings' => $setting_id,
+					)
+				)
+			);
+
+			$setting_id = 'slider_content_' . $i;
+			$wp_customize->add_setting( $setting_id, array(
+				//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+			) );
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'slider_content_' . $i,
+					array(
+						'label'    => __( 'Content', 'habakiri' ),
+						'section'  => $section_id,
+						'settings' => $setting_id,
+						'type'     => 'textarea',
+					)
+				)
+			);
+
+			$setting_id = 'slider_url_' . $i;
+			$wp_customize->add_setting( $setting_id, array(
+				//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+			) );
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'slider_url_' . $i,
+					array(
+						'label'    => __( 'URL', 'habakiri' ),
+						'section'  => $section_id,
+						'settings' => $setting_id,
+						'type'     => 'text',
+					)
+				)
+			);
+
+			$setting_id = 'slider_target_' . $i;
+			$wp_customize->add_setting( $setting_id, array(
+				'default' => self::get_default( 'slider_target' ),
+				//'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+			) );
+			$wp_customize->add_control(
+				new WP_Customize_Control(
+					$wp_customize,
+					'slider_target_' . $i,
+					array(
+						'label'    => __( 'Target', 'habakiri' ),
+						'section'  => $section_id,
+						'settings' => $setting_id,
+						'type'     => 'select',
+						'choices'  => $this->slider_target_choices,
+					)
+				)
+			);
+		}
 	}
 
 	/**

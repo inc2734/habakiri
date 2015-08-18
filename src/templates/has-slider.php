@@ -1,12 +1,12 @@
 <?php
 /**
- * Template Name: For Front Page
+ * Template Name: Has Slider
  *
- * Version      : 1.1.0
+ * Version      : 1.0.0
  * Author       : inc2734
  * Author URI   : http://2inc.org
- * Created      : April 17, 2015
- * Modified     : July 1, 2015
+ * Created      : August 15, 2015
+ * Modified     : 
  * License      : GPLv2 or later
  * License URI  : license.txt
  */
@@ -18,13 +18,13 @@
 		<main id="main" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 			<article class="article">
+				<?php Habakiri::the_slider(); ?>
+
 				<div class="entry">
 					<?php Habakiri::the_title(); ?>
 					<?php do_action( 'habakiri_before_entry_content' ); ?>
 					<div class="entry__content entry-content">
-						<?php do_action( 'habakiri_prepend_entry_content_front_page_template' ); ?>
 						<?php the_content(); ?>
-						<?php do_action( 'habakiri_append_entry_content_front_page_template' ); ?>
 					<!-- end .entry-content --></div>
 					<?php do_action( 'habakiri_after_entry_content' ); ?>
 				<!-- end .entry --></div>

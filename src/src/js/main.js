@@ -1,14 +1,15 @@
 /**
- * Version    : 1.0.1
+ * Version    : 1.1.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 7, 2015
+ * Modified   : August 15, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
 require( '../../assets/bootstrap/javascripts/bootstrap.js' );
 require( './jquery.responsive-nav/jquery.responsive-nav.js' );
+require( './jquery.bxslider/jquery.bxslider.js' );
 
 jQuery( function( $ ) {
 	

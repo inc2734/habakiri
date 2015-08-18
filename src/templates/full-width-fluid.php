@@ -7,7 +7,7 @@
  * Author URI   : http://2inc.org
  * Created      : April 17, 2015
  * Modified     : July 5, 2015
- * License      : GPLv2
+ * License      : GPLv2 or later
  * License URI  : license.txt
  */
 ?>

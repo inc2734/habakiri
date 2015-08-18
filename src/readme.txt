@@ -4,12 +4,12 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.2.2
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: license.txt
 
 == Description ==
-Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
+Habakiri is a simple theme based on Bootstrap3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
 
 == Installation ==
 
@@ -41,6 +41,10 @@ Source : http://genericons.com/
 Unsplash - Photo for screenshot.png
 License: CC0
 Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
+
+BxSlider
+License: MIT
+Source : http://bxslider.com/
 
 == Theme features ==
 
@@ -153,6 +157,10 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 1.3.0 =
+* Add BxSlider and slider settings in customizer.
+* Add page template that is using slider.
 
 = 1.2.0 =
 * Fixed offcanvas-nav bugs.

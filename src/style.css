@@ -3,7 +3,7 @@ Theme Name: habakiri
 Theme URI: http://habakiri.2inc.org
 Author: inc2734
 Author URI: http://2inc.org
-Description: Habakiri is a simple theme based on Twitter Bootstrap. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
+Description: Habakiri is a simple theme based on Bootstrap3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
 Version: 1.2.0
 License: GPLv2 or later
 License URI: license.txt
@@ -6440,6 +6440,19 @@ button.close {
   border-color: #337ab7;
   color: #fff; }
 
+.btn-ghost, .jumbotron .btn-default, .jumbotron .search-form .search-submit, .search-form .jumbotron .search-submit,
+.jumbotron .widget_search .search-submit, .widget_search .jumbotron .search-submit, .jumbotron .comments__form #submit, .comments__form .jumbotron #submit, .habakiri-slider__item-content .btn-default, .habakiri-slider__item-content .search-form .search-submit, .search-form .habakiri-slider__item-content .search-submit,
+.habakiri-slider__item-content .widget_search .search-submit, .widget_search .habakiri-slider__item-content .search-submit, .habakiri-slider__item-content .comments__form #submit, .comments__form .habakiri-slider__item-content #submit {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff; }
+  .btn-ghost:hover, .jumbotron .btn-default:hover, .jumbotron .search-form .search-submit:hover, .search-form .jumbotron .search-submit:hover,
+  .jumbotron .widget_search .search-submit:hover, .widget_search .jumbotron .search-submit:hover, .jumbotron .comments__form #submit:hover, .comments__form .jumbotron #submit:hover, .habakiri-slider__item-content .btn-default:hover, .habakiri-slider__item-content .search-form .search-submit:hover, .search-form .habakiri-slider__item-content .search-submit:hover,
+  .habakiri-slider__item-content .widget_search .search-submit:hover, .widget_search .habakiri-slider__item-content .search-submit:hover, .habakiri-slider__item-content .comments__form #submit:hover, .comments__form .habakiri-slider__item-content #submit:hover, .btn-ghost:active, .jumbotron .btn-default:active, .jumbotron .search-form .search-submit:active, .search-form .jumbotron .search-submit:active,
+  .jumbotron .widget_search .search-submit:active, .widget_search .jumbotron .search-submit:active, .jumbotron .comments__form #submit:active, .comments__form .jumbotron #submit:active, .habakiri-slider__item-content .btn-default:active, .habakiri-slider__item-content .search-form .search-submit:active, .search-form .habakiri-slider__item-content .search-submit:active,
+  .habakiri-slider__item-content .widget_search .search-submit:active, .widget_search .habakiri-slider__item-content .search-submit:active, .habakiri-slider__item-content .comments__form #submit:active, .comments__form .habakiri-slider__item-content #submit:active {
+    background-color: rgba(255, 255, 255, 0.3); }
+
 .jumbotron {
   margin-bottom: 0;
   padding: 160px 15px; }
@@ -6453,15 +6466,6 @@ button.close {
   .jumbotron .btn, .jumbotron .search-form .search-submit, .search-form .jumbotron .search-submit,
   .jumbotron .widget_search .search-submit, .widget_search .jumbotron .search-submit, .jumbotron .comments__form #submit, .comments__form .jumbotron #submit {
     margin: 40px 0 0; }
-  .jumbotron .btn-default, .jumbotron .search-form .search-submit, .search-form .jumbotron .search-submit,
-  .jumbotron .widget_search .search-submit, .widget_search .jumbotron .search-submit, .jumbotron .comments__form #submit, .comments__form .jumbotron #submit {
-    background-color: transparent;
-    border-color: #fff;
-    color: #fff; }
-    .jumbotron .btn-default:hover, .jumbotron .search-form .search-submit:hover, .search-form .jumbotron .search-submit:hover,
-    .jumbotron .widget_search .search-submit:hover, .widget_search .jumbotron .search-submit:hover, .jumbotron .comments__form #submit:hover, .comments__form .jumbotron #submit:hover, .jumbotron .btn-default:active, .jumbotron .search-form .search-submit:active, .search-form .jumbotron .search-submit:active,
-    .jumbotron .widget_search .search-submit:active, .widget_search .jumbotron .search-submit:active, .jumbotron .comments__form #submit:active, .comments__form .jumbotron #submit:active {
-      background-color: rgba(255, 255, 255, 0.3); }
 
 div.thumbnail {
   background-color: transparent;
@@ -6570,6 +6574,72 @@ div.thumbnail {
 
 .widget_tag_cloud .tagcloud {
   line-height: 1.3; }
+
+.habakiri-slider .bx-wrapper {
+  margin: 0 auto;
+  padding: 0;
+  position: relative; }
+  .habakiri-slider .bx-wrapper .habakiri-slider__item {
+    display: block; }
+
+.habakiri-slider__list img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.2s; }
+
+.habakiri-slider__list .bx-viewport {
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0); }
+
+.habakiri-slider__item {
+  display: none;
+  position: relative; }
+  .habakiri-slider__item:first-child {
+    display: block; }
+
+.habakiri-slider__item-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .habakiri-slider__item-wrapper:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
+
+.habakiri-slider__item-content {
+  color: #fff;
+  display: inline-block; }
+  .habakiri-slider__item-content a {
+    color: #fff; }
+
+.habakiri-slider__link:hover img, .habakiri-slider__link:active img {
+  opacity: 0.8; }
+
+.habakiri-slider .bx-controls-direction .bx-prev, .habakiri-slider .bx-controls-direction .bx-next {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  width: 32px;
+  height: 32px;
+  z-index: 9999;
+  color: #fff;
+  text-decoration: none; }
+  .habakiri-slider .bx-controls-direction .bx-prev .genericon, .habakiri-slider .bx-controls-direction .bx-next .genericon {
+    font-size: 32px; }
+
+.habakiri-slider .bx-controls-direction .bx-prev {
+  left: 10px;
+  transform: rotate(-90deg); }
+
+.habakiri-slider .bx-controls-direction .bx-next {
+  right: 10px;
+  transform: rotate(90deg); }
 
 /*==================================================
  * container
