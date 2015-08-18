@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Has Slider
+ * Template Name: Rich Front Page
  *
  * Version      : 1.0.0
  * Author       : inc2734

@@ -90,7 +90,7 @@ class Habakiri_Slider {
 						$item = sprintf(
 							'<a class="habakiri-slider__link" href="%s" target="%s">%s</a>',
 							esc_url( $slide['url'] ),
-							esc_attr( $slide['target'] ),
+							esc_attr( ( $slide['target'] ) ? '_blank' : '_self' ),
 							$item
 						);
 					}

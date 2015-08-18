@@ -330,7 +330,7 @@ class Habakiri_Base_Functions {
 	 */
 	public static function get( $key ) {
 		$default   = Habakiri_Customizer::get_default( $key );
-		$theme_mod = get_theme_mod( $key );
+		$theme_mod = get_theme_mod( $key, $default );
 
 		/**
 		 * backward compatible
@@ -340,10 +340,7 @@ class Habakiri_Base_Functions {
 			$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
 		}
 
-		if ( $theme_mod !== false ) {
-			return $theme_mod;
-		}
-		return $default;
+		return $theme_mod;
 	}
 
 	/**
