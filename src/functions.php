@@ -19,11 +19,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 15, 2015
+ * Modified   : August 18, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -349,7 +349,7 @@ class Habakiri_Base_Functions {
 	 * @return bool
 	 */
 	public static function is_one_row_header() {
-		$headers = array( 'header--default' );
+		$headers = array( 'header--default', 'header--transparency' );
 		if ( in_array( Habakiri::get( 'header' ), $headers ) ) {
 			return true;
 		}
@@ -396,15 +396,25 @@ class Habakiri_Base_Functions {
 			$title = sprintf( __( 'Search Results for: %s', 'habakiri' ), get_search_query() );
 		}
 
-		$class = '';
-		if ( !is_single() ) {
-			$class = 'entry-title';
+		$page_header_class = '';
+		$background_image_style = '';
+		if ( get_header_image() ) {
+			$page_header_class = 'page-header--has_background-image';
+			$background_image_style = sprintf(
+				'style="background-image: url( %s )"',
+				get_header_image()
+			);
 		}
-		$class = apply_filters( 'habakiri_title_class_in_page_header', $class );
+
+		$title_class = '';
+		if ( !is_single() ) {
+			$title_class = 'entry-title';
+		}
+		$title_class = apply_filters( 'habakiri_title_class_in_page_header', $title_class );
 		?>
-		<div class="page-header text-center" <?php if ( get_header_image() ) : ?>style="background-image: url( <?php header_image(); ?> )"<?php endif; ?>>
+		<div class="page-header text-center <?php echo esc_attr( $page_header_class ); ?>" <?php echo $background_image_style; ?>>
 			<div class="container">
-				<h1 class="page-header__title <?php echo ( !empty( $class ) ) ? esc_attr( $class ) : ''; ?>">
+				<h1 class="page-header__title <?php echo ( !empty( $title_class ) ) ? esc_attr( $title_class ) : ''; ?>">
 					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
 				</h1>
 				<?php while ( have_posts() ) : the_post(); ?>

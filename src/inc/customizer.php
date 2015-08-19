@@ -232,9 +232,10 @@ class Habakiri_Customizer {
 			'default' => self::get_default( 'header' ),
 			'section' => 'habakiri_layout',
 			'choices' => array(
-				'header--default' => __( 'Default', 'habakiri' ),
-				'header--2row'    => __( '2 rows', 'habakiri' ),
-				'header--center'  => __( 'Center Logo', 'habakiri' ),
+				'header--default'      => __( 'Default', 'habakiri' ),
+				'header--2row'         => __( '2 rows', 'habakiri' ),
+				'header--center'       => __( 'Center Logo', 'habakiri' ),
+				'header--transparency' => __( 'Transparency', 'habakiri' ),
 			),
 		) );
 
@@ -378,7 +379,8 @@ class Habakiri_Customizer {
 		.site-branding a {
 			color: <?php echo esc_html( Habakiri::get( 'logo_text_color' ) ); ?>;
 		}
-		.global-nav a {
+		.global-nav a,
+		#responsive-btn {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_link_color' ) ); ?>;
 		}
 		.global-nav a:hover,
@@ -426,6 +428,9 @@ class Habakiri_Customizer {
 		}
 		#header {
 			background-color: <?php echo esc_html( Habakiri::get( 'header_bg_color' ) ); ?>;
+		}
+		#header.header--transparency--is_scrolled {
+			background-color: <?php echo esc_html( Habakiri::get( 'header_bg_color' ) ); ?> !important;
 		}
 		#footer {
 			background-color: <?php echo esc_html( Habakiri::get( 'footer_bg_color' ) ); ?>;

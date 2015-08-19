@@ -4,12 +4,6 @@
 	position: relative;
 	z-index: 2;
 
-	&--fixed {
-		border-bottom: 1px solid $gray-lighter;
-		position: fixed;
-		width: 100%;
-	}
-
 	&--default {
 		@media ( min-width: $screen-md-min ) {
 			padding-top: 10px;
@@ -26,13 +20,32 @@
 			padding-bottom: 0;
 		}
 	}
+	&--transparency {
+		background-color: transparent !important;
+		transition: background-color 0.2s;
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	&--fixed {
+		border-bottom: 1px solid $gray-lighter;
+		position: fixed;
+		right: 0;
+		left: 0;
+
+		&.header--transparency {
+			border-bottom: none;
+		}
+	}
 }
 
 /**
  * .header__content
  */
 .header__content {
-	.header--default & {
+	.header--default &,
+	.header--transparency & {
 		@include table;
 
 		.header__col {
@@ -128,7 +141,8 @@
 		}
 	}
 
-	.header--default & {
+	.header--default &,
+	.header--transparency & {
 		.menu {
 			float: right;
 		}
