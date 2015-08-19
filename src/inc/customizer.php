@@ -57,6 +57,9 @@ class Habakiri_Customizer {
 				'slider_option_effect'           => 'horizontal',
 				'slider_option_interval'         => 4000,
 				'slider_option_speed'            => 500,
+				'slider_option_overlay_color'    => '#000',
+				'slider_option_overlay_opacity'  => '100',
+				'slider_option_height'           => 0,
 				'slider_option_target_1'         => false,
 				'slider_option_target_2'         => false,
 				'slider_option_target_3'         => false,
@@ -350,6 +353,30 @@ class Habakiri_Customizer {
 			'section' => 'habakiri_slider_option',
 		) );
 
+		$Customizer_Framework->color( 'slider_option_overlay_color', array(
+			'label'   => __( 'Overlay color', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_overlay_color' ),
+			'section' => 'habakiri_slider_option',
+		) );
+
+		$Customizer_Framework->range( 'slider_option_overlay_opacity', array(
+			'label'   => __( 'Overlay opacity', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_overlay_opacity' ),
+			'section' => 'habakiri_slider_option',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		) );
+
+		$Customizer_Framework->number( 'slider_option_height', array(
+			'label'       => __( 'Height (px)', 'habakiri' ),
+			'default'     => self::get_default( 'slider_option_height' ),
+			'section'     => 'habakiri_slider_option',
+			'description' => __( 'If 0, height is auto.', 'habakiri' ),
+		) );
+
 		for ( $i = 1; $i <= 5; $i ++ ) {
 			$section_id = 'habakiri_slider_image_' . $i;
 			$Customizer_Framework->add_section( $section_id, array(
@@ -446,6 +473,19 @@ class Habakiri_Customizer {
 				margin-bottom: 20px;
 				text-align: center;
 			}
+		}
+		<?php endif; ?>
+		.habakiri-slider {
+			background-color: <?php echo esc_html( Habakiri::get( 'slider_option_overlay_color' ) ); ?>;
+		}
+		.habakiri-slider__image {
+			opacity: <?php echo esc_html( Habakiri::get( 'slider_option_overlay_opacity' ) / 100 ); ?>;
+		}
+		<?php if ( Habakiri::get( 'slider_option_height' ) ) : ?>
+		.habakiri-slider .bx-wrapper,
+		.habakiri-slider__item {
+			max-height: <?php echo esc_html( Habakiri::get( 'slider_option_height' ) ); ?>px;
+			overflow: hidden;
 		}
 		<?php endif; ?>
 		.entry--has_media__link--text {

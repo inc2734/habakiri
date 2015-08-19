@@ -74,16 +74,16 @@ class Habakiri_Slider {
 		}
 		?>
 		<div class="habakiri-slider">
-			<ul class="habakiri-slider__list list-unstyled bxslider">
+			<div class="habakiri-slider__list bxslider">
 				<?php
 				foreach ( $items as $slide ) {
 					$item = sprintf(
 						'<div class="habakiri-slider__item-wrapper col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-							<div class="habakiri-slider__item-content">
+							<div class="habakiri-slider__item-content col-xs-12">
 								%s
 							</div>
 						</div>
-						<img src="%s" alt="" />',
+						<img src="%s" alt="" class="habakiri-slider__image" />',
 						$slide['content'],
 						esc_url( $slide['image'] )
 					);
@@ -96,12 +96,12 @@ class Habakiri_Slider {
 						);
 					}
 					printf(
-						'<li class="habakiri-slider__item">%s</li>',
+						'<section class="habakiri-slider__item">%s</section>',
 						$item
 					);
 				}
 				?>
-			</ul>
+			</div>
 		</div>
 		<?php
 	}

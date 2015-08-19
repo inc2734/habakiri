@@ -273,6 +273,28 @@ class Habakiri_Customizer_Framework {
 	}
 
 	/**
+	 * Range field
+	 *
+	 * @param string $control_id
+	 * @param array $args argments of add_setting and add_control
+	 */
+	public function range( $control_id, $args ) {
+		$args = $this->init_field_args( $control_id, $args );
+		$args = $this->set_default_sanitize_callback( $args, array( $this, 'sanitize_number_' . $control_id ) );
+		$this->Customizer->add_setting( $control_id, $args );
+		$this->Customizer->add_control(
+			new WP_Customize_Control(
+				$this->Customizer,
+				$control_id,
+				array_merge( $args, array(
+					'settings' => $control_id,
+					'type'     => 'range',
+				) )
+			)
+		);
+	}
+
+	/**
 	 * Image field
 	 *
 	 * @param string $control_id
