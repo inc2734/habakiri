@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: license.txt
 
 == Description ==
-Habakiri is a simple theme based on Bootstrap3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 6 page templates, 6 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
+Habakiri is a simple theme based on Bootstrap3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is kept simple to keep the simplicity of the Bootstrap. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 7 page templates, 8 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Gulp use, Sass and PHP Class in functions.php.
 
 == Installation ==
 
@@ -52,14 +52,19 @@ Source : http://bxslider.com/
 
 You can upload a logo image in Customizer.
 
-= 6 page templates =
+= 7 page templates =
 
 * Right Sidebar ( default )
 * Left Sidebar
 * No Sidebar
 * Full Width ( Fixed )
 * Full Width ( Fluid )
-* For Front Page
+* Blank Page
+* Rich Front Page
+
+= Slider =
+
+You can use slider with BxSlider. The slider can be used in "Rich Front Page" template.
 
 = 5 blog layouts =
 
@@ -72,6 +77,7 @@ You can upload a logo image in Customizer.
 = Header paterns =
 
 * Left logo + Right global navigation ( default )
+* Left logo + Right global navigation + Transparency
 * Top Left logo + Bottom Left global navigation
 * Top Center logo + Bottom Center global navigation
 * The fixed and non-fixed layout are provided for each layouts above.
@@ -79,7 +85,7 @@ You can upload a logo image in Customizer.
 = Widget areas =
 
 * Sidebar
-* Footer ( you can select number of columns )
+* Footer ( You can select number of columns )
 
 = Navigation =
 
@@ -105,7 +111,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 * .section .section--title: A class for section title.
 * jumbotron .btn-default: A class which is provided in Bootstrap but I've customized it into Ghost style.
 
-= Off campus navigation on mobiles =
+= Offcanvas navigation on mobiles =
 
 Global menu goes off canvas on mobiles. You don't need to add another menu for mobile phones.
 
@@ -160,7 +166,11 @@ add_filter( 'foo', 'your_filter' );
 
 = 1.3.0 =
 * Add BxSlider and slider settings in customizer.
-* Add page template that is using slider.
+* Add rich front page template that is using slider.
+* Add new setting: Header layout setting that is the transparent header.
+* Add new setting: Breakpoint setting that to switch offcanvas navigation.
+* Change page header size when custom header image is set.
+* Change template name "For front page" to "Blank Page".
 
 = 1.2.0 =
 * Fixed offcanvas-nav bugs.

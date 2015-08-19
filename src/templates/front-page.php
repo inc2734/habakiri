@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: For Front Page
+ * Template Name: Blank Page
  *
  * Version      : 1.1.0
  * Author       : inc2734
