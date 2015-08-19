@@ -4,22 +4,6 @@
 	position: relative;
 	z-index: 2;
 
-	&--default {
-		@media ( min-width: $screen-md-min ) {
-			padding-top: 10px;
-			padding-bottom: 10px;
-		}
-	}
-	&--2row {
-		@media ( min-width: $screen-md-min ) {
-			padding-bottom: 0;
-		}
-	}
-	&--center {
-		@media ( min-width: $screen-md-min ) {
-			padding-bottom: 0;
-		}
-	}
 	&--transparency {
 		background-color: transparent !important;
 		transition: background-color 0.2s;
@@ -44,54 +28,17 @@
  * .header__content
  */
 .header__content {
-	.header--default &,
-	.header--transparency & {
 		@include table;
 
 		.header__col {
 			@include table-cell;
 		}
-	}
-
-	.header--2row & {
-		@media ( max-width: $screen-sm-max ) {
-			@include table;
-
-			.header__col {
-				@include table-cell;
-			}
-		}
-	}
-
-	.header--center & {
-		@media ( max-width: $screen-sm-max ) {
-			@include table;
-
-			.header__col {
-				@include table-cell;
-			}
-		}
-	}
 }
 
 /**
  * .site-branding
  */
 .site-branding {
-	.header--2row & {
-		@media ( min-width: $screen-md-min ) {
-			margin-bottom: 0;
-		}
-	}
-
-	.header--center & {
-		@media ( min-width: $screen-md-min ) {
-			margin-top: 20px;
-			margin-bottom: 20px;
-			text-align: center;
-		}
-	}
-
 	&__heading {
 		font-size: 24px;
 		line-height: 1;

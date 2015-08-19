@@ -72,6 +72,7 @@ class Habakiri_Base_Functions {
 
 		$this->customizer();
 		$this->register_nav_menus();
+		$this->backward_compatible();
 
 		add_action( 'widgets_init'        , array( $this, 'register_sidebar' ) );
 		add_action( 'wp_enqueue_scripts'  , array( $this, 'wp_enqueue_scripts' ) );
@@ -109,6 +110,34 @@ class Habakiri_Base_Functions {
 			'global-nav' => __( 'Global Navigation', 'habakiri' ),
 			'social-nav' => __( 'Social Navigation', 'habakiri' ),
 		) );
+	}
+
+	/**
+	 * 後方互換性維持のための処理
+	 */
+	protected function backward_compatible() {
+		/**
+		 * @since 1.2.0
+		 */
+		add_filter( 'theme_mod_header', array( $this, 'backward_compatible_bem_format' ) );
+		add_filter( 'theme_mod_header_fixed', array( $this, 'backward_compatible_bem_format' ) );
+	}
+	public function backward_compatible_bem_format( $value ) {
+		$value = trim( $value );
+		if ( preg_match( '/^header\-([^\-]+)/', $value, $reg ) ) {
+			return 'header--' . $reg[1];
+		}
+		return $value;
+	}
+	public static function get_header_classses() {
+		$header       = Habakiri::get( 'header' );
+		$header_fixed = Habakiri::get( 'header_fixed' );
+		$header_classes[] = $header;
+		$header_classes[] = $header_fixed;
+		foreach ( $header_classes as $header_class ) {
+			$header_classes[] = str_replace( '--', '-', $header_class );
+		}
+		return $header_classes;
 	}
 
 	/**
@@ -582,5 +611,56 @@ class Habakiri_Base_Functions {
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );
+	}
+
+	/**
+	 * site_branding のサイズを取得
+	 *
+	 * @return string
+	 */
+	public static function get_site_branding_size() {
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		if ( !$gnav_breakpoint ) {
+			return;
+		}
+		if ( Habakiri::is_one_row_header() ) {
+			return 'col-' . $gnav_breakpoint . '-4';
+		}
+		return 'col-' . $gnav_breakpoint . '-12';
+	}
+
+	/**
+	 * global navigation wrapper のサイズを取得
+	 *
+	 * @return string
+	 */
+	public static function get_gnav_size() {
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		if ( !$gnav_breakpoint ) {
+			return;
+		}
+		if ( Habakiri::is_one_row_header() ) {
+			return 'col-' . $gnav_breakpoint . '-8';
+		}
+		return 'col-' . $gnav_breakpoint . '-12';
+	}
+
+	/**
+	 * responsive_nav <> offcanvas_nav 切り替えの breakpoint を取得
+	 *
+	 * @return int
+	 */
+	public static function get_gnav_min_width() {
+		$gnav_min_width  = null;
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		switch ( $gnav_breakpoint ) {
+			case 'md' :
+				$gnav_min_width = 992;
+				break;
+			case 'lg' :
+				$gnav_min_width = 1200;
+				break;
+		}
+		return $gnav_min_width;
 	}
 }

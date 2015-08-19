@@ -53,6 +53,7 @@ class Habakiri_Customizer {
 				'footer_link_color'              => '#777',
 				'page_header_bg_color'           => '#222',
 				'page_header_text_color'         => '#fff',
+				'gnav_breakpoint'                => 'md',
 				'slider_option_effect'           => 'horizontal',
 				'slider_option_interval'         => 4000,
 				'slider_option_speed'            => 500,
@@ -226,6 +227,17 @@ class Habakiri_Customizer {
 		) );
 
 		// habakiri_layout
+
+		$Customizer_Framework->radio( 'gnav_breakpoint', array(
+			'label'   => __( 'Breakpoint to switch off canvas navigation', 'habakiri' ),
+			'default' => self::get_default( 'gnav_breakpoint' ),
+			'section' => 'habakiri_layout',
+			'choices' => array(
+				''   => __( 'Always', 'habakiri' ),
+				'md' => __( 'Tablet size', 'habakiri' ),
+				'lg' => __( 'Laptop size', 'habakiri' ),
+			),
+		) );
 
 		$Customizer_Framework->radio( 'header', array(
 			'label'   => __( 'Header', 'habakiri' ),
@@ -406,6 +418,36 @@ class Habakiri_Customizer {
 		.global-nav .children .current_page_parent {
 			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
 		}
+		<?php if ( $gnav_min_width = Habakiri::get_gnav_min_width() ) : ?>
+		@media ( min-width: <?php echo esc_html( $gnav_min_width ); ?>px ) {
+			.responsive-nav {
+				display: block !important;
+			}
+			.off-canvas-nav,
+			#responsive-btn {
+				display: none !important;
+			}
+			.header--default {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.header--2row {
+				padding-bottom: 0;
+			}
+			.header--2row .header__col,
+			.header--center .header__col {
+				display: block;
+			}
+			.header--2row .site-branding {
+				margin-bottom: 0;
+			}
+			.header--center .site-branding {
+				margin-top: 20px;
+				margin-bottom: 20px;
+				text-align: center;
+			}
+		}
+		<?php endif; ?>
 		.entry--has_media__link--text {
 			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
 		}

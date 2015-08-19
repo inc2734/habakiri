@@ -49,6 +49,7 @@ class Habakiri_Slider {
 	 * @return array
 	 */
 	protected function get_items() {
+		$slider = array();
 		for ( $i = 1; $i <= $this->max; $i ++ ) {
 			if ( !Habakiri::get( 'slider_image_' . $i ) ) {
 				continue;

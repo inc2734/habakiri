@@ -1,10 +1,10 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.1.1
+ * Version    : 2.2.0
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : June 25, 2015
+ * modified   : August 19, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -62,14 +62,6 @@
 	display: block !important;
 	visibility: hidden;
 }
-@media ( min-width: 992px ) {
-	.responsive-nav {
-		display: block !important;
-	}
-	.off-canvas-nav {
-		display: none !important;
-	}
-}
 @media print {
 	.off-canvas-nav {
 		display: none !important;
@@ -82,7 +74,7 @@
  * require genericons font.
  */
 #responsive-btn {
-	display: none;
+	display: block !important;
 	height: 24px;
 	width: 24px;
 	padding: 2px;
