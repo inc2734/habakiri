@@ -11,6 +11,11 @@
 		background-attachment: fixed;
 	}
 
+	&--has_background-image {
+		padding-top: 160px;
+		padding-bottom: 160px;
+	}
+
 	&__title {
 		font-size: 28px;
 		margin: 0;

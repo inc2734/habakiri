@@ -6383,6 +6383,9 @@ button.close {
   @media (min-width: 768px) {
     .page-header {
       background-attachment: fixed; } }
+  .page-header--has_background-image {
+    padding-top: 160px;
+    padding-bottom: 160px; }
   .page-header__title {
     font-size: 28px;
     margin: 0; }
@@ -6614,7 +6617,8 @@ div.thumbnail {
 
 .habakiri-slider__item-content {
   color: #fff;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: middle; }
   .habakiri-slider__item-content a {
     color: #fff; }
 
@@ -6655,10 +6659,6 @@ div.thumbnail {
   padding-bottom: 15px;
   position: relative;
   z-index: 2; }
-  .header--fixed {
-    border-bottom: 1px solid #eeeeee;
-    position: fixed;
-    width: 100%; }
   @media (min-width: 992px) {
     .header--default {
       padding-top: 10px;
@@ -6669,16 +6669,31 @@ div.thumbnail {
   @media (min-width: 992px) {
     .header--center {
       padding-bottom: 0; } }
+  .header--transparency {
+    background-color: transparent !important;
+    transition: background-color 0.2s;
+    position: absolute;
+    right: 0;
+    left: 0; }
+  .header--fixed {
+    border-bottom: 1px solid #eeeeee;
+    position: fixed;
+    right: 0;
+    left: 0; }
+    .header--fixed.header--transparency {
+      border-bottom: none; }
 
 /**
  * .header__content
  */
-.header--default .header__content {
+.header--default .header__content,
+.header--transparency .header__content {
   display: table;
   margin-right: 0;
   margin-left: 0;
   width: 100%; }
-  .header--default .header__content .header__col {
+  .header--default .header__content .header__col,
+  .header--transparency .header__content .header__col {
     display: table-cell;
     float: none;
     padding-left: 0;
@@ -6757,7 +6772,8 @@ div.thumbnail {
     text-decoration: none; }
   .global-nav .sub-menu li a, .global-nav .children li a {
     padding: 10px; }
-  .header--default .global-nav .menu {
+  .header--default .global-nav .menu,
+  .header--transparency .global-nav .menu {
     float: right; }
   .header--center .global-nav {
     text-align: center; }
