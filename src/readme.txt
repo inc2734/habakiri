@@ -42,9 +42,9 @@ Unsplash - Photo for screenshot.png
 License: CC0
 Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
 
-BxSlider
+slick
 License: MIT
-Source : http://bxslider.com/
+Source : http://kenwheeler.github.io/slick/
 
 == Theme features ==
 

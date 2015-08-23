@@ -403,6 +403,20 @@ class Habakiri_Customizer {
 		}
 	}
 
+	protected function hex_to_rgb( $hex ) {
+		$hex = str_replace( '#', '', $hex );
+		if ( strlen( $hex ) == 3 ) {
+			$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
+			$g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
+			$b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
+		} else {
+			$r = hexdec( substr( $hex, 0, 2 ) );
+			$g = hexdec( substr( $hex, 2, 2 ) );
+			$b = hexdec( substr( $hex, 4, 2 ) );
+		}
+		return array( $r, $g, $b );
+	}
+
 	/**
 	 * CSS を出力
 	 */
@@ -475,16 +489,12 @@ class Habakiri_Customizer {
 			}
 		}
 		<?php endif; ?>
-		.habakiri-slider {
-			background-color: <?php echo esc_html( Habakiri::get( 'slider_option_overlay_color' ) ); ?>;
-		}
-		.habakiri-slider__image {
-			opacity: <?php echo esc_html( Habakiri::get( 'slider_option_overlay_opacity' ) / 100 ); ?>;
+		.habakiri-slider__transparent-layer {
+			background-color: rgba( <?php echo esc_html( implode( ',', $this->hex_to_rgb( Habakiri::get( 'slider_option_overlay_color' ) ) ) ); ?>, <?php echo esc_html( 1 - Habakiri::get( 'slider_option_overlay_opacity' ) / 100 ); ?> );
 		}
 		<?php if ( Habakiri::get( 'slider_option_height' ) ) : ?>
-		.habakiri-slider .bx-wrapper,
-		.habakiri-slider__item {
-			max-height: <?php echo esc_html( Habakiri::get( 'slider_option_height' ) ); ?>px;
+		.habakiri-slider, .habakiri-slider__item {
+			height: <?php echo esc_html( Habakiri::get( 'slider_option_height' ) ); ?>px;
 			overflow: hidden;
 		}
 		<?php endif; ?>

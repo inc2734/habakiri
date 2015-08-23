@@ -28,15 +28,15 @@ class Habakiri_Slider {
 		?>
 		<script>
 		jQuery( function( $ ) {
-			$( '.habakiri-slider__list' ).bxSlider( {
-				auto: <?php echo esc_js( ( Habakiri::get( 'slider_option_interval' ) ) ? 'true' : 'false' ); ?>,
-				nextText: '<span class="genericon genericon-collapse"></span>',
-				prevText: '<span class="genericon genericon-collapse"></span>',
+			$( '.habakiri-slider__list' ).slick( {
+				arrows: true,
 				adaptiveHeight: true,
-				pager: false,
-				mode: "<?php echo esc_js( Habakiri::get( 'slider_option_effect' ) ); ?>",
+				autoplay: <?php echo esc_js( ( Habakiri::get( 'slider_option_interval' ) ) ? 'true' : 'false' ); ?>,
+				autoplaySpeed: <?php echo esc_js( Habakiri::get( 'slider_option_interval' ) ); ?>,
 				speed: <?php echo esc_js( Habakiri::get( 'slider_option_speed' ) ); ?>,
-				pause: <?php echo esc_js( Habakiri::get( 'slider_option_interval' ) ); ?>
+				fade: <?php echo esc_js( ( Habakiri::get( 'slider_option_effect' ) === 'fade' ) ? 'true' : 'false' ); ?>,
+				nextArrow: '<span class="habakiri-slider__arrow habakiri-slider__arrow--next genericon genericon-collapse"></span>',
+				prevArrow: '<span class="habakiri-slider__arrow habakiri-slider__arrow--prev genericon genericon-collapse"></span>'
 			} );
 		} );
 		</script>
@@ -96,7 +96,12 @@ class Habakiri_Slider {
 						);
 					}
 					printf(
-						'<section class="habakiri-slider__item">%s</section>',
+						'<section class="habakiri-slider__item" style="background-image: url( %s );">
+							<div class="habakiri-slider__transparent-layer">
+								%s
+							</div>
+						</section>',
+						esc_url( $slide['image'] ),
 						$item
 					);
 				}

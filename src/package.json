@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "author": "inc2734",
   "license": "GPLv2",
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "underscore": "global:_",
+    "backbone": "global:Backbone"
+  },
   "devDependencies": {
     "browserify": "^9.0.8",
+    "browserify-shim": "^3.8.10",
     "gulp": "^3.8.10",
     "gulp-minify-css": "^1.1.1",
     "gulp-rename": "^1.2.2",

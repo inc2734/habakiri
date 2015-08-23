@@ -11,6 +11,7 @@ Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-colu
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 @import url(../habakiri/src/js/jquery.responsive-nav/jquery.responsive-nav.css);
+@import url(../habakiri/src/js/slick/slick.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -6578,65 +6579,134 @@ div.thumbnail {
 .widget_tag_cloud .tagcloud {
   line-height: 1.3; }
 
-.habakiri-slider .bx-wrapper {
-  margin: 0 auto;
-  padding: 0;
-  position: relative; }
-  .habakiri-slider .bx-wrapper .habakiri-slider__item {
-    display: block; }
+.habakiri-slider {
+  /*
+	.bx-wrapper {
+		margin: 0 auto;
+		padding: 0;
+		position: relative;
 
-.habakiri-slider__list .bx-viewport {
-  -ms-transform: translatez(0);
-  transform: translatez(0); }
+		.habakiri-slider__item {
+			display: block;
+		}
+	}
 
-.habakiri-slider__image {
-  display: block;
-  width: 100%; }
+	&__list {
+		.bx-viewport {
+			-ms-transform: translatez( 0 );
+			    transform: translatez( 0 );
+		}
+	}
 
-.habakiri-slider__item {
-  display: none;
-  position: relative; }
-  .habakiri-slider__item:first-child {
-    display: block; }
+	&__item {
+		display: none;
+		position: relative;
 
-.habakiri-slider__item-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1; }
+		&:first-child {
+			display: block;
+		}
+	}
 
-.habakiri-slider__item-content {
-  color: #fff;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
-  .habakiri-slider__item-content a {
-    color: #fff; }
+	&__item-wrapper {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
 
-.habakiri-slider .bx-controls-direction .bx-prev, .habakiri-slider .bx-controls-direction .bx-next {
-  position: absolute;
-  top: 50%;
-  margin-top: -16px;
-  width: 32px;
-  height: 32px;
-  z-index: 9999;
-  color: #fff;
-  text-decoration: none; }
-  .habakiri-slider .bx-controls-direction .bx-prev .genericon, .habakiri-slider .bx-controls-direction .bx-next .genericon {
-    font-size: 32px; }
+	&__item-content {
+		color: #fff;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		-ms-transform: translateY( -50% );
+		    transform: translateY( -50% );
 
-.habakiri-slider .bx-controls-direction .bx-prev {
-  left: 10px;
-  transform: rotate(-90deg); }
+		a {
+			color: #fff;
+		}
 
-.habakiri-slider .bx-controls-direction .bx-next {
-  right: 10px;
-  transform: rotate(90deg); }
+		.btn-default {
+			@extend .btn-ghost;
+		}
+	}
+
+	.bx-controls-direction {
+		.bx-prev, .bx-next {
+			position: absolute;
+			top: 50%;
+			margin-top: -16px;
+			width: 32px;
+			height: 32px;
+			z-index: 9999;
+			color: #fff;
+			text-decoration: none;
+
+			.genericon {
+				font-size: 32px;
+			}
+		}
+
+		.bx-prev {
+			left: 10px;
+			transform: rotate( -90deg );
+		}
+
+		.bx-next {
+			right: 10px;
+			transform: rotate( 90deg );
+		}
+	}
+	*/ }
+  .habakiri-slider__transparent-layer {
+    height: 100%; }
+  .habakiri-slider__item {
+    background-size: cover;
+    background-position: 50% 50%;
+    display: none;
+    position: relative; }
+    .habakiri-slider__item:first-child {
+      display: block; }
+  .habakiri-slider__item-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+  .habakiri-slider__item-content {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    .habakiri-slider__item-content a {
+      color: #fff; }
+  .habakiri-slider__image {
+    visibility: hidden;
+    width: 100%; }
+  .habakiri-slider__arrow {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    margin-top: -16px;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none; }
+    .habakiri-slider__arrow--prev {
+      left: 10px;
+      transform: rotate(-90deg); }
+    .habakiri-slider__arrow--next {
+      right: 10px;
+      transform: rotate(90deg); }
+    .habakiri-slider__arrow:before {
+      font-size: 32px; }
 
 /*==================================================
  * container

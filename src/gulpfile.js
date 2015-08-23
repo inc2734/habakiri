@@ -23,6 +23,7 @@ gulp.task( 'sass', function() {
 
 gulp.task( 'browserify', function() {
 	return browserify( './src/js/main.js' )
+		.transform( 'browserify-shim' )
 		.bundle()
 		.pipe( source( 'app.js' ) )
 		.pipe( gulp.dest( './js/' ) )

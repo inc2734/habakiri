@@ -9,7 +9,7 @@
  */
 require( '../../assets/bootstrap/javascripts/bootstrap.js' );
 require( './jquery.responsive-nav/jquery.responsive-nav.js' );
-require( './jquery.bxslider/jquery.bxslider.js' );
+require( './slick/slick.js' );
 
 jQuery( function( $ ) {
 	
