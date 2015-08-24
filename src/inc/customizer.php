@@ -451,6 +451,8 @@ class Habakiri_Customizer {
 			color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_link_color' ) ); ?>;
 		}
 		.global-nav .sub-menu a:hover,
+		.global-nav .sub-menu a:active,
+		.global-nav .children a:hover,
 		.global-nav .children a:active,
 		.global-nav .children .current-menu-item,
 		.global-nav .children .current-menu-ancestor,
