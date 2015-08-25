@@ -38,9 +38,11 @@ Genericons
 License: GPL
 Source : http://genericons.com/
 
-Unsplash - Photo for screenshot.png
+Unsplash
 License: CC0
 Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
+Source : https://images.unsplash.com/photo-1427805371062-cacdd21273f1?fm=jpg
+Source : https://images.unsplash.com/42/pygwO3glRbaBCh2uRyd4_8420_rgb.jpg
 
 slick
 License: MIT

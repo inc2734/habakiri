@@ -17,6 +17,12 @@ class Habakiri_Slider {
 	 */
 	protected $max = 5;
 
+	/**
+	 * Items cache
+	 * @var array
+	 */
+	protected $items = array();
+
 	public function __construct() {
 		add_action( 'wp_footer', array( $this, 'wp_footer' ) );
 	}
@@ -48,7 +54,7 @@ class Habakiri_Slider {
 	 *
 	 * @return array
 	 */
-	protected function get_items() {
+	public function get_saved_items() {
 		$slider = array();
 		for ( $i = 1; $i <= $this->max; $i ++ ) {
 			if ( !Habakiri::get( 'slider_image_' . $i ) ) {
@@ -65,18 +71,35 @@ class Habakiri_Slider {
 	}
 
 	/**
+	 * Set Slider Item
+	 *
+	 * @param array $args[ image, content, url, targe ]
+	 */
+	public function set_item( $args ) {
+		$args = shortcode_atts( array(
+			'image'   => '',
+			'content' => '',
+			'url'     => '',
+			'target'  => '',
+		), $args );
+
+		if ( $args['image'] ) {
+			$this->items[] = $args;
+		}
+	}
+
+	/**
 	 * Display slider
 	 */
 	public function display() {
-		$items = $this->get_items();
-		if ( !$items ) {
+		if ( !$this->items ) {
 			return;
 		}
 		?>
 		<div class="habakiri-slider">
-			<div class="habakiri-slider__list bxslider">
+			<div class="habakiri-slider__list">
 				<?php
-				foreach ( $items as $slide ) {
+				foreach ( $this->items as $slide ) {
 					$item = sprintf(
 						'<div class="habakiri-slider__item-wrapper col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 							<div class="habakiri-slider__item-content col-xs-12">
