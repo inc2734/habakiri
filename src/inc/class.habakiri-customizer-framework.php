@@ -20,6 +20,11 @@ class Habakiri_Customizer_Framework {
 	/**
 	 * @var array
 	 */
+	protected $styles = array();
+
+	/**
+	 * @var array
+	 */
 	protected $choices = array();
 
 	/**
@@ -27,10 +32,16 @@ class Habakiri_Customizer_Framework {
 	 */
 	protected $defaults = array();
 
+	public function __construct() {
+		add_action( 'wp_head', array( $this, 'wp_head' ) );
+	}
+
 	/**
+	 * You must register WP_Customizer when field registerd.
+	 *
 	 * @param WP_Customize_Manager $Customizer
 	 */
-	public function __construct( WP_Customize_Manager $Customizer ) {
+	public function register_customizer( WP_Customize_Manager $Customizer ) {
 		$this->Customizer = $Customizer;
 	}
 
@@ -44,6 +55,91 @@ class Habakiri_Customizer_Framework {
 		if ( isset( $defaults[$id] ) ) {
 			return $defaults[$id];
 		}
+	}
+
+	/**
+	 * Register CSS with Customizer.
+	 * This method called before wp_head action hook.
+	 *
+	 * @param string|array $selectors
+	 * @param string|array $properties
+	 * @param int $max_width
+	 * @param int $min_width
+	 */
+	public function register_styles( $selectors, $properties, $max_width = '', $min_width = '' ) {
+		if ( is_array( $selectors ) ) {
+			$selectors = implode( ',', $selectors );
+		}
+		$selectors = $this->remove_white_spaces( $selectors );
+		$selectors = preg_replace( '/,+/', ',', $selectors );
+
+		if ( is_array( $properties ) ) {
+			$properties = implode( ';', $properties );
+		}
+		$properties = $this->remove_white_spaces( $properties );
+		$properties = preg_replace( '/;+/', ';', $properties );
+
+		if ( $max_width && !$min_width ) {
+			$key = $max_width . ',';
+		} elseif ( !$max_width && $min_width ) {
+			$key = ',' . $min_width;
+		} elseif ( $max_width && $min_width ) {
+			$key = $max_width . ',' . $min_width;
+		} else {
+			$key = ',';
+		}
+		$this->styles[$key][] = array( $selectors => $properties );
+	}
+
+	/**
+	 * Print expand $this->styles
+	 */
+	public function wp_head() {
+		$output = '';
+		foreach ( $this->styles as $media_query => $styles ) {
+			$media_queries = explode( ',', $media_query );
+			if ( $media_queries[0] !== '' && $media_queries[1] === '' ) {
+				$media_query_wrapper = '@media(max-width:' . esc_html( $media_queries[0] ) . 'px){%s}';
+			}
+			elseif ( $media_queries[0] === '' && $media_queries[1] !== '' ) {
+				$media_query_wrapper = '@media(min-width:' . esc_html( $media_queries[1] ) . 'px){%s}';
+			}
+			elseif ( $media_queries[0] !== '' && $media_queries[1] !== '' ) {
+				$media_query_wrapper = '@media(max-width:' . esc_html( $media_queries[0] ) . 'px)and(min-width:' . esc_html( $media_queries[1] ) . 'px){%s}';
+			}
+			else {
+				$media_query_wrapper = '%s';
+			}
+
+			$_styles = '';
+			foreach ( $styles as $style ) {
+				foreach ( $style as $selectors => $properties ) {
+					$_styles .= sprintf(
+						'%s{%s}',
+						$selectors,
+						esc_html( $properties )
+					);
+				}
+			}
+			$output .= sprintf( $media_query_wrapper, $_styles );
+		}
+		if ( $output ) {
+			printf( '<style>%s</style>', $output );
+		}
+	}
+
+	/**
+	 * Remove spaces, tabs, line-breaks
+	 *
+	 * @param string $value
+	 * @return string
+	 */
+	protected function remove_white_spaces( $value ) {
+		$value = preg_replace( '/\n|\r|\r\n|\t/', '', $value );
+		$value = preg_replace( '/ +/', ' ', $value );
+		$value = preg_replace( '/(:) */', '$1', $value );
+		$value = preg_replace( '/(;) */', '$1', $value );
+		return $value;
 	}
 
 	/**

@@ -37,7 +37,7 @@ jQuery( function( $ ) {
 	if ( $( '.header--transparency' ).length ) {
 		$( window ).scroll( function() {
 			var header = $( '.header--transparency' );
-			if ( header.hasClass( '.header--fixed' ) ) {
+			if ( header.hasClass( 'header--fixed' ) ) {
 				if ( $( document ).scrollTop() > 0 ) {
 					header.addClass( 'header--transparency--is_scrolled' );
 				} else {
