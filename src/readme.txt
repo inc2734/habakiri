@@ -167,12 +167,16 @@ add_filter( 'foo', 'your_filter' );
 == Changelog ==
 
 = 1.3.0 =
-* Add BxSlider and slider settings in customizer.
+* Add slick and slider settings in customizer.
 * Add rich front page template that is using slider.
 * Add new setting: Header layout setting that is the transparent header.
 * Add new setting: Breakpoint setting that to switch offcanvas navigation.
+* Add new setting: Global navigation background color.
+* Add new setting: Global navigation link background color.
+* Add new setting: Global navigation link background hover color.
 * Change page header size when custom header image is set.
 * Change template name "For front page" to "Blank Page".
+* Style is generated from the Customizer is output after being compressed.
 
 = 1.2.0 =
 * Fixed offcanvas-nav bugs.

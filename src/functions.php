@@ -513,7 +513,7 @@ class Habakiri_Base_Functions {
 	public static function the_slider() {
 		$Slider = new Habakiri_Slider();
 		$items  = $Slider->get_saved_items();
-		if ( !$items ) {
+		if ( $items ) {
 			foreach ( $items as $item ) {
 				$Slider->set_item( $item );
 			}
@@ -636,7 +636,7 @@ class Habakiri_Base_Functions {
 		$post_id = isset( $post->ID ) ? $post->ID : 0;
 		do_action( 'habakiri_before_title' );
 		?>
-		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
+		<?php if ( is_page_template( 'templates/front-page.php' ) || is_page_template( 'templates/rich-front-page.php' ) ) : ?>
 		<h1 class="entry__title entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php elseif ( is_singular() ) : ?>
 		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>

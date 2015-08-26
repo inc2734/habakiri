@@ -100,15 +100,17 @@ class Habakiri_Slider {
 			<div class="habakiri-slider__list">
 				<?php
 				foreach ( $this->items as $slide ) {
+					$imagesize = getimagesize( $slide['image'] );
 					$item = sprintf(
 						'<div class="habakiri-slider__item-wrapper col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 							<div class="habakiri-slider__item-content col-xs-12">
 								%s
 							</div>
 						</div>
-						<img src="%s" alt="" class="habakiri-slider__image" />',
+						<img src="%s" alt="" class="habakiri-slider__image" style="min-height:%dpx" />',
 						$slide['content'],
-						esc_url( $slide['image'] )
+						esc_url( $slide['image'] ),
+						esc_attr( floor( $imagesize[1] / 2 ) )
 					);
 					if ( $slide['url'] ) {
 						$item = sprintf(

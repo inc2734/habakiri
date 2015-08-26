@@ -48,7 +48,7 @@
 
 	&__arrow {
 		position: absolute;
-		z-index: 9999;
+		z-index: 1;
 		top: 50%;
 		margin-top: -16px;
 		width: 32px;
@@ -71,86 +71,4 @@
 			font-size: 32px;
 		}
 	}
-
-	/*
-	.bx-wrapper {
-		margin: 0 auto;
-		padding: 0;
-		position: relative;
-
-		.habakiri-slider__item {
-			display: block;
-		}
-	}
-
-	&__list {
-		.bx-viewport {
-			-ms-transform: translatez( 0 );
-			    transform: translatez( 0 );
-		}
-	}
-
-	&__item {
-		display: none;
-		position: relative;
-
-		&:first-child {
-			display: block;
-		}
-	}
-
-	&__item-wrapper {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 1;
-	}
-
-	&__item-content {
-		color: #fff;
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 50%;
-		-ms-transform: translateY( -50% );
-		    transform: translateY( -50% );
-
-		a {
-			color: #fff;
-		}
-
-		.btn-default {
-			@extend .btn-ghost;
-		}
-	}
-
-	.bx-controls-direction {
-		.bx-prev, .bx-next {
-			position: absolute;
-			top: 50%;
-			margin-top: -16px;
-			width: 32px;
-			height: 32px;
-			z-index: 9999;
-			color: #fff;
-			text-decoration: none;
-
-			.genericon {
-				font-size: 32px;
-			}
-		}
-
-		.bx-prev {
-			left: 10px;
-			transform: rotate( -90deg );
-		}
-
-		.bx-next {
-			right: 10px;
-			transform: rotate( 90deg );
-		}
-	}
-	*/
 }

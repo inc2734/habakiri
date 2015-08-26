@@ -98,7 +98,7 @@
 	padding: 0;
 	*zoom: 1;
 }
-.responsive-nav,
+.responsive-nav:after,
 .responsive-nav ul:after,
 .responsive-nav ul li:after {
 	clear: both;
