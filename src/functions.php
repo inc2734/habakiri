@@ -88,7 +88,7 @@ class Habakiri_Base_Functions {
 	 * @return array
 	 */
 	function tiny_mce_before_init( $init ){
-		$init['body_class'] = 'entry-content';
+		$init['body_class'] = 'entry-content entry__content';
 		return $init;
 	}
 
@@ -217,8 +217,8 @@ class Habakiri_Base_Functions {
 					$comment_reply_link = get_comment_reply_link(
 						array_merge(
 							$args,
-							array( 
-								'depth'     => $depth, 
+							array(
+								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
 							)
 						)
