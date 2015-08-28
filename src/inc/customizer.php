@@ -58,6 +58,7 @@ class Habakiri_Customizer {
 				'gnav_link_bg_color'             => '#fff',
 				'gnav_link_bg_hover_color'       => '#fff',
 				'gnav_pulldown_link_color'       => '#777',
+				'gnav_pulldown_link_hover_color' => '#337ab7',
 				'gnav_pulldown_bg_color'         => '#000',
 				'gnav_pulldown_bg_hover_color'   => '#191919',
 				'header_bg_color'                => '#fff',
@@ -148,6 +149,12 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->color( 'gnav_pulldown_link_color', array(
 			'label'   => __( 'Global Navigation Pulldown Link Color', 'habakiri' ),
 			'default' => self::get_default( 'gnav_pulldown_link_color' ),
+			'section' => 'colors',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_pulldown_link_hover_color', array(
+			'label'   => __( 'Global Navigation Pulldown Link Hover Color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_link_hover_color' ),
 			'section' => 'colors',
 		) );
 
@@ -519,8 +526,8 @@ class Habakiri_Customizer {
 		}
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav a',
-				'.header--transparency--is_scrolled .global-nav a',
+				'.global-nav .menu>.menu-item>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_color ),
@@ -534,20 +541,20 @@ class Habakiri_Customizer {
 		}
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav a:hover',
-				'.global-nav a:active',
-				'.global-nav ul .current-menu-item > a',
-				'.global-nav ul .current-menu-ancestor > a',
-				'.global-nav ul .current-menu-parent > a',
-				'.global-nav ul .current_page_item > a',
-				'.global-nav ul .current_page_parent > a',
-				'.header--transparency--is_scrolled .global-nav a:hover',
-				'.header--transparency--is_scrolled .global-nav a:active',
-				'.header--transparency--is_scrolled .global-nav ul .current-menu-item > a',
-				'.header--transparency--is_scrolled .global-nav ul .current-menu-ancestor > a',
-				'.header--transparency--is_scrolled .global-nav ul .current-menu-parent > a',
-				'.header--transparency--is_scrolled .global-nav ul .current_page_item > a',
-				'.header--transparency--is_scrolled .global-nav ul .current_page_parent > a',
+				'.global-nav .menu>.menu-item>a:hover',
+				'.global-nav .menu>.menu-item>a:active',
+				'.global-nav .menu>.current-menu-item>a',
+				'.global-nav .menu>.current-menu-ancestor>a',
+				'.global-nav .menu>.current-menu-parent>a',
+				'.global-nav .menu>.current_page_item>a',
+				'.global-nav .menu>.current_page_parent>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a:hover',
+				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a:active',
+				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-item>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-parent>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.current_page_item>a',
+				'.header--transparency--is_scrolled .global-nav .menu>.current_page_parent>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_hover_color ),
@@ -558,7 +565,6 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->register_styles(
 			array(
 				'.global-nav .sub-menu a',
-				'.global-nav .children a',
 			),
 			array(
 				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_color' ) ),
@@ -570,16 +576,15 @@ class Habakiri_Customizer {
 			array(
 				'.global-nav .sub-menu a:hover',
 				'.global-nav .sub-menu a:active',
-				'.global-nav .children a:hover',
-				'.global-nav .children a:active',
-				'.global-nav .children .current-menu-item',
-				'.global-nav .children .current-menu-ancestor',
-				'.global-nav .children .current-menu-parent',
-				'.global-nav .children .current_page_item',
-				'.global-nav .children .current_page_parent',
+				'.global-nav .sub-menu .current-menu-item a',
+				'.global-nav .sub-menu .current-menu-ancestor a',
+				'.global-nav .sub-menu .current-menu-parent a',
+				'.global-nav .sub-menu .current_page_item a',
+				'.global-nav .sub-menu .current_page_parent a',
 			),
 			array(
 				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ),
+				sprintf( 'color: %s', Habakiri::get( 'gnav_pulldown_link_hover_color' ) ),
 			)
 		);
 

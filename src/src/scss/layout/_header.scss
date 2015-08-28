@@ -33,15 +33,12 @@
 			background-color: transparent;
 			transition: background-color 0.2s;
 
-			a,
-			a:hover,
-			a:active,
-			.current-menu-item > a,
-			.current-menu-ancestor > a,
-			.current-menu-parent > a,
-			.current_page_item > a,
-			.current_page_parent > a {
-				background-color: transparent;
+			.menu {
+				> .menu-item {
+					> a {
+						background-color: transparent;
+					}
+				}
 			}
 		}
 	}

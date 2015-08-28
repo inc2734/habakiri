@@ -6660,14 +6660,7 @@ div.thumbnail {
     .header--transparency .global-nav {
       background-color: transparent;
       transition: background-color 0.2s; }
-      .header--transparency .global-nav a,
-      .header--transparency .global-nav a:hover,
-      .header--transparency .global-nav a:active,
-      .header--transparency .global-nav .current-menu-item > a,
-      .header--transparency .global-nav .current-menu-ancestor > a,
-      .header--transparency .global-nav .current-menu-parent > a,
-      .header--transparency .global-nav .current_page_item > a,
-      .header--transparency .global-nav .current_page_parent > a {
+      .header--transparency .global-nav .menu > .menu-item > a {
         background-color: transparent; }
   .header--fixed {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
