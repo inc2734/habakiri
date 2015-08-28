@@ -418,11 +418,23 @@ class Habakiri_Base_Functions {
 
 		global $post;
 
-		$title = get_the_title( $post_id );
-		if ( is_404() ) {
+		$custom_post_types = get_post_types( array(
+			'_builtin' => false,
+		) );
+		$post_type = get_post_type();
+		if ( in_array( $post_type, $custom_post_types ) ) {
+			$post_type_object = get_post_type_object( $post_type );
+			if ( !empty( $post_type_object->label ) ) {
+				$title = $post_type_object->label;
+			} else {
+				$title = $post_type_object->labels->name;
+			}
+		} elseif ( is_404() ) {
 			$title = __( 'Woops! Page not found.', 'habakiri' );
 		} elseif ( is_search() ) {
 			$title = sprintf( __( 'Search Results for: %s', 'habakiri' ), get_search_query() );
+		} else {
+			$title = get_the_title( $post_id );
 		}
 
 		$page_header_class = '';

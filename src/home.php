@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : 
+ * Modified   : August 28, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -12,12 +12,19 @@
 <?php get_header(); ?>
 
 <?php
-$show_on_front  = get_option( 'show_on_front' );
-$page_for_posts = get_option( 'page_for_posts' );
-if ( $show_on_front === 'page' && $page_for_posts ) {
-	Habakiri::the_page_header( $page_for_posts );
+$custom_post_types = get_post_types( array(
+	'_builtin' => false,
+) );
+if ( in_array( get_post_type(), $custom_post_types ) ) {
+	Habakiri::the_page_header();
 } else {
-	printf( '<div class="no-page-header"></div>' );
+	$show_on_front  = get_option( 'show_on_front' );
+	$page_for_posts = get_option( 'page_for_posts' );
+	if ( $show_on_front === 'page' && $page_for_posts ) {
+		Habakiri::the_page_header( $page_for_posts );
+	} else {
+		printf( '<div class="no-page-header"></div>' );
+	}
 }
 ?>
 
