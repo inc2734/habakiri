@@ -178,6 +178,7 @@ add_filter( 'foo', 'your_filter' );
 * Change template name "For front page" to "Blank Page".
 * Change archive pages structure.
 * Style is generated from the Customizer is output after being compressed.
+* Changed not to display the menu if the global navigation is not allocated.
 * Fixed a page header bug at custom post type.
 
 = 1.2.0 =
