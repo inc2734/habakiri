@@ -9,24 +9,22 @@
  * License URI: license.txt
  */
 ?>
-<?php if ( have_posts() ) : ?>
-
-	<div class="entries entries--search">
-		<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class( array( 'article' ) ); ?>>
-			<div class="entry">
-				<?php Habakiri::the_title(); ?>
-				<div class="entry__summary entry-summary">
-					<?php the_excerpt(); ?>
-				<!-- end .entry-summary --></div>
-			<!-- end .entry --></div>
-		</article>
-		<?php endwhile; ?>
-	<!-- end .entries --></div>
-	<?php Habakiri::the_pager(); ?>
-
-<?php else : ?>
-
-	<?php get_template_part( 'content', 'none' ); ?>
-
-<?php endif; ?>
+<article class="article article--search">
+	<div class="entry">
+		<div class="entry__content entry-content">
+			<div class="entries entries--search">
+				<?php while ( have_posts() ) : the_post(); ?>
+				<article <?php post_class( array( 'article' ) ); ?>>
+					<div class="entry">
+						<?php Habakiri::the_title(); ?>
+						<div class="entry__summary entry-summary">
+							<?php the_excerpt(); ?>
+						<!-- end .entry-summary --></div>
+					<!-- end .entry --></div>
+				</article>
+				<?php endwhile; ?>
+			<!-- end .entries --></div>
+		<!-- end .entry-content --></div>
+		<?php Habakiri::the_pager(); ?>
+	<!-- end .entry --></div>
+</article>

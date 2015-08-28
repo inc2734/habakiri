@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 31, 2015
+ * Modified   : August 28, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -17,7 +17,11 @@
 				<?php Habakiri::the_bread_crumb(); ?>
 				<?php
 				$name = ( is_search() ) ? 'search' : 'archive';
-				get_template_part( 'content', $name );
+				if ( have_posts() ) {
+					get_template_part( 'content', $name );
+				} else {
+					get_template_part( 'content', 'none' );
+				}
 				?>
 
 			<!-- end #main --></main>

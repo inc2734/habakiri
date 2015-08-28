@@ -9,7 +9,7 @@
  * License URI: license.txt
  */
 ?>
-<article class="article">
+<article class="article article--page">
 	<div class="entry">
 		<?php
 		if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
@@ -22,7 +22,7 @@
 		<!-- end .entry-content --></div>
 		<?php do_action( 'habakiri_after_entry_content' ); ?>
 	<!-- end .entry --></div>
-	
+
 	<?php Habakiri::the_link_pages(); ?>
 	<?php
 	if ( comments_open() || pings_open() || get_comments_number() ) {

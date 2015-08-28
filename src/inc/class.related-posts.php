@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.0.3
+ * Version    : 1.0.4
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : August 8, 2015
+ * Modified   : August 28, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -42,7 +42,7 @@ class Habakiri_Related_Posts {
 				<?php
 				foreach ( $posts as $post ) {
 					setup_postdata( $post );
-					get_template_part( 'content' );
+					get_template_part( 'content', 'summary' );
 				}
 				wp_reset_postdata();
 				?>
