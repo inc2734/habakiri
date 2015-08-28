@@ -92,7 +92,7 @@ You can use slider with BxSlider. The slider can be used in "Rich Front Page" te
 = Navigation =
 
 * Global navigation ( in header )
-* Social navigation ( in footer )  
+* Social navigation ( in footer )
   If you enter URLs of social services, their icons will appear.
 
 = HTML5, Microformats compatible =
@@ -176,6 +176,7 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Global navigation link background hover color.
 * Change page header size when custom header image is set.
 * Change template name "For front page" to "Blank Page".
+* Change archive pages structure.
 * Style is generated from the Customizer is output after being compressed.
 
 = 1.2.0 =
