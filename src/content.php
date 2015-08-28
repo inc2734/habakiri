@@ -9,14 +9,14 @@
  * License URI: license.txt
  */
 ?>
-<article class="article article--single">
+<article <?php post_class( array( 'article', 'article--single' ) ); ?>>
 	<div class="entry">
 		<?php Habakiri::the_title(); ?>
 		<?php Habakiri::the_entry_meta(); ?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
 		<div class="entry__content entry-content">
 			<?php the_content(); ?>
-		<!-- end .entry-content --></div>
+		<!-- end .entry__content --></div>
 		<?php do_action( 'habakiri_after_entry_content' ); ?>
 	<!-- end .entry --></div>
 

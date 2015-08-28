@@ -6,7 +6,7 @@
  * Author       : inc2734
  * Author URI   : http://2inc.org
  * Created      : August 15, 2015
- * Modified     : 
+ * Modified     :
  * License      : GPLv2 or later
  * License URI  : license.txt
  */
@@ -17,15 +17,15 @@
 	<div class="row">
 		<main id="main" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
-			<article class="article">
+			<article <?php post_class( array( 'article', 'article--page' ) ); ?>>
 				<?php Habakiri::the_slider(); ?>
 
 				<div class="entry">
 					<?php Habakiri::the_title(); ?>
 					<?php do_action( 'habakiri_before_entry_content' ); ?>
-					<div class="entry__content entry-content">
+					<div class="entry__content">
 						<?php the_content(); ?>
-					<!-- end .entry-content --></div>
+					<!-- end .entry__content --></div>
 					<?php do_action( 'habakiri_after_entry_content' ); ?>
 				<!-- end .entry --></div>
 			</article>

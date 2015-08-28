@@ -41,7 +41,7 @@
 					<div class="site-branding">
 						<h1 class="site-branding__heading"><?php Habakiri::the_logo(); ?></h1>
 					<!-- end .site-branding --></div>
-				<!-- end .col-md-4 --></div>
+				<!-- end .header__col --></div>
 				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col header-content-col global-nav-wrapper clearfix">
 					<?php do_action( 'habakiri_before_global_navigation' ); ?>
 					<nav class="global-nav" role="navigation">
@@ -56,10 +56,10 @@
 					<!-- end .global-nav --></nav>
 					<?php do_action( 'habakiri_after_global_navigation' ); ?>
 					<div id="responsive-btn"></div>
-				<!-- end .col-md-8 --></div>
+				<!-- end .header__col --></div>
 			<!-- end .row --></div>
 		<!-- end .container --></div>
 		<?php do_action( 'habakiri_after_header_content' ); ?>
 	<!-- end #header --></header>
-	<div id="contents" <?php ( is_singular() ) ? post_class() : print( 'class="hentry"' ); ?>>
+	<div id="contents">
 		<?php do_action( 'habakiri_before_contents_content' ); ?>

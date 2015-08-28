@@ -79,6 +79,7 @@ class Habakiri_Base_Functions {
 
 		add_filter( 'tiny_mce_before_init', array( $this, 'tiny_mce_before_init' ) );
 		add_filter( 'body_class'          , array( $this, 'body_class' ) );
+		add_filter( 'post_class'          , array( $this, 'post_class' ) );
 	}
 
 	/**
@@ -88,7 +89,7 @@ class Habakiri_Base_Functions {
 	 * @return array
 	 */
 	function tiny_mce_before_init( $init ){
-		$init['body_class'] = 'entry-content entry__content';
+		$init['body_class'] = 'entry__content entry__content';
 		return $init;
 	}
 
@@ -352,6 +353,19 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
+	 * single のときのみ hentry を出力
+	 * @param array $classes
+	 * @return array
+	 */
+	public function post_class( $classes ) {
+		$allow_hentry_post_types = apply_filters( 'habakiri_allow_hentry_post_types', array( 'post' ) );
+		if ( !in_array( get_post_type(), $allow_hentry_post_types ) ) {
+			$classes = array_diff( $classes, array( 'hentry' ) );
+		}
+		return $classes;
+	}
+
+	/**
 	 * テーマオプションを取得
 	 *
 	 * @param string $key
@@ -448,9 +462,6 @@ class Habakiri_Base_Functions {
 		}
 
 		$title_class = '';
-		if ( !is_single() ) {
-			$title_class = 'entry-title';
-		}
 		$title_class = apply_filters( 'habakiri_title_class_in_page_header', $title_class );
 		?>
 		<div class="page-header text-center <?php echo esc_attr( $page_header_class ); ?>" <?php echo $background_image_style; ?>>
@@ -649,8 +660,10 @@ class Habakiri_Base_Functions {
 		do_action( 'habakiri_before_title' );
 		?>
 		<?php if ( is_page_template( 'templates/front-page.php' ) || is_page_template( 'templates/rich-front-page.php' ) ) : ?>
-		<h1 class="entry__title entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
-		<?php elseif ( is_singular() ) : ?>
+		<h1 class="entry__title hidden"><?php echo get_the_title( $post_id ); ?></h1>
+		<?php elseif ( is_page() ) : ?>
+		<h1 class="entry__title"><?php echo get_the_title( $post_id ); ?></h1>
+		<?php elseif ( is_single() ) : ?>
 		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
 		<h1 class="entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>

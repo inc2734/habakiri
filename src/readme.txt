@@ -174,11 +174,13 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Global navigation background color.
 * Add new setting: Global navigation link background color.
 * Add new setting: Global navigation link background hover color.
+* Add filter hook habakiri_allow_hentry_post_types.
 * Change page header size when custom header image is set.
 * Change template name "For front page" to "Blank Page".
 * Change archive pages structure.
 * Style is generated from the Customizer is output after being compressed.
 * Changed not to display the menu if the global navigation is not allocated.
+* Changed microformats support is single page only.
 * Fixed a page header bug at custom post type.
 
 = 1.2.0 =
