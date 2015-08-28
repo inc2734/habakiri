@@ -354,6 +354,7 @@ class Habakiri_Base_Functions {
 
 	/**
 	 * single のときのみ hentry を出力
+	 *
 	 * @param array $classes
 	 * @return array
 	 */
