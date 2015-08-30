@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.1.2
+ * Version    : 1.2.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 8, 2015
+ * Modified   : August 30, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -18,7 +18,7 @@ if ( post_password_required() ) {
 	<div id="comments" class="comments">
 		<h2 class="comments__title h3"><?php _e( 'Comments on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['comment'] ) ) : ?>
-		<ol class="comments__list commentlist">
+		<ol class="comments__list">
 			<?php
 			wp_list_comments( array(
 				'type'     => 'comment',
@@ -40,7 +40,7 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 
 		<?php else : ?>
-		<p class="comments__nocomments nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
+		<p class="comments__nocomments"><?php _e( 'No comments.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( comments_open() ) : ?>
@@ -71,7 +71,7 @@ if ( post_password_required() ) {
 	<div id="trackback" class="trackbacks">
 		<h2 class="trackbacks__title h3"><?php _e( 'Trackbacks and Pingbacks on this post', 'habakiri' ); ?></h2>
 		<?php if ( !empty( $comments_by_type['pings'] ) ) : ?>
-		<ol class="trackbacks__list trackbacklist">
+		<ol class="trackbacks__list">
 			<?php
 			wp_list_comments( array(
 				'type'     => 'pings',
@@ -80,16 +80,16 @@ if ( post_password_required() ) {
 			?>
 		</ol>
 		<?php else : ?>
-		<p class="trackbacks__notrackbacks nocomments"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
+		<p class="trackbacks__notrackbacks"><?php _e( 'No trackbacks.', 'habakiri' ); ?></p>
 		<?php endif; ?>
 
 		<?php if ( pings_open() ) : ?>
-		<div class="trackbacks__trackback-url trackback-url">
+		<div class="trackbacks__trackback-url">
 			<dl>
 				<dt><?php _e( 'TrackBack URL', 'habakiri' ); ?></dt>
 				<dd><input id="tburl" type="text" size="50" value="<?php trackback_url( true ); ?>" readonly="readonly" /></dd>
 			</dl>
-		<!-- end .trackback-url --></div>
+		<!-- end .trackbacks__trackback-url --></div>
 		<?php endif; ?>
 	<!-- end #trackback --></div>
 	<?php endif; ?>

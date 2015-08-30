@@ -12,7 +12,7 @@
 <article class="article article--archive">
 	<div class="entry">
 		<div class="entry__content">
-			<div class="entries entries--archive entries-archive">
+			<div class="entries entries--archive">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php get_template_part( 'content', 'summary' ); ?>
 				<?php endwhile; ?>

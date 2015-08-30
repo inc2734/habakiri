@@ -15,28 +15,28 @@
 
 		<div class="entry">
 			<?php Habakiri::the_title(); ?>
-			<div class="entry__summary entry-summary">
+			<div class="entry__summary">
 				<?php the_excerpt(); ?>
-			<!-- end .entry-summary --></div>
+			<!-- end .entry__summary --></div>
 			<?php Habakiri::the_entry_meta(); ?>
 		<!-- end .entry --></div>
 
 	<?php else : ?>
 
 		<div class="entry--has_media entry">
-			<div class="entry--has_media__inner summary-with-thumbnail">
-				<div class="entry--has_media__media summary-with-thumbnail-thumbnail">
+			<div class="entry--has_media__inner">
+				<div class="entry--has_media__media">
 					<?php Habakiri::the_post_thumbnail(); ?>
-				<!-- end .media-left --></div>
-				<div class="entry--has_media__body summary-with-thumbnail-body">
+				<!-- end .entry--has_media__media --></div>
+				<div class="entry--has_media__body">
 					<?php Habakiri::the_title(); ?>
-					<div class="entry__summary entry-summary">
+					<div class="entry__summary">
 						<?php the_excerpt(); ?>
-					<!-- end .entry-summary --></div>
+					<!-- end .entry__summary --></div>
 					<?php Habakiri::the_entry_meta(); ?>
-				<!-- end .media-body --></div>
-			<!-- end .media --></div>
-		<!-- end .entry --></div>
+				<!-- end .entry--has_media__body --></div>
+			<!-- end .entry--has_media__inner --></div>
+		<!-- end .entry--has_media --></div>
 
 	<?php endif; ?>
 

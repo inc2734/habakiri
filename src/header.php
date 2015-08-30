@@ -24,25 +24,20 @@
 <?php do_action( 'habakiri_before_container' ); ?>
 <div id="container">
 	<?php
-	/**
-	 * backward compatible
-	 * @since 1.2.0
-	 */
-	$header_classes = Habakiri::get_header_classses();
-
+	$header_classes     = Habakiri::get_header_classses();
 	$site_branding_size = Habakiri::get_site_branding_size();
 	$gnav_size          = Habakiri::get_gnav_size();
 	?>
 	<header id="header" class="header <?php echo esc_attr( implode( ' ', $header_classes ) ); ?>">
 		<?php do_action( 'habakiri_before_header_content' ); ?>
 		<div class="container">
-			<div class="row header__content header-content">
-				<div class="col-xs-10 <?php echo esc_attr( $site_branding_size ); ?> header__col header-content-col">
+			<div class="row header__content">
+				<div class="col-xs-10 <?php echo esc_attr( $site_branding_size ); ?> header__col">
 					<div class="site-branding">
 						<h1 class="site-branding__heading"><?php Habakiri::the_logo(); ?></h1>
 					<!-- end .site-branding --></div>
 				<!-- end .header__col --></div>
-				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col header-content-col global-nav-wrapper clearfix">
+				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col global-nav-wrapper clearfix">
 					<?php do_action( 'habakiri_before_global_navigation' ); ?>
 					<nav class="global-nav" role="navigation">
 						<?php

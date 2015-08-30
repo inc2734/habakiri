@@ -17,9 +17,9 @@
 				<article <?php post_class( array( 'article' ) ); ?>>
 					<div class="entry">
 						<?php Habakiri::the_title(); ?>
-						<div class="entry__summary entry-summary">
+						<div class="entry__summary">
 							<?php the_excerpt(); ?>
-						<!-- end .entry-summary --></div>
+						<!-- end .entry__summary --></div>
 					<!-- end .entry --></div>
 				</article>
 				<?php endwhile; ?>
