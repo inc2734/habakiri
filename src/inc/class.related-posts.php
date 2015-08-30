@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.0.4
+ * Version    : 1.1.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : August 28, 2015
+ * Modified   : August 30, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -15,10 +15,6 @@ class Habakiri_Related_Posts {
 	 * 関連記事を表示
 	 */
 	public function display() {
-		if ( Habakiri::get( 'is_displaying_related_posts' ) === 'false' ) {
-			return;
-		}
-
 		$post_type = get_post_type();
 		$tax_query = $this->get_tax_query( $post_type );
 

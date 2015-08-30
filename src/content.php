@@ -12,7 +12,7 @@
 <article <?php post_class( array( 'article', 'article--single' ) ); ?>>
 	<div class="entry">
 		<?php Habakiri::the_title(); ?>
-		<?php Habakiri::the_entry_meta(); ?>
+		<?php get_template_part( 'modules/entry-meta' ); ?>
 		<?php do_action( 'habakiri_before_entry_content' ); ?>
 		<div class="entry__content entry-content">
 			<?php the_content(); ?>
@@ -21,7 +21,7 @@
 	<!-- end .entry --></div>
 
 	<?php Habakiri::the_link_pages(); ?>
-	<?php Habakiri::the_related_posts(); ?>
+	<?php get_template_part( 'modules/related-posts' ); ?>
 	<?php
 	if ( comments_open() || pings_open() || get_comments_number() ) {
 		comments_template( '', true );

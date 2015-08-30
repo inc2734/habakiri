@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.1.0
+ * Version    : 1.2.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 19, 2015
+ * Modified   : August 30, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -34,22 +34,13 @@
 			<div class="row header__content">
 				<div class="col-xs-10 <?php echo esc_attr( $site_branding_size ); ?> header__col">
 					<div class="site-branding">
-						<h1 class="site-branding__heading"><?php Habakiri::the_logo(); ?></h1>
+						<h1 class="site-branding__heading">
+							<?php get_template_part( 'modules/logo' ); ?>
+						</h1>
 					<!-- end .site-branding --></div>
 				<!-- end .header__col --></div>
 				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col global-nav-wrapper clearfix">
-					<?php do_action( 'habakiri_before_global_navigation' ); ?>
-					<nav class="global-nav" role="navigation">
-						<?php
-						if ( has_nav_menu( 'global-nav' ) ) {
-							wp_nav_menu( array(
-								'theme_location' => 'global-nav',
-								'depth'          => 0,
-							) );
-						}
-						?>
-					<!-- end .global-nav --></nav>
-					<?php do_action( 'habakiri_after_global_navigation' ); ?>
+					<?php get_template_part( 'modules/gnav' ); ?>
 					<div id="responsive-btn"></div>
 				<!-- end .header__col --></div>
 			<!-- end .row --></div>

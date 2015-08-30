@@ -16,9 +16,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<main id="main" role="main">
+
 			<?php while ( have_posts() ) : the_post(); ?>
 			<article <?php post_class( array( 'article', 'article--page' ) ); ?>>
-				<?php Habakiri::the_slider(); ?>
+				<?php get_template_part( 'modules/slider' ); ?>
 
 				<div class="entry">
 					<?php Habakiri::the_title(); ?>
@@ -30,6 +31,7 @@
 				<!-- end .entry --></div>
 			</article>
 			<?php endwhile; ?>
+			
 		<!-- end #main --></main>
 	<!-- end .row --></div>
 <!-- end .container-fluid --></div>

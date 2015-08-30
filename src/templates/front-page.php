@@ -2,11 +2,11 @@
 /**
  * Template Name: Blank Page
  *
- * Version      : 1.2.0
+ * Version      : 1.3.0
  * Author       : inc2734
  * Author URI   : http://2inc.org
  * Created      : April 17, 2015
- * Modified     : August 28, 2015
+ * Modified     : August 30, 2015
  * License      : GPLv2 or later
  * License URI  : license.txt
  */
@@ -16,6 +16,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<main id="main" role="main">
+
 			<?php while ( have_posts() ) : the_post(); ?>
 			<article <?php post_class( array( 'article', 'article--page' ) ); ?>>
 				<div class="entry">
@@ -30,6 +31,7 @@
 				<!-- end .entry --></div>
 			</article>
 			<?php endwhile; ?>
+			
 		<!-- end #main --></main>
 	<!-- end .row --></div>
 <!-- end .container-fluid --></div>

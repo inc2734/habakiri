@@ -13,11 +13,11 @@ require( './jquery.responsive-nav/jquery.responsive-nav.js' );
 require( './slick/slick.js' );
 
 jQuery( function( $ ) {
-	
+
 	/**
 	 * .global-nav
 	 */
-	$( '.global-nav' ).responsive_nav();
+	$( '.js-responsive-nav' ).responsive_nav();
 
 	/**
 	 * #header

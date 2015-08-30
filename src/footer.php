@@ -41,7 +41,7 @@
 
 		<div class="copyright">
 			<div class="container">
-				<?php Habakiri::the_copyright(); ?>
+				<?php get_template_part( 'modules/copyrihgt' ); ?>
 			<!-- end .container --></div>
 		<!-- end .copyright --></div>
 		<?php do_action( 'habakiri_after_footer_content' ); ?>

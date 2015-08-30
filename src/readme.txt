@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.0
-Stable tag: 1.3.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: license.txt
 
@@ -166,7 +166,7 @@ add_filter( 'foo', 'your_filter' );
 
 == Changelog ==
 
-= 1.3.0 =
+= 2.0.0 =
 * Add slick and slider settings in customizer.
 * Add rich front page template that is using slider.
 * Add new setting: Header layout setting that is the transparent header.
@@ -175,13 +175,21 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Global navigation link background color.
 * Add new setting: Global navigation link background hover color.
 * Add filter hook habakiri_allow_hentry_post_types.
+* Change templates structure.
+* Change class for executing Offcanvas nav that from .global-nav to .js-responsive-nav.
 * Change page header size when custom header image is set.
 * Change template name "For front page" to "Blank Page".
-* Change archive pages structure.
-* Style is generated from the Customizer is output after being compressed.
 * Changed not to display the menu if the global navigation is not allocated.
 * Changed microformats support is single page only.
+* Remove old classes ( not BEM format classes ).
+* Style is generated from the Customizer is output after being compressed.
 * Fixed a page header bug at custom post type.
+* Deprecated function: Habakiri::the_bread_crumb()
+* Deprecated function: Habakiri::the_copyright()
+* Deprecated function: Habakiri::the_entry_meta()
+* Deprecated function: Habakiri::the_logo()
+* Deprecated function: Habakiri::the_page_header()
+* Deprecated function: Habakiri::the_related_posts()
 
 = 1.2.0 =
 * Fixed offcanvas-nav bugs.

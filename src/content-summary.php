@@ -18,7 +18,7 @@
 			<div class="entry__summary">
 				<?php the_excerpt(); ?>
 			<!-- end .entry__summary --></div>
-			<?php Habakiri::the_entry_meta(); ?>
+			<?php get_template_part( 'modules/entry-meta' ); ?>
 		<!-- end .entry --></div>
 
 	<?php else : ?>
@@ -33,7 +33,7 @@
 					<div class="entry__summary">
 						<?php the_excerpt(); ?>
 					<!-- end .entry__summary --></div>
-					<?php Habakiri::the_entry_meta(); ?>
+					<?php get_template_part( 'modules/entry-meta' ); ?>
 				<!-- end .entry--has_media__body --></div>
 			<!-- end .entry--has_media__inner --></div>
 		<!-- end .entry--has_media --></div>
