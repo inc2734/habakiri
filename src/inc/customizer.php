@@ -96,121 +96,160 @@ class Habakiri_Customizer {
 	public function customize_register( $wp_customize ) {
 		$this->Customizer_Framework->register_customizer( $wp_customize );
 
-		// colors
+		// colors - general
+
+		$this->Customizer_Framework->remove_section( 'colors' );
+		$this->Customizer_Framework->add_panel( 'habakiri_colors', array(
+			'title'    => __( 'Colors', 'habakiri' ),
+			'priority' => 110,
+		) );
+
+		$this->Customizer_Framework->add_section( 'colors', array(
+			'title' =>  __( 'General', 'habakiri' ),
+			'panel' => 'habakiri_colors',
+		) );
 
 		$this->Customizer_Framework->color( 'logo_text_color', array(
-			'label'   => __( 'Logo Text Color', 'habakiri' ),
+			'label'   => __( 'Logo text color', 'habakiri' ),
 			'default' => self::get_default( 'logo_text_color' ),
 			'section' => 'colors',
 		) );
 
 		$this->Customizer_Framework->color( 'link_color', array(
-			'label'   => __( 'Link Color', 'habakiri' ),
+			'label'   => __( 'Link text color', 'habakiri' ),
 			'default' => self::get_default( 'link_color' ),
 			'section' => 'colors',
 		) );
 
 		$this->Customizer_Framework->color( 'link_hover_color', array(
-			'label'   => __( 'Link Hover Color', 'habakiri' ),
+			'label'   => __( 'Link text hover color', 'habakiri' ),
 			'default' => self::get_default( 'link_hover_color' ),
 			'section' => 'colors',
 		) );
 
-		$this->Customizer_Framework->color( 'gnav_bg_color', array(
-			'label'   => __( 'Global Navigation Background Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_bg_color' ),
-			'section' => 'colors',
-		) );
+		// colors - header
 
-		$this->Customizer_Framework->color( 'gnav_link_color', array(
-			'label'   => __( 'Global Navigation Link Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_link_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_link_hover_color', array(
-			'label'   => __( 'Global Navigation Link Hover Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_link_hover_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_link_bg_color', array(
-			'label'   => __( 'Global Navigation Link Background Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_link_bg_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_link_bg_hover_color', array(
-			'label'   => __( 'Global Navigation Link Background Hover Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_link_bg_hover_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_pulldown_link_color', array(
-			'label'   => __( 'Global Navigation Pulldown Link Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_pulldown_link_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_pulldown_link_hover_color', array(
-			'label'   => __( 'Global Navigation Pulldown Link Hover Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_pulldown_link_hover_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_pulldown_bg_color', array(
-			'label'   => __( 'Global Navigation Pulldown Background Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_pulldown_bg_color' ),
-			'section' => 'colors',
-		) );
-
-		$this->Customizer_Framework->color( 'gnav_pulldown_bg_hover_color', array(
-			'label'   => __( 'Global Navigation Pulldown Background Hover Color', 'habakiri' ),
-			'default' => self::get_default( 'gnav_pulldown_bg_hover_color' ),
-			'section' => 'colors',
+		$this->Customizer_Framework->add_section( 'colors_header', array(
+			'title' =>  __( 'Header', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
 
 		$this->Customizer_Framework->color( 'header_bg_color', array(
-			'label'   => __( 'Header Background Color', 'habakiri' ),
+			'label'   => __( 'Background color', 'habakiri' ),
 			'default' => self::get_default( 'header_bg_color' ),
-			'section' => 'colors',
+			'section' => 'colors_header',
+		) );
+
+		// colors - footer
+
+		$this->Customizer_Framework->add_section( 'colors_footer', array(
+			'title' =>  __( 'Footer', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
 
 		$this->Customizer_Framework->color( 'footer_bg_color', array(
-			'label'   => __( 'Footer Background Color', 'habakiri' ),
+			'label'   => __( 'Background color', 'habakiri' ),
 			'default' => self::get_default( 'footer_bg_color' ),
-			'section' => 'colors',
+			'section' => 'colors_footer',
 		) );
 
 		$this->Customizer_Framework->color( 'footer_text_color', array(
-			'label'   => __( 'Footer Text Color', 'habakiri' ),
+			'label'   => __( 'Text color', 'habakiri' ),
 			'default' => self::get_default( 'footer_text_color' ),
-			'section' => 'colors',
+			'section' => 'colors_footer',
 		) );
 
 		$this->Customizer_Framework->color( 'footer_link_color', array(
-			'label'   => __( 'Footer Link Color', 'habakiri' ),
+			'label'   => __( 'Footer link text color', 'habakiri' ),
 			'default' => self::get_default( 'footer_link_color' ),
-			'section' => 'colors',
+			'section' => 'colors_footer',
+		) );
+
+		// colors - gnav
+
+		$this->Customizer_Framework->add_section( 'colors_gnav', array(
+			'title' =>  __( 'Global Navigation', 'habakiri' ),
+			'panel' => 'habakiri_colors',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_bg_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_link_color', array(
+			'label'   => __( 'Link text color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_link_hover_color', array(
+			'label'   => __( 'Link text hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_hover_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_link_bg_color', array(
+			'label'   => __( 'Menu background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_bg_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_link_bg_hover_color', array(
+			'label'   => __( 'Menu background hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_bg_hover_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_pulldown_link_color', array(
+			'label'   => __( 'Pulldown link text color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_link_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_pulldown_link_hover_color', array(
+			'label'   => __( 'Pulldown link text hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_link_hover_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_pulldown_bg_color', array(
+			'label'   => __( 'Pulldown menu background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_bg_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_pulldown_bg_hover_color', array(
+			'label'   => __( 'Pulldown menu background hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_bg_hover_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		// colors - page header
+
+		$this->Customizer_Framework->add_section( 'colors_page_header', array(
+			'title' =>  __( 'Page Header', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
 
 		$this->Customizer_Framework->color( 'page_header_bg_color', array(
-			'label'   => __( 'Page Header Background Color', 'habakiri' ),
+			'label'   => __( 'Background color', 'habakiri' ),
 			'default' => self::get_default( 'page_header_bg_color' ),
-			'section' => 'colors',
+			'section' => 'colors_page_header',
 		) );
 
 		$this->Customizer_Framework->color( 'page_header_text_color', array(
-			'label'   => __( 'Page Header Text Color', 'habakiri' ),
+			'label'   => __( 'Text color', 'habakiri' ),
 			'default' => self::get_default( 'page_header_text_color' ),
-			'section' => 'colors',
+			'section' => 'colors_page_header',
 		) );
 
 		// habakiri_design
 
 		$this->Customizer_Framework->add_section( 'habakiri_design', array(
 			'title'    => __( 'Settings', 'habakiri' ),
-			'priority' => 100,
+			'priority' => 111,
 		) );
 
 		$this->Customizer_Framework->image( 'logo', array(
@@ -269,6 +308,11 @@ class Habakiri_Customizer {
 		) );
 
 		// habakiri_layout
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout', array(
+			'title'    => __( 'Layout', 'habakiri' ),
+			'priority' => 112,
+		) );
 
 		$this->Customizer_Framework->radio( 'gnav_breakpoint', array(
 			'label'   => __( 'Breakpoint to switch off canvas navigation', 'habakiri' ),
@@ -334,11 +378,6 @@ class Habakiri_Customizer {
 			),
 		) );
 
-		$this->Customizer_Framework->add_section( 'habakiri_layout', array(
-			'title'    => __( 'Layout', 'habakiri' ),
-			'priority' => 101,
-		) );
-
 		$this->Customizer_Framework->radio( 'blog_template', array(
 			'label'   => __( 'Blog Template', 'habakiri' ),
 			'default' => self::get_default( 'blog_template' ),
@@ -382,7 +421,7 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->add_panel( 'habakiri_slider', array(
 			'title'    => __( 'Front page Slider', 'habakiri' ),
-			'priority' => 102,
+			'priority' => 113,
 		) );
 
 		$this->Customizer_Framework->add_section( 'habakiri_slider_option', array(
