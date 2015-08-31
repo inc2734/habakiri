@@ -22,10 +22,11 @@ if ( $items ) {
 		'image'   => get_template_directory_uri() . '/images/slider/1.jpg',
 		'content' => sprintf(
 			'<div class="text-center">
-				<h1>Habakiri</h1>
+				<h1>%s</h1>
 				<p class="lead">%s</p>
 				<a class="btn btn-default" href="http://habakiri.2inc.org" target="_blank">READ MORE</a>
 			</div>',
+			esc_html( 'Habakiri', 'habakiri' ),
 			esc_html__( 'Habakiri is a simple theme based on Bootstrap3. This theme\'s goal is to create a responsive, bootstrap based WordPress theme quickly.', 'habakiri' )
 		),
 	) );
@@ -33,10 +34,11 @@ if ( $items ) {
 		'image'   => get_template_directory_uri() . '/images/slider/2.jpg',
 		'content' => sprintf(
 			'<div class="text-center">
-				<h1>You can setting slider !</h1>
+				<h1>%s</h1>
 				<p class="lead">%s<br />%s</p>
 				<a class="btn btn-default" href="%s">Customizer</a>
 			</div>',
+			esc_html__( 'Habakiri have slider feature !', 'habakiri' ),
 			esc_html__( 'This is sample slider. You can setting slider in Customizer.', 'habakiri' ),
 			esc_html__( 'The set sliders are displayed in Rich Front Page template.', 'habakiri' ),
 			admin_url( 'customizer.php' )
