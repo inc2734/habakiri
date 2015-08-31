@@ -93,7 +93,7 @@ class Habakiri_Base_Functions {
 	 */
 	protected function customizer() {
 		$Customizer = new Habakiri_Customizer();
-		$Customizer->register_styles();
+		add_action( 'wp_head', array( $Customizer, 'register_styles' ) );
 		add_action( 'customize_register', array( $Customizer, 'customize_register' ) );
 	}
 

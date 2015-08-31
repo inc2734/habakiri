@@ -6,7 +6,7 @@
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : August 18, 2015
- * Modified   : 
+ * Modified   :
  * License    : GPLv2 or later
  * License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -33,7 +33,7 @@ class Habakiri_Customizer_Framework {
 	protected $defaults = array();
 
 	public function __construct() {
-		add_action( 'wp_head', array( $this, 'wp_head' ) );
+		add_action( 'wp_head', array( $this, 'wp_head' ), 12 );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Habakiri_Customizer_Framework {
 
 	/**
 	 * Register CSS with Customizer.
-	 * This method called before wp_head action hook.
+	 * This method called wp_head action hook and priority 10 or less.
 	 *
 	 * @param string|array $selectors
 	 * @param string|array $properties
@@ -160,6 +160,15 @@ class Habakiri_Customizer_Framework {
 	 */
 	public function add_section( $section_id, $args = array() ) {
 		$this->Customizer->add_section( $section_id, $args );
+	}
+
+	/**
+	 * Method that wrapped WP_Customize_Manager::add_section()
+	 *
+	 * @param string $section_id
+	 */
+	public function remove_section( $section_id ) {
+		$this->Customizer->remove_section( $section_id );
 	}
 
 	/**
