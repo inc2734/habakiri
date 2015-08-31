@@ -175,6 +175,7 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Global navigation link background color.
 * Add new setting: Global navigation link background hover color.
 * Add filter hook habakiri_allow_hentry_post_types.
+* Add filter hook habakiri_default_slider_items.
 * Change templates structure.
 * Change class for executing Offcanvas nav that from .global-nav to .js-responsive-nav.
 * Change page header size when custom header image is set.
