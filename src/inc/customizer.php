@@ -166,7 +166,7 @@ class Habakiri_Customizer {
 		) );
 
 		$this->Customizer_Framework->color( 'footer_link_color', array(
-			'label'   => __( 'Footer link text color', 'habakiri' ),
+			'label'   => __( 'Link text color', 'habakiri' ),
 			'default' => self::get_default( 'footer_link_color' ),
 			'section' => 'colors_footer',
 		) );

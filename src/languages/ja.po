@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habakiri 2.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-08-31 10:25+0900\n"
-"PO-Revision-Date: 2015-08-31 10:26+0900\n"
+"POT-Creation-Date: 2015-09-01 08:42+0900\n"
+"PO-Revision-Date: 2015-09-01 08:42+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "No posts."
 msgstr "投稿がありません。"
 
-#: functions.php:106
+#: functions.php:106 inc/customizer.php:177
 msgid "Global Navigation"
 msgstr "グローバルナビゲーション"
 
@@ -82,7 +82,7 @@ msgstr "ソーシャルナビゲーション"
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:136
+#: functions.php:136 inc/customizer.php:152
 msgid "Footer"
 msgstr "フッター"
 
@@ -134,277 +134,282 @@ msgstr "タグ"
 msgid "Related posts"
 msgstr "関連記事"
 
-#: inc/customizer.php:102
-msgid "Logo Text Color"
-msgstr "ロゴテキストの色"
-
-#: inc/customizer.php:108
-msgid "Link Color"
-msgstr "リンク色"
+#: inc/customizer.php:109
+msgid "Colors"
+msgstr "色"
 
 #: inc/customizer.php:114
-msgid "Link Hover Color"
-msgstr "リンク色 ( ホバー時 )"
+msgid "General"
+msgstr "一般"
 
-#: inc/customizer.php:120
-msgid "Global Navigation Background Color"
-msgstr "グローバルナビゲーションの背景色"
+#: inc/customizer.php:119
+msgid "Logo text color"
+msgstr "ロゴテキストの色"
 
-#: inc/customizer.php:126
-msgid "Global Navigation Link Color"
-msgstr "グローバルナビゲーションのリンク色"
+#: inc/customizer.php:125 inc/customizer.php:169 inc/customizer.php:188
+msgid "Link text color"
+msgstr "リンク文字色"
 
-#: inc/customizer.php:132
-msgid "Global Navigation Link Hover Color"
-msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
+#: inc/customizer.php:131 inc/customizer.php:194
+msgid "Link text hover color"
+msgstr "リンク文字色 ( ホバー時 )"
 
-#: inc/customizer.php:138
-msgid "Global Navigation Link Background Color"
-msgstr "グローバルナビゲーションメニュー項目の背景色"
-
-#: inc/customizer.php:144
-msgid "Global Navigation Link Background Hover Color"
-msgstr "グローバルナビゲーションメニュー項目の背景色 ( ホバー時 )"
-
-#: inc/customizer.php:150
-msgid "Global Navigation Pulldown Link Color"
-msgstr "グローバルナビゲーションプルダウンのリンク色"
-
-#: inc/customizer.php:156
-msgid "Global Navigation Pulldown Link Hover Color"
-msgstr "グローバルナビゲーションプルダウンのリンク色 ( ホバー時 )"
-
-#: inc/customizer.php:162
-msgid "Global Navigation Pulldown Background Color"
-msgstr "グローバルナビゲーションプルダウンの背景色"
-
-#: inc/customizer.php:168
-msgid "Global Navigation Pulldown Background Hover Color"
-msgstr "グローバルナビゲーションプルダウンの背景色 ( ホバー時 )"
-
-#: inc/customizer.php:174
-msgid "Header Background Color"
-msgstr "ヘッダーの背景色"
-
-#: inc/customizer.php:180
-msgid "Footer Background Color"
-msgstr "フッターの背景色"
-
-#: inc/customizer.php:186
-msgid "Footer Text Color"
-msgstr "フッターの文字色"
-
-#: inc/customizer.php:192
-msgid "Footer Link Color"
-msgstr "フッターのリンク色"
-
-#: inc/customizer.php:198
-msgid "Page Header Background Color"
-msgstr "ページヘッダーの背景色"
-
-#: inc/customizer.php:204
-msgid "Page Header Text Color"
-msgstr "ページヘッダーの文字色"
-
-#: inc/customizer.php:212 inc/customizer.php:389
-msgid "Settings"
-msgstr "設定"
-
-#: inc/customizer.php:217
-msgid "Logo"
-msgstr "ロゴ"
-
-#: inc/customizer.php:222
-msgid "Displaying thumbnail in archive page"
-msgstr "アーカイブページでのサムネイル表示"
-
-#: inc/customizer.php:226 inc/customizer.php:236 inc/customizer.php:246
-#: inc/customizer.php:256 inc/customizer.php:266 inc/customizer.php:301
-msgid "No"
-msgstr "いいえ"
-
-#: inc/customizer.php:227 inc/customizer.php:237 inc/customizer.php:247
-#: inc/customizer.php:257 inc/customizer.php:267 inc/customizer.php:302
-msgid "Yes"
-msgstr "はい"
-
-#: inc/customizer.php:232
-msgid "Displaying the Bread Crumb"
-msgstr "パンくずリストを表示"
-
-#: inc/customizer.php:242
-msgid "Displaying related posts in single page"
-msgstr "個別投稿ページでの関連記事表示"
-
-#: inc/customizer.php:252
-msgid "Displaying page header"
-msgstr "ページヘッダーを表示"
-
-#: inc/customizer.php:262
-msgid "Displaying lead of page header in single page"
-msgstr "個別投稿ページのページヘッダーのリード文を表示"
-
-#: inc/customizer.php:274
-msgid "Breakpoint to switch off canvas navigation"
-msgstr "オフキャンバスナビゲーションに切り替えるブレイクポイント"
-
-#: inc/customizer.php:278
-msgid "Always"
-msgstr "常に"
-
-#: inc/customizer.php:279
-msgid "Tablet size"
-msgstr "タブレットサイズ"
-
-#: inc/customizer.php:280
-msgid "Laptop size"
-msgstr "ノートサイズ"
-
-#: inc/customizer.php:285
+#: inc/customizer.php:139 inc/customizer.php:378
 msgid "Header"
 msgstr "ヘッダー"
 
-#: inc/customizer.php:289
-msgid "Default"
-msgstr "デフォルト"
+#: inc/customizer.php:144 inc/customizer.php:157 inc/customizer.php:182
+#: inc/customizer.php:267 inc/customizer.php:286
+msgid "Background color"
+msgstr "背景色"
 
-#: inc/customizer.php:290
-msgid "2 rows"
-msgstr "2行"
+#: inc/customizer.php:163 inc/customizer.php:243 inc/customizer.php:292
+msgid "Text color"
+msgstr "文字色"
 
-#: inc/customizer.php:291
-msgid "Center Logo"
-msgstr "中央ロゴ"
+#: inc/customizer.php:200
+msgid "Menu background color"
+msgstr "メニュー項目の背景色"
 
-#: inc/customizer.php:292
-msgid "Transparency"
-msgstr "透明度"
+#: inc/customizer.php:206
+msgid "Menu background hover color"
+msgstr "メニュー項目の背景色 ( ホバー時 )"
 
-#: inc/customizer.php:297
-msgid "Header Fixed"
-msgstr "ヘッダーを固定"
+#: inc/customizer.php:212
+msgid "Pulldown link text color"
+msgstr "プルダウンのリンク文字色"
 
-#: inc/customizer.php:307
-msgid "Global Navigation link padding ( Horizontal )"
-msgstr "グローバルナビゲーションメニュー項目の余白 ( 横 )"
+#: inc/customizer.php:218
+msgid "Pulldown link text hover color"
+msgstr "プルダウンのリンク文字色 ( ホバー時 )"
 
-#: inc/customizer.php:317
-msgid "Global Navigation link padding ( Vertical )"
-msgstr "グローバルナビゲーションメニュー項目の余白 ( 縦 )"
+#: inc/customizer.php:224
+msgid "Pulldown menu background color"
+msgstr "プルダウンメニュー項目の背景色"
 
-#: inc/customizer.php:327
-msgid "Number of footer columns"
-msgstr "フッターのカラム数"
+#: inc/customizer.php:230
+msgid "Pulldown menu background hover color"
+msgstr "プルダウンメニュー項目の背景色 ( ホバー時 )"
 
-#: inc/customizer.php:331
-msgid "2 Columns"
-msgstr "2カラム"
+#: inc/customizer.php:238
+msgid "hamburger Button"
+msgstr "ハンバーガーボタン"
 
-#: inc/customizer.php:332
-msgid "3 Columns"
-msgstr "3カラム"
+#: inc/customizer.php:249
+msgid "Text hover color"
+msgstr "文字色 ( ホバー時 )"
 
-#: inc/customizer.php:333
-msgid "4 Columns"
-msgstr "4カラム"
+#: inc/customizer.php:255
+msgid "Border color"
+msgstr "枠線の色"
 
-#: inc/customizer.php:338
+#: inc/customizer.php:261
+msgid "Border hover color"
+msgstr "枠線の色 ( ホバー時 )"
+
+#: inc/customizer.php:273
+msgid "Background hover color"
+msgstr "背景色 ( ホバー時 )"
+
+#: inc/customizer.php:281
+msgid "Page Header"
+msgstr "ページヘッダー"
+
+#: inc/customizer.php:300 inc/customizer.php:477
+msgid "Settings"
+msgstr "設定"
+
+#: inc/customizer.php:305
+msgid "Logo"
+msgstr "ロゴ"
+
+#: inc/customizer.php:310
+msgid "Displaying thumbnail in archive page"
+msgstr "アーカイブページでのサムネイル表示"
+
+#: inc/customizer.php:314 inc/customizer.php:324 inc/customizer.php:334
+#: inc/customizer.php:344 inc/customizer.php:354 inc/customizer.php:394
+msgid "No"
+msgstr "いいえ"
+
+#: inc/customizer.php:315 inc/customizer.php:325 inc/customizer.php:335
+#: inc/customizer.php:345 inc/customizer.php:355 inc/customizer.php:395
+msgid "Yes"
+msgstr "はい"
+
+#: inc/customizer.php:320
+msgid "Displaying the Bread Crumb"
+msgstr "パンくずリストを表示"
+
+#: inc/customizer.php:330
+msgid "Displaying related posts in single page"
+msgstr "個別投稿ページでの関連記事表示"
+
+#: inc/customizer.php:340
+msgid "Displaying page header"
+msgstr "ページヘッダーを表示"
+
+#: inc/customizer.php:350
+msgid "Displaying lead of page header in single page"
+msgstr "個別投稿ページのページヘッダーのリード文を表示"
+
+#: inc/customizer.php:362
 msgid "Layout"
 msgstr "レイアウト"
 
-#: inc/customizer.php:343
+#: inc/customizer.php:367
+msgid "Breakpoint to switch off canvas navigation"
+msgstr "オフキャンバスナビゲーションに切り替えるブレイクポイント"
+
+#: inc/customizer.php:371
+msgid "Always"
+msgstr "常に"
+
+#: inc/customizer.php:372
+msgid "Tablet size"
+msgstr "タブレットサイズ"
+
+#: inc/customizer.php:373
+msgid "Laptop size"
+msgstr "ノートサイズ"
+
+#: inc/customizer.php:382
+msgid "Default"
+msgstr "デフォルト"
+
+#: inc/customizer.php:383
+msgid "2 rows"
+msgstr "2行"
+
+#: inc/customizer.php:384
+msgid "Center Logo"
+msgstr "中央ロゴ"
+
+#: inc/customizer.php:385
+msgid "Transparency"
+msgstr "透明"
+
+#: inc/customizer.php:390
+msgid "Header Fixed"
+msgstr "ヘッダーを固定"
+
+#: inc/customizer.php:400
+msgid "Global Navigation link padding ( Horizontal )"
+msgstr "グローバルナビゲーションメニュー項目の余白 ( 横 )"
+
+#: inc/customizer.php:410
+msgid "Global Navigation link padding ( Vertical )"
+msgstr "グローバルナビゲーションメニュー項目の余白 ( 縦 )"
+
+#: inc/customizer.php:420
+msgid "Number of footer columns"
+msgstr "フッターのカラム数"
+
+#: inc/customizer.php:424
+msgid "2 Columns"
+msgstr "2カラム"
+
+#: inc/customizer.php:425
+msgid "3 Columns"
+msgstr "3カラム"
+
+#: inc/customizer.php:426
+msgid "4 Columns"
+msgstr "4カラム"
+
+#: inc/customizer.php:431
 msgid "Blog Template"
 msgstr "ブログテンプレート"
 
-#: inc/customizer.php:347 inc/customizer.php:360 inc/customizer.php:373
+#: inc/customizer.php:435 inc/customizer.php:448 inc/customizer.php:461
 msgid "Right Sidebar"
 msgstr "右サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:348 inc/customizer.php:361 inc/customizer.php:374
+#: inc/customizer.php:436 inc/customizer.php:449 inc/customizer.php:462
 msgid "Left Sidebar"
 msgstr "左サイドバー"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:349 inc/customizer.php:362 inc/customizer.php:375
+#: inc/customizer.php:437 inc/customizer.php:450 inc/customizer.php:463
 msgid "No Sidebar"
 msgstr "サイドバー無し"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:350 inc/customizer.php:363 inc/customizer.php:376
+#: inc/customizer.php:438 inc/customizer.php:451 inc/customizer.php:464
 msgid "Full Width ( Fixed )"
 msgstr "全幅 ( 固定 )"
 
 #. Template Name of the plugin/theme
-#: inc/customizer.php:351 inc/customizer.php:364 inc/customizer.php:377
+#: inc/customizer.php:439 inc/customizer.php:452 inc/customizer.php:465
 msgid "Full Width ( Fluid )"
 msgstr "全幅 ( リキッド )"
 
-#: inc/customizer.php:356
+#: inc/customizer.php:444
 msgid "Search Template"
 msgstr "検索結果テンプレート"
 
-#: inc/customizer.php:369
+#: inc/customizer.php:457
 msgid "404 Template"
 msgstr "404 テンプレート"
 
-#: inc/customizer.php:384
+#: inc/customizer.php:472
 msgid "Front page Slider"
 msgstr "フロントページスライダー"
 
-#: inc/customizer.php:394
+#: inc/customizer.php:482
 msgid "Effect"
 msgstr "エフェクト"
 
-#: inc/customizer.php:398
+#: inc/customizer.php:486
 msgid "Slide"
 msgstr "スライド"
 
-#: inc/customizer.php:399
+#: inc/customizer.php:487
 msgid "Fade"
 msgstr "フェード"
 
-#: inc/customizer.php:404
+#: inc/customizer.php:492
 msgid "Interval (ms)"
 msgstr "インターバル ( ms )"
 
-#: inc/customizer.php:410
+#: inc/customizer.php:498
 msgid "Effect Speed (ms)"
 msgstr "エフェクトスピード ( ms )"
 
-#: inc/customizer.php:416
+#: inc/customizer.php:504
 msgid "Overlay color"
 msgstr "オーバーレイの色"
 
-#: inc/customizer.php:422
+#: inc/customizer.php:510
 msgid "Overlay opacity"
 msgstr "オーバーレイの透明度"
 
-#: inc/customizer.php:433
+#: inc/customizer.php:521
 msgid "Height (px)"
 msgstr "高さ ( px )"
 
-#: inc/customizer.php:436
+#: inc/customizer.php:524
 msgid "If 0, height is auto."
 msgstr "0の場合、高さは auto になります。"
 
-#: inc/customizer.php:442
+#: inc/customizer.php:530
 msgid "Image (%d)"
 msgstr "画像 ( %d )"
 
-#: inc/customizer.php:446
+#: inc/customizer.php:534
 msgid "Image"
 msgstr "画像"
 
-#: inc/customizer.php:450
+#: inc/customizer.php:538
 msgid "Content"
 msgstr "本文"
 
-#: inc/customizer.php:454
+#: inc/customizer.php:542
 msgid "URL"
 msgstr "URL"
 
-#: inc/customizer.php:458
+#: inc/customizer.php:546
 msgid "Open link in new window"
 msgstr "新しいウィンドウでリンクを開く"
 
@@ -484,6 +489,43 @@ msgstr "空ページ"
 msgid "Rich Front Page"
 msgstr "リッチフロントページ"
 
+#, fuzzy
+#~ msgid "Footer link text color"
+#~ msgstr "フッターの文字色"
+
+#~ msgid "Global Navigation Background Color"
+#~ msgstr "グローバルナビゲーションの背景色"
+
+#~ msgid "Global Navigation Link Color"
+#~ msgstr "グローバルナビゲーションのリンク色"
+
+#~ msgid "Global Navigation Link Hover Color"
+#~ msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
+
+#~ msgid "Global Navigation Link Background Color"
+#~ msgstr "グローバルナビゲーションメニュー項目の背景色"
+
+#~ msgid "Global Navigation Link Background Hover Color"
+#~ msgstr "グローバルナビゲーションメニュー項目の背景色 ( ホバー時 )"
+
+#~ msgid "Global Navigation Pulldown Link Color"
+#~ msgstr "グローバルナビゲーションプルダウンのリンク色"
+
+#~ msgid "Global Navigation Pulldown Background Color"
+#~ msgstr "グローバルナビゲーションプルダウンの背景色"
+
+#~ msgid "Footer Background Color"
+#~ msgstr "フッターの背景色"
+
+#~ msgid "Footer Link Color"
+#~ msgstr "フッターのリンク色"
+
+#~ msgid "Page Header Background Color"
+#~ msgstr "ページヘッダーの背景色"
+
+#~ msgid "Page Header Text Color"
+#~ msgstr "ページヘッダーの文字色"
+
 #~ msgid ""
 #~ "This post is password protected. Enter the password to view any comments."
 #~ msgstr ""
@@ -492,9 +534,6 @@ msgstr "リッチフロントページ"
 
 #~ msgid "https://github.com/inc2734/habakiri"
 #~ msgstr "https://github.com/inc2734/habakiri"
-
-#~ msgid "color"
-#~ msgstr "色"
 
 #~ msgid "Search results for \"%s\""
 #~ msgstr "「%s」の検索結果"
