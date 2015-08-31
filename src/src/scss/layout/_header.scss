@@ -2,6 +2,10 @@
 	position: relative;
 	z-index: 2;
 
+	&--fixed, &.header--fixed--is_scrolled {
+		box-shadow: 0 0 3px rgba( 0, 0, 0, .2 );
+	}
+
 	&--default, &--transparency {
 		.global-nav {
 			.menu {
@@ -24,6 +28,7 @@
 
 	&--transparency {
 		background-color: transparent !important;
+		box-shadow: none;
 		transition: background-color 0.2s;
 		position: absolute;
 		right: 0;
@@ -44,29 +49,19 @@
 	}
 
 	&--fixed {
-		box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
 		position: absolute;
 		right: 0;
 		left: 0;
+	}
 
-		&.header--is_scrolled {
-			position: fixed;
-		}
-
-		&.header--transparency {
-			border-bottom: none;
-			box-shadow: none;
-
-			&.header--is_scrolled {
-				box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
-			}
-		}
+	&--fixed--is_scrolled {
+		position: fixed;
 	}
 }
 
 .admin-bar {
 	.header--fixed {
-		&.header--is_scrolled {
+		&.header--fixed--is_scrolled {
 			top: 32px;
 
 			@media screen and ( max-width: 782px ) {
@@ -81,7 +76,7 @@
 
 	&.open {
 		.header--fixed {
-			&.header--is_scrolled {
+			&.header--fixed--is_scrolled {
 				top: 0;
 			}
 		}

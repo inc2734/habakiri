@@ -235,7 +235,7 @@ class Habakiri_Customizer {
 		// colors - hamburger button
 
 		$this->Customizer_Framework->add_section( 'colors_hamburger_button', array(
-			'title' =>  __( 'Humberger Button', 'habakiri' ),
+			'title' =>  __( 'hamburger Button', 'habakiri' ),
 			'panel' => 'habakiri_colors',
 		) );
 
@@ -616,7 +616,7 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->register_styles(
 			array(
 				'.global-nav .menu>.menu-item>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_color ),
@@ -637,13 +637,13 @@ class Habakiri_Customizer {
 				'.global-nav .menu>.current-menu-parent>a',
 				'.global-nav .menu>.current_page_item>a',
 				'.global-nav .menu>.current_page_parent>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a:hover',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a:active',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-item>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-parent>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.current_page_item>a',
-				'.header--transparency.header--is_scrolled .global-nav .menu>.current_page_parent>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a:hover',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a:active',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-parent>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current_page_item>a',
+				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current_page_parent>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_hover_color ),
@@ -708,7 +708,7 @@ class Habakiri_Customizer {
 			$this->Customizer_Framework->register_styles(
 				array(
 					'.global-nav',
-					'.header--transparency.header--is_scrolled .global-nav',
+					'.header--transparency.header--fixed--is_scrolled .global-nav',
 				),
 				array(
 					sprintf( 'background-color: %s', $gnav_bg_color ),
@@ -903,7 +903,7 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.header--transparency.header--is_scrolled',
+				'.header--transparency.header--fixed--is_scrolled',
 			),
 			array(
 				sprintf( 'background-color: %s !important', Habakiri::get( 'header_bg_color' ) ),

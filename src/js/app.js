@@ -34,13 +34,13 @@ jQuery( function( $ ) {
 				set_padding_form_fixed_header();
 			} );
 		}
-		
+
 		if ( header.length ) {
 			$( window ).scroll( function() {
 				if ( $( document ).scrollTop() > 0 ) {
-					header.addClass( 'header--is_scrolled' );
+					header.addClass( 'header--fixed--is_scrolled' );
 				} else {
-					header.removeClass( 'header--is_scrolled' );
+					header.removeClass( 'header--fixed--is_scrolled' );
 				}
 			} );
 		}
