@@ -22,30 +22,29 @@ jQuery( function( $ ) {
 	/**
 	 * #header
 	 */
-	if ( $( '.header--transparency' ).length == 0 ) {
-		function set_padding_form_fixed_header() {
-			var header = $( '.header--fixed' );
-			var height = header.outerHeight();
-			$( '#contents' ).css( 'marginTop', height );
-		}
-		set_padding_form_fixed_header();
-		$( window ).resize( function() {
-			set_padding_form_fixed_header();
-		} );
-	}
-
-	if ( $( '.header--transparency' ).length ) {
-		$( window ).scroll( function() {
-			var header = $( '.header--transparency' );
-			if ( header.hasClass( 'header--fixed' ) ) {
-				if ( $( document ).scrollTop() > 0 ) {
-					header.addClass( 'header--transparency--is_scrolled' );
-				} else {
-					header.removeClass( 'header--transparency--is_scrolled' );
-				}
+	( function() {
+		var header = $( '.header--fixed' );
+		if ( header.length && !header.hasClass( 'header--transparency' ) ) {
+			function set_padding_form_fixed_header() {
+				var height = header.outerHeight();
+				$( '#contents' ).css( 'marginTop', height );
 			}
-		} );
-	}
+			set_padding_form_fixed_header();
+			$( window ).resize( function() {
+				set_padding_form_fixed_header();
+			} );
+		}
+		
+		if ( header.length ) {
+			$( window ).scroll( function() {
+				if ( $( document ).scrollTop() > 0 ) {
+					header.addClass( 'header--is_scrolled' );
+				} else {
+					header.removeClass( 'header--is_scrolled' );
+				}
+			} );
+		}
+	} )();
 } );
 
 },{"../../assets/bootstrap/javascripts/bootstrap.js":2,"./jquery.responsive-nav/jquery.responsive-nav.js":3,"./slick/slick.js":4}],2:[function(require,module,exports){
@@ -2360,11 +2359,11 @@ if (typeof jQuery === 'undefined') {
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.1
+ * Version    : 2.1.2
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : August 7, 2015
+ * modified   : August 30, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -2446,8 +2445,6 @@ if (typeof jQuery === 'undefined') {
 		}
 
 		function nav_open() {
-			var height = get_window_height();
-			var width  = get_slide_width();
 			offcanvas_nav.css( 'visibility', 'visible' );
 			container.addClass( 'open' );
 
@@ -2461,13 +2458,6 @@ if (typeof jQuery === 'undefined') {
 
 			container.removeClass( 'open-for-ios' );
 			$( 'html' ).removeClass( 'open-for-ios' );
-		}
-
-		function get_window_height() {
-			var height      = $( window ).height();
-			var html_margin = parseInt( $( 'html' ).css( 'marginTop' ) );
-			height = height - html_margin;
-			return height;
 		}
 
 		function is_iphone () {
@@ -2500,6 +2490,7 @@ if (typeof jQuery === 'undefined') {
 		}
 	}
 } )( jQuery );
+
 },{}],4:[function(require,module,exports){
 (function (global){
 /*

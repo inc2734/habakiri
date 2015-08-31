@@ -1,11 +1,11 @@
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.1
+ * Version    : 2.1.2
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : August 7, 2015
+ * modified   : August 30, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -87,8 +87,6 @@
 		}
 
 		function nav_open() {
-			var height = get_window_height();
-			var width  = get_slide_width();
 			offcanvas_nav.css( 'visibility', 'visible' );
 			container.addClass( 'open' );
 
@@ -102,13 +100,6 @@
 
 			container.removeClass( 'open-for-ios' );
 			$( 'html' ).removeClass( 'open-for-ios' );
-		}
-
-		function get_window_height() {
-			var height      = $( window ).height();
-			var html_margin = parseInt( $( 'html' ).css( 'marginTop' ) );
-			height = height - html_margin;
-			return height;
 		}
 
 		function is_iphone () {

@@ -45,17 +45,45 @@
 
 	&--fixed {
 		box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
-		position: fixed;
+		position: absolute;
 		right: 0;
 		left: 0;
+
+		&.header--is_scrolled {
+			position: fixed;
+		}
 
 		&.header--transparency {
 			border-bottom: none;
 			box-shadow: none;
-		}
 
-		&.header--transparency--is_scrolled {
-			box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
+			&.header--is_scrolled {
+				box-shadow: 0 0 3px rgba( 0, 0, 0, .1 );
+			}
+		}
+	}
+}
+
+.admin-bar {
+	.header--fixed {
+		&.header--is_scrolled {
+			top: 32px;
+
+			@media screen and ( max-width: 782px ) {
+				top: 46px;
+			}
+
+			@media screen and ( max-width: 600px ) {
+				top: 0;
+			}
+		}
+	}
+
+	&.open {
+		.header--fixed {
+			&.header--is_scrolled {
+				top: 0;
+			}
 		}
 	}
 }
