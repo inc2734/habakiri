@@ -37,50 +37,56 @@ class Habakiri_Customizer {
 		self::$defaults = apply_filters(
 			'habakiri_theme_mods_defaults',
 			array(
-				'logo'                           => '',
-				'logo_text_color'                => '#000',
-				'header'                         => 'header--default',
-				'header_fixed'                   => '',
-				'footer_columns'                 => 'col-md-4',
-				'blog_template'                  => 'right-sidebar',
-				'search_template'                => 'right-sidebar',
-				'404_template'                   => 'right-sidebar',
-				'is_displaying_thumbnail'        => 'true',
-				'is_displaying_bread_crumb'      => 'true',
-				'is_displaying_related_posts'    => 'true',
-				'is_displaying_page_header'      => 'true',
-				'is_displaying_page_header_lead' => 'true',
-				'link_color'                     => '#337ab7',
-				'link_hover_color'               => '#23527c',
-				'gnav_bg_color'                  => '#fff',
-				'gnav_link_color'                => '#000',
-				'gnav_link_hover_color'          => '#337ab7',
-				'gnav_link_bg_color'             => '#fff',
-				'gnav_link_bg_hover_color'       => '#fff',
-				'gnav_pulldown_link_color'       => '#777',
-				'gnav_pulldown_link_hover_color' => '#337ab7',
-				'gnav_pulldown_bg_color'         => '#000',
-				'gnav_pulldown_bg_hover_color'   => '#191919',
-				'header_bg_color'                => '#fff',
-				'footer_bg_color'                => '#111113',
-				'footer_text_color'              => '#555',
-				'footer_link_color'              => '#777',
-				'page_header_bg_color'           => '#222',
-				'page_header_text_color'         => '#fff',
-				'gnav_breakpoint'                => 'md',
-				'gnav_link_horizontal_padding'   => 15,
-				'gnav_link_vertical_padding'     => 23,
-				'slider_option_effect'           => 'horizontal',
-				'slider_option_interval'         => 4000,
-				'slider_option_speed'            => 500,
-				'slider_option_overlay_color'    => '#000',
-				'slider_option_overlay_opacity'  => '90',
-				'slider_option_height'           => 0,
-				'slider_option_target_1'         => false,
-				'slider_option_target_2'         => false,
-				'slider_option_target_3'         => false,
-				'slider_option_target_4'         => false,
-				'slider_option_target_5'         => false,
+				'logo'                             => '',
+				'logo_text_color'                  => '#000',
+				'header'                           => 'header--default',
+				'header_fixed'                     => '',
+				'footer_columns'                   => 'col-md-4',
+				'blog_template'                    => 'right-sidebar',
+				'search_template'                  => 'right-sidebar',
+				'404_template'                     => 'right-sidebar',
+				'is_displaying_thumbnail'          => 'true',
+				'is_displaying_bread_crumb'        => 'true',
+				'is_displaying_related_posts'      => 'true',
+				'is_displaying_page_header'        => 'true',
+				'is_displaying_page_header_lead'   => 'true',
+				'link_color'                       => '#337ab7',
+				'link_hover_color'                 => '#23527c',
+				'gnav_bg_color'                    => '#fff',
+				'gnav_link_color'                  => '#000',
+				'gnav_link_hover_color'            => '#337ab7',
+				'gnav_link_bg_color'               => '#fff',
+				'gnav_link_bg_hover_color'         => '#fff',
+				'gnav_pulldown_link_color'         => '#777',
+				'gnav_pulldown_link_hover_color'   => '#337ab7',
+				'gnav_pulldown_bg_color'           => '#000',
+				'gnav_pulldown_bg_hover_color'     => '#191919',
+				'hamburger_btn_text_color'         => '#000',
+				'hamburger_btn_text_hover_color'   => '#000',
+				'hamburger_btn_border_color'       => '#eee',
+				'hamburger_btn_border_hover_color' => '#eee',
+				'hamburger_btn_bg_color'           => '#fff',
+				'hamburger_btn_bg_hover_color'     => '#f5f5f5',
+				'header_bg_color'                  => '#fff',
+				'footer_bg_color'                  => '#111113',
+				'footer_text_color'                => '#555',
+				'footer_link_color'                => '#777',
+				'page_header_bg_color'             => '#222',
+				'page_header_text_color'           => '#fff',
+				'gnav_breakpoint'                  => 'md',
+				'gnav_link_horizontal_padding'     => 15,
+				'gnav_link_vertical_padding'       => 23,
+				'slider_option_effect'             => 'horizontal',
+				'slider_option_interval'           => 4000,
+				'slider_option_speed'              => 500,
+				'slider_option_overlay_color'      => '#000',
+				'slider_option_overlay_opacity'    => '90',
+				'slider_option_height'             => 0,
+				'slider_option_target_1'           => false,
+				'slider_option_target_2'           => false,
+				'slider_option_target_3'           => false,
+				'slider_option_target_4'           => false,
+				'slider_option_target_5'           => false,
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
@@ -224,6 +230,49 @@ class Habakiri_Customizer {
 			'label'   => __( 'Pulldown menu background hover color', 'habakiri' ),
 			'default' => self::get_default( 'gnav_pulldown_bg_hover_color' ),
 			'section' => 'colors_gnav',
+		) );
+
+		// colors - hamburger button
+
+		$this->Customizer_Framework->add_section( 'colors_hamburger_button', array(
+			'title' =>  __( 'Humberger Button', 'habakiri' ),
+			'panel' => 'habakiri_colors',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_text_color', array(
+			'label'   => __( 'Text color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_text_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_text_hover_color', array(
+			'label'   => __( 'Text hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_text_hover_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_border_color', array(
+			'label'   => __( 'Border color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_border_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_border_hover_color', array(
+			'label'   => __( 'Border hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_border_hover_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_bg_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_bg_hover_color', array(
+			'label'   => __( 'Background hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_bg_hover_color' ),
+			'section' => 'colors_hamburger_button',
 		) );
 
 		// colors - page header
@@ -524,6 +573,8 @@ class Habakiri_Customizer {
 	 * CSS を登録
 	 */
 	public function register_styles() {
+		$rgb_header_bg_color = $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) );
+
 		$this->Customizer_Framework->register_styles(
 			'a',
 			sprintf( 'color: %s', Habakiri::get( 'link_color' ) )
@@ -552,7 +603,6 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->register_styles(
 			array(
 				'.global-nav a',
-				'#responsive-btn',
 			),
 			array(
 				sprintf( 'color: %s', Habakiri::get( 'gnav_link_color' ) ),
@@ -560,13 +610,13 @@ class Habakiri_Customizer {
 		);
 
 		$gnav_link_bg_color = Habakiri::get( 'gnav_link_bg_color' );
-		if ( $this->hex_to_rgb( $gnav_link_bg_color ) == $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) ) ) {
+		if ( $this->hex_to_rgb( $gnav_link_bg_color ) == $rgb_header_bg_color ) {
 			$gnav_link_bg_color = 'transparent';
 		}
 		$this->Customizer_Framework->register_styles(
 			array(
 				'.global-nav .menu>.menu-item>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_color ),
@@ -575,7 +625,7 @@ class Habakiri_Customizer {
 		);
 
 		$gnav_link_bg_hover_color = Habakiri::get( 'gnav_link_bg_hover_color' );
-		if ( $this->hex_to_rgb( $gnav_link_bg_hover_color ) == $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) ) ) {
+		if ( $this->hex_to_rgb( $gnav_link_bg_hover_color ) == $rgb_header_bg_color ) {
 			$gnav_link_bg_hover_color = 'transparent';
 		}
 		$this->Customizer_Framework->register_styles(
@@ -587,13 +637,13 @@ class Habakiri_Customizer {
 				'.global-nav .menu>.current-menu-parent>a',
 				'.global-nav .menu>.current_page_item>a',
 				'.global-nav .menu>.current_page_parent>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a:hover',
-				'.header--transparency--is_scrolled .global-nav .menu>.menu-item>a:active',
-				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-item>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.current-menu-parent>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.current_page_item>a',
-				'.header--transparency--is_scrolled .global-nav .menu>.current_page_parent>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a:hover',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.menu-item>a:active',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-item>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.current-menu-parent>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.current_page_item>a',
+				'.header--transparency.header--is_scrolled .global-nav .menu>.current_page_parent>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_hover_color ),
@@ -652,16 +702,53 @@ class Habakiri_Customizer {
 			);
 
 			$gnav_bg_color = Habakiri::get( 'gnav_bg_color' );
-			if ( $this->hex_to_rgb( $gnav_bg_color ) == $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) ) ) {
+			if ( $this->hex_to_rgb( $gnav_bg_color ) == $rgb_header_bg_color ) {
 				$gnav_bg_color = 'transparent';
 			}
 			$this->Customizer_Framework->register_styles(
 				array(
 					'.global-nav',
-					'.header--transparency--is_scrolled .global-nav',
+					'.header--transparency.header--is_scrolled .global-nav',
 				),
 				array(
 					sprintf( 'background-color: %s', $gnav_bg_color ),
+				)
+			);
+
+			$hamburger_btn_bg_color           = Habakiri::get( 'hamburger_btn_bg_color' );
+			$hamburger_btn_border_color       = Habakiri::get( 'hamburger_btn_border_color' );
+			$hamburger_btn_bg_hover_color     = Habakiri::get( 'hamburger_btn_bg_hover_color' );
+			$hamburger_btn_border_hover_color = Habakiri::get( 'hamburger_btn_border_hover_color' );
+			if ( $this->hex_to_rgb( $hamburger_btn_bg_color ) == $rgb_header_bg_color ) {
+				$hamburger_btn_bg_color = 'transparent';
+			}
+			if ( $this->hex_to_rgb( $hamburger_btn_border_color ) == $rgb_header_bg_color ) {
+				$hamburger_btn_border_color = 'transparent';
+			}
+			if ( $this->hex_to_rgb( $hamburger_btn_bg_hover_color ) == $rgb_header_bg_color ) {
+				$hamburger_btn_bg_hover_color = 'transparent';
+			}
+			if ( $this->hex_to_rgb( $hamburger_btn_border_hover_color ) == $rgb_header_bg_color ) {
+				$hamburger_btn_border_hover_color = 'transparent';
+			}
+			$this->Customizer_Framework->register_styles(
+				array(
+					'#responsive-btn',
+				),
+				array(
+					sprintf( 'background-color: %s', $hamburger_btn_bg_color ),
+					sprintf( 'border-color: %s', $hamburger_btn_border_color ),
+					sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_color' ) ),
+				)
+			);
+			$this->Customizer_Framework->register_styles(
+				array(
+					'#responsive-btn:hover',
+				),
+				array(
+					sprintf( 'background-color: %s', $hamburger_btn_bg_hover_color ),
+					sprintf( 'border-color: %s', $hamburger_btn_border_hover_color ),
+					sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_hover_color' ) ),
 				)
 			);
 
@@ -816,7 +903,7 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.header--transparency--is_scrolled',
+				'.header--transparency.header--is_scrolled',
 			),
 			array(
 				sprintf( 'background-color: %s !important', Habakiri::get( 'header_bg_color' ) ),
