@@ -43,6 +43,22 @@ jQuery( function( $ ) {
 					header.removeClass( 'header--fixed--is_scrolled' );
 				}
 			} );
+
+			$( '#responsive-btn' ).click( function() {
+				var wrapper = $( '.responsive-nav-wrapper' );
+				var scroll  = 0;
+				$( 'html, body' ).each( function() {
+					var _scroll = $( this ).scrollTop();
+					if ( _scroll > scroll ) {
+						scroll = _scroll
+					}
+				} );
+				if ( wrapper.hasClass( 'open' ) ) {
+					header.css( 'top', parseInt( scroll ) );
+				} else {
+					header.css( 'top', '' );
+				}
+			} );
 		}
 	} )();
 } );
