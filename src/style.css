@@ -6728,22 +6728,23 @@ div.thumbnail {
   position: relative; }
 
 .global-nav {
-  display: none;
-  font-size: 12px; }
-  .global-nav .menu-item {
-    text-align: center; }
-  .global-nav a {
-    text-decoration: none; }
-    .global-nav a strong {
-      font-weight: normal; }
-    .global-nav a small {
-      display: block;
-      font-size: 80%;
-      margin-top: -2px; }
-  .global-nav .sub-menu .menu-item, .global-nav .children .menu-item {
-    text-align: left; }
-  .global-nav .sub-menu a, .global-nav .children a {
-    padding: 10px; }
+  display: none; }
+
+.responsive-nav .menu-item {
+  text-align: center; }
+
+.responsive-nav a {
+  text-decoration: none; }
+  .responsive-nav a strong {
+    font-weight: normal; }
+  .responsive-nav a small {
+    display: block; }
+
+.responsive-nav .sub-menu .menu-item, .responsive-nav .children .menu-item {
+  text-align: left; }
+
+.responsive-nav .sub-menu a, .responsive-nav .children a {
+  padding: 10px; }
 
 .responsive-nav ul li ul li ul {
   left: 220px; }
@@ -6752,6 +6753,9 @@ div.thumbnail {
 
 .off-canvas-nav .menu-item {
   text-align: left; }
+
+.off-canvas-nav a strong {
+  font-weight: normal; }
 
 .off-canvas-nav a small {
   display: none; }

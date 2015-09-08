@@ -173,7 +173,10 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Breakpoint setting that to switch offcanvas navigation.
 * Add new setting: Global navigation background color.
 * Add new setting: Global navigation link background color.
-* Add new setting: Global navigation link background hover color.
+* Add new setting: Global navigation link padding.
+* Add new setting: Global navigation font size.
+* Add new setting: Global navigation sub label.
+* Add new setting: hamburger button color.
 * Add filter hook habakiri_allow_hentry_post_types.
 * Add filter hook habakiri_default_slider_items.
 * Change templates structure.

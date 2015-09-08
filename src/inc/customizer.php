@@ -57,6 +57,8 @@ class Habakiri_Customizer {
 				'gnav_link_hover_color'            => '#337ab7',
 				'gnav_link_bg_color'               => '#fff',
 				'gnav_link_bg_hover_color'         => '#fff',
+				'gnav_sub_label_color'             => '#999',
+				'gnav_sub_label_hover_color'       => '#999',
 				'gnav_pulldown_link_color'         => '#777',
 				'gnav_pulldown_link_hover_color'   => '#337ab7',
 				'gnav_pulldown_bg_color'           => '#000',
@@ -74,6 +76,8 @@ class Habakiri_Customizer {
 				'page_header_bg_color'             => '#222',
 				'page_header_text_color'           => '#fff',
 				'gnav_breakpoint'                  => 'md',
+				'gnav_fontsize'                    => 12,
+				'gnav_sub_label_fontsize'          => 10,
 				'gnav_link_horizontal_padding'     => 15,
 				'gnav_link_vertical_padding'       => 23,
 				'slider_option_effect'             => 'horizontal',
@@ -102,13 +106,15 @@ class Habakiri_Customizer {
 	public function customize_register( $wp_customize ) {
 		$this->Customizer_Framework->register_customizer( $wp_customize );
 
-		// colors - general
+		// colors
 
 		$this->Customizer_Framework->remove_section( 'colors' );
 		$this->Customizer_Framework->add_panel( 'habakiri_colors', array(
 			'title'    => __( 'Colors', 'habakiri' ),
 			'priority' => 110,
 		) );
+		
+		// colors - general
 
 		$this->Customizer_Framework->add_section( 'colors', array(
 			'title' =>  __( 'General', 'habakiri' ),
@@ -205,6 +211,18 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->color( 'gnav_link_bg_hover_color', array(
 			'label'   => __( 'Menu background hover color', 'habakiri' ),
 			'default' => self::get_default( 'gnav_link_bg_hover_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_sub_label_color', array(
+			'label'   => __( 'Sub label color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_color' ),
+			'section' => 'colors_gnav',
+		) );
+
+		$this->Customizer_Framework->color( 'gnav_sub_label_hover_color', array(
+			'label'   => __( 'Sub label hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_hover_color' ),
 			'section' => 'colors_gnav',
 		) );
 
@@ -356,28 +374,24 @@ class Habakiri_Customizer {
 			),
 		) );
 
-		// habakiri_layout
-
-		$this->Customizer_Framework->add_section( 'habakiri_layout', array(
+		// layout
+		
+		$this->Customizer_Framework->add_panel( 'habakiri_layout', array(
 			'title'    => __( 'Layout', 'habakiri' ),
 			'priority' => 112,
 		) );
+		
+		// layout - header
 
-		$this->Customizer_Framework->radio( 'gnav_breakpoint', array(
-			'label'   => __( 'Breakpoint to switch off canvas navigation', 'habakiri' ),
-			'default' => self::get_default( 'gnav_breakpoint' ),
-			'section' => 'habakiri_layout',
-			'choices' => array(
-				''   => __( 'Always', 'habakiri' ),
-				'md' => __( 'Tablet size', 'habakiri' ),
-				'lg' => __( 'Laptop size', 'habakiri' ),
-			),
+		$this->Customizer_Framework->add_section( 'habakiri_layout_header', array(
+			'title' =>  __( 'Header', 'habakiri' ),
+			'panel' => 'habakiri_layout',
 		) );
 
 		$this->Customizer_Framework->radio( 'header', array(
 			'label'   => __( 'Header', 'habakiri' ),
 			'default' => self::get_default( 'header' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_header',
 			'choices' => array(
 				'header--default'      => __( 'Default', 'habakiri' ),
 				'header--2row'         => __( '2 rows', 'habakiri' ),
@@ -389,17 +403,55 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->radio( 'header_fixed', array(
 			'label'   => __( 'Header Fixed', 'habakiri' ),
 			'default' => self::get_default( 'header_fixed' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_header',
 			'choices' => array(
 				''              => __( 'No', 'habakiri' ),
 				'header--fixed' => __( 'Yes', 'habakiri' ),
 			),
 		) );
+		
+		// layout - gnav
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_gnav', array(
+			'title' =>  __( 'Global Navigation', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+
+		$this->Customizer_Framework->radio( 'gnav_breakpoint', array(
+			'label'   => __( 'Breakpoint to switch off canvas navigation', 'habakiri' ),
+			'default' => self::get_default( 'gnav_breakpoint' ),
+			'section' => 'habakiri_layout_gnav',
+			'choices' => array(
+				''   => __( 'Always', 'habakiri' ),
+				'md' => __( 'Tablet size', 'habakiri' ),
+				'lg' => __( 'Laptop size', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_fontsize', array(
+			'label'   => __( 'Font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_sub_label_fontsize', array(
+			'label'   => __( 'Sub label font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
 
 		$this->Customizer_Framework->number( 'gnav_link_horizontal_padding', array(
-			'label'   => __( 'Global Navigation link padding ( Horizontal )', 'habakiri' ),
+			'label'   => __( 'link padding ( Horizontal )', 'habakiri' ),
 			'default' => self::get_default( 'gnav_link_horizontal_padding' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_gnav',
 			'input_attrs' => array(
 				'size'  => 3,
 				'style' => 'width: 60px;'
@@ -407,30 +459,44 @@ class Habakiri_Customizer {
 		) );
 
 		$this->Customizer_Framework->number( 'gnav_link_vertical_padding', array(
-			'label'   => __( 'Global Navigation link padding ( Vertical )', 'habakiri' ),
+			'label'   => __( 'link padding ( Vertical )', 'habakiri' ),
 			'default' => self::get_default( 'gnav_link_vertical_padding' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_gnav',
 			'input_attrs' => array(
 				'size'  => 3,
 				'style' => 'width: 60px;'
 			),
 		) );
+		
+		// layout - footer
 
+		$this->Customizer_Framework->add_section( 'habakiri_layout_footer', array(
+			'title' =>  __( 'Footer', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+		
 		$this->Customizer_Framework->radio( 'footer_columns', array(
 			'label'   => __( 'Number of footer columns', 'habakiri' ),
 			'default' => self::get_default( 'footer_columns' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_footer',
 			'choices' => array(
 				'col-md-6' => __( '2 Columns', 'habakiri' ),
 				'col-md-4' => __( '3 Columns', 'habakiri' ),
 				'col-md-3' => __( '4 Columns', 'habakiri' ),
 			),
 		) );
+				
+		// layout - template
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_template', array(
+			'title' =>  __( 'Template', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
 
 		$this->Customizer_Framework->radio( 'blog_template', array(
 			'label'   => __( 'Blog Template', 'habakiri' ),
 			'default' => self::get_default( 'blog_template' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_template',
 			'choices' => array(
 				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
 				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
@@ -443,7 +509,7 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->radio( 'search_template', array(
 			'label'   => __( 'Search Template', 'habakiri' ),
 			'default' => self::get_default( 'search_template' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_template',
 			'choices' => array(
 				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
 				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
@@ -456,7 +522,7 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->radio( '404_template', array(
 			'label'   => __( '404 Template', 'habakiri' ),
 			'default' => self::get_default( '404_template' ),
-			'section' => 'habakiri_layout',
+			'section' => 'habakiri_layout_template',
 			'choices' => array(
 				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
 				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
@@ -489,13 +555,13 @@ class Habakiri_Customizer {
 		) );
 
 		$this->Customizer_Framework->number( 'slider_option_interval', array(
-			'label'   => __( 'Interval (ms)', 'habakiri' ),
+			'label'   => __( 'Interval ( ms )', 'habakiri' ),
 			'default' => self::get_default( 'slider_option_interval' ),
 			'section' => 'habakiri_slider_option',
 		) );
 
 		$this->Customizer_Framework->number( 'slider_option_speed', array(
-			'label'   => __( 'Effect Speed (ms)', 'habakiri' ),
+			'label'   => __( 'Effect Speed ( ms )', 'habakiri' ),
 			'default' => self::get_default( 'slider_option_speed' ),
 			'section' => 'habakiri_slider_option',
 		) );
@@ -518,7 +584,7 @@ class Habakiri_Customizer {
 		) );
 
 		$this->Customizer_Framework->number( 'slider_option_height', array(
-			'label'       => __( 'Height (px)', 'habakiri' ),
+			'label'       => __( 'Height ( px )', 'habakiri' ),
 			'default'     => self::get_default( 'slider_option_height' ),
 			'section'     => 'habakiri_slider_option',
 			'description' => __( 'If 0, height is auto.', 'habakiri' ),
@@ -602,10 +668,36 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav a',
+				'.responsive-nav a',
 			),
 			array(
 				sprintf( 'color: %s', Habakiri::get( 'gnav_link_color' ) ),
+				sprintf( 'font-size: %spx', Habakiri::get( 'gnav_fontsize' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav a small',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'gnav_sub_label_color' ) ),
+				sprintf( 'font-size: %spx', Habakiri::get( 'gnav_sub_label_fontsize' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav a:hover small',
+				'.responsive-nav a:active small',
+				'.responsive-nav .current-menu-item small',
+				'.responsive-nav .current-menu-ancestor small',
+				'.responsive-nav .current-menu-parent small',
+				'.responsive-nav .current_page_item small',
+				'.responsive-nav .current_page_parent small',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'gnav_sub_label_hover_color' ) ),
 			)
 		);
 
@@ -615,8 +707,8 @@ class Habakiri_Customizer {
 		}
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav .menu>.menu-item>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a',
+				'.responsive-nav .menu>.menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_color ),
@@ -630,20 +722,20 @@ class Habakiri_Customizer {
 		}
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav .menu>.menu-item>a:hover',
-				'.global-nav .menu>.menu-item>a:active',
-				'.global-nav .menu>.current-menu-item>a',
-				'.global-nav .menu>.current-menu-ancestor>a',
-				'.global-nav .menu>.current-menu-parent>a',
-				'.global-nav .menu>.current_page_item>a',
-				'.global-nav .menu>.current_page_parent>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a:hover',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.menu-item>a:active',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-item>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-ancestor>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current-menu-parent>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current_page_item>a',
-				'.header--transparency.header--fixed--is_scrolled .global-nav .menu>.current_page_parent>a',
+				'.responsive-nav .menu>.menu-item>a:hover',
+				'.responsive-nav .menu>.menu-item>a:active',
+				'.responsive-nav .menu>.current-menu-item>a',
+				'.responsive-nav .menu>.current-menu-ancestor>a',
+				'.responsive-nav .menu>.current-menu-parent>a',
+				'.responsive-nav .menu>.current_page_item>a',
+				'.responsive-nav .menu>.current_page_parent>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a:hover',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a:active',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-ancestor>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-parent>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current_page_item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current_page_parent>a',
 			),
 			array(
 				sprintf( 'background-color: %s', $gnav_link_bg_hover_color ),
@@ -653,7 +745,7 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav .sub-menu a',
+				'.responsive-nav .sub-menu a',
 			),
 			array(
 				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_color' ) ),
@@ -663,13 +755,13 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.global-nav .sub-menu a:hover',
-				'.global-nav .sub-menu a:active',
-				'.global-nav .sub-menu .current-menu-item a',
-				'.global-nav .sub-menu .current-menu-ancestor a',
-				'.global-nav .sub-menu .current-menu-parent a',
-				'.global-nav .sub-menu .current_page_item a',
-				'.global-nav .sub-menu .current_page_parent a',
+				'.responsive-nav .sub-menu a:hover',
+				'.responsive-nav .sub-menu a:active',
+				'.responsive-nav .sub-menu .current-menu-item a',
+				'.responsive-nav .sub-menu .current-menu-ancestor a',
+				'.responsive-nav .sub-menu .current-menu-parent a',
+				'.responsive-nav .sub-menu .current_page_item a',
+				'.responsive-nav .sub-menu .current_page_parent a',
 			),
 			array(
 				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ),
@@ -707,8 +799,8 @@ class Habakiri_Customizer {
 			}
 			$this->Customizer_Framework->register_styles(
 				array(
-					'.global-nav',
-					'.header--transparency.header--fixed--is_scrolled .global-nav',
+					'.responsive-nav',
+					'.header--transparency.header--fixed--is_scrolled .responsive-nav',
 				),
 				array(
 					sprintf( 'background-color: %s', $gnav_bg_color ),
@@ -777,8 +869,8 @@ class Habakiri_Customizer {
 
 			$this->Customizer_Framework->register_styles(
 				array(
-					'.header--2row .global-nav',
-					'.header--center .global-nav',
+					'.header--2row .responsive-nav',
+					'.header--center .responsive-nav',
 				),
 				array(
 					'margin-right: -1000px',

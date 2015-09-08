@@ -134,8 +134,9 @@
 
 .global-nav {
 	display: none;
-	font-size: $font-size-small;
-	
+}
+
+.responsive-nav {
 	.menu-item {
 		text-align: center;
 	}
@@ -149,8 +150,6 @@
 		
 		small {
 			display: block;
-			font-size: 80%;
-			margin-top: -2px;
 		}
 	}
 
@@ -163,9 +162,7 @@
 			padding: 10px;
 		}
 	}
-}
-
-.responsive-nav {
+	
 	ul li ul li ul {
 		left: 220px;
 
@@ -181,6 +178,10 @@
 	}
 	
 	a {
+		strong {
+			font-weight: normal;
+		}
+		
 		small {
 			display: none;
 		}
