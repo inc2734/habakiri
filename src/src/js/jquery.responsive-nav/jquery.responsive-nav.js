@@ -1,11 +1,11 @@
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.2
+ * Version    : 2.1.3
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : August 30, 2015
+ * modified   : September 3, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -57,12 +57,13 @@
 				}, 300 );
 			} );
 
-			$( '#responsive-btn' ).on( 'click', function() {
+			$( '#responsive-btn' ).on( 'click', function( e ) {
 				if ( container.hasClass( 'open' ) ) {
 					nav_close();
 				} else {
 					nav_open();
 				}
+				e.stopPropagation();
 			} );
 
 			$( document ).on( 'click', function( e ) {

@@ -6730,15 +6730,31 @@ div.thumbnail {
 .global-nav {
   display: none;
   font-size: 12px; }
+  .global-nav .menu-item {
+    text-align: center; }
   .global-nav a {
     text-decoration: none; }
-  .global-nav .sub-menu li a, .global-nav .children li a {
+    .global-nav a strong {
+      font-weight: normal; }
+    .global-nav a small {
+      display: block;
+      font-size: 80%;
+      margin-top: -2px; }
+  .global-nav .sub-menu .menu-item, .global-nav .children .menu-item {
+    text-align: left; }
+  .global-nav .sub-menu a, .global-nav .children a {
     padding: 10px; }
 
 .responsive-nav ul li ul li ul {
   left: 220px; }
   .responsive-nav ul li ul li ul.reverse-pulldown {
     left: -220px; }
+
+.off-canvas-nav .menu-item {
+  text-align: left; }
+
+.off-canvas-nav a small {
+  display: none; }
 
 /**
  * #responsive-btn

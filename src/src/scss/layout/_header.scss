@@ -135,25 +135,55 @@
 .global-nav {
 	display: none;
 	font-size: $font-size-small;
+	
+	.menu-item {
+		text-align: center;
+	}
 
 	a {
 		text-decoration: none;
+		
+		strong {
+			font-weight: normal;
+		}
+		
+		small {
+			display: block;
+			font-size: 80%;
+			margin-top: -2px;
+		}
 	}
 
 	.sub-menu, .children {
-		li {
-			a {
-				padding: 10px;
-			}
+		.menu-item {
+			text-align: left;
+		}
+		
+		a {
+			padding: 10px;
 		}
 	}
 }
 
-.responsive-nav ul li ul li ul {
-	left: 220px;
+.responsive-nav {
+	ul li ul li ul {
+		left: 220px;
 
-	&.reverse-pulldown {
-		left: -220px;
+		&.reverse-pulldown {
+			left: -220px;
+		}
+	}
+}
+
+.off-canvas-nav {
+	.menu-item {
+		text-align: left;
+	}
+	
+	a {
+		small {
+			display: none;
+		}
 	}
 }
 

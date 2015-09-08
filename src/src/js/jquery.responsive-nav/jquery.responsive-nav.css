@@ -29,8 +29,8 @@
 }
 .responsive-nav-wrapper.open .responsive-nav-contents,
 .responsive-nav-wrapper.open .off-canvas-nav {
-		transition: all 0.2s ease-out;
-	-ms-transition: all 0.2s ease-out;
+		transition: transform 0.2s ease-out;
+	-ms-transition: transform 0.2s ease-out;
 			transform: translate( -300px, 0 );
 		-ms-transform: translate( -300px, 0 );
 	-webkit-transform: translate( -300px, 0 );

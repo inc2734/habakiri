@@ -69,12 +69,13 @@ class Habakiri_Base_Functions {
 		$this->customizer();
 		$this->register_nav_menus();
 
-		add_action( 'widgets_init'        , array( $this, 'register_sidebar' ) );
-		add_action( 'wp_enqueue_scripts'  , array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'widgets_init'      , array( $this, 'register_sidebar' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_filter( 'tiny_mce_before_init', array( $this, 'tiny_mce_before_init' ) );
-		add_filter( 'body_class'          , array( $this, 'body_class' ) );
-		add_filter( 'post_class'          , array( $this, 'post_class' ) );
+		add_filter( 'tiny_mce_before_init'    , array( $this, 'tiny_mce_before_init' ) );
+		add_filter( 'body_class'              , array( $this, 'body_class' ) );
+		add_filter( 'post_class'              , array( $this, 'post_class' ) );
+		add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
 	}
 
 	/**
@@ -315,6 +316,15 @@ class Habakiri_Base_Functions {
 			$classes = array_diff( $classes, array( 'hentry' ) );
 		}
 		return $classes;
+	}
+	
+	public function walker_nav_menu_start_el( $output, $item, $depth, $args ) {
+		if ( $depth === 0 && !empty( $item->description ) ) {
+			$pattern     = '/(<a.*?>)([^<]*?)(<\/a>)/';
+			$replacement = '$1<strong>$2</strong><small>' . esc_html( $item->description ) . '</small>$3';
+			return preg_replace( $pattern, $replacement, $output );
+		}
+		return $output;
 	}
 
 	/**
