@@ -63,6 +63,7 @@ class Habakiri_Customizer {
 				'gnav_pulldown_link_hover_color'   => '#337ab7',
 				'gnav_pulldown_bg_color'           => '#000',
 				'gnav_pulldown_bg_hover_color'     => '#191919',
+				'offcanvas_nav_fontsize'           => 12,
 				'hamburger_btn_text_color'         => '#000',
 				'hamburger_btn_text_hover_color'   => '#000',
 				'hamburger_btn_border_color'       => '#eee',
@@ -467,6 +468,16 @@ class Habakiri_Customizer {
 				'style' => 'width: 60px;'
 			),
 		) );
+
+		$this->Customizer_Framework->number( 'offcanvas_nav_fontsize', array(
+			'label'   => __( 'Offcanvas Navigation font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'offcanvas_nav_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
 		
 		// layout - footer
 
@@ -791,6 +802,15 @@ class Habakiri_Customizer {
 				),
 				'',
 				$gnav_min_width
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.off-canvas-nav',
+				),
+				array(
+					sprintf( 'font-size: %spx', Habakiri::get( 'offcanvas_nav_fontsize' ) ),
+				)
 			);
 
 			$gnav_bg_color = Habakiri::get( 'gnav_bg_color' );
