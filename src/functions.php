@@ -561,17 +561,17 @@ class Habakiri_Base_Functions {
 	 *
 	 * @return int
 	 */
-	public static function get_gnav_min_width() {
-		$gnav_min_width  = null;
+	public static function get_gnav_breakpoint() {
+		$breakpoint      = null;
 		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
 		switch ( $gnav_breakpoint ) {
 			case 'md' :
-				$gnav_min_width = 992;
+				$breakpoint = 992;
 				break;
 			case 'lg' :
-				$gnav_min_width = 1200;
+				$breakpoint = 1200;
 				break;
 		}
-		return $gnav_min_width;
+		return $breakpoint;
 	}
 }

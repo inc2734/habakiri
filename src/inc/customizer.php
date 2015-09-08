@@ -411,6 +411,24 @@ class Habakiri_Customizer {
 			),
 		) );
 		
+		// layout - footer
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_footer', array(
+			'title' =>  __( 'Footer', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+		
+		$this->Customizer_Framework->radio( 'footer_columns', array(
+			'label'   => __( 'Number of footer columns', 'habakiri' ),
+			'default' => self::get_default( 'footer_columns' ),
+			'section' => 'habakiri_layout_footer',
+			'choices' => array(
+				'col-md-6' => __( '2 Columns', 'habakiri' ),
+				'col-md-4' => __( '3 Columns', 'habakiri' ),
+				'col-md-3' => __( '4 Columns', 'habakiri' ),
+			),
+		) );
+		
 		// layout - gnav
 
 		$this->Customizer_Framework->add_section( 'habakiri_layout_gnav', array(
@@ -478,25 +496,7 @@ class Habakiri_Customizer {
 				'style' => 'width: 60px;'
 			),
 		) );
-		
-		// layout - footer
-
-		$this->Customizer_Framework->add_section( 'habakiri_layout_footer', array(
-			'title' =>  __( 'Footer', 'habakiri' ),
-			'panel' => 'habakiri_layout',
-		) );
-		
-		$this->Customizer_Framework->radio( 'footer_columns', array(
-			'label'   => __( 'Number of footer columns', 'habakiri' ),
-			'default' => self::get_default( 'footer_columns' ),
-			'section' => 'habakiri_layout_footer',
-			'choices' => array(
-				'col-md-6' => __( '2 Columns', 'habakiri' ),
-				'col-md-4' => __( '3 Columns', 'habakiri' ),
-				'col-md-3' => __( '4 Columns', 'habakiri' ),
-			),
-		) );
-				
+	
 		// layout - template
 
 		$this->Customizer_Framework->add_section( 'habakiri_layout_template', array(
@@ -780,153 +780,65 @@ class Habakiri_Customizer {
 			)
 		);
 
-		if ( $gnav_min_width = Habakiri::get_gnav_min_width() ) {
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.responsive-nav',
-				),
-				array(
-					'display: block !important',
-				),
-				'',
-				$gnav_min_width
-			);
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.off-canvas-nav',
+			),
+			array(
+				sprintf( 'font-size: %spx', Habakiri::get( 'offcanvas_nav_fontsize' ) ),
+			)
+		);
 
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.off-canvas-nav',
-					'#responsive-btn',
-				),
-				array(
-					'display: none !important',
-				),
-				'',
-				$gnav_min_width
-			);
-
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.off-canvas-nav',
-				),
-				array(
-					sprintf( 'font-size: %spx', Habakiri::get( 'offcanvas_nav_fontsize' ) ),
-				)
-			);
-
-			$gnav_bg_color = Habakiri::get( 'gnav_bg_color' );
-			if ( $this->hex_to_rgb( $gnav_bg_color ) == $rgb_header_bg_color ) {
-				$gnav_bg_color = 'transparent';
-			}
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.responsive-nav',
-					'.header--transparency.header--fixed--is_scrolled .responsive-nav',
-				),
-				array(
-					sprintf( 'background-color: %s', $gnav_bg_color ),
-				)
-			);
-
-			$hamburger_btn_bg_color           = Habakiri::get( 'hamburger_btn_bg_color' );
-			$hamburger_btn_border_color       = Habakiri::get( 'hamburger_btn_border_color' );
-			$hamburger_btn_bg_hover_color     = Habakiri::get( 'hamburger_btn_bg_hover_color' );
-			$hamburger_btn_border_hover_color = Habakiri::get( 'hamburger_btn_border_hover_color' );
-			if ( $this->hex_to_rgb( $hamburger_btn_bg_color ) == $rgb_header_bg_color ) {
-				$hamburger_btn_bg_color = 'transparent';
-			}
-			if ( $this->hex_to_rgb( $hamburger_btn_border_color ) == $rgb_header_bg_color ) {
-				$hamburger_btn_border_color = 'transparent';
-			}
-			if ( $this->hex_to_rgb( $hamburger_btn_bg_hover_color ) == $rgb_header_bg_color ) {
-				$hamburger_btn_bg_hover_color = 'transparent';
-			}
-			if ( $this->hex_to_rgb( $hamburger_btn_border_hover_color ) == $rgb_header_bg_color ) {
-				$hamburger_btn_border_hover_color = 'transparent';
-			}
-			$this->Customizer_Framework->register_styles(
-				array(
-					'#responsive-btn',
-				),
-				array(
-					sprintf( 'background-color: %s', $hamburger_btn_bg_color ),
-					sprintf( 'border-color: %s', $hamburger_btn_border_color ),
-					sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_color' ) ),
-				)
-			);
-			$this->Customizer_Framework->register_styles(
-				array(
-					'#responsive-btn:hover',
-				),
-				array(
-					sprintf( 'background-color: %s', $hamburger_btn_bg_hover_color ),
-					sprintf( 'border-color: %s', $hamburger_btn_border_hover_color ),
-					sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_hover_color' ) ),
-				)
-			);
-
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.header--2row',
-				),
-				array(
-					'padding-bottom: 0',
-				),
-				'',
-				$gnav_min_width
-			);
-
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.header--2row .header__col',
-					'.header--center .header__col',
-				),
-				array(
-					'display: block',
-				),
-				'',
-				$gnav_min_width
-			);
-
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.header--2row .responsive-nav',
-					'.header--center .responsive-nav',
-				),
-				array(
-					'margin-right: -1000px',
-					'margin-left: -1000px',
-					'padding-right: 1000px',
-					'padding-left: 1000px',
-				),
-				'',
-				$gnav_min_width
-			);
-
-			if ( $gnav_bg_color == 'transparent' && $gnav_link_bg_color == 'transparent' && $gnav_link_bg_hover_color == 'transparent' ) {
-				$this->Customizer_Framework->register_styles(
-					array(
-						'.header--2row .site-branding',
-						'.header--center .site-branding',
-					),
-					array(
-						'padding-bottom: 0',
-					),
-					'',
-					$gnav_min_width
-				);
-			}
-
-			$this->Customizer_Framework->register_styles(
-				array(
-					'.header--center .site-branding',
-				),
-				array(
-					'text-align: center',
-				),
-				'',
-				$gnav_min_width
-			);
+		$gnav_bg_color = Habakiri::get( 'gnav_bg_color' );
+		if ( $this->hex_to_rgb( $gnav_bg_color ) == $rgb_header_bg_color ) {
+			$gnav_bg_color = 'transparent';
 		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav',
+			),
+			array(
+				sprintf( 'background-color: %s', $gnav_bg_color ),
+			)
+		);
+
+		$hamburger_btn_bg_color           = Habakiri::get( 'hamburger_btn_bg_color' );
+		$hamburger_btn_border_color       = Habakiri::get( 'hamburger_btn_border_color' );
+		$hamburger_btn_bg_hover_color     = Habakiri::get( 'hamburger_btn_bg_hover_color' );
+		$hamburger_btn_border_hover_color = Habakiri::get( 'hamburger_btn_border_hover_color' );
+		if ( $this->hex_to_rgb( $hamburger_btn_bg_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_bg_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_border_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_border_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_bg_hover_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_bg_hover_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_border_hover_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_border_hover_color = 'transparent';
+		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'#responsive-btn',
+			),
+			array(
+				sprintf( 'background-color: %s', $hamburger_btn_bg_color ),
+				sprintf( 'border-color: %s', $hamburger_btn_border_color ),
+				sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_color' ) ),
+			)
+		);
+		$this->Customizer_Framework->register_styles(
+			array(
+				'#responsive-btn:hover',
+			),
+			array(
+				sprintf( 'background-color: %s', $hamburger_btn_bg_hover_color ),
+				sprintf( 'border-color: %s', $hamburger_btn_border_hover_color ),
+				sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_hover_color' ) ),
+			)
+		);
 
 		$this->Customizer_Framework->register_styles(
 			array(
@@ -1059,5 +971,93 @@ class Habakiri_Customizer {
 				sprintf( 'border-color: %s', Habakiri::get( 'footer_text_color' ) ),
 			)
 		);
+
+		if ( $gnav_breakpoint = Habakiri::get_gnav_breakpoint() ) {
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.responsive-nav',
+				),
+				array(
+					'display: block !important',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.off-canvas-nav',
+					'#responsive-btn',
+				),
+				array(
+					'display: none !important',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row',
+				),
+				array(
+					'padding-bottom: 0',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row .header__col',
+					'.header--center .header__col',
+				),
+				array(
+					'display: block',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row .responsive-nav',
+					'.header--center .responsive-nav',
+				),
+				array(
+					'margin-right: -1000px',
+					'margin-left: -1000px',
+					'padding-right: 1000px',
+					'padding-left: 1000px',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			if ( $gnav_bg_color == 'transparent' && $gnav_link_bg_color == 'transparent' && $gnav_link_bg_hover_color == 'transparent' ) {
+				$this->Customizer_Framework->register_styles(
+					array(
+						'.header--2row .site-branding',
+						'.header--center .site-branding',
+					),
+					array(
+						'padding-bottom: 0',
+					),
+					'',
+					$gnav_breakpoint
+				);
+			}
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--center .site-branding',
+				),
+				array(
+					'text-align: center',
+				),
+				'',
+				$gnav_breakpoint
+			);
+		}
 	}
 }
