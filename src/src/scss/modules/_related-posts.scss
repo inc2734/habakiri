@@ -2,6 +2,12 @@
 	border-top: 1px solid #ddd;
 	margin-top: 30px;
 	padding-top: 30px;
+	
+	.article {
+		&:last-child {
+			border-bottom: none;
+		}
+	}
 
 	&__title {
 		margin: 0 0 30px

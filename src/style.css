@@ -6430,6 +6430,8 @@ button.close {
   border-top: 1px solid #ddd;
   margin-top: 30px;
   padding-top: 30px; }
+  .related-posts .article:last-child {
+    border-bottom: none; }
   .related-posts__title {
     margin: 0 0 30px; }
   .related-posts .entry__title {
@@ -6986,7 +6988,9 @@ div.thumbnail {
  * .entries
  */
 .entries .article {
-  margin-bottom: 45px; }
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px; }
 
 .entries .entry--has_media__media {
   float: left;
