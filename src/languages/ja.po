@@ -98,15 +98,15 @@ msgstr "あなたのコメントは承認待ちです。"
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
-#: inc/class.bread-crumb.php:122
+#: inc/class.breadcrumbs.php:122
 msgid "Home"
 msgstr "ホーム"
 
-#: inc/class.bread-crumb.php:157
+#: inc/class.breadcrumbs.php:157
 msgid "Page not found"
 msgstr "ページが見つかりません"
 
-#: inc/class.bread-crumb.php:166 inc/class.page-header.php:60
+#: inc/class.breadcrumbs.php:166 inc/class.page-header.php:60
 msgid "Search Results for: %s"
 msgstr "「%s」の検索結果"
 

@@ -12,7 +12,7 @@
 <div class="container">
 	<main id="main" role="main">
 
-		<?php get_template_part( 'modules/bread-crumb' ); ?>
+		<?php get_template_part( 'modules/breadcrumbs' ); ?>
 		<?php
 		$name = ( is_search() ) ? 'search' : 'archive';
 		if ( have_posts() ) {

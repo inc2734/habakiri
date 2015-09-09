@@ -6391,13 +6391,13 @@ button.close {
     margin-top: 20px;
     margin-bottom: -11.5px; }
 
-.bread-crumb {
+.breadcrumbs {
   margin-bottom: 20px;
   font-size: 12px;
   color: #777777; }
-  .bread-crumb a:link, .bread-crumb a:visited, .bread-crumb a:hover, .bread-crumb a:active {
+  .breadcrumbs a:link, .breadcrumbs a:visited, .breadcrumbs a:hover, .breadcrumbs a:active {
     color: #777777; }
-  .bread-crumb strong {
+  .breadcrumbs strong {
     font-weight: normal; }
 
 .sticky .entry__title:before {

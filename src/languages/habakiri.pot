@@ -88,15 +88,15 @@ msgstr ""
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr ""
 
-#: inc/class.bread-crumb.php:122
+#: inc/class.breadcrumbs.php:122
 msgid "Home"
 msgstr ""
 
-#: inc/class.bread-crumb.php:157
+#: inc/class.breadcrumbs.php:157
 msgid "Page not found"
 msgstr ""
 
-#: inc/class.bread-crumb.php:166 inc/class.page-header.php:60
+#: inc/class.breadcrumbs.php:166 inc/class.page-header.php:60
 msgid "Search Results for: %s"
 msgstr ""
 

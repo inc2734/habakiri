@@ -388,8 +388,8 @@ class Habakiri_Base_Functions {
 	 * パンくずリストを表示
 	 */
 	public static function the_bread_crumb() {
-		_deprecated_function( 'Habakiri::the_bread_crumb()', 'Habakiri 2.0.0', "get_template_part( 'modules/bread-crumb' )" );
-		get_template_part( 'modules/bread-crumb' );
+		_deprecated_function( 'Habakiri::the_bread_crumb()', 'Habakiri 2.0.0', "get_template_part( 'modules/breadcrumbs' )" );
+		get_template_part( 'modules/breadcrumbs' );
 	}
 
 	/**
