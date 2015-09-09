@@ -23,12 +23,9 @@ $custom_post_types = get_post_types( array(
 $show_on_front  = get_option( 'show_on_front' );
 $page_for_posts = get_option( 'page_for_posts' );
 
-// ポストタイプ：投稿を表示を表示 + ブログ設定
-if ( $post_type === 'post' && ( $show_on_front !== 'page' || !$page_for_posts ) ) {
-	printf( '<div class="no-page-header"></div>' );
-}
+// ポストタイプ：投稿を表示を表示 + ブログ設定ではない
 // 固定ページ、カスタム投稿タイプ、投稿 + Web サイト設定、404、検索
-else {
+if ( $post_type !== 'post' || ( $show_on_front === 'page' && $page_for_posts ) ) {
 	// 404, search
 	if ( is_404() || is_search() ) {
 		$Page_Header = new Habakiri_Page_Header();

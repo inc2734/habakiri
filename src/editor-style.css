@@ -5931,15 +5931,6 @@ dl {
  * Classes
  *================================================*/
 /**
- * .entry
- */
-.entry__title {
-  margin-top: 0; }
-
-.entry__content > *:first-child {
-  margin-top: 0; }
-
-/**
  * .section
  */
 .section {

@@ -15,19 +15,43 @@
 @import 'modules/slider';
 
 /*==================================================
- * container
+ * layout
  *================================================*/
- @import 'layout/container';
+#container {
+	overflow: hidden;
+}
+
+.sub-page-contents {
+	padding-top: 40px;
+}
+
+#main {
+	margin-bottom: 60px;
+
+	.page-template-templatesfront-page-php &,
+	.page-template-templatesfull-width-fluid-php &,
+	.blog-template-archive-full-width-fluid &,
+	.blog-template-archive-single-width-fluid & {
+		margin-bottom: 0;
+	}
+}
+
+.entry {
+	&__title {
+		margin: 0 0 20px;
+	}
+
+	&__content {
+		> *:first-child {
+			margin-top: 0;
+		}
+	}
+}
 
 /*==================================================
  * header
  *================================================*/
  @import 'layout/header';
-
-/*==================================================
- * main
- *================================================*/
- @import 'layout/main';
 
 /*==================================================
  * sub
@@ -48,8 +72,3 @@
  * archive
  *================================================*/
 @import 'layout/archive';
-
-/*==================================================
- * Page
- *================================================*/
-@import 'layout/page';

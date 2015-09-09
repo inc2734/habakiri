@@ -3,11 +3,9 @@
  */
 .entries {
 	.entry {
-		margin-bottom: 40px;
+		margin-bottom: 30px;
 
 		&--has_media {
-			margin-bottom: 30px;
-			
 			&__media {
 				float: left;
 				width: 60px;
@@ -71,6 +69,7 @@
 
 	.entry-meta {
 		border-bottom: none;
+		margin-bottom: 0;
 		padding-bottom: 0;
 	}
 }

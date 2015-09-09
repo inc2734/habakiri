@@ -20,7 +20,7 @@
 		<?php do_action( 'habakiri_after_entry_content' ); ?>
 	<!-- end .entry --></div>
 
-	<?php Habakiri::the_link_pages(); ?>
+	<?php get_template_part( 'modules/link-pages' ); ?>
 	<?php get_template_part( 'modules/related-posts' ); ?>
 	<?php
 	if ( comments_open() || pings_open() || get_comments_number() ) {

@@ -2,4 +2,14 @@
 	margin-bottom: 20px;
 	font-size: $font-size-small;
 	color: $gray-light;
+	
+	a {
+		&:link, &:visited, &:hover, &:active {
+			color: $gray-light;
+		}
+	}
+	
+	strong {
+		font-weight: normal;
+	}
 }

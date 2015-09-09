@@ -92,6 +92,7 @@ class Habakiri_Bread_Crumb {
 		}
 
 		$bread_crumb = array();
+		$last_item = array_pop( $this->bread_crumb );
 		foreach ( $this->bread_crumb as $_bread_crumb ) {
 			if ( !empty( $_bread_crumb['link'] ) ) {
 				$bread_crumb[] = sprintf(
@@ -103,6 +104,7 @@ class Habakiri_Bread_Crumb {
 				$bread_crumb[] = esc_html( $_bread_crumb['title'] );
 			}
 		}
+		$bread_crumb[] = sprintf( '<strong>%s</strong>', $last_item['title'] );
 		printf(
 			'<div class="bread-crumb">%s</div>',
 			implode(

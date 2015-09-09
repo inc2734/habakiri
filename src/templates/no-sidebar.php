@@ -14,20 +14,22 @@
 <?php get_header(); ?>
 
 <?php get_template_part( 'modules/page-header' ); ?>
+<div class="sub-page-contents">
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<main id="main" role="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<main id="main" role="main">
 
-				<?php get_template_part( 'modules/bread-crumb' ); ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', 'page' ); ?>
-				<?php endwhile; ?>
-				
-			<!-- end #main --></main>
-		<!-- end .col-md-10 --></div>
-	<!-- end .row --></div>
-<!-- end .container --></div>
+					<?php get_template_part( 'modules/bread-crumb' ); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'content', 'page' ); ?>
+					<?php endwhile; ?>
+					
+				<!-- end #main --></main>
+			<!-- end .col-md-10 --></div>
+		<!-- end .row --></div>
+	<!-- end .container --></div>
 
+<!-- end .sub-page-contents --></div>
 <?php get_footer(); ?>

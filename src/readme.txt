@@ -179,12 +179,15 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: hamburger button color.
 * Add filter hook habakiri_allow_hentry_post_types.
 * Add filter hook habakiri_default_slider_items.
+* Change $content_width.
 * Change templates structure.
 * Change class for executing Offcanvas nav that from .global-nav to .js-responsive-nav.
 * Change page header size when custom header image is set.
 * Change template name "For front page" to "Blank Page".
-* Changed not to display the menu if the global navigation is not allocated.
-* Changed microformats support is single page only.
+* Change not to display entry-title in front-page template.
+* Change not to display the menu if the global navigation is not allocated.
+* Change microformats support is single page only.
+* Improvement of footer widget area UX.
 * Remove old classes ( not BEM format classes ).
 * Style is generated from the Customizer is output after being compressed.
 * Fixed a page header bug at custom post type.
@@ -194,6 +197,8 @@ add_filter( 'foo', 'your_filter' );
 * Deprecated function: Habakiri::the_logo()
 * Deprecated function: Habakiri::the_page_header()
 * Deprecated function: Habakiri::the_related_posts()
+* Deprecated function: Habakiri::the_pager()
+* Deprecated function: Habakiri::the_link_pages()
 
 = 1.2.0 =
 * Fixed offcanvas-nav bugs.

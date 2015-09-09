@@ -18,6 +18,6 @@
 				<?php endwhile; ?>
 			<!-- end .entries --></div>
 		<!-- end .entry__content --></div>
-		<?php Habakiri::the_pager(); ?>
+		<?php get_template_part( 'modules/pagination' ); ?>
 	<!-- end .entry --></div>
 </article>

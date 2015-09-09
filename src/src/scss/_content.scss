@@ -158,21 +158,6 @@ dl {
  * Classes
  *================================================*/
 /**
- * .entry
- */
-.entry {
-	&__title {
-		margin-top: 0;
-	}
-
-	&__content {
-		> *:first-child {
-			margin-top: 0;
-		}
-	}
-}
-
-/**
  * .section
  */
 .section {

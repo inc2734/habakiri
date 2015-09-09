@@ -30,7 +30,7 @@ class Habakiri_Base_Functions {
 	 */
 	public function __construct() {
 		global $content_width;
-		if ( !isset( $content_width ) ) $content_width = 940;
+		if ( !isset( $content_width ) ) $content_width = 1140;
 		load_theme_textdomain( 'habakiri', get_template_directory() . '/languages' );
 
 		add_editor_style( array(
@@ -137,27 +137,33 @@ class Habakiri_Base_Functions {
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget footer-widget col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="footer-widget__title">',
 		) );
 
-		add_action( 'wp_head', array( $this, 'add_footer_widget_class' ) );
+		add_filter(
+			'dynamic_sidebar_params',
+			array( $this, 'dynamic_sidebar_params' )
+		);
 	}
 
 	/**
 	 * フッターウィジェットの class を追加
+	 *
+	 * @param array $params ウィジェットエリア設定の配列
+	 * @return array
 	 */
-	public function add_footer_widget_class() {
-		?>
-		<script>
-		jQuery( function( $ ) {
-			$( '#footer .widget' )
-				.removeClass( 'col-md-4' )
-				.addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
-		} );
-		</script>
-		<?php
+	public function dynamic_sidebar_params( $params ) {
+		if ( isset( $params[0]['id'] ) && $params[0]['id'] === 'footer-widget-area' ) {
+			$class = Habakiri::get( 'footer_columns' );
+			$params[0]['before_widget'] = str_replace(
+				'class="widget',
+				'class="' . Habakiri::get( 'footer_columns' ) . ' widget',
+				$params[0]['before_widget']
+			);
+		}
+		return $params;
 	}
 
 	/**
@@ -442,39 +448,8 @@ class Habakiri_Base_Functions {
 	 * ページャーを表示
 	 */
 	public static function the_pager() {
-		global $wp_rewrite;
-		global $wp_query;
-		global $paged;
-		$paginate_base = get_pagenum_link( 1 );
-		if ( strpos( $paginate_base, '?' ) || ! $wp_rewrite->using_permalinks() ) {
-			$paginate_format = '';
-			$paginate_base = add_query_arg( 'paged', '%#%' );
-		} else {
-			$paginate_format = ( substr( $paginate_base, -1 ,1 ) == '/' ? '' : '/' ) .
-			user_trailingslashit( 'page/%#%/', 'paged' );
-			$paginate_base .= '%_%';
-		}
-		$paginate_links = paginate_links( array(
-			'base'      => $paginate_base,
-			'format'    => $paginate_format,
-			'total'     => $wp_query->max_num_pages,
-			'mid_size'  => 5,
-			'current'   => ( $paged ? $paged : 1 ),
-			'prev_text' => '&lt;',
-			'next_text' => '&gt;',
-			'type'      => 'array',
-		) );
-		if ( $paginate_links ) {
-			?>
-			<nav>
-				<ul class="pagination">
-					<?php foreach ( $paginate_links as $link ) : ?>
-					<li><?php echo $link; ?></li>
-					<?php endforeach; ?>
-				</ul>
-			</nav>
-			<?php
-		}
+		_deprecated_function( 'Habakiri::the_pager()', 'Habakiri 2.0.0', "get_template_part( 'modules/pagination' )" );
+		get_template_part( 'modules/pagination' );
 	}
 
 	/**
@@ -489,16 +464,8 @@ class Habakiri_Base_Functions {
 	 * ページ分割
 	 */
 	public static function the_link_pages() {
-		wp_link_pages( array(
-			'before'           => '<nav><ul class="pagination"><li>',
-			'after'            => '</li></ul></nav>',
-			'link_before'      => '',
-			'link_after'       => '',
-			'separator'        => '</li><li>',
-			'nextpagelink'     => '&gt;',
-			'previouspagelink' => '%lt;',
-			'pagelink'         => '<span>%</span>',
-		) );
+		_deprecated_function( 'Habakiri::the_link_pages()', 'Habakiri 2.0.0', "get_template_part( 'modules/link-pages' )" );
+		get_template_part( 'modules/link-pages' );
 	}
 
 	/**
@@ -509,12 +476,15 @@ class Habakiri_Base_Functions {
 	public static function the_title( $post_id = null ) {
 		$post    = get_post( $post_id );
 		$post_id = isset( $post->ID ) ? $post->ID : 0;
+		if ( !$post_id ) {
+			return;
+		}
 		do_action( 'habakiri_before_title' );
 		?>
-		<?php if ( is_page_template( 'templates/front-page.php' ) || is_page_template( 'templates/rich-front-page.php' ) ) : ?>
-		<h1 class="entry__title hidden"><?php echo get_the_title( $post_id ); ?></h1>
-		<?php elseif ( is_page() ) : ?>
-		<h1 class="entry__title"><?php echo get_the_title( $post_id ); ?></h1>
+		<?php if ( is_page() ) : ?>
+			<?php if ( !is_page_template( 'templates/front-page.php' ) && !is_page_template( 'templates/rich-front-page.php' ) ) : ?>
+			<h1 class="entry__title"><?php echo get_the_title( $post_id ); ?></h1>
+			<?php endif; ?>
 		<?php elseif ( is_single() ) : ?>
 		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>

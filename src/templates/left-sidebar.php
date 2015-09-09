@@ -14,23 +14,25 @@
 <?php get_header(); ?>
 
 <?php get_template_part( 'modules/page-header' ); ?>
+<div class="sub-page-contents">
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-9 col-md-push-3">
-			<main id="main" role="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9 col-md-push-3">
+				<main id="main" role="main">
 
-				<?php get_template_part( 'modules/bread-crumb' ); ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', 'page' ); ?>
-				<?php endwhile; ?>
-				
-			<!-- end #main --></main>
-		<!-- end .col-md-9 --></div>
-		<div class="col-md-3 col-md-pull-9">
-			<?php get_sidebar(); ?>
-		<!-- end .col-md-3 --></div>
-	<!-- end .row --></div>
-<!-- end .container --></div>
+					<?php get_template_part( 'modules/bread-crumb' ); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<?php get_template_part( 'content', 'page' ); ?>
+					<?php endwhile; ?>
+					
+				<!-- end #main --></main>
+			<!-- end .col-md-9 --></div>
+			<div class="col-md-3 col-md-pull-9">
+				<?php get_sidebar(); ?>
+			<!-- end .col-md-3 --></div>
+		<!-- end .row --></div>
+	<!-- end .container --></div>
 
+<!-- end .sub-page-contents --></div>
 <?php get_footer(); ?>

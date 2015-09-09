@@ -12,6 +12,8 @@
 <?php get_header(); ?>
 
 <?php get_template_part( 'modules/page-header' ); ?>
-<?php get_template_part( 'blog_templates/single/' . Habakiri::get( '404_template' ) ); ?>
+<div class="sub-page-contents">
+	<?php get_template_part( 'blog_templates/single/' . Habakiri::get( '404_template' ) ); ?>
+<!-- end .sub-page-contents --></div>
 
 <?php get_footer(); ?>
