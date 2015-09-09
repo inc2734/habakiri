@@ -188,6 +188,7 @@ add_filter( 'foo', 'your_filter' );
 * Change not to display the menu if the global navigation is not allocated.
 * Change microformats support is single page only.
 * Change name bread-crumb to breadcrumbs.
+* Change archive page design.
 * Improvement of footer widget area UX.
 * Remove old classes ( not BEM format classes ).
 * Style is generated from the Customizer is output after being compressed.

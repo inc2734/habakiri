@@ -2,21 +2,28 @@
  * .entries
  */
 .entries {
-	.entry {
-		margin-bottom: 30px;
+	.article {
+		margin-bottom: 45px;
+	}
 
+	.entry {
 		&--has_media {
+			&__inner {
+				@extend .clearfix;
+			}
+			
 			&__media {
 				float: left;
-				width: 60px;
+				width: 70px;
 
 				@media ( min-width: $screen-sm-min ) {
-					width: 84px;
+					width: 180px;
 				}
 			}
 
 			&__link {
-				@include square( 48px );
+				@include square( 50px );
+				background-color: #eee;
 				color: #fff;
 				display: block;
 				font-size: $font-size-large;
@@ -27,7 +34,7 @@
 				vertical-align: middle;
 
 				@media ( min-width: $screen-sm-min ) {
-					@include square( 64px );
+					@include square( 150px );
 				}
 
 				&--text {
@@ -35,14 +42,14 @@
 			}
 				
 			&__text {
-				@include square( 48px );
+				@include square( 50px );
 				display: table-cell;
 				vertical-align: middle;
 				position: relative;
 				top: -2px;
 
 				@media ( min-width: $screen-sm-min ) {
-					@include square( 64px );
+					@include square( 150px );
 				}
 
 				&:after {

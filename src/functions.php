@@ -397,7 +397,6 @@ class Habakiri_Base_Functions {
 	 */
 	public static function the_post_thumbnail() {
 		$classes = array(
-			'img-circle',
 			'entry--has_media__link',
 		);
 		if ( !has_post_thumbnail() ) {

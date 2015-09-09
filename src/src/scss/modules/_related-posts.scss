@@ -4,12 +4,14 @@
 	padding-top: 30px;
 
 	&__title {
-		margin: 0 0 20px
+		margin: 0 0 30px
 	}
 
 	.entry {
 		&__title {
 			@extend .h4;
+			margin-top: 0;
+			margin-bottom: 15px;
 		}
 	}
 
