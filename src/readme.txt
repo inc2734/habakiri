@@ -176,7 +176,8 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Global navigation link padding.
 * Add new setting: Global navigation font size.
 * Add new setting: Global navigation sub label.
-* Add new setting: hamburger button color.
+* Add new setting: Hamburger button color.
+* Add new setting: Excerpt length.
 * Add filter hook habakiri_allow_hentry_post_types.
 * Add filter hook habakiri_default_slider_items.
 * Change $content_width.

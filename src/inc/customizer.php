@@ -92,6 +92,7 @@ class Habakiri_Customizer {
 				'slider_option_target_3'           => false,
 				'slider_option_target_4'           => false,
 				'slider_option_target_5'           => false,
+				'excerpt_length'                   => 200,
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
@@ -323,6 +324,16 @@ class Habakiri_Customizer {
 		$this->Customizer_Framework->image( 'logo', array(
 			'label'   => __( 'Logo', 'habakiri' ),
 			'section' => 'habakiri_design',
+		) );
+
+		$this->Customizer_Framework->number( 'excerpt_length', array(
+			'label'   => __( 'Excerpt length', 'habakiri' ),
+			'default' => self::get_default( 'excerpt_length' ),
+			'section' => 'habakiri_design',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
 		) );
 
 		$this->Customizer_Framework->radio( 'is_displaying_thumbnail', array(

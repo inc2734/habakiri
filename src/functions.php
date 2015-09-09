@@ -76,6 +76,7 @@ class Habakiri_Base_Functions {
 		add_filter( 'body_class'              , array( $this, 'body_class' ) );
 		add_filter( 'post_class'              , array( $this, 'post_class' ) );
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
+		add_filter( 'excerpt_length'          , array( $this, 'excerpt_length' ), 9 );
 	}
 
 	/**
@@ -324,6 +325,15 @@ class Habakiri_Base_Functions {
 		return $classes;
 	}
 	
+	/**
+	 * Display description in global navigation
+	 *
+	 * @param string $output HTML
+	 * @param object $item
+	 * @param int $depth
+	 * @param array $args
+	 * @return string
+	 */
 	public function walker_nav_menu_start_el( $output, $item, $depth, $args ) {
 		if ( $depth === 0 && !empty( $item->description ) ) {
 			$pattern     = '/(<a.*?>)([^<]*?)(<\/a>)/';
@@ -331,6 +341,16 @@ class Habakiri_Base_Functions {
 			return preg_replace( $pattern, $replacement, $output );
 		}
 		return $output;
+	}
+	
+	/**
+	 * Excerpt length
+	 *
+	 * @param int
+	 * @return int
+	 */
+	public function excerpt_length( $length ) {
+		return Habakiri::get( 'excerpt_length' );
 	}
 
 	/**
