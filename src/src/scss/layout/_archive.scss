@@ -23,7 +23,6 @@
 
 			&__link {
 				@include square( 50px );
-				background-color: #eee;
 				color: #fff;
 				display: block;
 				font-size: $font-size-large;
@@ -43,6 +42,7 @@
 				
 			&__text {
 				@include square( 50px );
+				background-color: #eee;
 				display: table-cell;
 				vertical-align: middle;
 				position: relative;

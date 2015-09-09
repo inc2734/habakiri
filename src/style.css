@@ -6998,7 +6998,6 @@ div.thumbnail {
 .entries .entry--has_media__link {
   width: 50px;
   height: 50px;
-  background-color: #eee;
   color: #fff;
   display: block;
   font-size: 18px;
@@ -7015,6 +7014,7 @@ div.thumbnail {
 .entries .entry--has_media__text {
   width: 50px;
   height: 50px;
+  background-color: #eee;
   display: table-cell;
   vertical-align: middle;
   position: relative;

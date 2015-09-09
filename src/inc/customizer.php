@@ -879,15 +879,6 @@ class Habakiri_Customizer {
 
 		$this->Customizer_Framework->register_styles(
 			array(
-				'.entry--has_media__link--text',
-			),
-			array(
-				sprintf( 'background-color: %s', Habakiri::get( 'link_color' ) ),
-			)
-		);
-
-		$this->Customizer_Framework->register_styles(
-			array(
 				'.page-header',
 			),
 			array(
