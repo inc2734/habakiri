@@ -331,11 +331,11 @@ class Habakiri_Base_Functions {
 	 * @param string $output HTML
 	 * @param object $item
 	 * @param int $depth
-	 * @param array $args
+	 * @param object $args
 	 * @return string
 	 */
 	public function walker_nav_menu_start_el( $output, $item, $depth, $args ) {
-		if ( $depth === 0 && !empty( $item->description ) ) {
+		if ( $depth === 0 && $args->theme_location === 'global-nav' && !empty( $item->description ) ) {
 			$pattern     = '/(<a.*?>)([^<]*?)(<\/a>)/';
 			$replacement = '$1<strong>$2</strong><small>' . esc_html( $item->description ) . '</small>$3';
 			return preg_replace( $pattern, $replacement, $output );
