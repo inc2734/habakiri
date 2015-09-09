@@ -77,6 +77,7 @@ class Habakiri_Base_Functions {
 		add_filter( 'post_class'              , array( $this, 'post_class' ) );
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
 		add_filter( 'excerpt_length'          , array( $this, 'excerpt_length' ), 9 );
+		add_filter( 'excerpt_mblength'        , array( $this, 'excerpt_length' ), 9 );
 	}
 
 	/**

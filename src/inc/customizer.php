@@ -92,7 +92,7 @@ class Habakiri_Customizer {
 				'slider_option_target_3'           => false,
 				'slider_option_target_4'           => false,
 				'slider_option_target_5'           => false,
-				'excerpt_length'                   => 200,
+				'excerpt_length'                   => ( get_locale() == 'ja' ) ? 110 : 220,
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
