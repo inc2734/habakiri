@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.3.1
+ * Version    : 1.4.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 7, 2015
+ * Modified   : August 18, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -18,91 +18,13 @@ class Habakiri_Customizer {
 	protected static $defaults = array();
 
 	/**
-	 * ヘッダーの選択肢
-	 * @var array
+	 * @var Habakiri_Customizer_Framework
 	 */
-	protected $header_choices = array();
+	protected $Customizer_Framework;
 
-	/**
-	 * ヘッダー固定の選択肢
-	 * @var array
-	 */
-	protected $header_fixed_choices = array();
-
-	/**
-	 * フッターのカラム数の選択肢
-	 * @var array
-	 */
-	protected $footer_columns_choices = array();
-
-	/**
-	 * ブログのテンプレート
-	 * @var array
-	 */
-	protected $blog_template_choices = array();
-
-	/**
-	 * 検索ページのテンプレート
-	 * @var array
-	 */
-	protected $search_template_choices = array();
-
-	/**
-	 * 404ページのテンプレート
-	 * @var array
-	 */
-	protected $_404_template_choices = array();
-
-	/**
-	 * false, true の選択肢
-	 * @var array
-	 */
-	protected $boolean_choices = array();
-
-	/**
-	 * __construct
-	 */
 	public function __construct() {
-		$this->boolean_choices = array(
-			'false' => __( 'No', 'habakiri' ),
-			'true'  => __( 'Yes', 'habakiri' ),
-		);
-
-		$this->header_choices = array(
-			'header--default' => __( 'Default', 'habakiri' ),
-			'header--2row'    => __( '2 rows', 'habakiri' ),
-			'header--center'  => __( 'Center Logo', 'habakiri' ),
-		);
-		$this->header_fixed_choices = array(
-			''             => __( 'No', 'habakiri' ),
-			'header--fixed' => __( 'Yes', 'habakiri' ),
-		);
-		$this->footer_columns_choices = array(
-			'col-md-6' => __( '2 Columns', 'habakiri' ),
-			'col-md-4' => __( '3 Columns', 'habakiri' ),
-			'col-md-3' => __( '4 Columns', 'habakiri' ),
-		);
-		$this->blog_template_choices = array(
-			'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
-			'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
-			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
-			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
-			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
-		);
-		$this->search_template_choices = array(
-			'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
-			'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
-			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
-			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
-			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
-		);
-		$this->_404_template_choices = array(
-			'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
-			'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
-			'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
-			'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
-			'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
-		);
+		require_once get_template_directory() . '/inc/class.habakiri-customizer-framework.php';
+		$this->Customizer_Framework = new Habakiri_Customizer_Framework();
 	}
 
 	/**
@@ -115,32 +37,62 @@ class Habakiri_Customizer {
 		self::$defaults = apply_filters(
 			'habakiri_theme_mods_defaults',
 			array(
-				'logo'                           => '',
-				'logo_text_color'                => '#000',
-				'header'                         => 'header--default',
-				'header_fixed'                   => '',
-				'footer_columns'                 => 'col-md-4',
-				'blog_template'                  => 'right-sidebar',
-				'search_template'                => 'right-sidebar',
-				'404_template'                   => 'right-sidebar',
-				'is_displaying_thumbnail'        => 'true',
-				'is_displaying_bread_crumb'      => 'true',
-				'is_displaying_related_posts'    => 'true',
-				'is_displaying_page_header'      => 'true',
-				'is_displaying_page_header_lead' => 'true',
-				'link_color'                     => '#337ab7',
-				'link_hover_color'               => '#23527c',
-				'gnav_link_color'                => '#000',
-				'gnav_link_hover_color'          => '#337ab7',
-				'gnav_pulldown_link_color'       => '#777',
-				'gnav_pulldown_bg_color'         => '#000',
-				'gnav_pulldown_bg_hover_color'   => '#191919',
-				'header_bg_color'                => '#fff',
-				'footer_bg_color'                => '#111113',
-				'footer_text_color'              => '#555',
-				'footer_link_color'              => '#777',
-				'page_header_bg_color'           => '#222',
-				'page_header_text_color'         => '#fff',
+				'logo'                             => '',
+				'logo_text_color'                  => '#000',
+				'header'                           => 'header--default',
+				'header_fixed'                     => '',
+				'footer_columns'                   => 'col-md-4',
+				'blog_template'                    => 'right-sidebar',
+				'search_template'                  => 'right-sidebar',
+				'404_template'                     => 'right-sidebar',
+				'is_displaying_thumbnail'          => 'true',
+				'is_displaying_bread_crumb'        => 'true',
+				'is_displaying_related_posts'      => 'true',
+				'is_displaying_page_header'        => 'true',
+				'is_displaying_page_header_lead'   => 'true',
+				'link_color'                       => '#337ab7',
+				'link_hover_color'                 => '#23527c',
+				'gnav_bg_color'                    => '#fff',
+				'gnav_link_color'                  => '#000',
+				'gnav_link_hover_color'            => '#337ab7',
+				'gnav_link_bg_color'               => '#fff',
+				'gnav_link_bg_hover_color'         => '#fff',
+				'gnav_sub_label_color'             => '#777',
+				'gnav_sub_label_hover_color'       => '#777',
+				'gnav_pulldown_link_color'         => '#777',
+				'gnav_pulldown_link_hover_color'   => '#337ab7',
+				'gnav_pulldown_bg_color'           => '#000',
+				'gnav_pulldown_bg_hover_color'     => '#191919',
+				'offcanvas_nav_fontsize'           => 12,
+				'hamburger_btn_text_color'         => '#000',
+				'hamburger_btn_text_hover_color'   => '#000',
+				'hamburger_btn_border_color'       => '#eee',
+				'hamburger_btn_border_hover_color' => '#eee',
+				'hamburger_btn_bg_color'           => '#fff',
+				'hamburger_btn_bg_hover_color'     => '#f5f5f5',
+				'header_bg_color'                  => '#fff',
+				'footer_bg_color'                  => '#111113',
+				'footer_text_color'                => '#555',
+				'footer_link_color'                => '#777',
+				'page_header_bg_color'             => '#222',
+				'page_header_text_color'           => '#fff',
+				'gnav_breakpoint'                  => 'md',
+				'gnav_fontsize'                    => 12,
+				'gnav_sub_label_fontsize'          => 10,
+				'gnav_link_horizontal_padding'     => 15,
+				'gnav_link_vertical_padding'       => 23,
+				'slider_option_effect'             => 'horizontal',
+				'slider_option_interval'           => 4000,
+				'slider_option_speed'              => 500,
+				'slider_option_overlay_color'      => '#000',
+				'slider_option_overlay_opacity'    => '90',
+				'slider_option_height'             => 0,
+				'slider_option_target_1'           => false,
+				'slider_option_target_2'           => false,
+				'slider_option_target_3'           => false,
+				'slider_option_target_4'           => false,
+				'slider_option_target_5'           => false,
+				'excerpt_length'                   => ( get_locale() == 'ja' ) ? 110 : 220,
 			)
 		);
 		if ( isset( self::$defaults[$key] ) ) {
@@ -151,571 +103,963 @@ class Habakiri_Customizer {
 	/**
 	 * テーマカスタマイザーにオリジナル項目を設定
 	 *
-	 * @param WP_Customizer $wp_customize
+	 * @param WP_Customize_Manager $wp_customize
 	 */
 	public function customize_register( $wp_customize ) {
-		$wp_customize->add_section( 'habakiri_design', array(
-			'title'    => __( 'settings', 'habakiri' ),
-			'priority' => 100,
+		$this->Customizer_Framework->register_customizer( $wp_customize );
+
+		// colors
+
+		$this->Customizer_Framework->remove_section( 'colors' );
+		$this->Customizer_Framework->add_panel( 'habakiri_colors', array(
+			'title'    => __( 'Colors', 'habakiri' ),
+			'priority' => 110,
+		) );
+		
+		// colors - general
+
+		$this->Customizer_Framework->add_section( 'colors', array(
+			'title' =>  __( 'General', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
 
-		$wp_customize->add_setting( 'logo', array(
-			'default'           => self::get_default( 'logo' ),
-			'sanitize_callback' => array( $this, 'sanitize_image_url' ),
+		$this->Customizer_Framework->color( 'logo_text_color', array(
+			'label'   => __( 'Logo text color', 'habakiri' ),
+			'default' => self::get_default( 'logo_text_color' ),
+			'section' => 'colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'logo', array(
-			'label'    => __( 'Logo', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'logo',
-		) ) );
 
-		$wp_customize->add_setting( 'logo_text_color', array(
-			'default'           => self::get_default( 'logo_text_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'link_color', array(
+			'label'   => __( 'Link text color', 'habakiri' ),
+			'default' => self::get_default( 'link_color' ),
+			'section' => 'colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'logo_text_color', array(
-			'label'    => __( 'Logo Text Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'logo_text_color',
-		) ) );
 
-		$wp_customize->add_setting( 'header', array(
-			'default'           => self::get_default( 'header' ),
-			'sanitize_callback' => array( $this, 'sanitize_header' ),
+		$this->Customizer_Framework->color( 'link_hover_color', array(
+			'label'   => __( 'Link text hover color', 'habakiri' ),
+			'default' => self::get_default( 'link_hover_color' ),
+			'section' => 'colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header', array(
-			'label'    => __( 'Header', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'header',
-			'type'     => 'radio',
-			'choices'  => $this->header_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'header_fixed', array(
-			'default'           => self::get_default( 'header_fixed' ),
-			'sanitize_callback' => array( $this, 'sanitize_header_fixed' ),
-		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_fixed', array(
-			'label'    => __( 'Header Fixed', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'header_fixed',
-			'type'     => 'radio',
-			'choices'  => $this->header_fixed_choices,
-		) ) );
+		// colors - header
 
-		$wp_customize->add_setting( 'footer_columns', array(
-			'default'           => self::get_default( 'footer_columns' ),
-			'sanitize_callback' => array( $this, 'sanitize_footer_columns' ),
+		$this->Customizer_Framework->add_section( 'colors_header', array(
+			'title' =>  __( 'Header', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_columns', array(
-			'label'    => __( 'Number of footer columns', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'footer_columns',
-			'type'     => 'radio',
-			'choices'  => $this->footer_columns_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'blog_template', array(
-			'default'           => self::get_default( 'blog_template' ),
-			'sanitize_callback' => array( $this, 'sanitize_blog_template' ),
+		$this->Customizer_Framework->color( 'header_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'header_bg_color' ),
+			'section' => 'colors_header',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'blog_template', array(
-			'label'    => __( 'Blog Template', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'blog_template',
-			'type'     => 'radio',
-			'choices'  => $this->blog_template_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'search_template', array(
-			'default'           => self::get_default( 'search_template' ),
-			'sanitize_callback' => array( $this, 'sanitize_search_template' ),
-		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'search_template', array(
-			'label'    => __( 'Search Template', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'search_template',
-			'type'     => 'radio',
-			'choices'  => $this->search_template_choices,
-		) ) );
+		// colors - footer
 
-		$wp_customize->add_setting( '404_template', array(
-			'default'           => self::get_default( '404_template' ),
-			'sanitize_callback' => array( $this, 'sanitize_404_template' ),
+		$this->Customizer_Framework->add_section( 'colors_footer', array(
+			'title' =>  __( 'Footer', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, '404_template', array(
-			'label'    => __( '404 Template', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => '404_template',
-			'type'     => 'radio',
-			'choices'  => $this->_404_template_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'is_displaying_thumbnail', array(
-			'default'           => self::get_default( 'is_displaying_thumbnail' ),
-			'sanitize_callback' => array( $this, 'sanitize_is_displaying_thumbnail' ),
+		$this->Customizer_Framework->color( 'footer_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'footer_bg_color' ),
+			'section' => 'colors_footer',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_thumbnail', array(
-			'label'    => __( 'Displaying thumbnail in archive page', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'is_displaying_thumbnail',
-			'type'     => 'radio',
-			'choices'  => $this->boolean_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'is_displaying_bread_crumb', array(
-			'default'           => self::get_default( 'is_displaying_bread_crumb' ),
-			'sanitize_callback' => array( $this, 'sanitize_is_displaying_bread_crumb' ),
+		$this->Customizer_Framework->color( 'footer_text_color', array(
+			'label'   => __( 'Text color', 'habakiri' ),
+			'default' => self::get_default( 'footer_text_color' ),
+			'section' => 'colors_footer',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_bread_crumb', array(
-			'label'    => __( 'Displaying the Bread Crumb', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'is_displaying_bread_crumb',
-			'type'     => 'radio',
-			'choices'  => $this->boolean_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'is_displaying_related_posts', array(
-			'default'           => self::get_default( 'is_displaying_related_posts' ),
-			'sanitize_callback' => array( $this, 'sanitize_is_displaying_related_posts' ),
+		$this->Customizer_Framework->color( 'footer_link_color', array(
+			'label'   => __( 'Link text color', 'habakiri' ),
+			'default' => self::get_default( 'footer_link_color' ),
+			'section' => 'colors_footer',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_related_posts', array(
-			'label'    => __( 'Displaying related posts in single page', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'is_displaying_related_posts',
-			'type'     => 'radio',
-			'choices'  => $this->boolean_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'is_displaying_page_header', array(
-			'default'           => self::get_default( 'is_displaying_page_header' ),
-			'sanitize_callback' => array( $this, 'sanitize_is_displaying_page_header' ),
-		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_page_header', array(
-			'label'    => __( 'Displaying page header', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'is_displaying_page_header',
-			'type'     => 'radio',
-			'choices'  => $this->boolean_choices,
-		) ) );
+		// colors - gnav
 
-		$wp_customize->add_setting( 'is_displaying_page_header_lead', array(
-			'default'           => self::get_default( 'is_displaying_page_header_lead' ),
-			'sanitize_callback' => array( $this, 'sanitize_is_displaying_page_header_lead' ),
+		$this->Customizer_Framework->add_section( 'colors_gnav', array(
+			'title' =>  __( 'Global Navigation', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'is_displaying_page_header_lead', array(
-			'label'    => __( 'Displaying lead of page header in single page', 'habakiri' ),
-			'section'  => 'habakiri_design',
-			'settings' => 'is_displaying_page_header_lead',
-			'type'     => 'radio',
-			'choices'  => $this->boolean_choices,
-		) ) );
 
-		$wp_customize->add_setting( 'link_color', array(
-			'default'           => self::get_default( 'link_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_bg_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-			'label'    => __( 'Link Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'link_color',
-		) ) );
 
-		$wp_customize->add_setting( 'link_hover_color', array(
-			'default'           => self::get_default( 'link_hover_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_link_color', array(
+			'label'   => __( 'Link text color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
-			'label'    => __( 'Link Hover Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'link_hover_color',
-		) ) );
 
-		$wp_customize->add_setting( 'gnav_link_color', array(
-			'default'           => self::get_default( 'gnav_link_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_link_hover_color', array(
+			'label'   => __( 'Link text hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_hover_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_link_color', array(
-			'label'    => __( 'Global Navigation Link Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'gnav_link_color',
-		) ) );
 
-		$wp_customize->add_setting( 'gnav_link_hover_color', array(
-			'default'           => self::get_default( 'gnav_link_hover_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_link_bg_color', array(
+			'label'   => __( 'Menu background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_bg_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_link_hover_color', array(
-			'label'    => __( 'Global Navigation Link Hover Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'gnav_link_hover_color',
-		) ) );
 
-		$wp_customize->add_setting( 'gnav_pulldown_link_color', array(
-			'default'           => self::get_default( 'gnav_pulldown_link_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_link_bg_hover_color', array(
+			'label'   => __( 'Menu background hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_bg_hover_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_link_color', array(
-			'label'    => __( 'Global Navigation Pulldown Link Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'gnav_pulldown_link_color',
-		) ) );
 
-		$wp_customize->add_setting( 'gnav_pulldown_bg_color', array(
-			'default'           => self::get_default( 'gnav_pulldown_bg_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_sub_label_color', array(
+			'label'   => __( 'Sub label color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_bg_color', array(
-			'label'    => __( 'Global Navigation Pulldown Background Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'gnav_pulldown_bg_color',
-		) ) );
 
-		$wp_customize->add_setting( 'gnav_pulldown_bg_hover_color', array(
-			'default'           => self::get_default( 'gnav_pulldown_bg_hover_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_sub_label_hover_color', array(
+			'label'   => __( 'Sub label hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_hover_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'gnav_pulldown_bg_hover_color', array(
-			'label'    => __( 'Global Navigation Pulldown Background Hover Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'gnav_pulldown_bg_hover_color',
-		) ) );
 
-		$wp_customize->add_setting( 'header_bg_color', array(
-			'default'           => self::get_default( 'header_bg_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_pulldown_link_color', array(
+			'label'   => __( 'Pulldown link text color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_link_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_bg_color', array(
-			'label'    => __( 'Header Background Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'header_bg_color',
-		) ) );
 
-		$wp_customize->add_setting( 'footer_bg_color', array(
-			'default'           => self::get_default( 'footer_bg_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_pulldown_link_hover_color', array(
+			'label'   => __( 'Pulldown link text hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_link_hover_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
-			'label'    => __( 'Footer Background Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'footer_bg_color',
-		) ) );
 
-		$wp_customize->add_setting( 'footer_text_color', array(
-			'default'           => self::get_default( 'footer_text_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_pulldown_bg_color', array(
+			'label'   => __( 'Pulldown menu background color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_bg_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_text_color', array(
-			'label'    => __( 'Footer Text Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'footer_text_color',
-		) ) );
 
-		$wp_customize->add_setting( 'footer_link_color', array(
-			'default'           => self::get_default( 'footer_link_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->color( 'gnav_pulldown_bg_hover_color', array(
+			'label'   => __( 'Pulldown menu background hover color', 'habakiri' ),
+			'default' => self::get_default( 'gnav_pulldown_bg_hover_color' ),
+			'section' => 'colors_gnav',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_link_color', array(
-			'label'    => __( 'Footer Link Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'footer_link_color',
-		) ) );
 
-		$wp_customize->add_setting( 'page_header_bg_color', array(
-			'default'           => self::get_default( 'page_header_bg_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'page_header_bg_color', array(
-			'label'    => __( 'Page Header Background Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'page_header_bg_color',
-		) ) );
+		// colors - hamburger button
 
-		$wp_customize->add_setting( 'page_header_text_color', array(
-			'default'           => self::get_default( 'page_header_text_color' ),
-			'sanitize_callback' => array( $this, 'sanitize_colorcode' ),
+		$this->Customizer_Framework->add_section( 'colors_hamburger_button', array(
+			'title' =>  __( 'hamburger Button', 'habakiri' ),
+			'panel' => 'habakiri_colors',
 		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'page_header_text_color', array(
-			'label'    => __( 'Page Header Text Color', 'habakiri' ),
-			'section'  => 'colors',
-			'settings' => 'page_header_text_color',
-		) ) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_text_color', array(
+			'label'   => __( 'Text color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_text_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_text_hover_color', array(
+			'label'   => __( 'Text hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_text_hover_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_border_color', array(
+			'label'   => __( 'Border color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_border_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_border_hover_color', array(
+			'label'   => __( 'Border hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_border_hover_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_bg_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		$this->Customizer_Framework->color( 'hamburger_btn_bg_hover_color', array(
+			'label'   => __( 'Background hover color', 'habakiri' ),
+			'default' => self::get_default( 'hamburger_btn_bg_hover_color' ),
+			'section' => 'colors_hamburger_button',
+		) );
+
+		// colors - page header
+
+		$this->Customizer_Framework->add_section( 'colors_page_header', array(
+			'title' =>  __( 'Page Header', 'habakiri' ),
+			'panel' => 'habakiri_colors',
+		) );
+
+		$this->Customizer_Framework->color( 'page_header_bg_color', array(
+			'label'   => __( 'Background color', 'habakiri' ),
+			'default' => self::get_default( 'page_header_bg_color' ),
+			'section' => 'colors_page_header',
+		) );
+
+		$this->Customizer_Framework->color( 'page_header_text_color', array(
+			'label'   => __( 'Text color', 'habakiri' ),
+			'default' => self::get_default( 'page_header_text_color' ),
+			'section' => 'colors_page_header',
+		) );
+
+		// habakiri_design
+
+		$this->Customizer_Framework->add_section( 'habakiri_design', array(
+			'title'    => __( 'Settings', 'habakiri' ),
+			'priority' => 111,
+		) );
+
+		$this->Customizer_Framework->image( 'logo', array(
+			'label'   => __( 'Logo', 'habakiri' ),
+			'section' => 'habakiri_design',
+		) );
+
+		$this->Customizer_Framework->number( 'excerpt_length', array(
+			'label'   => __( 'Excerpt length', 'habakiri' ),
+			'default' => self::get_default( 'excerpt_length' ),
+			'section' => 'habakiri_design',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'is_displaying_thumbnail', array(
+			'label'   => __( 'Displaying thumbnail in archive page', 'habakiri' ),
+			'default' => self::get_default( 'is_displaying_thumbnail' ),
+			'section' => 'habakiri_design',
+			'choices' => array(
+				'false' => __( 'No', 'habakiri' ),
+				'true'  => __( 'Yes', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'is_displaying_bread_crumb', array(
+			'label'   => __( 'Displaying the Bread Crumb', 'habakiri' ),
+			'default' => self::get_default( 'is_displaying_bread_crumb' ),
+			'section' => 'habakiri_design',
+			'choices' => array(
+				'false' => __( 'No', 'habakiri' ),
+				'true'  => __( 'Yes', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'is_displaying_related_posts', array(
+			'label'   => __( 'Displaying related posts in single page', 'habakiri' ),
+			'default' => self::get_default( 'is_displaying_related_posts' ),
+			'section' => 'habakiri_design',
+			'choices' => array(
+				'false' => __( 'No', 'habakiri' ),
+				'true'  => __( 'Yes', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'is_displaying_page_header', array(
+			'label'   => __( 'Displaying page header', 'habakiri' ),
+			'default' => self::get_default( 'is_displaying_page_header' ),
+			'section' => 'habakiri_design',
+			'choices' => array(
+				'false' => __( 'No', 'habakiri' ),
+				'true'  => __( 'Yes', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'is_displaying_page_header_lead', array(
+			'label'   => __( 'Displaying lead of page header in page', 'habakiri' ),
+			'default' => self::get_default( 'is_displaying_page_header_lead' ),
+			'section' => 'habakiri_design',
+			'choices' => array(
+				'false' => __( 'No', 'habakiri' ),
+				'true'  => __( 'Yes', 'habakiri' ),
+			),
+		) );
+
+		// layout
+		
+		$this->Customizer_Framework->add_panel( 'habakiri_layout', array(
+			'title'    => __( 'Layout', 'habakiri' ),
+			'priority' => 112,
+		) );
+		
+		// layout - header
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_header', array(
+			'title' =>  __( 'Header', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+
+		$this->Customizer_Framework->radio( 'header', array(
+			'label'   => __( 'Header', 'habakiri' ),
+			'default' => self::get_default( 'header' ),
+			'section' => 'habakiri_layout_header',
+			'choices' => array(
+				'header--default'      => __( 'Default', 'habakiri' ),
+				'header--2row'         => __( '2 rows', 'habakiri' ),
+				'header--center'       => __( 'Center Logo', 'habakiri' ),
+				'header--transparency' => __( 'Transparency', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'header_fixed', array(
+			'label'   => __( 'Header Fixed', 'habakiri' ),
+			'default' => self::get_default( 'header_fixed' ),
+			'section' => 'habakiri_layout_header',
+			'choices' => array(
+				''              => __( 'No', 'habakiri' ),
+				'header--fixed' => __( 'Yes', 'habakiri' ),
+			),
+		) );
+		
+		// layout - footer
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_footer', array(
+			'title' =>  __( 'Footer', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+		
+		$this->Customizer_Framework->radio( 'footer_columns', array(
+			'label'   => __( 'Number of footer columns', 'habakiri' ),
+			'default' => self::get_default( 'footer_columns' ),
+			'section' => 'habakiri_layout_footer',
+			'choices' => array(
+				'col-md-6' => __( '2 Columns', 'habakiri' ),
+				'col-md-4' => __( '3 Columns', 'habakiri' ),
+				'col-md-3' => __( '4 Columns', 'habakiri' ),
+			),
+		) );
+		
+		// layout - gnav
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_gnav', array(
+			'title' =>  __( 'Global Navigation', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+
+		$this->Customizer_Framework->radio( 'gnav_breakpoint', array(
+			'label'   => __( 'Breakpoint to switch off canvas navigation', 'habakiri' ),
+			'default' => self::get_default( 'gnav_breakpoint' ),
+			'section' => 'habakiri_layout_gnav',
+			'choices' => array(
+				''   => __( 'Always', 'habakiri' ),
+				'md' => __( 'Tablet size', 'habakiri' ),
+				'lg' => __( 'Laptop size', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_fontsize', array(
+			'label'   => __( 'Font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_sub_label_fontsize', array(
+			'label'   => __( 'Sub label font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_sub_label_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_link_horizontal_padding', array(
+			'label'   => __( 'link padding ( Horizontal )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_horizontal_padding' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'gnav_link_vertical_padding', array(
+			'label'   => __( 'link padding ( Vertical )', 'habakiri' ),
+			'default' => self::get_default( 'gnav_link_vertical_padding' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'offcanvas_nav_fontsize', array(
+			'label'   => __( 'Offcanvas Navigation font size ( px )', 'habakiri' ),
+			'default' => self::get_default( 'offcanvas_nav_fontsize' ),
+			'section' => 'habakiri_layout_gnav',
+			'input_attrs' => array(
+				'size'  => 3,
+				'style' => 'width: 60px;'
+			),
+		) );
+	
+		// layout - template
+
+		$this->Customizer_Framework->add_section( 'habakiri_layout_template', array(
+			'title' =>  __( 'Template', 'habakiri' ),
+			'panel' => 'habakiri_layout',
+		) );
+
+		$this->Customizer_Framework->radio( 'blog_template', array(
+			'label'   => __( 'Blog Template', 'habakiri' ),
+			'default' => self::get_default( 'blog_template' ),
+			'section' => 'habakiri_layout_template',
+			'choices' => array(
+				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
+				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
+				'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
+				'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
+				'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'search_template', array(
+			'label'   => __( 'Search Template', 'habakiri' ),
+			'default' => self::get_default( 'search_template' ),
+			'section' => 'habakiri_layout_template',
+			'choices' => array(
+				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
+				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
+				'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
+				'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
+				'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->radio( '404_template', array(
+			'label'   => __( '404 Template', 'habakiri' ),
+			'default' => self::get_default( '404_template' ),
+			'section' => 'habakiri_layout_template',
+			'choices' => array(
+				'right-sidebar'    => __( 'Right Sidebar', 'habakiri' ),
+				'left-sidebar'     => __( 'Left Sidebar', 'habakiri' ),
+				'no-sidebar'       => __( 'No Sidebar', 'habakiri' ),
+				'full-width-fixed' => __( 'Full Width ( Fixed )', 'habakiri' ),
+				'full-width-fluid' => __( 'Full Width ( Fluid )', 'habakiri' ),
+			),
+		) );
+
+		// habakiri_slider
+
+		$this->Customizer_Framework->add_panel( 'habakiri_slider', array(
+			'title'    => __( 'Front page Slider', 'habakiri' ),
+			'priority' => 113,
+		) );
+
+		$this->Customizer_Framework->add_section( 'habakiri_slider_option', array(
+			'title' =>  __( 'Settings', 'habakiri' ),
+			'panel' => 'habakiri_slider',
+		) );
+
+		$this->Customizer_Framework->radio( 'slider_option_effect', array(
+			'label'   => __( 'Effect', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_effect' ),
+			'section' => 'habakiri_slider_option',
+			'choices' => array(
+				'horizontal' => __( 'Slide', 'habakiri' ),
+				'fade'       => __( 'Fade', 'habakiri' ),
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'slider_option_interval', array(
+			'label'   => __( 'Interval ( ms )', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_interval' ),
+			'section' => 'habakiri_slider_option',
+		) );
+
+		$this->Customizer_Framework->number( 'slider_option_speed', array(
+			'label'   => __( 'Effect Speed ( ms )', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_speed' ),
+			'section' => 'habakiri_slider_option',
+		) );
+
+		$this->Customizer_Framework->color( 'slider_option_overlay_color', array(
+			'label'   => __( 'Overlay color', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_overlay_color' ),
+			'section' => 'habakiri_slider_option',
+		) );
+
+		$this->Customizer_Framework->range( 'slider_option_overlay_opacity', array(
+			'label'   => __( 'Overlay opacity', 'habakiri' ),
+			'default' => self::get_default( 'slider_option_overlay_opacity' ),
+			'section' => 'habakiri_slider_option',
+			'input_attrs' => array(
+				'min'  => 0,
+				'max'  => 100,
+				'step' => 1,
+			),
+		) );
+
+		$this->Customizer_Framework->number( 'slider_option_height', array(
+			'label'       => __( 'Height ( px )', 'habakiri' ),
+			'default'     => self::get_default( 'slider_option_height' ),
+			'section'     => 'habakiri_slider_option',
+			'description' => __( 'If 0, height is auto.', 'habakiri' ),
+		) );
+
+		for ( $i = 1; $i <= 5; $i ++ ) {
+			$section_id = 'habakiri_slider_image_' . $i;
+			$this->Customizer_Framework->add_section( $section_id, array(
+				'title' =>  sprintf( __( 'Image (%d)', 'habakiri' ), $i ),
+				'panel' => 'habakiri_slider',
+			) );
+			$this->Customizer_Framework->image( 'slider_image_' . $i, array(
+				'label'   => __( 'Image', 'habakiri' ),
+				'section' => $section_id,
+			) );
+			$this->Customizer_Framework->textarea( 'slider_content_' . $i, array(
+				'label'   => __( 'Content', 'habakiri' ),
+				'section' => $section_id,
+			) );
+			$this->Customizer_Framework->url( 'slider_url_' . $i, array(
+				'label'   => __( 'URL', 'habakiri' ),
+				'section' => $section_id,
+			) );
+			$this->Customizer_Framework->checkbox( 'slider_target_' . $i, array(
+				'label'   => __( 'Open link in new window', 'habakiri' ),
+				'default' => self::get_default( 'slider_target_' . $i ),
+				'section' => $section_id,
+			) );
+		}
 	}
 
 	/**
-	 * CSS を出力
-	 */
-	public function customize_css() {
-		?>
-		<style>
-		a {
-			color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
-		}
-		a:focus, a:active, a:hover {
-			color: <?php echo esc_html( Habakiri::get( 'link_hover_color' ) ); ?>;
-		}
-		.site-branding a {
-			color: <?php echo esc_html( Habakiri::get( 'logo_text_color' ) ); ?>;
-		}
-		.global-nav a {
-			color: <?php echo esc_html( Habakiri::get( 'gnav_link_color' ) ); ?>;
-		}
-		.global-nav a:hover,
-		.global-nav a:active,
-		.global-nav ul li.current-menu-item > a,
-		.global-nav ul li.current-menu-ancestor > a,
-		.global-nav ul li.current-menu-parent > a,
-		.global-nav ul li.current_page_item > a,
-		.global-nav ul li.current_page_parent > a {
-			color: <?php echo esc_html( Habakiri::get( 'gnav_link_hover_color' ) ); ?>;
-		}
-		.global-nav .sub-menu a,
-		.global-nav .children a {
-			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_color' ) ); ?>;
-			color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_link_color' ) ); ?>;
-		}
-		.global-nav .sub-menu a:hover,
-		.global-nav .children a:active,
-		.global-nav .children .current-menu-item,
-		.global-nav .children .current-menu-ancestor,
-		.global-nav .children .current-menu-parent,
-		.global-nav .children .current_page_item,
-		.global-nav .children .current_page_parent {
-			background-color: <?php echo esc_html( Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ); ?>;
-		}
-		.entry--has_media__link--text {
-			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
-		}
-		.page-header {
-			background-color: <?php echo esc_html( Habakiri::get( 'page_header_bg_color' ) ); ?>;
-			color: <?php echo esc_html( Habakiri::get( 'page_header_text_color' ) ); ?>;
-		}
-		.pagination>li>a {
-			color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
-		}
-		.pagination>li>span {
-			background-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
-			border-color: <?php echo esc_html( Habakiri::get( 'link_color' ) ); ?>;
-		}
-		.pagination>li>a:focus,
-		.pagination>li>a:hover,
-		.pagination>li>span:focus,
-		.pagination>li>span:hover {
-			color: <?php echo esc_html( Habakiri::get( 'link_hover_color' ) ); ?>;
-		}
-		#header {
-			background-color: <?php echo esc_html( Habakiri::get( 'header_bg_color' ) ); ?>;
-		}
-		#footer {
-			background-color: <?php echo esc_html( Habakiri::get( 'footer_bg_color' ) ); ?>;
-		}
-		#footer .footer-widget-area,
-		#footer .footer-widget-area .widget_calendar #wp-calendar caption {
-			color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
-		}
-		#footer .footer-widget-area a {
-			color: <?php echo esc_html( Habakiri::get( 'footer_link_color' ) ); ?>;
-		}
-		#footer .footer-widget-area .widget_calendar #wp-calendar,
-		#footer .footer-widget-area .widget_calendar #wp-calendar * {
-			border-color: <?php echo esc_html( Habakiri::get( 'footer_text_color' ) ); ?>;
-		}
-		</style>
-		<?php
-	}
-
-	/**
-	 * 画像 URL のサニタイズ
+	 * カラーコードを rgb 表記に変換する
 	 *
-	 * @param string $value
-	 * @return string $value
+	 * @param string $hex
 	 */
-	public function sanitize_image_url( $value ) {
-		if ( preg_match( '/^' . preg_quote( home_url(), '/' ) . '\/.+?\.(gif|jpg|jpeg|bmp|png)$/', $value ) ) {
-			return $value;
+	protected function hex_to_rgb( $hex ) {
+		$hex = str_replace( '#', '', $hex );
+		if ( strlen( $hex ) == 3 ) {
+			$r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
+			$g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
+			$b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
+		} else {
+			$r = hexdec( substr( $hex, 0, 2 ) );
+			$g = hexdec( substr( $hex, 2, 2 ) );
+			$b = hexdec( substr( $hex, 4, 2 ) );
 		}
-		return false;
+		return array( $r, $g, $b );
 	}
 
 	/**
-	 * カラーコードのサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
+	 * CSS を登録
 	 */
-	public function sanitize_colorcode( $value ) {
-		if ( preg_match( '/^#([\da-fA-F]{6}|[\da-fA-F]{3})$/', $value ) ) {
-			return $value;
-		}
-		return false;
-	}
+	public function register_styles() {
+		$rgb_header_bg_color = $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) );
 
-	/**
-	 * 選択肢項目のサニタイズ
-	 *
-	 * @param bool|string|int $value 選択肢のキー
-	 * @param array $choices キー => ラベル の配列
-	 * @param string $default デフォルト値
-	 * @return string
-	 */
-	protected function sanitize_choices( $value, $choices, $default ) {
-		if ( array_key_exists( $value, $choices ) ) {
-			return $value;
-		}
-		return $default;
-	}
-
-	/**
-	 * header のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_header( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->header_choices,
-			self::get_default( 'header' )
+		$this->Customizer_Framework->register_styles(
+			'a',
+			sprintf( 'color: %s', Habakiri::get( 'link_color' ) )
 		);
-	}
 
-	/**
-	 * header_fixed のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_header_fixed( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->header_fixed_choices,
-			self::get_default( 'header_fixed' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'a:focus',
+				'a:active',
+				'a:hover',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'link_hover_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * footer_columns のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_footer_columns( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->footer_columns_choices,
-			self::get_default( 'footer_columns' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.site-branding a',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'logo_text_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * blog_template のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_blog_template( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->blog_template_choices,
-			self::get_default( 'blog_template' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav a',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'gnav_link_color' ) ),
+				sprintf( 'font-size: %spx', Habakiri::get( 'gnav_fontsize' ) ),
+			)
 		);
-	}
 
-	/**
-	 * search_template のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_search_template( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->search_template_choices,
-			self::get_default( 'search_template' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav a small',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'gnav_sub_label_color' ) ),
+				sprintf( 'font-size: %spx', Habakiri::get( 'gnav_sub_label_fontsize' ) ),
+			)
 		);
-	}
 
-	/**
-	 * 404_template のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_404_template( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->_404_template_choices,
-			self::get_default( '404_template' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav a:hover small',
+				'.responsive-nav a:active small',
+				'.responsive-nav .current-menu-item small',
+				'.responsive-nav .current-menu-ancestor small',
+				'.responsive-nav .current-menu-parent small',
+				'.responsive-nav .current_page_item small',
+				'.responsive-nav .current_page_parent small',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'gnav_sub_label_hover_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * is_displaying_thumbnail のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_is_displaying_thumbnail( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->boolean_choices,
-			self::get_default( 'is_displaying_thumbnail' )
+		$gnav_link_bg_color = Habakiri::get( 'gnav_link_bg_color' );
+		if ( $this->hex_to_rgb( $gnav_link_bg_color ) == $rgb_header_bg_color ) {
+			$gnav_link_bg_color = 'transparent';
+		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav .menu>.menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a',
+			),
+			array(
+				sprintf( 'background-color: %s', $gnav_link_bg_color ),
+				sprintf( 'padding: %dpx %dpx', Habakiri::get( 'gnav_link_vertical_padding' ), Habakiri::get( 'gnav_link_horizontal_padding' ) ),
+			)
 		);
-	}
 
-	/**
-	 * is_displaying_bread_crumb のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_is_displaying_bread_crumb( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->boolean_choices,
-			self::get_default( 'is_displaying_bread_crumb' )
+		$gnav_link_bg_hover_color = Habakiri::get( 'gnav_link_bg_hover_color' );
+		if ( $this->hex_to_rgb( $gnav_link_bg_hover_color ) == $rgb_header_bg_color ) {
+			$gnav_link_bg_hover_color = 'transparent';
+		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav .menu>.menu-item>a:hover',
+				'.responsive-nav .menu>.menu-item>a:active',
+				'.responsive-nav .menu>.current-menu-item>a',
+				'.responsive-nav .menu>.current-menu-ancestor>a',
+				'.responsive-nav .menu>.current-menu-parent>a',
+				'.responsive-nav .menu>.current_page_item>a',
+				'.responsive-nav .menu>.current_page_parent>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a:hover',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.menu-item>a:active',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-ancestor>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current-menu-parent>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current_page_item>a',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav .menu>.current_page_parent>a',
+			),
+			array(
+				sprintf( 'background-color: %s', $gnav_link_bg_hover_color ),
+				sprintf( 'color: %s', Habakiri::get( 'gnav_link_hover_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * is_displaying_related_posts のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_is_displaying_related_posts( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->boolean_choices,
-			self::get_default( 'is_displaying_related_posts' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav .sub-menu a',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_color' ) ),
+				sprintf( 'color: %s', Habakiri::get( 'gnav_pulldown_link_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * is_displaying_page_header のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_is_displaying_page_header( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->boolean_choices,
-			self::get_default( 'is_displaying_page_header' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav .sub-menu a:hover',
+				'.responsive-nav .sub-menu a:active',
+				'.responsive-nav .sub-menu .current-menu-item a',
+				'.responsive-nav .sub-menu .current-menu-ancestor a',
+				'.responsive-nav .sub-menu .current-menu-parent a',
+				'.responsive-nav .sub-menu .current_page_item a',
+				'.responsive-nav .sub-menu .current_page_parent a',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'gnav_pulldown_bg_hover_color' ) ),
+				sprintf( 'color: %s', Habakiri::get( 'gnav_pulldown_link_hover_color' ) ),
+			)
 		);
-	}
 
-	/**
-	 * is_displaying_page_header_lead のサニタイズ
-	 *
-	 * @param string $value
-	 * @return string $value
-	 */
-	public function sanitize_is_displaying_page_header_lead( $value ) {
-		return $this->sanitize_choices(
-			$value,
-			$this->boolean_choices,
-			self::get_default( 'is_displaying_page_header_lead' )
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.off-canvas-nav',
+			),
+			array(
+				sprintf( 'font-size: %spx', Habakiri::get( 'offcanvas_nav_fontsize' ) ),
+			)
 		);
+
+		$gnav_bg_color = Habakiri::get( 'gnav_bg_color' );
+		if ( $this->hex_to_rgb( $gnav_bg_color ) == $rgb_header_bg_color ) {
+			$gnav_bg_color = 'transparent';
+		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.responsive-nav',
+				'.header--transparency.header--fixed--is_scrolled .responsive-nav',
+			),
+			array(
+				sprintf( 'background-color: %s', $gnav_bg_color ),
+			)
+		);
+
+		$hamburger_btn_bg_color           = Habakiri::get( 'hamburger_btn_bg_color' );
+		$hamburger_btn_border_color       = Habakiri::get( 'hamburger_btn_border_color' );
+		$hamburger_btn_bg_hover_color     = Habakiri::get( 'hamburger_btn_bg_hover_color' );
+		$hamburger_btn_border_hover_color = Habakiri::get( 'hamburger_btn_border_hover_color' );
+		if ( $this->hex_to_rgb( $hamburger_btn_bg_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_bg_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_border_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_border_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_bg_hover_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_bg_hover_color = 'transparent';
+		}
+		if ( $this->hex_to_rgb( $hamburger_btn_border_hover_color ) == $rgb_header_bg_color ) {
+			$hamburger_btn_border_hover_color = 'transparent';
+		}
+		$this->Customizer_Framework->register_styles(
+			array(
+				'#responsive-btn',
+			),
+			array(
+				sprintf( 'background-color: %s', $hamburger_btn_bg_color ),
+				sprintf( 'border-color: %s', $hamburger_btn_border_color ),
+				sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_color' ) ),
+			)
+		);
+		$this->Customizer_Framework->register_styles(
+			array(
+				'#responsive-btn:hover',
+			),
+			array(
+				sprintf( 'background-color: %s', $hamburger_btn_bg_hover_color ),
+				sprintf( 'border-color: %s', $hamburger_btn_border_hover_color ),
+				sprintf( 'color: %s', Habakiri::get( 'hamburger_btn_text_hover_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.habakiri-slider__transparent-layer',
+			),
+			array(
+				sprintf(
+					'background-color: rgba( %s, %s )',
+					implode( ',', $this->hex_to_rgb( Habakiri::get( 'slider_option_overlay_color' ) ) ),
+					1 - Habakiri::get( 'slider_option_overlay_opacity' ) / 100
+				),
+			)
+		);
+
+		if ( Habakiri::get( 'slider_option_height' ) ) {
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.habakiri-slider',
+					'.habakiri-slider__item',
+				),
+				array(
+					sprintf( 'height: %spx', Habakiri::get( 'slider_option_height' ) ),
+					'overflow: hidden',
+				)
+			);
+		}
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.page-header',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'page_header_bg_color' ) ),
+				sprintf( 'color: %s', Habakiri::get( 'page_header_text_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.pagination>li>a',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'link_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.pagination>li>span',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'link_color' ) ),
+				sprintf( 'border-color: %s', Habakiri::get( 'link_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.pagination>li>a:focus',
+				'.pagination>li>a:hover',
+				'.pagination>li>span:focus',
+				'.pagination>li>span:hover',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'link_hover_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.header',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'header_bg_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.header--transparency.header--fixed--is_scrolled',
+			),
+			array(
+				sprintf( 'background-color: %s !important', Habakiri::get( 'header_bg_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.footer',
+			),
+			array(
+				sprintf( 'background-color: %s', Habakiri::get( 'footer_bg_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.footer-widget-area a',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'footer_link_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.footer-widget-area',
+				'.footer-widget-area .widget_calendar #wp-calendar caption',
+			),
+			array(
+				sprintf( 'color: %s', Habakiri::get( 'footer_text_color' ) ),
+			)
+		);
+
+		$this->Customizer_Framework->register_styles(
+			array(
+				'.footer-widget-area .widget_calendar #wp-calendar',
+				'.footer-widget-area .widget_calendar #wp-calendar *',
+			),
+			array(
+				sprintf( 'border-color: %s', Habakiri::get( 'footer_text_color' ) ),
+			)
+		);
+
+		if ( $gnav_breakpoint = Habakiri::get_gnav_breakpoint() ) {
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.responsive-nav',
+				),
+				array(
+					'display: block !important',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.off-canvas-nav',
+					'#responsive-btn',
+				),
+				array(
+					'display: none !important',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row',
+				),
+				array(
+					'padding-bottom: 0',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row .header__col',
+					'.header--center .header__col',
+				),
+				array(
+					'display: block',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--2row .responsive-nav',
+					'.header--center .responsive-nav',
+				),
+				array(
+					'margin-right: -1000px',
+					'margin-left: -1000px',
+					'padding-right: 1000px',
+					'padding-left: 1000px',
+				),
+				'',
+				$gnav_breakpoint
+			);
+
+			if ( $gnav_bg_color == 'transparent' && $gnav_link_bg_color == 'transparent' && $gnav_link_bg_hover_color == 'transparent' ) {
+				$this->Customizer_Framework->register_styles(
+					array(
+						'.header--2row .site-branding',
+						'.header--center .site-branding',
+					),
+					array(
+						'padding-bottom: 0',
+					),
+					'',
+					$gnav_breakpoint
+				);
+			}
+
+			$this->Customizer_Framework->register_styles(
+				array(
+					'.header--center .site-branding',
+				),
+				array(
+					'text-align: center',
+				),
+				'',
+				$gnav_breakpoint
+			);
+		}
 	}
 }

@@ -2,23 +2,29 @@
  * .entries
  */
 .entries {
-	.entry {
-		margin-bottom: 40px;
+	.article {
+		border-bottom: 1px solid #eee;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+	}
 
+	.entry {
 		&--has_media {
-			margin-bottom: 30px;
+			&__inner {
+				@extend .clearfix;
+			}
 			
 			&__media {
 				float: left;
-				width: 60px;
+				width: 70px;
 
 				@media ( min-width: $screen-sm-min ) {
-					width: 84px;
+					width: 180px;
 				}
 			}
 
 			&__link {
-				@include square( 48px );
+				@include square( 50px );
 				color: #fff;
 				display: block;
 				font-size: $font-size-large;
@@ -29,7 +35,7 @@
 				vertical-align: middle;
 
 				@media ( min-width: $screen-sm-min ) {
-					@include square( 64px );
+					@include square( 150px );
 				}
 
 				&--text {
@@ -37,14 +43,15 @@
 			}
 				
 			&__text {
-				@include square( 48px );
+				@include square( 50px );
+				background-color: #eee;
 				display: table-cell;
 				vertical-align: middle;
 				position: relative;
 				top: -2px;
 
 				@media ( min-width: $screen-sm-min ) {
-					@include square( 64px );
+					@include square( 150px );
 				}
 
 				&:after {
@@ -71,6 +78,7 @@
 
 	.entry-meta {
 		border-bottom: none;
+		margin-bottom: 0;
 		padding-bottom: 0;
 	}
 }

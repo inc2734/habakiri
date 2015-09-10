@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.3
+ * Version    : 1.2.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : July 31, 2015
+ * Modified   : August 30, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -24,45 +24,28 @@
 <?php do_action( 'habakiri_before_container' ); ?>
 <div id="container">
 	<?php
-	/**
-	 * backward compatible
-	 * @since 1.2.0
-	 */
-	$header       = Habakiri::get( 'header' );
-	$header_fixed = Habakiri::get( 'header_fixed' );
-	$header_classes[] = $header;
-	$header_classes[] = $header_fixed;
-	foreach ( $header_classes as $header_class ) {
-		if ( preg_match( '/^header\--[^\-]/', trim( $header_class ) ) ) {
-			$header_classes[] = preg_replace( '/^(header)\-\-([^\-]+)/', '$1-$2' ,$header_class );
-		}
-	}
+	$header_classes     = Habakiri::get_header_classses();
+	$site_branding_size = Habakiri::get_site_branding_size();
+	$gnav_size          = Habakiri::get_gnav_size();
 	?>
 	<header id="header" class="header <?php echo esc_attr( implode( ' ', $header_classes ) ); ?>">
 		<?php do_action( 'habakiri_before_header_content' ); ?>
 		<div class="container">
-			<div class="row header__content header-content">
-				<div class="col-xs-10 header__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-4' : 'col-md-12'; ?>">
+			<div class="row header__content">
+				<div class="col-xs-10 <?php echo esc_attr( $site_branding_size ); ?> header__col">
 					<div class="site-branding">
-						<h1 class="site-branding__heading"><?php Habakiri::the_logo(); ?></h1>
+						<h1 class="site-branding__heading">
+							<?php get_template_part( 'modules/logo' ); ?>
+						</h1>
 					<!-- end .site-branding --></div>
-				<!-- end .col-md-4 --></div>
-				<div class="col-xs-2 header__col header-content-col <?php echo ( Habakiri::is_one_row_header() ) ? 'col-md-8' : 'col-md-12'; ?> global-nav-wrapper clearfix">
-					<?php do_action( 'habakiri_before_global_navigation' ); ?>
-					<nav class="global-nav" role="navigation">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' => 'global-nav',
-							'depth'          => 0,
-						) );
-						?>
-					<!-- end .global-nav --></nav>
-					<?php do_action( 'habakiri_after_global_navigation' ); ?>
-					<div id="responsive-btn" class="hidden-md hidden-lg"></div>
-				<!-- end .col-md-8 --></div>
+				<!-- end .header__col --></div>
+				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col global-nav-wrapper clearfix">
+					<?php get_template_part( 'modules/gnav' ); ?>
+					<div id="responsive-btn"></div>
+				<!-- end .header__col --></div>
 			<!-- end .row --></div>
 		<!-- end .container --></div>
 		<?php do_action( 'habakiri_after_header_content' ); ?>
 	<!-- end #header --></header>
-	<div id="contents" <?php ( is_singular() ) ? post_class() : print( 'class="hentry"' ); ?>>
+	<div id="contents">
 		<?php do_action( 'habakiri_before_contents_content' ); ?>

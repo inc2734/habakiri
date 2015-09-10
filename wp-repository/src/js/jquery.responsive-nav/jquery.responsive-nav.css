@@ -1,10 +1,10 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.1.1
+ * Version    : 2.2.1
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : June 25, 2015
+ * modified   : August 30, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -13,11 +13,6 @@
 /**
  * body
  */
-.responsive-nav-wrapper .responsive-nav-contents,
-.responsive-nav-wrapper .off-canvas-nav {
-		transition: all 0.2s ease-out;
-	-ms-transition: all 0.2s ease-out;
-}
 .responsive-nav-wrapper.open {
 	overflow: hidden;
 }
@@ -34,6 +29,8 @@
 }
 .responsive-nav-wrapper.open .responsive-nav-contents,
 .responsive-nav-wrapper.open .off-canvas-nav {
+		transition: transform 0.2s ease-out;
+	-ms-transition: transform 0.2s ease-out;
 			transform: translate( -300px, 0 );
 		-ms-transform: translate( -300px, 0 );
 	-webkit-transform: translate( -300px, 0 );
@@ -62,14 +59,6 @@
 	display: block !important;
 	visibility: hidden;
 }
-@media ( min-width: 992px ) {
-	.responsive-nav {
-		display: block !important;
-	}
-	.off-canvas-nav {
-		display: none !important;
-	}
-}
 @media print {
 	.off-canvas-nav {
 		display: none !important;
@@ -82,7 +71,7 @@
  * require genericons font.
  */
 #responsive-btn {
-	display: none;
+	display: block !important;
 	height: 24px;
 	width: 24px;
 	padding: 2px;
@@ -106,6 +95,7 @@
 	padding: 0;
 	*zoom: 1;
 }
+.responsive-nav:after,
 .responsive-nav ul:after,
 .responsive-nav ul li:after {
 	clear: both;

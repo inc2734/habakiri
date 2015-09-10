@@ -1,14 +1,16 @@
-/**
- * .page-header
- */
 .page-header {
 	background-position: center center;
 	background-size: cover;
-	margin: 0 0 40px;
+	margin: 0;
 	padding: 64px 0;
 
 	@media ( min-width: $screen-sm-min ) {
 		background-attachment: fixed;
+	}
+
+	&--has_background-image {
+		padding-top: 160px;
+		padding-bottom: 160px;
 	}
 
 	&__title {
@@ -20,12 +22,4 @@
 		margin-top: 20px;
 		margin-bottom: -($line-height-computed / 2);
 	}
-}
-
-/**
- * .no-page-header
- */
-.no-page-header {
-	height: 40px;
-	visibility: hidden;
 }

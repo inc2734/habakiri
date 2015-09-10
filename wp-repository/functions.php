@@ -1,8 +1,5 @@
 <?php
 require_once get_template_directory() . '/inc/customizer.php';
-require_once get_template_directory() . '/inc/class.bread-crumb.php';
-require_once get_template_directory() . '/inc/class.entry-meta.php';
-require_once get_template_directory() . '/inc/class.related-posts.php';
 
 function habakiri_parent_theme_setup() {
 	if ( !class_exists( 'Habakiri' ) ) {
@@ -18,11 +15,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.1.4
+ * Version    : 1.3.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 8, 2015
+ * Modified   : August 30, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -33,7 +30,7 @@ class Habakiri_Base_Functions {
 	 */
 	public function __construct() {
 		global $content_width;
-		if ( !isset( $content_width ) ) $content_width = 940;
+		if ( !isset( $content_width ) ) $content_width = 1140;
 		load_theme_textdomain( 'habakiri', get_template_directory() . '/languages' );
 
 		add_editor_style( array(
@@ -72,11 +69,15 @@ class Habakiri_Base_Functions {
 		$this->customizer();
 		$this->register_nav_menus();
 
-		add_action( 'widgets_init'        , array( $this, 'register_sidebar' ) );
-		add_action( 'wp_enqueue_scripts'  , array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'widgets_init'      , array( $this, 'register_sidebar' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-		add_filter( 'tiny_mce_before_init', array( $this, 'tiny_mce_before_init' ) );
-		add_filter( 'body_class'          , array( $this, 'body_class' ) );
+		add_filter( 'tiny_mce_before_init'    , array( $this, 'tiny_mce_before_init' ) );
+		add_filter( 'body_class'              , array( $this, 'body_class' ) );
+		add_filter( 'post_class'              , array( $this, 'post_class' ) );
+		add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
+		add_filter( 'excerpt_length'          , array( $this, 'excerpt_length' ), 9 );
+		add_filter( 'excerpt_mblength'        , array( $this, 'excerpt_length' ), 9 );
 	}
 
 	/**
@@ -86,7 +87,7 @@ class Habakiri_Base_Functions {
 	 * @return array
 	 */
 	function tiny_mce_before_init( $init ){
-		$init['body_class'] = 'entry-content';
+		$init['body_class'] = 'entry__content';
 		return $init;
 	}
 
@@ -95,8 +96,8 @@ class Habakiri_Base_Functions {
 	 */
 	protected function customizer() {
 		$Customizer = new Habakiri_Customizer();
+		add_action( 'wp_head', array( $Customizer, 'register_styles' ) );
 		add_action( 'customize_register', array( $Customizer, 'customize_register' ) );
-		add_action( 'wp_head'           , array( $Customizer, 'customize_css' ) );
 	}
 
 	/**
@@ -111,6 +112,17 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
+	 * ヘッダー用のクラスを出力
+	 *
+	 * @return array
+	 */
+	public static function get_header_classses() {
+		$header_classes[] = Habakiri::get( 'header' );
+		$header_classes[] = Habakiri::get( 'header_fixed' );
+		return $header_classes;
+	}
+
+	/**
 	 * ウィジェットエリアを追加
 	 */
 	public function register_sidebar() {
@@ -120,34 +132,40 @@ class Habakiri_Base_Functions {
 			'description'   => __( 'Sidebar', 'habakiri' ),
 			'before_widget' => '<div id="%1$s" class="widget sidebar-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="sidebar-widget__title widgettitle">',
+			'before_title'  => '<h2 class="sidebar-widget__title">',
 		) );
 
 		register_sidebar( array(
 			'name'          => __( 'Footer', 'habakiri' ),
 			'id'            => 'footer-widget-area',
 			'description'   => __( 'Footer Widget Area', 'habakiri' ),
-			'before_widget' => '<div id="%1$s" class="widget footer-widget col-md-4 %2$s">',
+			'before_widget' => '<div id="%1$s" class="widget footer-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="footer-widget__title widgettitle">',
+			'before_title'  => '<h2 class="footer-widget__title">',
 		) );
 
-		add_action( 'wp_head', array( $this, 'add_footer_widget_class' ) );
+		add_filter(
+			'dynamic_sidebar_params',
+			array( $this, 'dynamic_sidebar_params' )
+		);
 	}
 
 	/**
 	 * フッターウィジェットの class を追加
+	 *
+	 * @param array $params ウィジェットエリア設定の配列
+	 * @return array
 	 */
-	public function add_footer_widget_class() {
-		?>
-		<script>
-		jQuery( function( $ ) {
-			$( '#footer .widget' )
-				.removeClass( 'col-md-4' )
-				.addClass( '<?php echo esc_js( Habakiri::get( 'footer_columns' ) ); ?>' );
-		} );
-		</script>
-		<?php
+	public function dynamic_sidebar_params( $params ) {
+		if ( isset( $params[0]['id'] ) && $params[0]['id'] === 'footer-widget-area' ) {
+			$class = Habakiri::get( 'footer_columns' );
+			$params[0]['before_widget'] = str_replace(
+				'class="widget',
+				'class="' . Habakiri::get( 'footer_columns' ) . ' widget',
+				$params[0]['before_widget']
+			);
+		}
+		return $params;
 	}
 
 	/**
@@ -161,17 +179,17 @@ class Habakiri_Base_Functions {
 		$GLOBALS['comment'] = $comment;
 		?>
 		<li <?php comment_class( array( 'comments__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="comment comment-item">
-				<dt class="comment__header comment-header">
-					<div class="comment__author comment-author">
+			<dl id="comment-<?php comment_ID(); ?>" class="comment">
+				<dt class="comment__header">
+					<div class="comment__author">
 						<?php echo get_avatar( $comment, '48' ); ?>
 					<!-- end .comment-author --></div>
 				</dt>
-				<dd class="comment__body comment-body">
+				<dd class="comment__body">
 					<?php if ( $comment->comment_approved == '0' ) : ?>
 					<em><?php _e( 'Your comment is awaiting moderation.', 'habakiri' ) ?></em>
 					<?php endif; ?>
-					<div class="comment__meta comment-meta commentmetadata vcard">
+					<div class="comment__meta vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -187,8 +205,8 @@ class Habakiri_Base_Functions {
 					$comment_reply_link = get_comment_reply_link(
 						array_merge(
 							$args,
-							array( 
-								'depth'     => $depth, 
+							array(
+								'depth'     => $depth,
 								'max_depth' => $args['max_depth'],
 							)
 						)
@@ -215,9 +233,9 @@ class Habakiri_Base_Functions {
 		$GLOBALS['comment'] = $comment;
 		?>
 		<li <?php comment_class( array( 'trackbacks__item' ) ); ?> id="li-comment-<?php comment_ID() ?>">
-			<dl id="comment-<?php comment_ID(); ?>" class="trackback comment-item">
-				<dd class="trackback__body comment-body">
-					<div class="trackback__meta comment-meta commentmetadata vcard">
+			<dl id="comment-<?php comment_ID(); ?>" class="trackback">
+				<dd class="trackback__body">
+					<div class="trackback__meta vcard">
 						<?php
 						printf(
 							__( '<cite class="fn">%1$s</cite> said on %2$s at %3$s', 'habakiri' ),
@@ -232,33 +250,6 @@ class Habakiri_Base_Functions {
 				</dd>
 			</dl>
 		<?php
-	}
-
-	/**
-	 * copyright を出力
-	 */
-	public static function the_copyright() {
-		$theme_url     = 'http://2inc.org';
-		$wordpress_url = 'http://wordpress.org/';
-		$theme_link = sprintf(
-			'<a href="%s" target="_blank">%s</a>',
-			esc_url( $theme_url ),
-			__( 'Monkey Wrench', 'habakiri' )
-		);
-		$wordpress_link = sprintf(
-			'<a href="%s" target="_blank">%s</a>',
-			esc_url( $wordpress_url ),
-			__( 'WordPress', 'habakiri' )
-		);
-		$theme_by   = sprintf( __( 'Habakiri theme by %s', 'habakiri' ), $theme_link );
-		$powered_by = sprintf( __( 'Powered by %s', 'habakiri' ), $wordpress_link );
-		$copyright  = sprintf(
-			'%s&nbsp;%s',
-			$theme_by,
-			$powered_by
-		);
-
-		echo apply_filters( 'habakiri_copyright', $copyright );
 	}
 
 	/**
@@ -322,6 +313,48 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
+	 * single のときのみ hentry を出力
+	 *
+	 * @param array $classes
+	 * @return array
+	 */
+	public function post_class( $classes ) {
+		$allow_hentry_post_types = apply_filters( 'habakiri_allow_hentry_post_types', array( 'post' ) );
+		if ( !in_array( get_post_type(), $allow_hentry_post_types ) ) {
+			$classes = array_diff( $classes, array( 'hentry' ) );
+		}
+		return $classes;
+	}
+	
+	/**
+	 * Display description in global navigation
+	 *
+	 * @param string $output HTML
+	 * @param object $item
+	 * @param int $depth
+	 * @param object $args
+	 * @return string
+	 */
+	public function walker_nav_menu_start_el( $output, $item, $depth, $args ) {
+		if ( $depth === 0 && $args->theme_location === 'global-nav' && !empty( $item->description ) ) {
+			$pattern     = '/(<a.*?>)([^<]*?)(<\/a>)/';
+			$replacement = '$1<strong>$2</strong><small>' . esc_html( $item->description ) . '</small>$3';
+			return preg_replace( $pattern, $replacement, $output );
+		}
+		return $output;
+	}
+	
+	/**
+	 * Excerpt length
+	 *
+	 * @param int
+	 * @return int
+	 */
+	public function excerpt_length( $length ) {
+		return Habakiri::get( 'excerpt_length' );
+	}
+
+	/**
 	 * テーマオプションを取得
 	 *
 	 * @param string $key
@@ -329,20 +362,8 @@ class Habakiri_Base_Functions {
 	 */
 	public static function get( $key ) {
 		$default   = Habakiri_Customizer::get_default( $key );
-		$theme_mod = get_theme_mod( $key );
-
-		/**
-		 * backward compatible
-		 * @since 1.2.0
-		 */
-		if ( in_array( $key, array( 'header', 'header_fixed' ) ) && !empty( $theme_mod ) ) {
-			$theme_mod = preg_replace( '/^header\-([^\-])/', 'header--$1', $theme_mod );
-		}
-
-		if ( $theme_mod ) {
-			return $theme_mod;
-		}
-		return $default;
+		$theme_mod = get_theme_mod( $key, $default );
+		return $theme_mod;
 	}
 
 	/**
@@ -351,7 +372,7 @@ class Habakiri_Base_Functions {
 	 * @return bool
 	 */
 	public static function is_one_row_header() {
-		$headers = array( 'header--default' );
+		$headers = array( 'header--default', 'header--transparency' );
 		if ( in_array( Habakiri::get( 'header' ), $headers ) ) {
 			return true;
 		}
@@ -359,24 +380,19 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
+	 * copyright を表示
+	 */
+	public static function the_copyright() {
+		_deprecated_function( 'Habakiri::the_copyright()', 'Habakiri 2.0.0', "get_template_part( 'modules/copyright' )" );
+		get_template_part( 'modules/copyright' );
+	}
+
+	/**
 	 * ロゴを表示
 	 */
 	public static function the_logo() {
-		$header_logo = Habakiri::get( 'logo' );
-		if ( $header_logo ) {
-			$header_logo = sprintf(
-				'<img src="%s" alt="%s" class="site-branding__logo" />',
-				esc_url( $header_logo ),
-				get_bloginfo( 'name' )
-			);
-		} else {
-			$header_logo = get_bloginfo( 'name' );
-		}
-		?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-			<?php echo $header_logo; ?>
-		</a>
-		<?php
+		_deprecated_function( 'Habakiri::the_logo()', 'Habakiri 2.0.0', "get_template_part( 'modules/logo' )" );
+		get_template_part( 'modules/logo' );
 	}
 
 	/**
@@ -385,50 +401,16 @@ class Habakiri_Base_Functions {
 	 * @param int $post_id
 	 */
 	public static function the_page_header( $post_id = null ) {
-		if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
-			return;
-		}
-
-		global $post;
-
-		$title = get_the_title( $post_id );
-		if ( is_404() ) {
-			$title = __( 'Woops! Page not found.', 'habakiri' );
-		} elseif ( is_search() ) {
-			$title = sprintf( __( 'Search Results for: %s', 'habakiri' ), get_search_query() );
-		}
-
-		$class = '';
-		if ( !is_single() ) {
-			$class = 'entry-title';
-		}
-		$class = apply_filters( 'habakiri_title_class_in_page_header', $class );
-		?>
-		<div class="page-header text-center" <?php if ( get_header_image() ) : ?>style="background-image: url( <?php header_image(); ?> )"<?php endif; ?>>
-			<div class="container">
-				<h1 class="page-header__title <?php echo ( !empty( $class ) ) ? esc_attr( $class ) : ''; ?>">
-					<?php echo apply_filters( 'habakiri_title_in_page_header', esc_html( $title ) ); ?>
-				</h1>
-				<?php while ( have_posts() ) : the_post(); ?>
-				<?php if ( is_page() && get_the_excerpt() && !empty( $post->post_excerpt ) && Habakiri::get( 'is_displaying_page_header_lead' ) !== 'false' ) : ?>
-				<div class="page-header__description page-header-description">
-					<?php the_excerpt(); ?>
-				<!-- end .page-description --></div>
-				<?php endif; ?>
-				<?php endwhile; ?>
-			<!-- end .container --></div>
-		<!-- end .page-header --></div>
-		<?php
+		_deprecated_function( 'Habakiri::the_page_header()', 'Habakiri 2.0.0', "get_template_part( 'modules/page-header' )" );
+		get_template_part( 'modules/page-header' );
 	}
 
 	/**
 	 * パンくずリストを表示
 	 */
 	public static function the_bread_crumb() {
-		if ( !is_front_page() ) {
-			$BreadCrumb = new Habakiri_Bread_Crumb();
-			$BreadCrumb->display();
-		}
+		_deprecated_function( 'Habakiri::the_bread_crumb()', 'Habakiri 2.0.0', "get_template_part( 'modules/breadcrumbs' )" );
+		get_template_part( 'modules/breadcrumbs' );
 	}
 
 	/**
@@ -436,11 +418,9 @@ class Habakiri_Base_Functions {
 	 */
 	public static function the_post_thumbnail() {
 		$classes = array(
-			'img-circle',
 			'entry--has_media__link',
 		);
 		if ( !has_post_thumbnail() ) {
-			$classes[] = 'no-thumbnail';
 			$classes[] = 'entry--has_media__link--text';
 		}
 		$classes = apply_filters( 'habakiri_post_thumbnail_link_classes', $classes );
@@ -454,7 +434,7 @@ class Habakiri_Base_Functions {
 				) );
 				?>
 			<?php else : ?>
-				<span class="entry--has_media__text no-thumbnail-text">
+				<span class="entry--has_media__text">
 					<?php echo apply_filters( 'habakiri_no_thumbnail_text', get_the_time( 'd' ) ); ?>
 				</span>
 			<?php endif; ?>
@@ -466,8 +446,8 @@ class Habakiri_Base_Functions {
 	 * 関連記事を表示
 	 */
 	public static function the_related_posts() {
-		$RelatedPosts = new Habakiri_Related_Posts();
-		$RelatedPosts->display();
+		_deprecated_function( 'Habakiri::the_related_posts()', 'Habakiri 2.0.0', "get_template_part( 'modules/related-posts' )" );
+		get_template_part( 'modules/related-posts' );
 	}
 
 	/**
@@ -488,63 +468,24 @@ class Habakiri_Base_Functions {
 	 * ページャーを表示
 	 */
 	public static function the_pager() {
-		global $wp_rewrite;
-		global $wp_query;
-		global $paged;
-		$paginate_base = get_pagenum_link( 1 );
-		if ( strpos( $paginate_base, '?' ) || ! $wp_rewrite->using_permalinks() ) {
-			$paginate_format = '';
-			$paginate_base = add_query_arg( 'paged', '%#%' );
-		} else {
-			$paginate_format = ( substr( $paginate_base, -1 ,1 ) == '/' ? '' : '/' ) .
-			user_trailingslashit( 'page/%#%/', 'paged' );
-			$paginate_base .= '%_%';
-		}
-		$paginate_links = paginate_links( array(
-			'base'      => $paginate_base,
-			'format'    => $paginate_format,
-			'total'     => $wp_query->max_num_pages,
-			'mid_size'  => 5,
-			'current'   => ( $paged ? $paged : 1 ),
-			'prev_text' => '&lt;',
-			'next_text' => '&gt;',
-			'type'      => 'array',
-		) );
-		if ( $paginate_links ) {
-			?>
-			<nav>
-				<ul class="pagination">
-					<?php foreach ( $paginate_links as $link ) : ?>
-					<li><?php echo $link; ?></li>
-					<?php endforeach; ?>
-				</ul>
-			</nav>
-			<?php
-		}
+		_deprecated_function( 'Habakiri::the_pager()', 'Habakiri 2.0.0', "get_template_part( 'modules/pagination' )" );
+		get_template_part( 'modules/pagination' );
 	}
 
 	/**
 	 * エントリーメタを表示
 	 */
 	public static function the_entry_meta() {
-		$EnetryMeta = new Habakiri_Entry_Meta();
-		$EnetryMeta->display();
+		_deprecated_function( 'Habakiri::the_entry_meta()', 'Habakiri 2.0.0', "get_template_part( 'modules/entry-meta' )" );
+		get_template_part( 'modules/entry-meta' );
 	}
 
 	/**
 	 * ページ分割
 	 */
 	public static function the_link_pages() {
-		wp_link_pages( array(
-			'before'           => '<nav><ul class="pagination"><li>',
-			'after'            => '</li></ul></nav>',
-			'link_before'      => '',
-			'link_after'       => '',
-			'separator'        => '</li><li>',
-			'nextpagelink'     => '&gt;',
-			'previouspagelink' => '%lt;',
-			'pagelink'         => '<span>%</span>',
-		) );
+		_deprecated_function( 'Habakiri::the_link_pages()', 'Habakiri 2.0.0', "get_template_part( 'modules/link-pages' )" );
+		get_template_part( 'modules/link-pages' );
 	}
 
 	/**
@@ -555,16 +496,72 @@ class Habakiri_Base_Functions {
 	public static function the_title( $post_id = null ) {
 		$post    = get_post( $post_id );
 		$post_id = isset( $post->ID ) ? $post->ID : 0;
+		if ( !$post_id ) {
+			return;
+		}
 		do_action( 'habakiri_before_title' );
 		?>
-		<?php if ( is_page_template( 'templates/front-page.php' ) ) : ?>
-		<h1 class="entry__title entry-title hidden"><?php echo get_the_title( $post_id ); ?></h1>
-		<?php elseif ( is_singular() ) : ?>
+		<?php if ( is_page() ) : ?>
+			<?php if ( !is_page_template( 'templates/front-page.php' ) && !is_page_template( 'templates/rich-front-page.php' ) ) : ?>
+			<h1 class="entry__title"><?php echo get_the_title( $post_id ); ?></h1>
+			<?php endif; ?>
+		<?php elseif ( is_single() ) : ?>
 		<h1 class="entry__title entry-title"><?php echo get_the_title( $post_id ); ?></h1>
 		<?php else : ?>
 		<h1 class="entry__title entry-title h3"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
 		<?php endif; ?>
 		<?php
 		do_action( 'habakiri_after_title' );
+	}
+
+	/**
+	 * site_branding のサイズを取得
+	 *
+	 * @return string
+	 */
+	public static function get_site_branding_size() {
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		if ( !$gnav_breakpoint ) {
+			return;
+		}
+		if ( Habakiri::is_one_row_header() ) {
+			return sprintf( 'col-%s-4', $gnav_breakpoint );
+		}
+		return sprintf( 'col-%s-12', $gnav_breakpoint );
+	}
+
+	/**
+	 * global navigation wrapper のサイズを取得
+	 *
+	 * @return string
+	 */
+	public static function get_gnav_size() {
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		if ( !$gnav_breakpoint ) {
+			return;
+		}
+		if ( Habakiri::is_one_row_header() ) {
+			return 'col-' . $gnav_breakpoint . '-8';
+		}
+		return 'col-' . $gnav_breakpoint . '-12';
+	}
+
+	/**
+	 * responsive_nav <> offcanvas_nav 切り替えの breakpoint を取得
+	 *
+	 * @return int
+	 */
+	public static function get_gnav_breakpoint() {
+		$breakpoint      = null;
+		$gnav_breakpoint = Habakiri::get( 'gnav_breakpoint' );
+		switch ( $gnav_breakpoint ) {
+			case 'md' :
+				$breakpoint = 992;
+				break;
+			case 'lg' :
+				$breakpoint = 1200;
+				break;
+		}
+		return $breakpoint;
 	}
 }

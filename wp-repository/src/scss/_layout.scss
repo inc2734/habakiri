@@ -2,30 +2,58 @@
  * classes
  *================================================*/
 @import 'modules/page-header';
-@import 'modules/bread-crumb';
+@import 'modules/breadcrumbs';
 @import 'modules/sticky';
 @import 'modules/entry-meta';
 @import 'modules/related-posts';
 @import 'modules/pagination';
 @import 'modules/search-form';
+@import 'modules/buttons';
 @import 'modules/jumbotron';
 @import 'modules/thumbnail';
 @import 'modules/widget';
+@import 'modules/slider';
 
 /*==================================================
- * container
+ * layout
  *================================================*/
- @import 'layout/container';
+#container {
+	overflow: hidden;
+}
+
+.sub-page-contents {
+	padding-top: 40px;
+}
+
+#main {
+	margin-bottom: 60px;
+
+	.page-template-templatesfront-page-php &,
+	.page-template-templatesfull-width-fluid-php &,
+	.blog-template-archive-full-width-fluid &,
+	.blog-template-archive-single-width-fluid & {
+		margin-bottom: 0;
+	}
+}
+
+.entry {
+	@extend .clearfix;
+	
+	&__title {
+		margin: 0 0 10px;
+	}
+
+	&__content {
+		> *:first-child {
+			margin-top: 0;
+		}
+	}
+}
 
 /*==================================================
  * header
  *================================================*/
  @import 'layout/header';
-
-/*==================================================
- * main
- *================================================*/
- @import 'layout/main';
 
 /*==================================================
  * sub
@@ -46,8 +74,3 @@
  * archive
  *================================================*/
 @import 'layout/archive';
-
-/*==================================================
- * Page
- *================================================*/
-@import 'layout/page';

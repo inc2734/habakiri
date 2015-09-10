@@ -1,6 +1,6 @@
 <?php
 /**
- * Name       : Habakiri Bread Crumb
+ * Name       : Habakiri Breadcrumbs
  * Version    : 1.0.1
  * Author     : inc2734
  * Author URI : http://2inc.org
@@ -9,7 +9,7 @@
  * License    : GPLv2 or later
  * License URI: license.txt
  */
-class Habakiri_Bread_Crumb {
+class Habakiri_Breadcrumbs {
 
 	/**
 	 * パンくずの各項目を昇順で格納する配列
@@ -92,6 +92,7 @@ class Habakiri_Bread_Crumb {
 		}
 
 		$bread_crumb = array();
+		$last_item = array_pop( $this->bread_crumb );
 		foreach ( $this->bread_crumb as $_bread_crumb ) {
 			if ( !empty( $_bread_crumb['link'] ) ) {
 				$bread_crumb[] = sprintf(
@@ -103,8 +104,9 @@ class Habakiri_Bread_Crumb {
 				$bread_crumb[] = esc_html( $_bread_crumb['title'] );
 			}
 		}
+		$bread_crumb[] = sprintf( '<strong>%s</strong>', $last_item['title'] );
 		printf(
-			'<div class="bread-crumb">%s</div>',
+			'<div class="breadcrumbs">%s</div>',
 			implode(
 				' &gt; ',
 				apply_filters( 'habakiri_bread_crumb', $bread_crumb )
