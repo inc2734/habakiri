@@ -12,8 +12,8 @@ Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-colu
 
 @import 'bootstrap-variables';
 @import '../../assets/bootstrap/stylesheets/bootstrap';
-@import '../habakiri/src/js/jquery.responsive-nav/jquery.responsive-nav.css';
-@import '../habakiri/src/js/slick/slick.css';
+@import './src/js/jquery.responsive-nav/jquery.responsive-nav.css';
+@import './src/js/slick/slick.css';
 @import 'mixin';
 @import 'layout';
 @import 'content';

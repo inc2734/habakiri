@@ -10,8 +10,8 @@ License URI: license.txt
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-colors
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-@import url(../habakiri/src/js/jquery.responsive-nav/jquery.responsive-nav.css);
-@import url(../habakiri/src/js/slick/slick.css);
+@import url(./src/js/jquery.responsive-nav/jquery.responsive-nav.css);
+@import url(./src/js/slick/slick.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -193,8 +193,8 @@ th {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../habakiri/assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("./assets/bootstrap/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
