@@ -180,6 +180,7 @@ add_filter( 'foo', 'your_filter' );
 * Add new setting: Excerpt length.
 * Add filter hook habakiri_allow_hentry_post_types.
 * Add filter hook habakiri_default_slider_items.
+* Add .screen-reader-text class.
 * Change $content_width.
 * Change templates structure.
 * Change class for executing Offcanvas nav that from .global-nav to .js-responsive-nav.
