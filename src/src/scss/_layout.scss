@@ -37,6 +37,8 @@
 }
 
 .entry {
+	@extend .clearfix;
+	
 	&__title {
 		margin: 0 0 10px;
 	}

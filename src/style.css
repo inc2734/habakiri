@@ -6155,13 +6155,14 @@ button.close {
     bottom: 20px; } }
 
 .clearfix:before,
+.entry:before,
 .comment__body:before,
 .entries .entry--has_media__inner:before,
-.clearfix:after, .comment__body:after, .entries .entry--has_media__inner:after {
+.clearfix:after, .entry:after, .comment__body:after, .entries .entry--has_media__inner:after {
   content: " ";
   display: table; }
 
-.clearfix:after, .comment__body:after, .entries .entry--has_media__inner:after {
+.clearfix:after, .entry:after, .comment__body:after, .entries .entry--has_media__inner:after {
   clear: both; }
 
 .center-block {
