@@ -9,8 +9,6 @@
  * License URI: license.txt
  */
 
-require_once get_template_directory() . '/inc/class.slider.php';
-
 $Slider = new Habakiri_Slider();
 $items  = $Slider->get_saved_items();
 if ( $items ) {

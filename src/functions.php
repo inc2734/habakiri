@@ -87,7 +87,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * 管理画面の wysiwyg エディタに class を追加
+	 * Add the class to tne wysiwyg editor
 	 *
 	 * @param array $init
 	 * @return array
@@ -98,7 +98,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * カスタマイザーに設定を追加
+	 * Theme customizer
 	 */
 	protected function customizer() {
 		$Customizer = new Habakiri_Customizer();
@@ -107,7 +107,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * メニューを追加
+	 * Register menus
 	 */
 	protected function register_nav_menus() {
 		add_theme_support( 'menu' );
@@ -118,7 +118,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ヘッダー用のクラスを出力
+	 * Return the classes for header
 	 *
 	 * @return array
 	 */
@@ -129,7 +129,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ウィジェットエリアを追加
+	 * Register widget areas
 	 */
 	public function register_sidebar() {
 		register_sidebar( array(
@@ -157,7 +157,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * フッターウィジェットの class を追加
+	 * Return the class of culumn size for footer widget area
 	 *
 	 * @param array $params ウィジェットエリア設定の配列
 	 * @return array
@@ -175,7 +175,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * コメントを表示
+	 * Display comments
 	 *
 	 * @param object $comment
 	 * @param array $args
@@ -229,7 +229,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * トラックバックを表示
+	 * Display trackbacks
 	 *
 	 * @param object $comment
 	 * @param array $args
@@ -259,7 +259,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * CSS、JS の読み込み
+	 * Load the CSS and JS
 	 */
 	public function wp_enqueue_scripts() {
 		if ( is_admin() ) {
@@ -301,8 +301,8 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * body の class を設定
-	 * ブログのレイアウトによって適切なクラスを追加
+	 * Return body classes
+	 * Add the appropriate class by the layout of the blog
 	 */
 	public function body_class( $classes ) {
 		global $template;
@@ -319,7 +319,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * single のときのみ hentry を出力
+	 * Output hentry class  when the single page only 
 	 *
 	 * @param array $classes
 	 * @return array
@@ -361,7 +361,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * テーマオプションを取得
+	 * Return the theme option
 	 *
 	 * @param string $key
 	 * @return null|string
@@ -373,7 +373,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ヘッダーが1行かどうか
+	 * Header whether a line
 	 *
 	 * @return bool
 	 */
@@ -386,7 +386,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * copyright を表示
+	 * Display the copyright
 	 */
 	public static function the_copyright() {
 		_deprecated_function( 'Habakiri::the_copyright()', 'Habakiri 2.0.0', "get_template_part( 'modules/copyright' )" );
@@ -394,7 +394,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ロゴを表示
+	 * Display the logo
 	 */
 	public static function the_logo() {
 		_deprecated_function( 'Habakiri::the_logo()', 'Habakiri 2.0.0', "get_template_part( 'modules/logo' )" );
@@ -402,7 +402,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ページヘッダーを表示
+	 * Display the page header
 	 *
 	 * @param int $post_id
 	 */
@@ -412,7 +412,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * パンくずリストを表示
+	 * Display the breadcrumbs
 	 */
 	public static function the_bread_crumb() {
 		_deprecated_function( 'Habakiri::the_bread_crumb()', 'Habakiri 2.0.0', "get_template_part( 'modules/breadcrumbs' )" );
@@ -420,7 +420,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * サムネイルを表示
+	 * Display the post thumbnail
 	 */
 	public static function the_post_thumbnail() {
 		$classes = array(
@@ -449,7 +449,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * 関連記事を表示
+	 * Display the related posts
 	 */
 	public static function the_related_posts() {
 		_deprecated_function( 'Habakiri::the_related_posts()', 'Habakiri 2.0.0', "get_template_part( 'modules/related-posts' )" );
@@ -457,7 +457,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * 現在の投稿のカスタムタクソノミーを取得
+	 * Return the custom taxonomies of the current post
 	 *
 	 * @param int|null $post_id
 	 * @return array
@@ -471,7 +471,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ページャーを表示
+	 * Display the posts pagination
 	 */
 	public static function the_pager() {
 		_deprecated_function( 'Habakiri::the_pager()', 'Habakiri 2.0.0', "get_template_part( 'modules/pagination' )" );
@@ -479,7 +479,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * エントリーメタを表示
+	 * Display the entry meta
 	 */
 	public static function the_entry_meta() {
 		_deprecated_function( 'Habakiri::the_entry_meta()', 'Habakiri 2.0.0', "get_template_part( 'modules/entry-meta' )" );
@@ -487,7 +487,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ページ分割
+	 * Display the link pages
 	 */
 	public static function the_link_pages() {
 		_deprecated_function( 'Habakiri::the_link_pages()', 'Habakiri 2.0.0', "get_template_part( 'modules/link-pages' )" );
@@ -495,7 +495,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * ページ見出しを表示
+	 * Display the title
 	 *
 	 * @param int|null $post_id
 	 */
@@ -521,7 +521,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * site_branding のサイズを取得
+	 * Return size of the site branding
 	 *
 	 * @return string
 	 */
@@ -537,7 +537,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * global navigation wrapper のサイズを取得
+	 * Return size of the global navigation wrapper
 	 *
 	 * @return string
 	 */
@@ -553,7 +553,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * responsive_nav <> offcanvas_nav 切り替えの breakpoint を取得
+	 * Return the breakpoint when switching responsive_nav <> offcanvas_nav
 	 *
 	 * @return int
 	 */

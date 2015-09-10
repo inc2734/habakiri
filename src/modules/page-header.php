@@ -13,8 +13,6 @@ if ( Habakiri::get( 'is_displaying_page_header' ) === 'false' ) {
 	return;
 }
 
-require_once get_template_directory() . '/inc/class.page-header.php';
-
 $post_type         = get_post_type();
 $post_type_object  = get_post_type_object( $post_type );
 $custom_post_types = get_post_types( array(

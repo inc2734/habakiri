@@ -12,7 +12,7 @@
 class Habakiri_Related_Posts {
 
 	/**
-	 * 関連記事を表示
+	 * Display related posts
 	 */
 	public function display() {
 		$post_type = get_post_type();
@@ -49,7 +49,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * tax_query に渡す条件の配列を返す
+	 * Return the argments for the tax_query
 	 *
 	 * @param string $taxonomy_name
 	 * @param array $term_ids
@@ -65,7 +65,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * 指定された投稿タイプ用の tax_query を返す
+	 * Return the tax_query for the specified post type
 	 *
 	 * @param string $post_type
 	 * @return array
@@ -99,7 +99,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * 関連記事を取得
+	 * Return the related posts
 	 *
 	 * @param array $tax_query
 	 * @return array
@@ -128,7 +128,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * カテゴリーの ID を取得
+	 * Return the category ids
 	 *
 	 * @return array
 	 */
@@ -144,7 +144,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * タグの ID を取得
+	 * Return the tag ids
 	 *
 	 * @return array
 	 */
@@ -160,7 +160,7 @@ class Habakiri_Related_Posts {
 	}
 
 	/**
-	 * カスタムタクソノミーのターム ID を取得
+	 * Return the custom taxonomy ids
 	 *
 	 * @param string $taxonomy_name
 	 * @return array

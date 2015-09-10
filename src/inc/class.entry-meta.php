@@ -12,7 +12,7 @@
 class Habakiri_Entry_Meta {
 	
 	/**
-	 * Entry Meta を表示
+	 * Display Entry Meta
 	 */
 	public function display() {
 		do_action( 'habakiri_before_entry_meta' );
@@ -35,7 +35,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * 著者を取得
+	 * Return the author
 	 */
 	protected function author() {
 		global $post;
@@ -48,7 +48,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * 公開日を取得
+	 * Return the public date
 	 */
 	protected function published() {
 		return sprintf(
@@ -60,7 +60,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * 更新日を取得
+	 * Return the updated date
 	 */
 	protected function updated() {
 		return sprintf(
@@ -72,7 +72,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * カテゴリーを取得
+	 * Return the categories
 	 */
 	protected function categories() {
 		$categories = array();
@@ -93,7 +93,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * タグを取得
+	 * Return the tags
 	 */
 	protected function tags() {
 		if ( $tags_list = get_the_tag_list( '', ', ' ) ) {
@@ -106,7 +106,7 @@ class Habakiri_Entry_Meta {
 	}
 
 	/**
-	 * タクソノミーを取得
+	 * Return the taxonomies
 	 */
 	protected function taxonomies() {
 		$taxonomies = Habakiri::get_the_taxonomies();
