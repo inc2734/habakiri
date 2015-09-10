@@ -1,4 +1,10 @@
 <?php
+require_once get_template_directory() . '/inc/class.breadcrumbs.php';
+require_once get_template_directory() . '/inc/class.entry-meta.php';
+require_once get_template_directory() . '/inc/class.page-header.php';
+require_once get_template_directory() . '/inc/class.related-posts.php';
+require_once get_template_directory() . '/inc/class.slider.php';
+require_once get_template_directory() . '/inc/class.habakiri-customizer-framework.php';
 require_once get_template_directory() . '/inc/customizer.php';
 
 function habakiri_parent_theme_setup() {
