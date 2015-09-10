@@ -9,7 +9,5 @@
  * License URI: license.txt
  */
 
-require_once get_template_directory() . '/inc/class.entry-meta.php';
-
 $EnetryMeta = new Habakiri_Entry_Meta();
 $EnetryMeta->display();

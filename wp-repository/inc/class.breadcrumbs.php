@@ -12,7 +12,7 @@
 class Habakiri_Breadcrumbs {
 
 	/**
-	 * パンくずの各項目を昇順で格納する配列
+	 * Store each item of breadcrumbs in ascending order
 	 * @var array
 	 */
 	protected $bread_crumb = array();
@@ -24,7 +24,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * パンくずリストを表示
+	 * Display breadcrumbs
 	 */
 	public function display() {
 		if ( Habakiri::get( 'is_displaying_bread_crumb' ) === 'false' ) {
@@ -33,11 +33,11 @@ class Habakiri_Breadcrumbs {
 
 		global $wp_query;
 
-		// パンくずリストにホームを設定
+		// Set to home
 		$home_label = $this->get_home_label();
 		$this->set( $home_label, home_url( '/' ) );
 
-		// パンくずリストにブログを設定
+		// Set to blog
 		$post_type = $this->get_post_type();
 		if ( ( is_category() || is_tag() || is_date() || is_author() ) || ( is_single() && $post_type === 'post' ) ) {
 			$show_on_front  = get_option( 'show_on_front' );
@@ -47,7 +47,7 @@ class Habakiri_Breadcrumbs {
 			}
 		}
 
-		// パンくずリストに現在および先祖のページを設定
+		// Set current and ancestors
 		if ( is_404() ) {
 			$this->set_for_404();
 		}
@@ -115,7 +115,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * トップページ用のラベルを返す
+	 * Return front page label
 	 *
 	 * @return string
 	 */
@@ -129,10 +129,10 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * パンくず項目を追加
+	 * add a item
 	 *
-	 * @param string $title リンクタイトル
-	 * @param string $link リンクURL
+	 * @param string $title
+	 * @param string $link
 	 */
 	protected function set( $title, $link = '' ) {
 		$this->bread_crumb[] = array(
@@ -142,7 +142,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * ブログトップページ表示時のパンくず項目を追加
+	 * Add a item at the time of blog page display
 	 */
 	protected function set_for_blog() {
 		$page_for_posts = get_option( 'page_for_posts' );
@@ -153,14 +153,14 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 404ページ表示時のパンくず項目を追加
+	 * Add a item at the time of 404 page display
 	 */
 	protected function set_for_404() {
 		$this->set( __( 'Page not found', 'habakiri' ) );
 	}
 
 	/**
-	 * 検索ページ表示時のパンくず項目を追加
+	 * Add a item at the time of search page display
 	 */
 	protected function set_for_search() {
 		$this->set(
@@ -172,7 +172,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * タクソノミーアーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of taxonomy archive page display
 	 */
 	protected function set_for_tax() {
 		$taxonomy = get_query_var( 'taxonomy' );
@@ -194,14 +194,14 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 添付ファイル表示時のパンくず項目を追加
+	 * Add a item at the time of attachement page display
 	 */
 	protected function set_for_attachment() {
 		$this->set( get_the_title() );
 	}
 
 	/**
-	 * 固定ページ表示時のパンくず項目を追加
+	 * Add a item at the time of page display
 	 */
 	protected function set_for_page() {
 		$this->set_ancestors( get_the_ID(), 'page' );
@@ -209,7 +209,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * カスタム投稿タイプアーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of custom post type archive page display
 	 */
 	protected function set_for_post_type_archive() {
 		$post_type = $this->get_post_type();
@@ -221,7 +221,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 個別投稿ページ表示時のパンくず項目を追加
+	 * Add a item at the time of single page display
 	 */
 	protected function set_for_single() {
 		$post_type = $this->get_post_type();
@@ -253,7 +253,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * カテゴリーアーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of category archive page display
 	 */
 	protected function set_for_category() {
 		$category_name = single_cat_title( '', false );
@@ -263,14 +263,14 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * タグアーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of tag archive page display
 	 */
 	protected function set_for_tag() {
 		$this->set( single_tag_title( '', false ) );
 	}
 
 	/**
-	 * 著者ページ表示時のパンくず項目を追加
+	 * Add a item at the time of author page display
 	 */
 	protected function set_for_author() {
 		$author_id = get_query_var( 'author' );
@@ -278,7 +278,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 日アーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of day page display
 	 */
 	protected function set_for_day() {
 		$year = get_query_var( 'year' );
@@ -297,7 +297,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 月アーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of month page display
 	 */
 	protected function set_for_month() {
 		$year = get_query_var( 'year' );
@@ -313,7 +313,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 年アーカイブ表示時のパンくず項目を追加
+	 * Add a item at the time of year page display
 	 */
 	protected function set_for_year() {
 		$year = get_query_var( 'year' );
@@ -325,9 +325,9 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 指定されたページもしくはタクソノミーの先祖をセット
+	 * Set the ancestors of the specified page or taxonomy
 	 *
-	 * @param int $object_id 投稿ID もしくは タームID
+	 * @param int $object_id Post ID or Term ID
 	 * @param string $object_type
 	 */
 	protected function set_ancestors( $object_id, $object_type ) {
@@ -346,9 +346,9 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 投稿タイプアーカイブページのURLを返す
+	 * Return custom post type archive page url
 	 *
-	 * @param string $post_type カスタム投稿タイプ名
+	 * @param string $post_type custom post type name
 	 * @return null|string
 	 */
 	protected function get_post_type_archive_link( $post_type ) {
@@ -359,7 +359,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 年のラベルを返す
+	 * Return year label
 	 *
 	 * @param string $year
 	 * @return string
@@ -372,7 +372,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 月のラベルを返す
+	 * Return month label
 	 *
 	 * @param string $month
 	 * @return string
@@ -401,7 +401,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 日のラベルを返す
+	 * Return day label
 	 *
 	 * @param string $day
 	 * @return string
@@ -414,7 +414,7 @@ class Habakiri_Breadcrumbs {
 	}
 
 	/**
-	 * 現在の投稿タイプを取得
+	 * Return the current post type
 	 *
 	 * @return string
 	 */

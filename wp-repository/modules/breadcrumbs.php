@@ -9,8 +9,6 @@
  * License URI: license.txt
  */
 
-require_once get_template_directory() . '/inc/class.breadcrumbs.php';
-
 if ( !is_front_page() ) {
 	$Bread_Crumb = new Habakiri_Breadcrumbs();
 	$Bread_Crumb->display();

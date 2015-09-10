@@ -12,7 +12,7 @@
 class Habakiri_Customizer {
 
 	/**
-	 * デフォルトテーマオプション
+	 * Default theme options
 	 * @var array
 	 */
 	protected static $defaults = array();
@@ -23,12 +23,11 @@ class Habakiri_Customizer {
 	protected $Customizer_Framework;
 
 	public function __construct() {
-		require_once get_template_directory() . '/inc/class.habakiri-customizer-framework.php';
 		$this->Customizer_Framework = new Habakiri_Customizer_Framework();
 	}
 
 	/**
-	 * デフォルト値を取得
+	 * Return default value
 	 *
 	 * @param string $key
 	 * @return null|string
@@ -101,7 +100,7 @@ class Habakiri_Customizer {
 	}
 
 	/**
-	 * テーマカスタマイザーにオリジナル項目を設定
+	 * Set the original item on the theme customizer
 	 *
 	 * @param WP_Customize_Manager $wp_customize
 	 */
@@ -639,7 +638,7 @@ class Habakiri_Customizer {
 	}
 
 	/**
-	 * カラーコードを rgb 表記に変換する
+	 * Convert the color code to the RGB
 	 *
 	 * @param string $hex
 	 */
@@ -658,7 +657,7 @@ class Habakiri_Customizer {
 	}
 
 	/**
-	 * CSS を登録
+	 * Register styles
 	 */
 	public function register_styles() {
 		$rgb_header_bg_color = $this->hex_to_rgb( Habakiri::get( 'header_bg_color' ) );

@@ -11,12 +11,21 @@
 
 class Habakiri_Page_Header {
 
+	/**
+	 * @var int
+	 */
 	protected $post_id;
 
+	/**
+	 * @param null|int $post_id
+	 */
 	public function __construct( $post_id = null ) {
 		$this->post_id = $post_id;
 	}
 
+	/**
+	 * Display page header
+	 */
 	public function display() {
 		$classes       = $this->get_classes();
 		$style         = $this->get_style();
@@ -34,6 +43,9 @@ class Habakiri_Page_Header {
 		<?php
 	}
 
+	/**
+	 * Display excerpt
+	 */
 	protected function the_excerpt() {
 		global $post;
 		$is_displaying_page_header_lead = Habakiri::get( 'is_displaying_page_header_lead' );
@@ -47,6 +59,11 @@ class Habakiri_Page_Header {
 		}
 	}
 
+	/**
+	 * Return the title for current page
+	 *
+	 * @return string
+	 */
 	protected function get_title() {
 		if ( $this->post_id ) {
 			return get_the_title( $this->post_id );
@@ -68,6 +85,11 @@ class Habakiri_Page_Header {
 		return $post_type_object->labels->name;
 	}
 
+	/**
+	 * Return style attribute for custom header
+	 *
+	 * @return string
+	 */
 	protected function get_style() {
 		if ( get_header_image() ) {
 			return sprintf(
@@ -77,12 +99,20 @@ class Habakiri_Page_Header {
 		}
 	}
 
+	/**
+	 * Return classes for custom header
+	 *
+	 * @return string
+	 */
 	protected function get_classes() {
 		if ( get_header_image() ) {
 			return 'page-header--has_background-image';
 		}
 	}
 
+	/**
+	 * Return classes for title
+	 */
 	protected function get_title_classes() {
 		$title_classes = '';
 		return apply_filters( 'habakiri_title_class_in_page_header', $title_classes );
