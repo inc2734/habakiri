@@ -377,7 +377,7 @@ class Habakiri_Customizer {
 		) );
 
 		$this->Customizer_Framework->radio( 'is_displaying_page_header_lead', array(
-			'label'   => __( 'Displaying lead of page header in single page', 'habakiri' ),
+			'label'   => __( 'Displaying lead of page header in page', 'habakiri' ),
 			'default' => self::get_default( 'is_displaying_page_header_lead' ),
 			'section' => 'habakiri_design',
 			'choices' => array(

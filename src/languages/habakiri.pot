@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: habakiri 2.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-08-31 23:42:27+00:00\n"
+"POT-Creation-Date: 2015-09-10 01:07:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,43 +60,43 @@ msgstr ""
 msgid "No posts."
 msgstr ""
 
-#: functions.php:106 inc/customizer.php:177
+#: functions.php:109 inc/customizer.php:185 inc/customizer.php:446
 msgid "Global Navigation"
 msgstr ""
 
-#: functions.php:107
+#: functions.php:110
 msgid "Social Navigation"
 msgstr ""
 
-#: functions.php:127 functions.php:129
+#: functions.php:130 functions.php:132
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:136 inc/customizer.php:152
+#: functions.php:139 inc/customizer.php:160 inc/customizer.php:428
 msgid "Footer"
 msgstr ""
 
-#: functions.php:138
+#: functions.php:141
 msgid "Footer Widget Area"
 msgstr ""
 
-#: functions.php:181
+#: functions.php:190
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:186 functions.php:232
+#: functions.php:195 functions.php:241
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr ""
 
-#: inc/class.breadcrumbs.php:122
+#: inc/class.breadcrumbs.php:124
 msgid "Home"
 msgstr ""
 
-#: inc/class.breadcrumbs.php:157
+#: inc/class.breadcrumbs.php:159
 msgid "Page not found"
 msgstr ""
 
-#: inc/class.breadcrumbs.php:166 inc/class.page-header.php:60
+#: inc/class.breadcrumbs.php:168 inc/class.page-header.php:60
 msgid "Search Results for: %s"
 msgstr ""
 
@@ -124,286 +124,314 @@ msgstr ""
 msgid "Related posts"
 msgstr ""
 
-#: inc/customizer.php:109
+#: inc/customizer.php:115
 msgid "Colors"
 msgstr ""
 
-#: inc/customizer.php:114
+#: inc/customizer.php:122
 msgid "General"
 msgstr ""
 
-#: inc/customizer.php:119
+#: inc/customizer.php:127
 msgid "Logo text color"
 msgstr ""
 
-#: inc/customizer.php:125 inc/customizer.php:169 inc/customizer.php:188
+#: inc/customizer.php:133 inc/customizer.php:177 inc/customizer.php:196
 msgid "Link text color"
 msgstr ""
 
-#: inc/customizer.php:131 inc/customizer.php:194
+#: inc/customizer.php:139 inc/customizer.php:202
 msgid "Link text hover color"
 msgstr ""
 
-#: inc/customizer.php:139 inc/customizer.php:378
+#: inc/customizer.php:147 inc/customizer.php:399 inc/customizer.php:404
 msgid "Header"
 msgstr ""
 
-#: inc/customizer.php:144 inc/customizer.php:157 inc/customizer.php:182
-#: inc/customizer.php:267 inc/customizer.php:286
+#: inc/customizer.php:152 inc/customizer.php:165 inc/customizer.php:190
+#: inc/customizer.php:287 inc/customizer.php:306
 msgid "Background color"
 msgstr ""
 
-#: inc/customizer.php:163 inc/customizer.php:243 inc/customizer.php:292
+#: inc/customizer.php:171 inc/customizer.php:263 inc/customizer.php:312
 msgid "Text color"
 msgstr ""
 
-#: inc/customizer.php:200
+#: inc/customizer.php:208
 msgid "Menu background color"
 msgstr ""
 
-#: inc/customizer.php:206
+#: inc/customizer.php:214
 msgid "Menu background hover color"
 msgstr ""
 
-#: inc/customizer.php:212
+#: inc/customizer.php:220
+msgid "Sub label color"
+msgstr ""
+
+#: inc/customizer.php:226
+msgid "Sub label hover color"
+msgstr ""
+
+#: inc/customizer.php:232
 msgid "Pulldown link text color"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:238
 msgid "Pulldown link text hover color"
 msgstr ""
 
-#: inc/customizer.php:224
+#: inc/customizer.php:244
 msgid "Pulldown menu background color"
 msgstr ""
 
-#: inc/customizer.php:230
+#: inc/customizer.php:250
 msgid "Pulldown menu background hover color"
 msgstr ""
 
-#: inc/customizer.php:238
+#: inc/customizer.php:258
 msgid "hamburger Button"
 msgstr ""
 
-#: inc/customizer.php:249
+#: inc/customizer.php:269
 msgid "Text hover color"
 msgstr ""
 
-#: inc/customizer.php:255
+#: inc/customizer.php:275
 msgid "Border color"
 msgstr ""
 
-#: inc/customizer.php:261
+#: inc/customizer.php:281
 msgid "Border hover color"
 msgstr ""
 
-#: inc/customizer.php:273
+#: inc/customizer.php:293
 msgid "Background hover color"
 msgstr ""
 
-#: inc/customizer.php:281
+#: inc/customizer.php:301
 msgid "Page Header"
 msgstr ""
 
-#: inc/customizer.php:300 inc/customizer.php:477
+#: inc/customizer.php:320 inc/customizer.php:565
 msgid "Settings"
 msgstr ""
 
-#: inc/customizer.php:305
+#: inc/customizer.php:325
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer.php:310
-msgid "Displaying thumbnail in archive page"
-msgstr ""
-
-#: inc/customizer.php:314 inc/customizer.php:324 inc/customizer.php:334
-#: inc/customizer.php:344 inc/customizer.php:354 inc/customizer.php:394
-msgid "No"
-msgstr ""
-
-#: inc/customizer.php:315 inc/customizer.php:325 inc/customizer.php:335
-#: inc/customizer.php:345 inc/customizer.php:355 inc/customizer.php:395
-msgid "Yes"
-msgstr ""
-
-#: inc/customizer.php:320
-msgid "Displaying the Bread Crumb"
-msgstr ""
-
 #: inc/customizer.php:330
-msgid "Displaying related posts in single page"
+msgid "Excerpt length"
 msgstr ""
 
 #: inc/customizer.php:340
-msgid "Displaying page header"
+msgid "Displaying thumbnail in archive page"
+msgstr ""
+
+#: inc/customizer.php:344 inc/customizer.php:354 inc/customizer.php:364
+#: inc/customizer.php:374 inc/customizer.php:384 inc/customizer.php:420
+msgid "No"
+msgstr ""
+
+#: inc/customizer.php:345 inc/customizer.php:355 inc/customizer.php:365
+#: inc/customizer.php:375 inc/customizer.php:385 inc/customizer.php:421
+msgid "Yes"
 msgstr ""
 
 #: inc/customizer.php:350
-msgid "Displaying lead of page header in single page"
+msgid "Displaying the Bread Crumb"
 msgstr ""
 
-#: inc/customizer.php:362
+#: inc/customizer.php:360
+msgid "Displaying related posts in single page"
+msgstr ""
+
+#: inc/customizer.php:370
+msgid "Displaying page header"
+msgstr ""
+
+#: inc/customizer.php:380
+msgid "Displaying lead of page header in page"
+msgstr ""
+
+#: inc/customizer.php:392
 msgid "Layout"
 msgstr ""
 
-#: inc/customizer.php:367
-msgid "Breakpoint to switch off canvas navigation"
-msgstr ""
-
-#: inc/customizer.php:371
-msgid "Always"
-msgstr ""
-
-#: inc/customizer.php:372
-msgid "Tablet size"
-msgstr ""
-
-#: inc/customizer.php:373
-msgid "Laptop size"
-msgstr ""
-
-#: inc/customizer.php:382
+#: inc/customizer.php:408
 msgid "Default"
 msgstr ""
 
-#: inc/customizer.php:383
+#: inc/customizer.php:409
 msgid "2 rows"
 msgstr ""
 
-#: inc/customizer.php:384
+#: inc/customizer.php:410
 msgid "Center Logo"
 msgstr ""
 
-#: inc/customizer.php:385
+#: inc/customizer.php:411
 msgid "Transparency"
 msgstr ""
 
-#: inc/customizer.php:390
+#: inc/customizer.php:416
 msgid "Header Fixed"
 msgstr ""
 
-#: inc/customizer.php:400
-msgid "Global Navigation link padding ( Horizontal )"
-msgstr ""
-
-#: inc/customizer.php:410
-msgid "Global Navigation link padding ( Vertical )"
-msgstr ""
-
-#: inc/customizer.php:420
+#: inc/customizer.php:433
 msgid "Number of footer columns"
 msgstr ""
 
-#: inc/customizer.php:424
+#: inc/customizer.php:437
 msgid "2 Columns"
 msgstr ""
 
-#: inc/customizer.php:425
+#: inc/customizer.php:438
 msgid "3 Columns"
 msgstr ""
 
-#: inc/customizer.php:426
+#: inc/customizer.php:439
 msgid "4 Columns"
 msgstr ""
 
-#: inc/customizer.php:431
+#: inc/customizer.php:451
+msgid "Breakpoint to switch off canvas navigation"
+msgstr ""
+
+#: inc/customizer.php:455
+msgid "Always"
+msgstr ""
+
+#: inc/customizer.php:456
+msgid "Tablet size"
+msgstr ""
+
+#: inc/customizer.php:457
+msgid "Laptop size"
+msgstr ""
+
+#: inc/customizer.php:462
+msgid "Font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:472
+msgid "Sub label font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:482
+msgid "link padding ( Horizontal )"
+msgstr ""
+
+#: inc/customizer.php:492
+msgid "link padding ( Vertical )"
+msgstr ""
+
+#: inc/customizer.php:502
+msgid "Offcanvas Navigation font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:514
+msgid "Template"
+msgstr ""
+
+#: inc/customizer.php:519
 msgid "Blog Template"
 msgstr ""
 
-#: inc/customizer.php:435 inc/customizer.php:448 inc/customizer.php:461
+#: inc/customizer.php:523 inc/customizer.php:536 inc/customizer.php:549
 msgid "Right Sidebar"
 msgstr ""
 
 #. #-#-#-#-#  habakiri.pot (habakiri 2.0.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: inc/customizer.php:436 inc/customizer.php:449 inc/customizer.php:462
+#: inc/customizer.php:524 inc/customizer.php:537 inc/customizer.php:550
 msgid "Left Sidebar"
 msgstr ""
 
 #. #-#-#-#-#  habakiri.pot (habakiri 2.0.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: inc/customizer.php:437 inc/customizer.php:450 inc/customizer.php:463
+#: inc/customizer.php:525 inc/customizer.php:538 inc/customizer.php:551
 msgid "No Sidebar"
 msgstr ""
 
 #. #-#-#-#-#  habakiri.pot (habakiri 2.0.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: inc/customizer.php:438 inc/customizer.php:451 inc/customizer.php:464
+#: inc/customizer.php:526 inc/customizer.php:539 inc/customizer.php:552
 msgid "Full Width ( Fixed )"
 msgstr ""
 
 #. #-#-#-#-#  habakiri.pot (habakiri 2.0.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
-#: inc/customizer.php:439 inc/customizer.php:452 inc/customizer.php:465
+#: inc/customizer.php:527 inc/customizer.php:540 inc/customizer.php:553
 msgid "Full Width ( Fluid )"
 msgstr ""
 
-#: inc/customizer.php:444
+#: inc/customizer.php:532
 msgid "Search Template"
 msgstr ""
 
-#: inc/customizer.php:457
+#: inc/customizer.php:545
 msgid "404 Template"
 msgstr ""
 
-#: inc/customizer.php:472
+#: inc/customizer.php:560
 msgid "Front page Slider"
 msgstr ""
 
-#: inc/customizer.php:482
+#: inc/customizer.php:570
 msgid "Effect"
 msgstr ""
 
-#: inc/customizer.php:486
+#: inc/customizer.php:574
 msgid "Slide"
 msgstr ""
 
-#: inc/customizer.php:487
+#: inc/customizer.php:575
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer.php:492
-msgid "Interval (ms)"
+#: inc/customizer.php:580
+msgid "Interval ( ms )"
 msgstr ""
 
-#: inc/customizer.php:498
-msgid "Effect Speed (ms)"
+#: inc/customizer.php:586
+msgid "Effect Speed ( ms )"
 msgstr ""
 
-#: inc/customizer.php:504
+#: inc/customizer.php:592
 msgid "Overlay color"
 msgstr ""
 
-#: inc/customizer.php:510
+#: inc/customizer.php:598
 msgid "Overlay opacity"
 msgstr ""
 
-#: inc/customizer.php:521
-msgid "Height (px)"
+#: inc/customizer.php:609
+msgid "Height ( px )"
 msgstr ""
 
-#: inc/customizer.php:524
+#: inc/customizer.php:612
 msgid "If 0, height is auto."
 msgstr ""
 
-#: inc/customizer.php:530
+#: inc/customizer.php:618
 msgid "Image (%d)"
 msgstr ""
 
-#: inc/customizer.php:534
+#: inc/customizer.php:622
 msgid "Image"
 msgstr ""
 
-#: inc/customizer.php:538
+#: inc/customizer.php:626
 msgid "Content"
 msgstr ""
 
-#: inc/customizer.php:542
+#: inc/customizer.php:630
 msgid "URL"
 msgstr ""
 
-#: inc/customizer.php:546
+#: inc/customizer.php:634
 msgid "Open link in new window"
 msgstr ""
 
@@ -423,21 +451,21 @@ msgstr ""
 msgid "Powered by %s"
 msgstr ""
 
-#: modules/slider.php:30
+#: modules/slider.php:31
 msgid ""
 "Habakiri is a simple theme based on Bootstrap3. This theme's goal is to "
 "create a responsive, bootstrap based WordPress theme quickly."
 msgstr ""
 
-#: modules/slider.php:41
+#: modules/slider.php:42
 msgid "Habakiri have slider feature !"
 msgstr ""
 
-#: modules/slider.php:42
+#: modules/slider.php:43
 msgid "This is sample slider. You can setting slider in Customizer."
 msgstr ""
 
-#: modules/slider.php:43
+#: modules/slider.php:44
 msgid "The set sliders are displayed in Rich Front Page template."
 msgstr ""
 
