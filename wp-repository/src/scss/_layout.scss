@@ -28,10 +28,8 @@
 #main {
 	margin-bottom: 60px;
 
-	.page-template-templatesfront-page-php &,
-	.page-template-templatesfull-width-fluid-php &,
-	.blog-template-archive-full-width-fluid &,
-	.blog-template-archive-single-width-fluid & {
+	.page-template-front-page &,
+	.page-template-rich-front-page {
 		margin-bottom: 0;
 	}
 }
@@ -44,6 +42,8 @@
 	}
 
 	&__content {
+		@extend .clearfix;
+		
 		> *:first-child {
 			margin-top: 0;
 		}
