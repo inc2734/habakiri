@@ -9,6 +9,7 @@
     "backbone": "global:Backbone"
   },
   "devDependencies": {
+    "browser-sync": "^2.9.3",
     "browserify": "^9.0.8",
     "browserify-shim": "^3.8.10",
     "gulp": "^3.8.10",

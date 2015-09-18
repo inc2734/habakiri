@@ -1,11 +1,12 @@
-var gulp       = require( 'gulp' );
-var watch      = require( 'gulp-watch' );
-var sass       = require( 'gulp-sass' );
-var cssmin     = require( 'gulp-minify-css' );
-var rename     = require( 'gulp-rename' );
-var uglifyjs   = require( 'gulp-uglifyjs' );
-var browserify = require( 'browserify' );
-var source     = require( 'vinyl-source-stream' );
+var gulp         = require( 'gulp' );
+var watch        = require( 'gulp-watch' );
+var sass         = require( 'gulp-sass' );
+var cssmin       = require( 'gulp-minify-css' );
+var rename       = require( 'gulp-rename' );
+var uglifyjs     = require( 'gulp-uglifyjs' );
+var browserify   = require( 'browserify' );
+var source       = require( 'vinyl-source-stream' );
+var browser_sync = require( 'browser-sync' )
 
 gulp.task( 'sass', function() {
 	return gulp.src( './src/scss/*.scss' )
@@ -34,7 +35,16 @@ gulp.task( 'browserify', function() {
 		} );
 } );
 
-gulp.task( 'watch', ['sass', 'browserify'], function() {
-	gulp.watch( ['./src/scss/**/*.scss', './src/scss/*.scss'], ['sass'] );
-	gulp.watch( ['./src/js/**/*.js', './src/js/*.js'], ['browserify'] );
+gulp.task( 'browsersync', function() {
+	browser_sync.init( {
+		proxy: 'habakiri.wptheme.local'
+	} );
+} );
+
+gulp.task( 'watch', ['sass', 'browserify', 'browsersync'], function() {
+	gulp.watch( ['src/scss/**/*.scss', 'src/scss/*.scss'], ['sass'] );
+	gulp.watch( ['src/js/**/*.js', 'src/js/*.js'], ['browserify'] );
+	gulp.watch( ['**/*.php', 'js/app.min.js', 'images/**', 'style.min.css'], function() {
+		browser_sync.reload();
+	} );
 } );
