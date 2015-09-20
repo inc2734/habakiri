@@ -110,7 +110,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 * .section: A class for sectioning contents with margins in, for example, one page design.
 * .section.section--image: A class to adjust background image for a section.
 * .section.section--fixed: A fixed version of section.section--image class.
-* .section .section--title: A class for section title.
+* .section .section__title: A class for section title.
 * jumbotron .btn-default: A class which is provided in Bootstrap but I've customized it into Ghost style.
 
 = Offcanvas navigation on mobiles =
@@ -165,6 +165,9 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.0.2 =
+* Fixed some css.
 
 = 2.0.1 =
 * Fixed some css.
