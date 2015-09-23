@@ -33,11 +33,13 @@
 		<div class="container">
 			<div class="row header__content">
 				<div class="col-xs-10 <?php echo esc_attr( $site_branding_size ); ?> header__col">
+					<?php do_action( 'habakiri_before_site_branding' ); ?>
 					<div class="site-branding">
 						<h1 class="site-branding__heading">
 							<?php get_template_part( 'modules/logo' ); ?>
 						</h1>
 					<!-- end .site-branding --></div>
+					<?php do_action( 'habakiri_after_site_branding' ); ?>
 				<!-- end .header__col --></div>
 				<div class="col-xs-2 <?php echo esc_attr( $gnav_size ); ?> header__col global-nav-wrapper clearfix">
 					<?php get_template_part( 'modules/gnav' ); ?>
