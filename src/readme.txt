@@ -168,6 +168,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 2.0.2 =
 * Fixed some css.
+* Fixed a footer-widget-area bug when no footer widgets.
 * Add action hook habakiri_before_site_branding.
 * Add action hook habakiri_after_site_branding.
 * Add template part site-branding.
