@@ -168,8 +168,9 @@ add_filter( 'foo', 'your_filter' );
 
 = 2.0.2 =
 * Fixed some css.
-* add action hook habakiri_before_site_branding.
-* add action hook habakiri_after_site_branding.
+* Add action hook habakiri_before_site_branding.
+* Add action hook habakiri_after_site_branding.
+* Add template part site-branding.
 
 = 2.0.1 =
 * Fixed some css.
