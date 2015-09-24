@@ -172,6 +172,7 @@ add_filter( 'foo', 'your_filter' );
 * Add action hook habakiri_before_site_branding.
 * Add action hook habakiri_after_site_branding.
 * Add template part site-branding.
+* Add new setting: Offcanvas navigation slide direction.
 
 = 2.0.1 =
 * Fixed some css.

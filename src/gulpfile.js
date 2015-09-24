@@ -37,12 +37,12 @@ gulp.task( 'browserify', function() {
 
 gulp.task( 'browsersync', function() {
 	browser_sync.init( {
-		proxy: 'habakiri.wptheme.local'
+		proxy: 'habakiri.wptheme.dev'
 	} );
 } );
 
 gulp.task( 'watch', ['sass', 'browserify', 'browsersync'], function() {
-	gulp.watch( ['src/scss/**/*.scss', 'src/scss/*.scss'], ['sass'] );
+	gulp.watch( ['src/scss/**/*.scss', 'src/scss/*.scss', 'src/js/**/*.css'], ['sass'] );
 	gulp.watch( ['src/js/**/*.js', 'src/js/*.js'], ['browserify'] );
 	gulp.watch( ['**/*.php', 'js/app.min.js', 'images/**', 'style.min.css'], function() {
 		browser_sync.reload();

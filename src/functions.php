@@ -77,6 +77,7 @@ class Habakiri_Base_Functions {
 
 		add_action( 'widgets_init'      , array( $this, 'register_sidebar' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'wp_footer'         , array( $this, 'wp_footer' ) );
 
 		add_filter( 'tiny_mce_before_init'    , array( $this, 'tiny_mce_before_init' ) );
 		add_filter( 'body_class'              , array( $this, 'body_class' ) );
@@ -298,6 +299,18 @@ class Habakiri_Base_Functions {
 			$version,
 			true
 		);
+	}
+	
+	public function wp_footer() {
+		?>
+		<script>
+		jQuery( function( $ ) {
+			$( '.js-responsive-nav' ).responsive_nav( {
+				direction: '<?php echo esc_js( Habakiri::get( 'offcanvas_nav_direction' ) ); ?>'
+			} );
+		} );
+		</script>
+		<?php
 	}
 
 	/**
