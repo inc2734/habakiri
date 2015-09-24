@@ -13,17 +13,16 @@
 	<!-- end #contents --></div>
 	<footer id="footer" class="footer">
 		<?php do_action( 'habakiri_before_footer_content' ); ?>
+		
+		<?php if ( is_active_sidebar( 'footer-widget-area' ) ) : ?>
 		<div class="footer-widget-area">
 			<div class="container">
 				<div class="row">
-					<?php
-					if ( is_active_sidebar( 'footer-widget-area' ) ) {
-						dynamic_sidebar( 'footer-widget-area' );
-					}
-					?>
+					<?php dynamic_sidebar( 'footer-widget-area' ); ?>
 				<!-- end .row --></div>
 			<!-- end .container --></div>
 		<!-- end .footer-widget-area --></div>
+		<?php endif; ?>
 
 		<?php if ( has_nav_menu( 'social-nav' ) ) : ?>
 		<div class="social-nav">

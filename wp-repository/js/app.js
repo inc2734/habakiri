@@ -15,11 +15,6 @@ var adminbar  = require( './adminbar.js' );
 var getScroll = require( './scroll.js' );
 
 jQuery( function( $ ) {
-
-	/**
-	 * .global-nav
-	 */
-	$( '.js-responsive-nav' ).responsive_nav();
 	
 	/**
 	 * content top padding tuning with fixed and no transparency header
@@ -2470,11 +2465,11 @@ module.exports = {
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.1.3
+ * Version    : 2.2.0
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : September 3, 2015
+ * modified   : September 24, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -2483,7 +2478,8 @@ module.exports = {
 	$.fn.responsive_nav = function( config ) {
 		var config = $.extend( {
 			container: $( 'body' ),
-			contents : $( '#container' )
+			contents : $( '#container' ),
+			direction: 'right'
 		}, config );
 
 		var resize_timer   = false;
@@ -2494,6 +2490,11 @@ module.exports = {
 
 		return this.each( function( i, e ) {
 			container.addClass( 'responsive-nav-wrapper' );
+			if ( config.direction === 'left' ) {
+				container.addClass( 'off-canvas-nav-left' );
+			} else {
+				container.addClass( 'off-canvas-nav-right' );
+			}
 			contents.addClass( 'responsive-nav-contents' );
 			offcanvas_nav.addClass( 'off-canvas-nav' );
 
@@ -2527,7 +2528,7 @@ module.exports = {
 			} );
 
 			$( '#responsive-btn' ).on( 'click', function( e ) {
-				if ( container.hasClass( 'open' ) ) {
+				if ( container.hasClass( 'off-canvas-nav-open' ) ) {
 					nav_close();
 				} else {
 					nav_open();
@@ -2540,7 +2541,7 @@ module.exports = {
 				var contain_nav = offcanvas_nav.get( 0 );
 				var contained   = e.target;
 				if ( contain_btn != contained && !$.contains( contain_nav, contained ) && contain_nav != contained ) {
-					if ( container.hasClass( 'open' ) ) {
+					if ( container.hasClass( 'off-canvas-nav-open' ) ) {
 						nav_close();
 					}
 				}
@@ -2548,17 +2549,12 @@ module.exports = {
 		} );
 
 		function init() {
-			offcanvas_nav.css( 'right', - get_slide_width() );
 			nav_close();
-		}
-
-		function get_slide_width() {
-			return offcanvas_nav.width();
 		}
 
 		function nav_open() {
 			offcanvas_nav.css( 'visibility', 'visible' );
-			container.addClass( 'open' );
+			container.addClass( 'off-canvas-nav-open' );
 
 			if ( is_ios() ) {
 				$( 'html' ).addClass( 'open-for-ios' );
@@ -2566,7 +2562,7 @@ module.exports = {
 		}
 
 		function nav_close() {
-			container.removeClass( 'open' );
+			container.removeClass( 'off-canvas-nav-open' );
 
 			container.removeClass( 'open-for-ios' );
 			$( 'html' ).removeClass( 'open-for-ios' );

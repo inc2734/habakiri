@@ -29,7 +29,7 @@
 	margin-bottom: 60px;
 
 	.page-template-front-page &,
-	.page-template-rich-front-page {
+	.page-template-rich-front-page & {
 		margin-bottom: 0;
 	}
 }

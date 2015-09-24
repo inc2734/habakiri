@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.4.0
+ * Version    : 1.5.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 18, 2015
+ * Modified   : September 24, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -63,6 +63,7 @@ class Habakiri_Customizer {
 				'gnav_pulldown_bg_color'           => '#000',
 				'gnav_pulldown_bg_hover_color'     => '#191919',
 				'offcanvas_nav_fontsize'           => 12,
+				'offcanvas_nav_direction'          => 'right',
 				'hamburger_btn_text_color'         => '#000',
 				'hamburger_btn_text_hover_color'   => '#000',
 				'hamburger_btn_border_color'       => '#eee',
@@ -504,6 +505,16 @@ class Habakiri_Customizer {
 			'input_attrs' => array(
 				'size'  => 3,
 				'style' => 'width: 60px;'
+			),
+		) );
+
+		$this->Customizer_Framework->radio( 'offcanvas_nav_direction', array(
+			'label'   => __( 'Offcanvas Navigation slide direction', 'habakiri' ),
+			'default' => self::get_default( 'offcanvas_nav_direction' ),
+			'section' => 'habakiri_layout_gnav',
+			'choices' => array(
+				'right' => __( 'Right', 'habakiri' ),
+				'left'  => __( 'Left', 'habakiri' ),
 			),
 		) );
 	

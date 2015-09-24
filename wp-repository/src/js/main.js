@@ -14,11 +14,6 @@ var adminbar  = require( './adminbar.js' );
 var getScroll = require( './scroll.js' );
 
 jQuery( function( $ ) {
-
-	/**
-	 * .global-nav
-	 */
-	$( '.js-responsive-nav' ).responsive_nav();
 	
 	/**
 	 * content top padding tuning with fixed and no transparency header

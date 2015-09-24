@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.0
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: license.txt
 
@@ -110,7 +110,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 * .section: A class for sectioning contents with margins in, for example, one page design.
 * .section.section--image: A class to adjust background image for a section.
 * .section.section--fixed: A fixed version of section.section--image class.
-* .section .section--title: A class for section title.
+* .section .section__title: A class for section title.
 * jumbotron .btn-default: A class which is provided in Bootstrap but I've customized it into Ghost style.
 
 = Offcanvas navigation on mobiles =
@@ -165,6 +165,14 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.0.2 =
+* Fixed some css.
+* Fixed a footer-widget-area bug when no footer widgets.
+* Add action hook habakiri_before_site_branding.
+* Add action hook habakiri_after_site_branding.
+* Add template part site-branding.
+* Add new setting: Offcanvas navigation slide direction.
 
 = 2.0.1 =
 * Fixed some css.

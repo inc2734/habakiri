@@ -1,10 +1,10 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.2.1
+ * Version    : 2.3.0
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : August 30, 2015
+ * modified   : September 24, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -13,34 +13,68 @@
 /**
  * body
  */
-.responsive-nav-wrapper.open {
+.responsive-nav-wrapper.off-canvas-nav-open {
 	overflow: hidden;
 }
 .responsive-nav-wrapper #responsive-btn:before {
 	content: '\f419';
 }
-.responsive-nav-wrapper.open #responsive-btn:before {
+.responsive-nav-wrapper.off-canvas-nav-open #responsive-btn:before {
 	display: block;
 	content: '\f406';
 }
-
 .off-canvas-nav {
 	width: 300px;
 }
-.responsive-nav-wrapper.open .responsive-nav-contents,
-.responsive-nav-wrapper.open .off-canvas-nav {
+.responsive-nav-wrapper.off-canvas-nav-open .responsive-nav-contents,
+.responsive-nav-wrapper.off-canvas-nav-open .off-canvas-nav {
 		transition: transform 0.2s ease-out;
 	-ms-transition: transform 0.2s ease-out;
-			transform: translate( -300px, 0 );
-		-ms-transform: translate( -300px, 0 );
-	-webkit-transform: translate( -300px, 0 );
 }
 @media ( max-width: 320px ) {
 	.off-canvas-nav {
 		width: 220px;
 	}
-	.responsive-nav-wrapper.open .responsive-nav-contents,
-	.responsive-nav-wrapper.open .off-canvas-nav {
+}
+
+/* left slide */
+.off-canvas-nav-left .off-canvas-nav {
+	left: -300px;
+}
+.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-left .responsive-nav-contents,
+.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-left .off-canvas-nav {
+			transform: translate( 300px, 0 );
+		-ms-transform: translate( 300px, 0 );
+	-webkit-transform: translate( 300px, 0 );
+}
+@media ( max-width: 320px ) {
+	.off-canvas-nav-left .off-canvas-nav {
+		left: -220px;
+	}
+	.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-left .responsive-nav-contents,
+	.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-left .off-canvas-nav {
+				transform: translate( 220px, 0 );
+			-ms-transform: translate( 220px, 0 );
+		-webkit-transform: translate( 220px, 0 );
+	}
+}
+
+/* right slide */
+.off-canvas-nav-right .off-canvas-nav {
+	right: -300px;
+}
+.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-right .responsive-nav-contents,
+.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-right .off-canvas-nav {
+			transform: translate( -300px, 0 );
+		-ms-transform: translate( -300px, 0 );
+	-webkit-transform: translate( -300px, 0 );
+}
+@media ( max-width: 320px ) {
+	.off-canvas-nav-right .off-canvas-nav {
+		right: -220px;
+	}
+	.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-right .responsive-nav-contents,
+	.responsive-nav-wrapper.off-canvas-nav-open.off-canvas-nav-right .off-canvas-nav {
 				transform: translate( -220px, 0 );
 			-ms-transform: translate( -220px, 0 );
 		-webkit-transform: translate( -220px, 0 );
@@ -158,7 +192,6 @@
 	position: fixed !important;
 	top: 0 !important;
 	bottom: 0 !important;
-	right: -100%;
 }
 .off-canvas-nav * {
 	background-image: none !important;
