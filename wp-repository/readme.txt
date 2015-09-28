@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.0
-Stable tag: 2.0.2
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: license.txt
 
@@ -166,7 +166,7 @@ add_filter( 'foo', 'your_filter' );
 
 == Changelog ==
 
-= 2.0.2 =
+= 2.1.0 =
 * Fixed some css.
 * Fixed a footer-widget-area bug when no footer widgets.
 * Add action hook habakiri_before_site_branding.

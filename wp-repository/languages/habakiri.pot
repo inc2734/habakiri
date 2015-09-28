@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 2.0.2\n"
+"Project-Id-Version: habakiri 2.1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
 "POT-Creation-Date: 2015-09-24 00:33:47+00:00\n"
 "MIME-Version: 1.0\n"
