@@ -2502,9 +2502,11 @@ module.exports = {
 			}
 			contents.addClass( 'responsive-nav-contents' );
 			offcanvas_nav.addClass( 'off-canvas-nav' );
+			offcanvas_nav.removeClass( 'nav--hide' );
 
 			container.prepend( offcanvas_nav );
 			responsive_nav.addClass( 'responsive-nav' );
+			responsive_nav.removeClass( 'nav--hide' );
 
 			init();
 

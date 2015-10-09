@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri_Customizer
- * Version    : 1.5.0
+ * Version    : 1.5.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : September 24, 2015
+ * Modified   : October 10, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -990,7 +990,7 @@ class Habakiri_Customizer {
 					'.responsive-nav',
 				),
 				array(
-					'display: block !important',
+					'display: block',
 				),
 				'',
 				$gnav_breakpoint

@@ -168,6 +168,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 2.1.1 =
 * Offcanvas navigation does not auto created when .off-canvas-nav exists.
+* Refactoring global navigation styles.
 
 = 2.1.0 =
 * Fixed some css.

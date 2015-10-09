@@ -1,10 +1,10 @@
 /**
  * jquery.responsive-nav.css
- * Version    : 2.3.0
+ * Version    : 2.3.1
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : September 24, 2015
+ * modified   : October 10, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -87,11 +87,14 @@
 }
 
 .responsive-nav {
-	display: none !important;
+	display: none;
 }
 .off-canvas-nav {
-	display: block !important;
+	display: block;
 	visibility: hidden;
+}
+.nav--hide {
+	display: none;
 }
 @media print {
 	.off-canvas-nav {
@@ -123,60 +126,72 @@
 .responsive-nav {
 }
 .responsive-nav ul,
-.responsive-nav ul li {
+.responsive-nav li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	*zoom: 1;
+}
+.responsive-nav:before,
+.responsive-nav:after,
+.responsive-nav ul:before,
+.responsive-nav ul:after,
+.responsive-nav li:before,
+.responsive-nav li:after,
+.responsive-nav a:before,
+.responsive-nav a:after {
+	content: ' ';
+	display: table;
 }
 .responsive-nav:after,
 .responsive-nav ul:after,
-.responsive-nav ul li:after {
+.responsive-nav li:after,
+.responsive-nav a:after {
 	clear: both;
-	content: '';
-	display: block;
 }
-.responsive-nav ul li {
-	float: left;
+.responsive-nav ul {
+}
+.responsive-nav li {
 	position: relative;
 }
-.responsive-nav ul li a {
+.responsive-nav a {
 	display: block;
+	text-decoration: none;
 }
-.responsive-nav ul li ul {
-	display: block !important;
-	position: absolute;
+.responsive-nav a:hover,
+.responsive-nav a:active,
+.responsive-nav a:focus {
+	text-decoration: none;
+}
+.responsive-nav ul ul a {
+	padding: 10px 15px;
+}
+.responsive-nav>ul>li,
+.responsive-nav>*>ul>li {
+	float: left;
+}
+.responsive-nav li ul {
 	width: 220px;
-	left: 0;
 	visibility: hidden;
 	opacity: 0;
 	transition: visibility 0.1s ease-in, opacity 0.1s ease-in;
 }
-.responsive-nav ul:first-child li:hover>ul {
-	visibility: visible;
-	opacity: 1;
-}
-.responsive-nav ul:first-child>li>ul {
+.responsive-nav>ul>li>ul,
+.responsive-nav>*>ul>li>ul {
+	position: absolute;
 	top: 100%;
+	left: 0;
 }
-.responsive-nav ul li ul.show-pulldown {
-	display: block;
-}
-.responsive-nav ul li ul li {
-	float: none !important;
-	position: relative;
-	width: auto !important;
-}
-.responsive-nav ul li ul li a {
-	font-weight: normal;
-	padding: 10px 15px;
-}
-.responsive-nav ul li ul li ul {
+.responsive-nav>ul>li>ul ul,
+.responsive-nav>*>ul>li>ul ul{
 	position: absolute;
 	top: 0;
 	left: 219px;
 }
-.responsive-nav ul li ul li ul.reverse-pulldown {
+.responsive-nav li:hover ul {
+	visibility: visible;
+	opacity: 1;
+}
+.responsive-nav ul.reverse-pulldown {
 	left: -219px;
 }
 
@@ -184,65 +199,60 @@
  * .off-canvas-nav
  */
 .off-canvas-nav {
-	background-color: #333 !important;
-	background-image: none !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: auto !important;
-	position: fixed !important;
-	top: 0 !important;
-	bottom: 0 !important;
+	background-color: #333;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
 }
-.off-canvas-nav * {
-	background-image: none !important;
-	float: none !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	width: auto !important;
-	text-align: left !important;
+.off-canvas-nav ul,
+.off-canvas-nav li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 .off-canvas-nav,
-.off-canvas-nav ul li {
-	float: none !important;
+.off-canvas-nav li {
 	border-top: 1px solid #3c3c3c;
 	border-bottom: 1px solid #2f2f2f;
 }
 .off-canvas-nav ul {
-	display: block !important;
+	display: block;
+}
+.off-canvas-nav li {
+	display: block;
+}
+.off-canvas-nav>ul,
+.off-canvas-nav>*>ul {
 	border-bottom: 1px solid #3c3c3c;
 }
-.off-canvas-nav ul li {
-	display: block !important;
-}
-.off-canvas-nav ul li ul {
+.off-canvas-nav ul ul {
 	border-top: 1px solid #2f2f2f;
-	border-bottom: none;
 	border-left: 1px solid #2f2f2f;
-	display: block !important;
-	visibility: visible !important;
+	display: block;
+	visibility: visible;
 	opacity: 1;
-	margin-left: 3em !important;
-	margin-bottom: -1px !important;
-	position: static !important;
-	width: auto !important;
+	margin-left: 3em;
+	margin-bottom: -1px;
 }
-.off-canvas-nav ul li ul li {
+.off-canvas-nav li li {
 	border-left: 1px solid #3c3c3c;
 }
-.off-canvas-nav ul li a {
-	color: #ccc !important;
-	background-color: transparent !important;
-	border: none !important;
-	display: block !important;
-	height: auto !important;
-	padding: 10px 20px 7px !important;
-	text-decoration: none !important;
-	text-indent: 0 !important;
+.off-canvas-nav a {
+	color: #ccc;
+	display: block;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-indent: 0;
 }
-.off-canvas-nav ul li a:hover,
-.off-canvas-nav ul li a:active {
-	background-color: #2f2f2f !important;
+.off-canvas-nav a:hover,
+.off-canvas-nav a:active,
+.off-canvas-nav a:focus {
+	background-color: #2f2f2f;
 	color: #fff;
+	text-decoration: none;
 }
 
 /* For WordPress */
@@ -251,7 +261,7 @@
 .off-canvas-nav ul .current-page-ancestor > a,
 .off-canvas-nav ul .current_page_item > a,
 .off-canvas-nav ul .current_page_parent > a {
-	background-color: #2f2f2f !important;
+	background-color: #2f2f2f;
 	color: #fff;
 }
 
@@ -262,5 +272,5 @@
 	height: 100%;
 }
 .open-for-ios .off-canvas-nav {
-	position: absolute !important;
+	position: absolute;
 }
