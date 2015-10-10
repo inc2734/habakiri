@@ -62,35 +62,30 @@
 			} );
 
 			$( window ).resize( function() {
-				nav_close();
-				if ( resize_timer !== false ) {
-					clearTimeout( resize_timer );
+				if ( offcanvas_nav.css( 'display' ) == 'none' ) {
+					nav_close();
+					if ( resize_timer !== false ) {
+						clearTimeout( resize_timer );
+					}
+					resize_timer = setTimeout( function() {
+						var children = menu.find( 'ul' );
+						children.removeClass( 'reverse-pulldown' );
+						init();
+					}, 300 );
 				}
-				resize_timer = setTimeout( function() {
-					var children = menu.find( 'ul' );
-					children.removeClass( 'reverse-pulldown' );
-					init();
-				}, 300 );
 			} );
 
 			$( '#responsive-btn' ).on( 'click', function( e ) {
-				if ( container.hasClass( 'off-canvas-nav-open' ) ) {
-					nav_close();
-				} else {
+				if ( !container.hasClass( 'off-canvas-nav-open' ) ) {
 					nav_open();
+				} else {
+					nav_close();
 				}
 				e.stopPropagation();
 			} );
 
 			$( document ).on( 'click', function( e ) {
-				var contain_btn = $( '#responsive-btn' ).get( 0 );
-				var contain_nav = offcanvas_nav.get( 0 );
-				var contained   = e.target;
-				if ( contain_btn != contained && !$.contains( contain_nav, contained ) && contain_nav != contained ) {
-					if ( container.hasClass( 'off-canvas-nav-open' ) ) {
-						nav_close();
-					}
-				}
+				nav_close();
 			} );
 		} );
 
@@ -105,6 +100,11 @@
 			if ( is_ios() ) {
 				$( 'html' ).addClass( 'open-for-ios' );
 			}
+			
+			contents.on( 'touchmove.noscroll', function( e ) {
+				offcanvas_nav.off( '.noscroll' );
+				e.preventDefault();
+			} );
 		}
 
 		function nav_close() {
@@ -112,6 +112,8 @@
 
 			container.removeClass( 'open-for-ios' );
 			$( 'html' ).removeClass( 'open-for-ios' );
+			
+			contents.off( '.noscroll' );
 		}
 
 		function is_iphone () {

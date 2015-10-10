@@ -1,121 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/**
- * Version    : 1.1.0
- * Author     : inc2734
- * Author URI : http://2inc.org
- * Created    : April 17, 2015
- * Modified   : August 15, 2015
- * License    : GPLv2 or later
- * License URI: license.txt
- */
-require( '../../assets/bootstrap/javascripts/bootstrap.js' );
-require( './jquery.responsive-nav/jquery.responsive-nav.js' );
-require( './slick/slick.js' );
-var adminbar  = require( './adminbar.js' );
-var getScroll = require( './scroll.js' );
-
-jQuery( function( $ ) {
-	
-	/**
-	 * content top padding tuning with fixed and no transparency header
-	 */
-	( function() {
-		var header  = $( '.header--fixed' );
-		if ( header.length && !header.hasClass( 'header--transparency' ) ) {
-			function set_padding_form_fixed_header() {
-				var height = header.outerHeight();
-				$( '#contents' ).css( 'marginTop', height );
-			}
-			set_padding_form_fixed_header();
-			$( window ).resize( function() {
-				set_padding_form_fixed_header();
-			} );
-		}
-	} )();
-	
-	/**
-	 * fixed header class setting
-	 */
-	( function() {
-		var header  = $( '.header--fixed' );
-		if ( header.length ) {
-			$( window ).scroll( function() {
-				if ( getScroll() > 0 ) {
-					header.addClass( 'header--fixed--is_scrolled' );
-				} else {
-					header.removeClass( 'header--fixed--is_scrolled' );
-				}
-			} );
-		}
-	} )();
-
-	/**
-	 * offcanvas nav position tuning
-	 */
-	( function() {
-		var button = $( '#responsive-btn' );
-
-		/**
-		 * adminbar exist
-		 */
-		if ( adminbar.height() ) {
-			button.click( function( e ) {
-				var offcanvas_nav = $( '.off-canvas-nav' );
-				var default_style = offcanvas_nav.attr( 'style' );
-				var offcanvas_nav_top = '0 !important';
-				var scroll = getScroll();
-				var adminbar_height = adminbar.height();
-				if ( adminbar.position() === 'fixed' || scroll == 0 ) {
-					offcanvas_nav_top = adminbar_height + 'px !important';
-				} else if ( adminbar.position() === 'absolute' && adminbar_height > scroll ) {
-					offcanvas_nav_top = adminbar_height - scroll + 'px !important';
-				}
-				offcanvas_nav.css( {
-					'cssText': default_style + 'top: ' + offcanvas_nav_top
-				} );
-				e.stopPropagation();
-			} );
-		}
-		
-		/**
-		 * header - fixed
-		 */
-		var header = $( '.header--fixed' );
-		if ( header.length ) {
-			$( window ).scroll( function() {
-				if ( adminbar.position() === 'absolute' && getScroll() < adminbar.height() ) {
-					header.css( 'position', 'absolute' );
-				} else {
-					header.css( 'position', '' );
-				}
-			} );
-			
-			$( document ).click( function() {
-				header.css( 'top', '' );
-			} );
-			
-			button.click( function( e ) {
-				var wrapper = $( '.responsive-nav-wrapper' );
-				var header_top = '';
-				var scroll = getScroll();
-				var adminbar_height = adminbar.height();
-				if ( wrapper.hasClass( 'open' ) ) {
-					if ( adminbar.position() == 'absolute' ) {
-						if ( scroll >= adminbar_height ) {
-							header_top = scroll - adminbar_height;
-						}
-					} else {
-						header_top = scroll;
-					}
-				}
-				header.css( 'top', header_top );
-				e.stopPropagation();
-			} );
-		}
-	} )();
-} );
-
-},{"../../assets/bootstrap/javascripts/bootstrap.js":2,"./adminbar.js":3,"./jquery.responsive-nav/jquery.responsive-nav.js":4,"./scroll.js":5,"./slick/slick.js":6}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2423,7 +2306,7 @@ if (typeof jQuery === 'undefined') {
 
 }(jQuery);
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 /**
  * Version    : 1.0.0
  * Author     : inc2734
@@ -2461,7 +2344,7 @@ module.exports = {
 	}
 };
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * jquery.responsive-nav
@@ -2526,35 +2409,30 @@ module.exports = {
 			} );
 
 			$( window ).resize( function() {
-				nav_close();
-				if ( resize_timer !== false ) {
-					clearTimeout( resize_timer );
+				if ( offcanvas_nav.css( 'display' ) == 'none' ) {
+					nav_close();
+					if ( resize_timer !== false ) {
+						clearTimeout( resize_timer );
+					}
+					resize_timer = setTimeout( function() {
+						var children = menu.find( 'ul' );
+						children.removeClass( 'reverse-pulldown' );
+						init();
+					}, 300 );
 				}
-				resize_timer = setTimeout( function() {
-					var children = menu.find( 'ul' );
-					children.removeClass( 'reverse-pulldown' );
-					init();
-				}, 300 );
 			} );
 
 			$( '#responsive-btn' ).on( 'click', function( e ) {
-				if ( container.hasClass( 'off-canvas-nav-open' ) ) {
-					nav_close();
-				} else {
+				if ( !container.hasClass( 'off-canvas-nav-open' ) ) {
 					nav_open();
+				} else {
+					nav_close();
 				}
 				e.stopPropagation();
 			} );
 
 			$( document ).on( 'click', function( e ) {
-				var contain_btn = $( '#responsive-btn' ).get( 0 );
-				var contain_nav = offcanvas_nav.get( 0 );
-				var contained   = e.target;
-				if ( contain_btn != contained && !$.contains( contain_nav, contained ) && contain_nav != contained ) {
-					if ( container.hasClass( 'off-canvas-nav-open' ) ) {
-						nav_close();
-					}
-				}
+				nav_close();
 			} );
 		} );
 
@@ -2569,6 +2447,11 @@ module.exports = {
 			if ( is_ios() ) {
 				$( 'html' ).addClass( 'open-for-ios' );
 			}
+			
+			contents.on( 'touchmove.noscroll', function( e ) {
+				offcanvas_nav.off( '.noscroll' );
+				e.preventDefault();
+			} );
 		}
 
 		function nav_close() {
@@ -2576,6 +2459,8 @@ module.exports = {
 
 			container.removeClass( 'open-for-ios' );
 			$( 'html' ).removeClass( 'open-for-ios' );
+			
+			contents.off( '.noscroll' );
 		}
 
 		function is_iphone () {
@@ -2611,7 +2496,124 @@ module.exports = {
 
 },{}]},{},[1]);
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+/**
+ * Version    : 1.1.0
+ * Author     : inc2734
+ * Author URI : http://2inc.org
+ * Created    : April 17, 2015
+ * Modified   : August 15, 2015
+ * License    : GPLv2 or later
+ * License URI: license.txt
+ */
+require( '../../assets/bootstrap/javascripts/bootstrap.js' );
+require( './jquery.responsive-nav/jquery.responsive-nav.js' );
+require( './slick/slick.js' );
+var adminbar  = require( './adminbar.js' );
+var getScroll = require( './scroll.js' );
+
+jQuery( function( $ ) {
+	
+	/**
+	 * content top padding tuning with fixed and no transparency header
+	 */
+	( function() {
+		var header  = $( '.header--fixed' );
+		if ( header.length && !header.hasClass( 'header--transparency' ) ) {
+			function set_padding_form_fixed_header() {
+				var height = header.outerHeight();
+				$( '#contents' ).css( 'marginTop', height );
+			}
+			set_padding_form_fixed_header();
+			$( window ).resize( function() {
+				set_padding_form_fixed_header();
+			} );
+		}
+	} )();
+	
+	/**
+	 * fixed header class setting
+	 */
+	( function() {
+		var header  = $( '.header--fixed' );
+		if ( header.length ) {
+			$( window ).scroll( function() {
+				if ( getScroll() > 0 ) {
+					header.addClass( 'header--fixed--is_scrolled' );
+				} else {
+					header.removeClass( 'header--fixed--is_scrolled' );
+				}
+			} );
+		}
+	} )();
+
+	/**
+	 * offcanvas nav position tuning
+	 */
+	( function() {
+		var button = $( '#responsive-btn' );
+
+		/**
+		 * adminbar exist
+		 */
+		if ( adminbar.height() ) {
+			button.click( function( e ) {
+				var offcanvas_nav = $( '.off-canvas-nav' );
+				var default_style = offcanvas_nav.attr( 'style' );
+				var offcanvas_nav_top = '0 !important';
+				var scroll = getScroll();
+				var adminbar_height = adminbar.height();
+				if ( adminbar.position() === 'fixed' || scroll == 0 ) {
+					offcanvas_nav_top = adminbar_height + 'px !important';
+				} else if ( adminbar.position() === 'absolute' && adminbar_height > scroll ) {
+					offcanvas_nav_top = adminbar_height - scroll + 'px !important';
+				}
+				offcanvas_nav.css( {
+					'cssText': default_style + 'top: ' + offcanvas_nav_top
+				} );
+				e.stopPropagation();
+			} );
+		}
+		
+		/**
+		 * header - fixed
+		 */
+		var header = $( '.header--fixed' );
+		if ( header.length ) {
+			$( window ).scroll( function() {
+				if ( adminbar.position() === 'absolute' && getScroll() < adminbar.height() ) {
+					header.css( 'position', 'absolute' );
+				} else {
+					header.css( 'position', '' );
+				}
+			} );
+			
+			$( document ).click( function() {
+				header.css( 'top', '' );
+			} );
+			
+			button.click( function( e ) {
+				var wrapper = $( '.responsive-nav-wrapper' );
+				var header_top = '';
+				var scroll = getScroll();
+				var adminbar_height = adminbar.height();
+				if ( wrapper.hasClass( 'open' ) ) {
+					if ( adminbar.position() == 'absolute' ) {
+						if ( scroll >= adminbar_height ) {
+							header_top = scroll - adminbar_height;
+						}
+					} else {
+						header_top = scroll;
+					}
+				}
+				header.css( 'top', header_top );
+				e.stopPropagation();
+			} );
+		}
+	} )();
+} );
+
+},{"../../assets/bootstrap/javascripts/bootstrap.js":1,"./adminbar.js":2,"./jquery.responsive-nav/jquery.responsive-nav.js":3,"./scroll.js":5,"./slick/slick.js":6}],5:[function(require,module,exports){
 /**
  * Version    : 1.0.0
  * Author     : inc2734
@@ -5290,4 +5292,4 @@ module.exports = function() {
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1]);
+},{}]},{},[4]);
