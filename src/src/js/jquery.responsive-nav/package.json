@@ -1,5 +1,5 @@
 {
-  "name": "habakiri",
+  "name": "jquery.responsive-nav",
   "version": "1.0.0",
   "author": "inc2734",
   "license": "GPLv2",
@@ -9,7 +9,6 @@
     "backbone": "global:Backbone"
   },
   "devDependencies": {
-    "browser-sync": "^2.9.10",
     "browserify": "^11.2.0",
     "browserify-shim": "^3.8.10",
     "gulp": "^3.9.0",
