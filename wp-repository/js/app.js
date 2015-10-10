@@ -2462,14 +2462,15 @@ module.exports = {
 };
 
 },{}],4:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /**
  * jquery.responsive-nav
  * Description: レスポンシブなナビゲーションを実装。プルダウンナビ <=> オフキャンバスナビ。要 Genericons
- * Version    : 2.2.0
+ * Version    : 2.3.0
  * Author     : inc2734
  * Autho URI  : http://2inc.org
  * created    : February 20, 2014
- * modified   : September 24, 2015
+ * modified   : October 9, 2015
  * package    : jquery
  * License    : GPLv2 or later
  * License URI: license.txt
@@ -2479,32 +2480,42 @@ module.exports = {
 		var config = $.extend( {
 			container: $( 'body' ),
 			contents : $( '#container' ),
-			direction: 'right'
+			direction: 'right',
+			theme    : 'off-canvas-nav--dark'
 		}, config );
 
 		var resize_timer   = false;
 		var container      = config.container;
 		var contents       = config.contents;
 		var responsive_nav = this;
-		var offcanvas_nav  = responsive_nav.clone( true );
+		
+		container.addClass( 'responsive-nav-wrapper' );
+		if ( config.direction === 'left' ) {
+			container.addClass( 'off-canvas-nav-left' );
+		} else {
+			container.addClass( 'off-canvas-nav-right' );
+		}
+		contents.addClass( 'responsive-nav-contents' );
+		
+		if ( $( '.off-canvas-nav' ).length < 1 ) {
+			var offcanvas_nav = responsive_nav.clone( true );
+			offcanvas_nav.addClass( config.theme );
+		} else {
+			var offcanvas_nav = $( '.off-canvas-nav' );
+		}
+		
+		offcanvas_nav.addClass( 'off-canvas-nav' );
+		offcanvas_nav.removeClass( 'nav--hide' );
 
-		return this.each( function( i, e ) {
-			container.addClass( 'responsive-nav-wrapper' );
-			if ( config.direction === 'left' ) {
-				container.addClass( 'off-canvas-nav-left' );
-			} else {
-				container.addClass( 'off-canvas-nav-right' );
-			}
-			contents.addClass( 'responsive-nav-contents' );
-			offcanvas_nav.addClass( 'off-canvas-nav' );
+		container.prepend( offcanvas_nav );
+		responsive_nav.addClass( 'responsive-nav' );
+		responsive_nav.removeClass( 'nav--hide' );
 
-			container.prepend( offcanvas_nav );
-			responsive_nav.addClass( 'responsive-nav' );
-
+		return responsive_nav.each( function( i, e ) {
 			init();
 
-			var menu = $( this ).find( 'ul:first-child' );
-			menu.children( 'li' ).children( 'ul' ).children( 'li' ).hover( function() {
+			var menu = $( this ).find( 'ul' );
+			menu.children( 'li' ).hover( function() {
 				var children = $( this ).children( 'ul' );
 				if ( children.length ) {
 					if ( $( window ).width() < ( children.width() + children.offset().left ) ) {
@@ -2520,9 +2531,8 @@ module.exports = {
 					clearTimeout( resize_timer );
 				}
 				resize_timer = setTimeout( function() {
-					var children = menu.children( 'li' ).children( 'ul' ).children( 'li' );
+					var children = menu.find( 'ul' );
 					children.removeClass( 'reverse-pulldown' );
-					children.find( 'ul' ).removeClass( 'reverse-pulldown' );
 					init();
 				}, 300 );
 			} );
@@ -2598,6 +2608,8 @@ module.exports = {
 		}
 	}
 } )( jQuery );
+
+},{}]},{},[1]);
 
 },{}],5:[function(require,module,exports){
 /**
