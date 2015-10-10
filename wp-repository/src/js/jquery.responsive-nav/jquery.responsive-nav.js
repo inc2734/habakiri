@@ -83,8 +83,12 @@
 				}
 				e.stopPropagation();
 			} );
+			
+			offcanvas_nav.on( 'click', function( e ) {
+				e.stopPropagation();
+			} );
 
-			$( document ).on( 'click', function( e ) {
+			contents.on( 'click', function( e ) {
 				nav_close();
 			} );
 		} );
