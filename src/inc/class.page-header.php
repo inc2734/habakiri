@@ -91,10 +91,15 @@ class Habakiri_Page_Header {
 	 * @return string
 	 */
 	protected function get_style() {
+		$src = '';
 		if ( get_header_image() ) {
+			$src = get_header_image();
+		}
+		$src = apply_filters( 'habakiri_page_header_background_image', $src );
+		if ( $src ) {
 			return sprintf(
 				'style="background-image: url( %s )"',
-				get_header_image()
+				$src
 			);
 		}
 	}
