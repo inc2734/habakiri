@@ -6605,6 +6605,8 @@ div.thumbnail {
   left: 0;
   right: 0;
   top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
   .habakiri-slider__item-content a {
@@ -6626,9 +6628,15 @@ div.thumbnail {
   text-decoration: none; }
   .habakiri-slider__arrow--prev {
     left: 10px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
     transform: rotate(-90deg); }
   .habakiri-slider__arrow--next {
     right: 10px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
     transform: rotate(90deg); }
   .habakiri-slider__arrow:before {
     font-size: 32px; }

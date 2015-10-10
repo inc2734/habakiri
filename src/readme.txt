@@ -1,5 +1,5 @@
 === Habakiri ===
-Contributors: inc2734, shinichin
+Contributors: inc2734, shinichin, ishidaweb
 Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
@@ -169,6 +169,7 @@ add_filter( 'foo', 'your_filter' );
 = 2.2.0 =
 * Offcanvas navigation does not auto created when .off-canvas-nav exists.
 * Refactoring global navigation styles.
+* Fixed slider css bugs.
 
 = 2.1.0 =
 * Fixed some css.
