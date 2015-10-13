@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Slider
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : August 15, 2015
- * Modified   : 
+ * Modified   : October 13, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -99,8 +99,29 @@ class Habakiri_Slider {
 		<div class="habakiri-slider">
 			<div class="habakiri-slider__list">
 				<?php
+				$dir = wp_upload_dir();
 				foreach ( $this->items as $slide ) {
-					$imagesize = getimagesize( $slide['image'] );
+					$attachment_id = attachment_url_to_postid( $slide['image'] );
+					if ( $attachment_id ) {
+						$src = wp_get_attachment_image_src( $attachment_id, 'full', false );
+						if ( !$src ) {
+							continue;
+						}
+						$image_url = $src[0];
+						$height = $src[2];
+					} else {
+						$path = $slide['image'];
+						if ( 0 === strpos( $path, $dir['baseurl'] . '/' ) ) {
+							$path = substr( $path, strlen( $dir['baseurl'] . '/' ) );
+						}
+						$imagesize = getimagesize( $path );
+						if ( !$imagesize ) {
+							continue;
+						}
+						$image_url = $slide['image'];
+						$height = $imagesize[1];
+					}
+					
 					$item = sprintf(
 						'<div class="habakiri-slider__item-wrapper col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 							<div class="habakiri-slider__item-content col-xs-12">
@@ -109,8 +130,8 @@ class Habakiri_Slider {
 						</div>
 						<img src="%s" alt="" class="habakiri-slider__image" style="min-height:%dpx" />',
 						$slide['content'],
-						esc_url( $slide['image'] ),
-						esc_attr( floor( $imagesize[1] / 2 ) )
+						esc_url( $image_url ),
+						esc_attr( floor( $height / 2 ) )
 					);
 					if ( $slide['url'] ) {
 						$item = sprintf(
@@ -126,7 +147,7 @@ class Habakiri_Slider {
 								%s
 							</div>
 						</section>',
-						esc_url( $slide['image'] ),
+						esc_url( $image_url ),
 						$item
 					);
 				}
