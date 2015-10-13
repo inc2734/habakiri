@@ -99,9 +99,9 @@ class Habakiri_Slider {
 		<div class="habakiri-slider">
 			<div class="habakiri-slider__list">
 				<?php
-				$dir = wp_upload_dir();
 				foreach ( $this->items as $slide ) {
 					$attachment_id = attachment_url_to_postid( $slide['image'] );
+					// The image uploaded by user
 					if ( $attachment_id ) {
 						$src = wp_get_attachment_image_src( $attachment_id, 'full', false );
 						if ( !$src ) {
@@ -109,17 +109,11 @@ class Habakiri_Slider {
 						}
 						$image_url = $src[0];
 						$height = $src[2];
-					} else {
-						$path = $slide['image'];
-						if ( 0 === strpos( $path, $dir['baseurl'] . '/' ) ) {
-							$path = substr( $path, strlen( $dir['baseurl'] . '/' ) );
-						}
-						$imagesize = getimagesize( $path );
-						if ( !$imagesize ) {
-							continue;
-						}
+					}
+					// It assumes the default image
+					else {
 						$image_url = $slide['image'];
-						$height = $imagesize[1];
+						$height = 741; // height of default image
 					}
 					
 					$item = sprintf(
