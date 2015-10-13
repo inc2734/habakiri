@@ -169,6 +169,7 @@ add_filter( 'foo', 'your_filter' );
 = 2.2.0 =
 * Offcanvas navigation does not auto created when .off-canvas-nav exists.
 * Refactoring global navigation styles.
+* Refactoring getting slider image size.
 * Fixed slider css bugs.
 * Add filter hook habakiri_page_header_background_image.
 
