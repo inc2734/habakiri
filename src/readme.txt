@@ -168,6 +168,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.
+* Fixed a bug that wrapper is output even when there is no global navigation.
 
 = 2.2.0 =
 * Offcanvas navigation does not auto created when .off-canvas-nav exists.
