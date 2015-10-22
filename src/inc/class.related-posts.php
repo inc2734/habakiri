@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.1.0
+ * Version    : 1.2.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : August 30, 2015
+ * Modified   : October 21, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -15,12 +15,7 @@ class Habakiri_Related_Posts {
 	 * Display related posts
 	 */
 	public function display() {
-		$post_type = get_post_type();
-		$tax_query = $this->get_tax_query( $post_type );
-
-		if ( $tax_query ) {
-			$posts = $this->get_related_posts( $tax_query );
-		}
+		$posts = $this->get_related_posts();
 
 		if ( empty( $posts ) ) {
 			return;
@@ -101,14 +96,20 @@ class Habakiri_Related_Posts {
 	/**
 	 * Return the related posts
 	 *
-	 * @param array $tax_query
 	 * @return array
 	 */
-	protected function get_related_posts( $tax_query ) {
+	public function get_related_posts() {
 		global $post;
 		if ( !$post ) {
 			return array();
 		}
+		
+		$post_type = get_post_type();
+		$tax_query = $this->get_tax_query( $post_type );
+		if ( !$tax_query ) {
+			return array();
+		}
+
 		$args = array(
 			'post_type'      => get_post_type( $post->ID ),
 			'posts_per_page' => apply_filters( 'habakiri_relates_posts_per_page', 3 ),
