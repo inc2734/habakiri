@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 30, 2015
+ * Modified   : October 25, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -87,7 +87,7 @@ if ( post_password_required() ) {
 		<div class="trackbacks__trackback-url">
 			<dl>
 				<dt><?php _e( 'TrackBack URL', 'habakiri' ); ?></dt>
-				<dd><input id="tburl" type="text" size="50" value="<?php trackback_url( true ); ?>" readonly="readonly" /></dd>
+				<dd><input id="tburl" class="form-control" type="text" size="50" value="<?php trackback_url( true ); ?>" readonly="readonly" /></dd>
 			</dl>
 		<!-- end .trackbacks__trackback-url --></div>
 		<?php endif; ?>

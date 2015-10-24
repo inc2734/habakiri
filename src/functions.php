@@ -21,11 +21,11 @@ add_action( 'after_setup_theme', 'habakiri_parent_theme_setup', 99999 );
 
 /**
  * Name       : Habakiri_Base_Functions
- * Version    : 1.3.0
+ * Version    : 1.4.0
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 17, 2015
- * Modified   : August 30, 2015
+ * Modified   : October 24, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -79,12 +79,30 @@ class Habakiri_Base_Functions {
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_action( 'wp_footer'         , array( $this, 'wp_footer' ) );
 
-		add_filter( 'tiny_mce_before_init'    , array( $this, 'tiny_mce_before_init' ) );
-		add_filter( 'body_class'              , array( $this, 'body_class' ) );
-		add_filter( 'post_class'              , array( $this, 'post_class' ) );
-		add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
-		add_filter( 'excerpt_length'          , array( $this, 'excerpt_length' ), 9 );
-		add_filter( 'excerpt_mblength'        , array( $this, 'excerpt_length' ), 9 );
+		add_filter( 'query_vars'                 , array( $this, 'query_vars' ) );
+		add_filter( 'tiny_mce_before_init'       , array( $this, 'tiny_mce_before_init' ) );
+		add_filter( 'body_class'                 , array( $this, 'body_class' ) );
+		add_filter( 'post_class'                 , array( $this, 'post_class' ) );
+		add_filter( 'walker_nav_menu_start_el'   , array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
+		add_filter( 'excerpt_length'             , array( $this, 'excerpt_length' ), 9 );
+		add_filter( 'excerpt_mblength'           , array( $this, 'excerpt_length' ), 9 );
+		
+		add_filter( 'comment_form_default_fields', array( $this, 'comment_form_default_fields' ) );
+		add_filter( 'comment_form_field_comment' , array( $this, 'comment_form_field_comment' ) );
+		add_filter( 'comment_form_submit_field'  , array( $this, 'comment_form_submit_field' ) );
+		
+		add_filter( 'get_calendar'               , array( $this, 'get_calendar' ) );
+	}
+	
+	/**
+	 * Add query var for related posts
+	 *
+	 * @param array $public_query_vars
+	 * @return array
+	 */
+	public function query_vars( $public_query_vars ) {
+		$public_query_vars[] = 'is_related';
+		return $public_query_vars;
 	}
 
 	/**
@@ -93,7 +111,7 @@ class Habakiri_Base_Functions {
 	 * @param array $init
 	 * @return array
 	 */
-	function tiny_mce_before_init( $init ){
+	public function tiny_mce_before_init( $init ){
 		$init['body_class'] = 'entry__content';
 		return $init;
 	}
@@ -139,7 +157,7 @@ class Habakiri_Base_Functions {
 			'description'   => __( 'Sidebar', 'habakiri' ),
 			'before_widget' => '<div id="%1$s" class="widget sidebar-widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="sidebar-widget__title">',
+			'before_title'  => '<h2 class="sidebar-widget__title h4">',
 		) );
 
 		register_sidebar( array(
@@ -263,10 +281,6 @@ class Habakiri_Base_Functions {
 	 * Load the CSS and JS
 	 */
 	public function wp_enqueue_scripts() {
-		if ( is_admin() ) {
-			return;
-		}
-
 		$url     = get_template_directory_uri();
 		$theme   = wp_get_theme();
 		$version = $theme->get( 'Version' );
@@ -274,6 +288,12 @@ class Habakiri_Base_Functions {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+		wp_enqueue_style(
+			'assets',
+			$url . '/css/assets.min.css',
+			$version
+		);
 
 		if ( is_child_theme() ) {
 			$stylesheet = get_stylesheet_uri();
@@ -283,12 +303,6 @@ class Habakiri_Base_Functions {
 		wp_enqueue_style(
 			get_stylesheet(),
 			$stylesheet,
-			$version
-		);
-
-		wp_enqueue_style(
-			'genericons',
-			$url . '/assets/genericons/genericons.css',
 			$version
 		);
 
@@ -371,6 +385,51 @@ class Habakiri_Base_Functions {
 	 */
 	public function excerpt_length( $length ) {
 		return Habakiri::get( 'excerpt_length' );
+	}
+	
+	/**
+	 * Comment form text field styling
+	 *
+	 * @param array $fields
+	 * @return array
+	 */
+	public function comment_form_default_fields( $fields ) {
+		foreach ( $fields as $key => $field ) {
+			$fields[$key] = preg_replace( '/(id=".+?")/', '$1 class="form-control"', $field );
+		}
+		return $fields;
+	}
+	
+	/**
+	 * Comment form textarea styling
+	 *
+	 * @param string $comment_field
+	 * @return string
+	 */
+	public function comment_form_field_comment( $comment_field ) {
+		$comment_field = preg_replace( '/(id=".+?")/', '$1 class="form-control"', $comment_field );
+		return $comment_field;
+	}
+	
+	/**
+	 * Comment form button styling
+	 *
+	 * @param string $comment_field
+	 * @return string
+	 */
+	public function comment_form_submit_field( $submit_field ) {
+		$submit_field = str_replace( 'class="submit"', 'class="submit btn btn-primary"', $submit_field );
+		return $submit_field;
+	}
+	
+	/**
+	 * Calendar styling
+	 *
+	 * @param string $calendar
+	 * @return string
+	 */
+	public function get_calendar( $calendar ) {
+		return str_replace( '<table', '<table class="table"', $calendar );
 	}
 
 	/**
@@ -513,6 +572,7 @@ class Habakiri_Base_Functions {
 	 * @param int|null $post_id
 	 */
 	public static function the_title( $post_id = null ) {
+		global $wp_query;
 		$post    = get_post( $post_id );
 		$post_id = isset( $post->ID ) ? $post->ID : 0;
 		if ( !$post_id ) {
@@ -520,7 +580,9 @@ class Habakiri_Base_Functions {
 		}
 		do_action( 'habakiri_before_title' );
 		?>
-		<?php if ( is_page() ) : ?>
+		<?php if ( get_query_var( 'is_related' ) ) : ?>
+		<h1 class="entry__title entry-title h4"><a href="<?php the_permalink(); ?>"><?php echo get_the_title( $post_id ); ?></a></h1>
+		<?php elseif ( is_page() ) : ?>
 			<?php if ( !is_page_template( 'templates/front-page.php' ) && !is_page_template( 'templates/rich-front-page.php' ) ) : ?>
 			<h1 class="entry__title"><?php echo get_the_title( $post_id ); ?></h1>
 			<?php endif; ?>

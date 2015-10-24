@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.2.0
+ * Version    : 1.2.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : October 21, 2015
+ * Modified   : October 24, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -22,10 +22,8 @@ class Habakiri_Related_Posts {
 		}
 
 		global $post, $wp_query;
-		$default_query         = clone $wp_query;
-		$wp_query->is_single   = false;
-		$wp_query->is_page     = false;
-		$wp_query->is_singular = false;
+		$default_query = clone $wp_query;
+		set_query_var( 'is_related', true );
 		?>
 		<div class="related-posts">
 			<h2 class="related-posts__title h3"><?php _e( 'Related posts', 'habakiri' ); ?></h2>

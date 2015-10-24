@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.1
-Stable tag: 2.2.1
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: license.txt
 
@@ -165,6 +165,10 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.3.0 =
+* IE9 support: Split the style.css.
+* Changed related posts styles.
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.
