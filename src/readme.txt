@@ -169,6 +169,7 @@ add_filter( 'foo', 'your_filter' );
 = 2.3.0 =
 * IE9 support: Split the style.css.
 * Changed related posts styles.
+* Changed header z-index.
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.

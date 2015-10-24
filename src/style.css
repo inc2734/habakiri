@@ -309,7 +309,7 @@ div.thumbnail {
  *================================================*/
 .header {
   position: relative;
-  z-index: 2; }
+  z-index: 3; }
   .header--fixed, .header.header--fixed--is_scrolled {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }
   .header--default .global-nav .menu, .header--transparency .global-nav .menu {
