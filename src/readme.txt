@@ -174,6 +174,7 @@ add_filter( 'foo', 'your_filter' );
 = 2.3.0 =
 * IE9 support: Split the style.css.
 * Changed related posts styles.
+* Changed footer styles.
 * Changed header z-index.
 * Add font-awesome.
 

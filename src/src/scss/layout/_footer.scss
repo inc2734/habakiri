@@ -3,7 +3,7 @@
  */
 .footer-widget-area {
 	font-size: $font-size-small;
-	padding: 60px 0 0;
+	padding: 60px 0 25px;
 }
 
 .footer-widget {
@@ -18,7 +18,7 @@
  * .social-nav
  */
 .social-nav {
-	margin: 40px 0 0;
+	padding: 15px 0 0;
 
 	ul {
 		@include clearfix();
@@ -151,7 +151,6 @@
 	background-color: #0a0a0a;
 	color: #393939;
 	font-size: $font-size-small;
-	margin: 40px 0 0;
 	padding: 15px 0;
 	
 	a {

@@ -464,7 +464,7 @@ div.thumbnail {
  */
 .footer-widget-area {
   font-size: 12px;
-  padding: 60px 0 0; }
+  padding: 60px 0 25px; }
 
 .footer-widget__title {
   font-size: 18px;
@@ -475,7 +475,7 @@ div.thumbnail {
  * .social-nav
  */
 .social-nav {
-  margin: 40px 0 0; }
+  padding: 15px 0 0; }
   .social-nav ul {
     list-style: none;
     padding: 0; }
@@ -558,7 +558,6 @@ div.thumbnail {
   background-color: #0a0a0a;
   color: #393939;
   font-size: 12px;
-  margin: 40px 0 0;
   padding: 15px 0; }
   .copyright a {
     color: #444; }
