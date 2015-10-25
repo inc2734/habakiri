@@ -204,6 +204,9 @@ div.thumbnail {
 .widget_calendar table tbody td {
   text-align: right; }
 
+.widget_calendar #next {
+  text-align: right; }
+
 .widget_tag_cloud .tagcloud {
   line-height: 1.3; }
 
