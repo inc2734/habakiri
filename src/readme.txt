@@ -38,6 +38,11 @@ Genericons
 License: GPL
 Source : http://genericons.com/
 
+Font Awesome
+Font License: SIL OFL 1.1
+Code License: MIT License
+Source      : https://fortawesome.github.io/Font-Awesome/
+
 Unsplash
 License: CC0
 Source : https://download.unsplash.com/24/5895672523_2e8ce56485_o.jpg
@@ -115,7 +120,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 
 = Offcanvas navigation on mobiles =
 
-Global menu goes off canvas on mobiles. You don't need to add another menu for mobile phones.
+Global menu goes offcanvas on mobiles. You don't need to add another menu for mobile phones.
 
 = Using child theme =
 
@@ -170,6 +175,7 @@ add_filter( 'foo', 'your_filter' );
 * IE9 support: Split the style.css.
 * Changed related posts styles.
 * Changed header z-index.
+* Add font-awesome.
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.
