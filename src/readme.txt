@@ -177,6 +177,7 @@ add_filter( 'foo', 'your_filter' );
 * Changed footer styles.
 * Changed header z-index.
 * Add font-awesome.
+* If you use child theme, style.min.css of Habakiri is auto laoded.
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.
