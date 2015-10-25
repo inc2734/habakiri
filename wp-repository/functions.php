@@ -288,22 +288,29 @@ class Habakiri_Base_Functions {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
+		$assets_name = get_template() . '-assets';
 		wp_enqueue_style(
-			get_template() . '-assets',
+			$assets_name,
 			$url . '/css/assets.min.css',
+			array(),
+			$version
+		);
+		
+		wp_enqueue_style(
+			get_template(),
+			$url . '/style.min.css',
+			array( $assets_name ),
 			$version
 		);
 
 		if ( is_child_theme() ) {
-			$stylesheet = get_stylesheet_uri();
-		} else {
-			$stylesheet = $url . '/style.min.css';
+			wp_enqueue_style(
+				get_stylesheet(),
+				get_stylesheet_uri(),
+				array( $assets_name ),
+				$version
+			);
 		}
-		wp_enqueue_style(
-			get_stylesheet(),
-			$stylesheet,
-			$version
-		);
 
 		wp_enqueue_script(
 			get_template(),
