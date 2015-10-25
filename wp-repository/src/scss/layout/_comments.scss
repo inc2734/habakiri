@@ -19,20 +19,6 @@
 		margin-left: 0;
 		padding-left: 0;
 	}
-
-	&__form {
-		input[type="text"],
-		input[type="email"],
-		input[type="url"],
-		textarea {
-			@extend .form-control;
-		}
-
-		#submit {
-			@extend .btn;
-			@extend .btn-default;
-		}
-	}
 }
 
 .comment {
@@ -60,7 +46,7 @@
 	}
 
 	&__body {
-		@extend .clearfix;
+		@include clearfix();
 		border: 1px solid #ddd;
 		border-radius: 5px;
 		padding: 20px 20px 10px;
@@ -112,12 +98,4 @@
 			display: block;
 		}
 	}
-}
-
-.reply-title {
-	@extend .h4;
-}
-
-#tburl {
-	@extend .form-control;
 }

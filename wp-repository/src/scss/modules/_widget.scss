@@ -6,7 +6,8 @@
 .widget_pages,
 .widget_nav_menu {
 	ul {
-		@extend .list-unstyled;
+		list-style: none;
+		padding-left: 0;
 
 		li {
 			padding: 4px 0;
@@ -32,8 +33,6 @@
 
 .widget_calendar {
 	table {
-		@extend .table;
-
 		thead {
 			th {
 				text-align: center;
@@ -45,6 +44,10 @@
 				text-align: right;
 			}
 		}
+	}
+	
+	#next {
+		text-align: right;
 	}
 }
 

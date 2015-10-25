@@ -15,9 +15,28 @@
 
 	.entry {
 		&__title {
-			@extend .h4;
 			margin-top: 0;
 			margin-bottom: 15px;
+		}
+		
+		&--has_media {
+			&__media {
+				@media ( min-width: $screen-sm-min ) {
+					width: 130px;
+				}
+			}
+
+			&__link {
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 100px );
+				}
+			}
+				
+			&__text {
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 100px );
+				}
+			}
 		}
 	}
 

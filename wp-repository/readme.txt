@@ -4,12 +4,12 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.1
-Stable tag: 2.2.1
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: license.txt
 
 == Description ==
-Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is very simple, easy to create of child theme. Features are, 100% responsive layouts, the Glyphicons and Genericons icons, 7 page templates, 8 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Sass and PHP Class in functions.php.
+Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is very simple, easy to create of child theme. Features are, 100% responsive layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Sass and PHP Class in functions.php.
 
 == Installation ==
 
@@ -37,6 +37,11 @@ Source : https://github.com/aFarkas/html5shiv
 Genericons
 License: GPL
 Source : http://genericons.com/
+
+Font Awesome
+Font License: SIL OFL 1.1
+Code License: MIT License
+Source      : https://fortawesome.github.io/Font-Awesome/
 
 Unsplash
 License: CC0
@@ -115,7 +120,7 @@ Front end page optimization for speed is done by the theme. Compression/combinin
 
 = Offcanvas navigation on mobiles =
 
-Global menu goes off canvas on mobiles. You don't need to add another menu for mobile phones.
+Global menu goes offcanvas on mobiles. You don't need to add another menu for mobile phones.
 
 = Using child theme =
 
@@ -165,6 +170,13 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.3.0 =
+* IE9 support: Split the style.css.
+* Changed related posts styles.
+* Changed footer styles.
+* Changed header z-index.
+* Add font-awesome.
 
 = 2.2.1 =
 * Habakiri_Related_Posts::get_related_posts() became a public method.

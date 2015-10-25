@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 2.1.0\n"
+"Project-Id-Version: habakiri 2.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-09-28 15:05+0900\n"
-"PO-Revision-Date: 2015-09-28 15:05+0900\n"
+"POT-Creation-Date: 2015-10-25 10:20+0900\n"
+"PO-Revision-Date: 2015-10-25 10:21+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja_JP\n"
@@ -70,31 +70,31 @@ msgstr ""
 msgid "No posts."
 msgstr "投稿がありません。"
 
-#: functions.php:116 inc/customizer.php:185 inc/customizer.php:446
+#: functions.php:134 inc/customizer.php:185 inc/customizer.php:446
 msgid "Global Navigation"
 msgstr "グローバルナビゲーション"
 
-#: functions.php:117
+#: functions.php:135
 msgid "Social Navigation"
 msgstr "ソーシャルナビゲーション"
 
-#: functions.php:137 functions.php:139
+#: functions.php:155 functions.php:157
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:146 inc/customizer.php:160 inc/customizer.php:428
+#: functions.php:164 inc/customizer.php:160 inc/customizer.php:428
 msgid "Footer"
 msgstr "フッター"
 
-#: functions.php:148
+#: functions.php:166
 msgid "Footer Widget Area"
 msgstr "フッターウィジェットエリア"
 
-#: functions.php:197
+#: functions.php:215
 msgid "Your comment is awaiting moderation."
 msgstr "あなたのコメントは承認待ちです。"
 
-#: functions.php:202 functions.php:248
+#: functions.php:220 functions.php:266
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 
@@ -130,7 +130,7 @@ msgstr "カテゴリー"
 msgid "Tags"
 msgstr "タグ"
 
-#: inc/class.related-posts.php:36
+#: inc/class.related-posts.php:29
 msgid "Related posts"
 msgstr "関連記事"
 
@@ -474,8 +474,8 @@ msgid ""
 "Habakiri is a simple theme based on Bootstrap3. This theme's goal is to "
 "create a responsive, bootstrap based WordPress theme quickly."
 msgstr ""
-"Habakiri は Bootstrap3 ベースのシンプルなテーマです。Bootstrap ベースのレス"
-"ポンシブな WordPress テーマを素早く作ることができます。"
+"Habakiri は Bootstrap3 ベースのシンプルなテーマです。Bootstrap ベースのレスポ"
+"ンシブな WordPress テーマを素早く作ることができます。"
 
 #: modules/slider.php:40
 msgid "Habakiri have slider feature !"
@@ -489,29 +489,45 @@ msgstr "スライダーのサンプルです。スライダーはカスタマイ
 msgid "The set sliders are displayed in Rich Front Page template."
 msgstr "設定したスライダーはリッチフロントページテンプレートに表示されます。"
 
+#: searchform.php:20 searchform.php:22 searchform.php:30
+msgctxt "label"
+msgid "Search for:"
+msgstr "検索 …"
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "検索 &hellip;"
+
+#: searchform.php:24 searchform.php:34
+msgctxt "submit button"
+msgid "Search"
+msgstr "検索"
+
 #. Theme Name of the plugin/theme
 msgid "habakiri"
 msgstr "habakiri"
 
 #. Theme URI of the plugin/theme
-msgid "http://habakiri.2inc.org"
-msgstr "http://habakiri.2inc.org"
+msgid "http://habakiri.2inc.org/en/"
+msgstr "http://habakiri.2inc.org/en/"
 
 #. Description of the plugin/theme
 msgid ""
 "Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to "
 "create a responsive, bootstrap based WordPress theme quickly. The design is "
 "very simple, easy to create of child theme. Features are, 100% responsive "
-"layouts, the Glyphicons and Genericons icons, 7 page templates, 8 header "
-"design patterns, many color settings, a lot of hooks, related posts, "
+"layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 "
+"header design patterns, many color settings, a lot of hooks, related posts, "
 "minified CSS and JavaScript, Sass and PHP Class in functions.php."
 msgstr ""
-"Habakiri は Bootstrap3 ベースのシンプルなテーマです。素早くレスポンシブな "
-"Bootstrap3 ベースのテーマを作ることができます。デザインはとてもシンプルで子"
-"テーマの制作が簡単です。100% レスポンシブデザイン、Glyphicons・Genericons ア"
-"イコン、7つのページテンプレート、8つのヘッダーデザインパターン、多くの色設"
-"定、多くのフック、個別投稿ページヘの関連記事表示、ミニファイされた CSS と "
-"JavaScript、そしてクラス化された functions.php が特徴です。"
+"Habakiri は Bootstrap 3 ベースのシンプルなテーマです。素早くレスポンシブな "
+"Bootstrap 3 ベースのテーマを作ることができます。デザインはとてもシンプルで、"
+"子テーマでの開発を行い易くなっています。100% レスポンシブデザイン、"
+"Glyphicons・Genericons・Font Awesome アイコン、7つのページテンプレート、8つの"
+"ヘッダーデザインパターン、多くの色設定、多くのフック、個別投稿ページヘの関連"
+"記事表示、ミニファイされた CSS と JavaScript、そしてクラス化された functions."
+"php が特徴です。"
 
 #. Author of the plugin/theme
 msgid "inc2734"
@@ -528,52 +544,3 @@ msgstr "空ページ"
 #. Template Name of the plugin/theme
 msgid "Rich Front Page"
 msgstr "リッチフロントページ"
-
-#, fuzzy
-#~ msgid "Footer link text color"
-#~ msgstr "フッターの文字色"
-
-#~ msgid "Global Navigation Background Color"
-#~ msgstr "グローバルナビゲーションの背景色"
-
-#~ msgid "Global Navigation Link Color"
-#~ msgstr "グローバルナビゲーションのリンク色"
-
-#~ msgid "Global Navigation Link Hover Color"
-#~ msgstr "グローバルナビゲーションのリンク色 ( ホバー時 )"
-
-#~ msgid "Global Navigation Link Background Color"
-#~ msgstr "グローバルナビゲーションメニュー項目の背景色"
-
-#~ msgid "Global Navigation Link Background Hover Color"
-#~ msgstr "グローバルナビゲーションメニュー項目の背景色 ( ホバー時 )"
-
-#~ msgid "Global Navigation Pulldown Link Color"
-#~ msgstr "グローバルナビゲーションプルダウンのリンク色"
-
-#~ msgid "Global Navigation Pulldown Background Color"
-#~ msgstr "グローバルナビゲーションプルダウンの背景色"
-
-#~ msgid "Footer Background Color"
-#~ msgstr "フッターの背景色"
-
-#~ msgid "Footer Link Color"
-#~ msgstr "フッターのリンク色"
-
-#~ msgid "Page Header Background Color"
-#~ msgstr "ページヘッダーの背景色"
-
-#~ msgid "Page Header Text Color"
-#~ msgstr "ページヘッダーの文字色"
-
-#~ msgid ""
-#~ "This post is password protected. Enter the password to view any comments."
-#~ msgstr ""
-#~ "この投稿はパスワードで保護されています。コメントを見るためにパスワードを"
-#~ "入力してください。"
-
-#~ msgid "https://github.com/inc2734/habakiri"
-#~ msgstr "https://github.com/inc2734/habakiri"
-
-#~ msgid "Search results for \"%s\""
-#~ msgstr "「%s」の検索結果"

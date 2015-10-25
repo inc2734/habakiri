@@ -1,6 +1,6 @@
 .header {
 	position: relative;
-	z-index: 2;
+	z-index: 3;
 
 	&--fixed, &.header--fixed--is_scrolled {
 		box-shadow: 0 0 3px rgba( 0, 0, 0, .2 );

@@ -5,9 +5,7 @@
 @import 'modules/breadcrumbs';
 @import 'modules/sticky';
 @import 'modules/entry-meta';
-@import 'modules/related-posts';
 @import 'modules/pagination';
-@import 'modules/search-form';
 @import 'modules/buttons';
 @import 'modules/jumbotron';
 @import 'modules/thumbnail';
@@ -35,14 +33,14 @@
 }
 
 .entry {
-	@extend .clearfix;
+	@include clearfix();
 	
 	&__title {
 		margin: 0 0 10px;
 	}
 
 	&__content {
-		@extend .clearfix;
+		@include clearfix();
 		
 		> *:first-child {
 			margin-top: 0;
@@ -74,3 +72,4 @@
  * archive
  *================================================*/
 @import 'layout/archive';
+@import 'modules/related-posts';
