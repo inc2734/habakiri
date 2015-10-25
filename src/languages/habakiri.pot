@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: habakiri 2.1.0\n"
+"Project-Id-Version: habakiri 2.3.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
-"POT-Creation-Date: 2015-09-24 00:33:47+00:00\n"
+"POT-Creation-Date: 2015-10-25 01:20:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,31 +60,31 @@ msgstr ""
 msgid "No posts."
 msgstr ""
 
-#: functions.php:116 inc/customizer.php:185 inc/customizer.php:446
+#: functions.php:134 inc/customizer.php:185 inc/customizer.php:446
 msgid "Global Navigation"
 msgstr ""
 
-#: functions.php:117
+#: functions.php:135
 msgid "Social Navigation"
 msgstr ""
 
-#: functions.php:137 functions.php:139
+#: functions.php:155 functions.php:157
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:146 inc/customizer.php:160 inc/customizer.php:428
+#: functions.php:164 inc/customizer.php:160 inc/customizer.php:428
 msgid "Footer"
 msgstr ""
 
-#: functions.php:148
+#: functions.php:166
 msgid "Footer Widget Area"
 msgstr ""
 
-#: functions.php:197
+#: functions.php:215
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: functions.php:202 functions.php:248
+#: functions.php:220 functions.php:266
 msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
 msgstr ""
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: inc/class.related-posts.php:36
+#: inc/class.related-posts.php:29
 msgid "Related posts"
 msgstr ""
 
@@ -355,25 +355,25 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 2.0.2)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:534 inc/customizer.php:547 inc/customizer.php:560
 msgid "Left Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 2.0.2)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:535 inc/customizer.php:548 inc/customizer.php:561
 msgid "No Sidebar"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 2.0.2)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:536 inc/customizer.php:549 inc/customizer.php:562
 msgid "Full Width ( Fixed )"
 msgstr ""
 
-#. #-#-#-#-#  habakiri.pot (habakiri 2.0.2)  #-#-#-#-#
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
 #. Template Name of the plugin/theme
 #: inc/customizer.php:537 inc/customizer.php:550 inc/customizer.php:563
 msgid "Full Width ( Fluid )"
@@ -481,12 +481,27 @@ msgstr ""
 msgid "The set sliders are displayed in Rich Front Page template."
 msgstr ""
 
+#: searchform.php:20 searchform.php:22 searchform.php:30
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:24 searchform.php:34
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
 #. Theme Name of the plugin/theme
 msgid "habakiri"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://habakiri.2inc.org"
+msgid "http://habakiri.2inc.org/en/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -494,8 +509,8 @@ msgid ""
 "Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to "
 "create a responsive, bootstrap based WordPress theme quickly. The design is "
 "very simple, easy to create of child theme. Features are, 100% responsive "
-"layouts, the Glyphicons and Genericons icons, 7 page templates, 8 header "
-"design patterns, many color settings, a lot of hooks, related posts, "
+"layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 "
+"header design patterns, many color settings, a lot of hooks, related posts, "
 "minified CSS and JavaScript, Sass and PHP Class in functions.php."
 msgstr ""
 
