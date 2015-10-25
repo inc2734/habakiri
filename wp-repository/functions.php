@@ -41,7 +41,6 @@ class Habakiri_Base_Functions {
 
 		add_editor_style( array(
 			'./editor-style.min.css',
-			'./assets/genericons/genericons.css',
 		) );
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'post-thumbnails' );
@@ -290,7 +289,7 @@ class Habakiri_Base_Functions {
 		}
 
 		wp_enqueue_style(
-			'assets',
+			get_template() . '-assets',
 			$url . '/css/assets.min.css',
 			$version
 		);
