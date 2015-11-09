@@ -139,17 +139,6 @@ function habakiri_child_theme_setup() {
 			add_filter( 'foo', array( $this, 'your_filter' ) );
 		}
 
-		// load style.css of habakiri
-		// If you use bottstrap of habakiri, this method is unnecessary.
-		public function wp_enqueue_scripts() {
-			wp_enqueue_style(
-				get_template(),
-				get_template_directory_uri() . '/style.min.css',
-				null
-			);
-			parent::wp_enqueue_scripts();
-		}
-
 		public function your_filter( $bar ) {
 			return $bar;
 		}
