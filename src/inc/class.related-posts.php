@@ -1,11 +1,11 @@
 <?php
 /**
  * Name       : Habakiri Related Posts
- * Version    : 1.2.1
+ * Version    : 1.2.2
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : April 19, 2015
- * Modified   : October 24, 2015
+ * Modified   : December 9, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -53,6 +53,7 @@ class Habakiri_Related_Posts {
 			'taxonomy' => $taxonomy_name,
 			'field'    => 'id',
 			'terms'    => $term_ids,
+			'operator' => 'AND',
 		);
 		return $condition;
 	}
@@ -115,7 +116,7 @@ class Habakiri_Related_Posts {
 			'post__not_in'   => array( $post->ID ),
 			'tax_query'      => array_merge(
 				array(
-					'relation' => 'AND',
+					'relation' => 'OR',
 				),
 				$tax_query
 			),
