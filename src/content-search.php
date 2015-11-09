@@ -11,22 +11,21 @@
 ?>
 <article class="article article--search">
 	<div class="entry">
-		<div class="entry__content">
-			<?php do_action( 'habakiri_before_entries' ); ?>
-			<div class="entries entries--search">
-				<?php while ( have_posts() ) : the_post(); ?>
-				<article <?php post_class( array( 'article' ) ); ?>>
-					<div class="entry">
-						<?php Habakiri::the_title(); ?>
-						<div class="entry__summary">
-							<?php the_excerpt(); ?>
-						<!-- end .entry__summary --></div>
-					<!-- end .entry --></div>
-				</article>
-				<?php endwhile; ?>
-			<!-- end .entries --></div>
-			<?php do_action( 'habakiri_after_entries' ); ?>
-		<!-- end .entry__content --></div>
+		<?php do_action( 'habakiri_before_entries' ); ?>
+		<div class="entries entries--search">
+			<?php while ( have_posts() ) : the_post(); ?>
+			<article <?php post_class( array( 'article' ) ); ?>>
+				<div class="entry">
+					<?php Habakiri::the_title(); ?>
+					<div class="entry__summary">
+						<?php the_excerpt(); ?>
+					<!-- end .entry__summary --></div>
+				<!-- end .entry --></div>
+			</article>
+			<?php endwhile; ?>
+		<!-- end .entries --></div>
+		<?php do_action( 'habakiri_after_entries' ); ?>
+		
 		<?php get_template_part( 'modules/pagination' ); ?>
 	<!-- end .entry --></div>
 </article>

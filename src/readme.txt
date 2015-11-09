@@ -165,6 +165,7 @@ add_filter( 'foo', 'your_filter' );
 * Added action hook habakiri_after_entries.
 * Added .pagination-wrapper for nav of pagination.
 * Fixed page header php notice error.
+* Remove .entry__content in archive page.
 
 = 2.3.0 =
 * IE9 support: Split the style.css.
