@@ -161,9 +161,10 @@ add_filter( 'foo', 'your_filter' );
 == Changelog ==
 
 = 2.4.0 =
-* Add action hook habakiri_before_entries.
-* Add action hook habakiri_after_entries.
-* Add .pagination-wrapper for nav of pagination.
+* Added action hook habakiri_before_entries.
+* Added action hook habakiri_after_entries.
+* Added .pagination-wrapper for nav of pagination.
+* Fixed page header php notice error.
 
 = 2.3.0 =
 * IE9 support: Split the style.css.
