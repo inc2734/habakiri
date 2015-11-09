@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.3.1
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: license.txt
 
@@ -139,17 +139,6 @@ function habakiri_child_theme_setup() {
 			add_filter( 'foo', array( $this, 'your_filter' ) );
 		}
 
-		// load style.css of habakiri
-		// If you use bottstrap of habakiri, this method is unnecessary.
-		public function wp_enqueue_scripts() {
-			wp_enqueue_style(
-				get_template(),
-				get_template_directory_uri() . '/style.min.css',
-				null
-			);
-			parent::wp_enqueue_scripts();
-		}
-
 		public function your_filter( $bar ) {
 			return $bar;
 		}
@@ -172,10 +161,12 @@ add_filter( 'foo', 'your_filter' );
 == Changelog ==
 
 = 2.4.0 =
-* Add action hook habakiri_before_entries.
-* Add action hook habakiri_after_entries.
-* Add action hook habakiri_before_entry_content in archive page.
-* Add action hook habakiri_after_entry_content in archive page.
+* Added action hook habakiri_before_entries.
+* Added action hook habakiri_after_entries.
+* Added .pagination-wrapper for nav of pagination.
+* Fixed page header php notice error.
+* Remove .entry__content in archive page.
+* Changed related posts conditions.
 
 = 2.3.0 =
 * IE9 support: Split the style.css.

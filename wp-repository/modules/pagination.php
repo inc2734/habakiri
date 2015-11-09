@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : September 9, 2015
- * Modified   :
+ * Modified   : December 9, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -38,7 +38,7 @@ if ( !$paginate_links ) {
 	return;
 }
 ?>
-<nav>
+<nav class="pagination-wrapper">
 	<ul class="pagination">
 		<?php foreach ( $paginate_links as $link ) : ?>
 		<li><?php echo $link; ?></li>

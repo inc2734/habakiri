@@ -1,10 +1,10 @@
 <?php
 /**
- * Version    : 1.0.0
+ * Version    : 1.0.1
  * Author     : inc2734
  * Author URI : http://2inc.org
  * Created    : August 30, 2015
- * Modified   :
+ * Modified   : December 9, 2015
  * License    : GPLv2 or later
  * License URI: license.txt
  */
@@ -78,11 +78,17 @@ class Habakiri_Page_Header {
 		}
 
 		$post_type = get_post_type();
+		if ( empty( $post_type ) ) {
+			global $wp_query;
+			$post_type = $wp_query->get( 'post_type' );
+		}
 		$post_type_object = get_post_type_object( $post_type );
 		if ( !empty( $post_type_object->label ) ) {
 			return $post_type_object->label;
 		}
-		return $post_type_object->labels->name;
+		if ( !empty( $post_type_object->labels->name ) ) {
+			return $post_type_object->labels->name;
+		}
 	}
 
 	/**
