@@ -17,6 +17,7 @@ rm -r .gitignore
 
 echo ".bowerrc
 .editorconfig
+.gitignore
 .travis.yml
 .bin
 .DS_Store
