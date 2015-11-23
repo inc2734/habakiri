@@ -1,0 +1,82 @@
+.habakiri-slider {
+
+	&__transparent-layer {
+		height: 100%;
+	}
+
+	&__item {
+		background-size: cover;
+		background-position: 50% 50%;
+		display: none;
+		position: relative;
+
+		&:first-child {
+			display: block;
+		}
+	}
+
+	&__item-wrapper {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	&__item-content {
+		color: #fff;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		-webkit-transform: translateY( -50% );
+		-moz-transform: translateY( -50% );
+		-ms-transform: translateY( -50% );
+		transform: translateY( -50% );
+
+		a {
+			color: #fff;
+		}
+
+		.btn-default {
+			@extend .btn-ghost;
+		}
+	}
+
+	&__image {
+		visibility: hidden;
+		width: 100%;
+	}
+
+	&__arrow {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		margin-top: -16px;
+		width: 32px;
+		height: 32px;
+		color: #fff;
+		cursor: pointer;
+		text-decoration: none;
+
+		&--prev {
+			left: 10px;
+			-webkit-transform: rotate( -90deg );
+			-moz-transform: rotate( -90deg );
+			-ms-transform: rotate( -90deg );
+			transform: rotate( -90deg );
+		}
+
+		&--next {
+			right: 10px;
+			-webkit-transform: rotate( 90deg );
+			-moz-transform: rotate( 90deg );
+			-ms-transform: rotate( 90deg );
+			transform: rotate( 90deg );
+		}
+
+		&:before {
+			font-size: 32px;
+		}
+	}
+}

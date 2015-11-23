@@ -1,0 +1,14 @@
+@mixin table {
+	display: table;
+	margin-right: 0;
+	margin-left: 0;
+	width: 100%;
+}
+
+@mixin table-cell {
+	display: table-cell;
+	float: none;
+	padding-left: 0;
+	padding-right: 0;
+	vertical-align: middle;
+}

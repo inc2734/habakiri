@@ -1,0 +1,9 @@
+.btn-ghost {
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	
+	&:hover, &:active {
+		background-color: rgba( 255, 255, 255, 0.3 );
+	}
+}

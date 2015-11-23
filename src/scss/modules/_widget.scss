@@ -1,0 +1,58 @@
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_pages,
+.widget_nav_menu {
+	ul {
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			padding: 4px 0;
+
+			li { padding-left: 1.5em; }
+			li li { padding-left: 3em; }
+			li li li { padding-left: 4.5em; }
+			li li li li { padding-left: 6em; }
+			li li li li li { padding-left: 7.5em; }
+
+			ul {
+				margin-top: 4px;
+				margin-bottom: -4px;
+
+				ul { margin-left: -1.5em; }
+				ul ul { margin-left: -3em; }
+				ul ul ul { margin-left: -4.5em; }
+				ul ul ul ul { margin-left: -6em; }
+			}
+		}
+	}
+}
+
+.widget_calendar {
+	table {
+		thead {
+			th {
+				text-align: center;
+			}
+		}
+
+		tbody {
+			td {
+				text-align: right;
+			}
+		}
+	}
+	
+	#next {
+		text-align: right;
+	}
+}
+
+.widget_tag_cloud {
+	.tagcloud {
+		line-height: $headings-line-height;
+	}
+}

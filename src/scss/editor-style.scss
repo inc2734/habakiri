@@ -1,0 +1,19 @@
+/*!
+Name: editor-style
+Author: inc2734
+Author URI: http://2inc.org
+Version: 1.0.0
+License: GPLv2 or later
+License URI: license.txt
+*/
+@import '../../assets/bootstrap-variables';
+@import '../../assets/bootstrap/stylesheets/bootstrap/variables';
+@import '../../assets/bootstrap/stylesheets/bootstrap/mixins';
+@import './css/assets.min.css';
+@import 'mixin';
+@import 'content';
+
+body {
+	padding: 0;
+	margin: 10px;
+}

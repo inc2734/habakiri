@@ -1,0 +1,14 @@
+.sticky {
+	.entry__title:before {
+		content: 'FEATURED';
+		display: inline-block;
+		background-color: $gray-dark;
+		border-radius: $border-radius-small;
+		color: #fff;
+		font-size: $font-size-small;
+		margin-top: -2px;
+		margin-right: 10px;
+		padding: 4px 10px;
+		vertical-align: middle;
+	}
+}

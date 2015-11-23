@@ -1,0 +1,17 @@
+.entry-meta {
+	border-bottom: 1px solid #ddd;
+	font-size: $font-size-small;
+	margin-bottom: 30px;
+	padding-bottom: 10px;
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		display: inline-block;
+		margin-right: 10px;
+	}
+}

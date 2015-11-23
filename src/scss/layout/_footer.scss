@@ -1,0 +1,159 @@
+/**
+ * .footer-widget-area
+ */
+.footer-widget-area {
+	font-size: $font-size-small;
+	padding: 60px 0 25px;
+}
+
+.footer-widget {
+	&__title {
+		font-size: $font-size-large;
+		font-weight: normal;
+		margin: 0 0 20px;
+	}
+}
+
+/**
+ * .social-nav
+ */
+.social-nav {
+	padding: 15px 0 0;
+
+	ul {
+		@include clearfix();
+		list-style: none;
+		padding: 0;
+
+		li {
+			float: left;
+			margin: 0 15px 0 0;
+			padding: 0;
+			position: relative;
+
+			a {
+				color: #fff;
+				display: block;
+				width: 16px;
+				height: 16px;
+				overflow: hidden;
+				text-decoration: none;
+
+				&:before {
+					content: '\f408';
+					display: inline-block;
+					font-family: 'Genericons';
+					font-size: 16px;
+					line-height: 16px;
+					-webkit-font-smoothing: antialiased;
+				}
+			}
+
+			a[href*="wordpress.org"]:before {
+				content: '\f205';
+			}
+
+			a[href*="github.com"]:before {
+				content: '\f200';
+			}
+
+			a[href*="dribbble.com"]:before {
+				content: '\f201';
+			}
+
+			a[href*="twitter.com"]:before {
+				content: '\f202';
+			}
+
+			a[href*="facebook.com"]:before {
+				content: '\f203';
+			}
+
+			a[href*="plus.google.com"]:before {
+				content: '\f206';
+			}
+
+			a[href*="linkedin.com"]:before {
+				content: '\f207';
+			}
+
+			a[href*="pinterest.com"]:before {
+				content: '\f210';
+			}
+
+			a[href*="flickr.com"]:before {
+				content: '\f211';
+			}
+
+			a[href*="vimeo.com"]:before {
+				content: '\f212';
+			}
+
+			a[href*="youtube.com"]:before {
+				content: '\f213';
+			}
+
+			a[href*="instagram.com"]:before {
+				content: '\f215';
+			}
+
+			a[href*="codepen.io"]:before {
+				content: '\f216';
+			}
+
+			a[href*="polldaddy.com"]:before {
+				content: '\f217';
+			}
+
+			a[href*="path.com"]:before {
+				content: '\f219';
+			}
+
+			a[href*="skype.com"]:before {
+				content: '\f220';
+			}
+
+			a[href*="digg.com"]:before {
+				content: '\f221';
+			}
+
+			a[href*="reddit.com"]:before {
+				content: '\f222';
+			}
+
+			a[href*="stumbleupon.com"]:before {
+				content: '\f223';
+			}
+
+			a[href*="getpocket.com"]:before {
+				content: '\f224';
+			}
+
+			a[href*="dropbox.com"]:before {
+				content: '\f225';
+			}
+
+			a[href*="foursquare.com"]:before {
+				content: '\f226';
+			}
+
+			a[href$="/feed"]:before {
+				content: '\f413';
+			}
+		}
+	}
+}
+
+/**
+ * .copyright
+ */
+.copyright {
+	background-color: #0a0a0a;
+	color: #393939;
+	font-size: $font-size-small;
+	padding: 15px 0;
+	
+	a {
+		color: #444;
+	}
+}
