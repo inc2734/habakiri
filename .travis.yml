@@ -1,0 +1,17 @@
+language: node_js
+
+branches:
+  only:
+    - master
+
+before_script: bash ./.bin/build.sh
+
+script:
+    - ls -al style.css
+
+after_success: bash ./.bin/deploy.sh
+
+env:
+  global:
+  - GH_REF: github.com/inc2734/habakiri.git
+  - secure: "a/sVsoEwJnsc47RIU5/QjxqcD0+nE8KoS2tvsoU+zVt/MHN8eIgV+TLlPwowW3FGLGIQd1kLJr710"
