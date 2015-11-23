@@ -14,4 +14,4 @@ after_success: bash ./.bin/deploy.sh
 env:
   global:
   - GH_REF: github.com/inc2734/habakiri.git
-  - secure: "a/sVsoEwJnsc47RIU5/QjxqcD0+nE8KoS2tvsoU+zVt/MHN8eIgV+TLlPwowW3FGLGIQd1kLJr710"
+  - secure: "a/sVsoEwJnsc47RIU5/QjxqcD0+nE8KoS2tvsoU+zVt/MHN8eIgV+TLlPwowW3FGLGIQd1kLJr710Hl9iZ3swdyrf7AempfiM/oj9VNOvBvzJm4IRdWWH9mZYBD8M6S1mvJeRmH2YEpP0ot86tmh3mGwA5YXEtHNqMMCZA3pW2A="
