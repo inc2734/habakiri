@@ -179,7 +179,7 @@ class Habakiri_Customizer_Framework {
 	 */
 	public function text( $control_id, $args ) {
 		$args = $this->init_field_args( $control_id, $args );
-		$args = $this->set_default_sanitize_callback( $args, 'sanitize_textfield' );
+		$args = $this->set_default_sanitize_callback( $args, 'sanitize_text_field' );
 		$this->Customizer->add_setting( $control_id, $args );
 		$this->Customizer->add_control(
 			new WP_Customize_Control(
