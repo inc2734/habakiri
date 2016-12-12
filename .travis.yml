@@ -1,13 +1,20 @@
-language: node_js
+language: php
+php:
+- 5.6
+- 7
+sudo: false
 
 branches:
   only:
-    - master
+  - master
+
+install:
+- nvm install 6
 
 before_script: bash ./.bin/build.sh
 
 script:
-    - ls -al style.css
+- ls -al style.css
 
 after_success: bash ./.bin/deploy.sh
 
