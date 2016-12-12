@@ -1,69 +1,91 @@
-var gulp         = require( 'gulp' );
-var watch        = require( 'gulp-watch' );
-var sass         = require( 'gulp-sass' );
-var cssmin       = require( 'gulp-minify-css' );
-var rename       = require( 'gulp-rename' );
-var uglifyjs     = require( 'gulp-uglifyjs' );
-var browserify   = require( 'browserify' );
-var source       = require( 'vinyl-source-stream' );
-var browser_sync = require( 'browser-sync' );
+'use strict';
 
-gulp.task( 'assets', function() {
-	return gulp.src( './assets/*.scss' )
-		.pipe( sass() )
-		.pipe( gulp.dest( './css/' ) )
-		.on( 'end', function() {
-			gulp.src( ['./css/*.css', '!./css/*.min.css'] )
-				.pipe( cssmin( {
-					keepSpecialComments: 0
-				} ) )
-				.pipe( rename( { suffix: '.min' } ) )
-				.pipe( gulp.dest( './css/' ) );
-		} );
-} );
+var gulp         = require('gulp');
+var sass         = require('gulp-sass');
+var postcss      = require('gulp-postcss');
+var cssnano      = require('cssnano');
+var autoprefixer = require('autoprefixer');
+var rename       = require('gulp-rename');
+var uglify       = require('gulp-uglify');
+var browserify   = require('browserify');
+var source       = require('vinyl-source-stream');
+var browser_sync = require('browser-sync');
 
-gulp.task( 'sass', function() {
-	return gulp.src( './src/scss/*.scss' )
-		.pipe( sass() )
-		.pipe( gulp.dest( './' ) )
-		.on( 'end', function() {
-			gulp.src( ['./*.css', '!./*.min.css'] )
-				.pipe( cssmin( {
-					keepSpecialComments: 0
-				} ) )
-				.pipe( rename( { suffix: '.min' } ) )
-				.pipe( gulp.dest( './' ) );
-		} );
-} );
+var dir = {
+  src: {
+    css     : 'src/scss',
+    js      : 'src/js',
+    images  : 'src/images',
+    assets  : 'assets'
+  },
+  dist: {
+    css     : './',
+    js      : 'js',
+    images  : 'images',
+    assets  : 'css'
+  }
+}
 
-gulp.task( 'browserify', function() {
-	return browserify( './src/js/main.js' )
-		.transform( 'browserify-shim' )
-		.bundle()
-		.pipe( source( 'app.js' ) )
-		.pipe( gulp.dest( './js/' ) )
-		.on( 'end', function() {
-			gulp.src( ['./js/app.js'] )
-				.pipe( uglifyjs( 'app.min.js' ) )
-				.pipe( gulp.dest( './js/' ) );
-		} );
-} );
 
-gulp.task( 'browsersync', function() {
-	browser_sync.init( {
-		proxy: 'habakiri.wptheme.dev'
-	} );
-} );
+function sassCompile(src, dest) {
+  return gulp.src(src)
+    .pipe(sass({
+      'resolve url nocheck': true
+    }))
+    .pipe(postcss([
+      autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+      })
+    ]))
+    .pipe(gulp.dest(dest))
+    .pipe(postcss([
+      cssnano({
+        'zindex': false
+      })
+    ]))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest(dest))
+}
 
-gulp.task( 'watch', ['assets', 'sass', 'browserify', 'browsersync'], function() {
-	gulp.watch( ['assets/*.scss', 'assets/**/*.scss'], ['assets'] );
-	gulp.watch( ['src/scss/**/*.scss', 'src/scss/*.scss', 'src/js/**/*.css'], ['sass'] );
-	gulp.watch( ['src/js/**/*.js', 'src/js/*.js'], ['browserify'] );
-	gulp.watch( ['**/*.php', 'js/app.min.js', 'images/**', 'style.min.css'], function() {
-		browser_sync.reload();
-	} );
-} );
+gulp.task('assets', function() {
+  return sassCompile(dir.src.assets + '/*.scss', dir.dist.assets);
+});
 
-gulp.task( 'default', [ 'assets', 'sass', 'browserify' ], function () {
+gulp.task('sass', function() {
+  return sassCompile(dir.src.css + '/*.scss', dir.dist.css);
+});
 
-} );
+gulp.task('browserify', function() {
+  return browserify(dir.src.js + '/main.js')
+    .transform('browserify-shim')
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest(dir.dist.js))
+    .on('end', function() {
+      gulp.src([dir.dist.js + '/app.js'])
+        .pipe(uglify())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(dir.dist.js));
+    });
+});
+
+gulp.task('browsersync', function() {
+  browser_sync.init({
+    proxy:'habakiri.wptheme.dev',
+      files: [
+        '**/*.php',
+        dir.dist.js + '/app.min.js',
+        dir.dist.images + '/**',
+        dir.dist.css + '/style.min.css'
+      ]
+  });
+});
+
+gulp.task('watch', ['assets','sass','browserify','browsersync'], function() {
+  gulp.watch([dir.src.assets + '/**/*.scss'], ['assets']);
+  gulp.watch([dir.src.css + '/**/*.scss'], ['sass']);
+  gulp.watch([dir.src.js + '/**/*.js'], ['browserify']);
+});
+
+gulp.task('build', ['assets','sass','browserify' ]);

@@ -4,7 +4,7 @@ Theme URI: http://habakiri.2inc.org/en/
 Author: inc2734
 Author URI: http://2inc.org
 Description: Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is very simple, easy to create of child theme. Features are, 100% responsive layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Sass and PHP Class in functions.php.
-Version: 2.4.0
+Version: 2.5.0
 License: GPLv2 or later
 License URI: license.txt
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-colors
@@ -234,9 +234,6 @@ div.thumbnail {
   left: 0;
   right: 0;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%); }
   .habakiri-slider__item-content a {
     color: #fff; }
@@ -257,15 +254,9 @@ div.thumbnail {
   text-decoration: none; }
   .habakiri-slider__arrow--prev {
     left: 10px;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
     transform: rotate(-90deg); }
   .habakiri-slider__arrow--next {
     right: 10px;
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
     transform: rotate(90deg); }
   .habakiri-slider__arrow:before {
     font-size: 32px; }

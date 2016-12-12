@@ -1,10 +1,10 @@
 === Habakiri ===
-Contributors: inc2734, shinichin, ishidaweb
+Contributors: inc2734, shinichin, ishidaweb, mignonstyle, tkc49
 Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
-Tested up to: 4.3.1
-Stable tag: 2.4.0
+Tested up to: 4.7.0
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: license.txt
 
@@ -159,6 +159,11 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.5.0 =
+* Update Font Awesome
+* Update class.entry-meta.php
+* Fix sanitize_textfield of customizer framework
 
 = 2.4.0 =
 * Added action hook habakiri_before_entries.
