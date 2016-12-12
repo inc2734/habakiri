@@ -110,10 +110,9 @@ class Habakiri_Entry_Meta {
 	 */
 	protected function taxonomies() {
 		$taxonomies = Habakiri::get_the_taxonomies();
-		$taxonomy = '';
 		foreach ( $taxonomies as $taxonomy_name ) {
 			$term_list = get_the_term_list( get_the_ID(), $taxonomy_name, '', ', ', '' );
-			$taxonomy = sprintf(
+			return sprintf(
 				'<li class="entry-meta__item %s">%s: %s</li>',
 				esc_attr( $taxonomy_name ),
 				esc_attr( get_taxonomy( $taxonomy_name)->labels->name ),
