@@ -52,8 +52,8 @@ class Habakiri_Customizer_Framework {
 	 * @return string|null
 	 */
 	protected function get_default( $id ) {
-		if ( isset( $defaults[$id] ) ) {
-			return $defaults[$id];
+		if ( isset( $this->defaults[$id] ) ) {
+			return $this->defaults[$id];
 		}
 	}
 
