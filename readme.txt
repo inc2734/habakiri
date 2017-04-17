@@ -1,5 +1,5 @@
 === Habakiri ===
-Contributors: inc2734, shinichin, ishidaweb, mignonstyle, tkc49
+Contributors: inc2734, shinichin, ishidaweb, mignonstyle, tkc49, mekemoke
 Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
