@@ -4,7 +4,7 @@ Theme URI: http://habakiri.2inc.org/en/
 Author: inc2734
 Author URI: http://2inc.org
 Description: Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to create a responsive, bootstrap based WordPress theme quickly. The design is very simple, easy to create of child theme. Features are, 100% responsive layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 header design patterns, many color settings, a lot of hooks, related posts, minified CSS and JavaScript, Sass and PHP Class in functions.php.
-Version: 2.5.1
+Version: 2.5.2
 Text Domain: habakiri
 License: GPLv2 or later
 License URI: license.txt
@@ -351,14 +351,7 @@ div.thumbnail {
   display: table;
   margin-right: 0;
   margin-left: 0;
-  width: 100%;
-  /* Safari 6.1+ (10.0 is the latest version of Safari at this time) */ }
-
-@media (max-width: 991px) and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) and (1) {
-  .header__content {
-    display: block !important; }
-    .header__content .header__col {
-      width: 100%; } }
+  width: 100%; }
   .header__content .header__col {
     display: table-cell;
     float: none;

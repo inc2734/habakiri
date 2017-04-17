@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/39ANKRNSTNW40
 Tags: white, fixed-layout, fluid-layout, responsive-layout, one-column, two-columns, left-sidebar, right-sidebar, editor-style, sticky-post, microformats, featured-images, custom-colors, custom-menu, custom-background, custom-header, custom-colors
 Requires at least: 4.1
 Tested up to: 4.7.0
-Stable tag: 2.5.1
+Stable tag: 2.5.2
 License: GPLv2 or later
 License URI: license.txt
 
@@ -159,6 +159,9 @@ add_filter( 'foo', 'your_filter' );
 `
 
 == Changelog ==
+
+= 2.5.2 =
+* Fix global navigation layout bug on Safari.
 
 = 2.5.1 =
 * Added Text Domain in style.css header.
