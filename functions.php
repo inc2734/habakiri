@@ -301,7 +301,7 @@ class Habakiri_Base_Functions {
 			get_template(),
 			$url . '/style.min.css',
 			array( $assets_name ),
-			$version
+			date( 'YmdHis', filemtime( get_stylesheet_directory() . '/style.css' ) )
 		);
 
 		if ( is_child_theme() ) {
@@ -309,7 +309,7 @@ class Habakiri_Base_Functions {
 				get_stylesheet(),
 				get_stylesheet_uri(),
 				array( $assets_name ),
-				$version
+				date( 'YmdHis', filemtime( get_stylesheet_directory() . '/style.css' ) )
 			);
 		}
 
