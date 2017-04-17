@@ -1,0 +1,531 @@
+# Copyright (C) 2015 inc2734
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: habakiri 2.3.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/habakiri\n"
+"POT-Creation-Date: 2015-10-25 01:20:02+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: comments.php:19
+msgid "Comments on this post"
+msgstr ""
+
+#: comments.php:43
+msgid "No comments."
+msgstr ""
+
+#: comments.php:52
+msgid ""
+"It is necessary to <a href=\"%/wp-login.php?redirect_to=%s\">login</a> to "
+"write comment."
+msgstr ""
+
+#: comments.php:72
+msgid "Trackbacks and Pingbacks on this post"
+msgstr ""
+
+#: comments.php:83
+msgid "No trackbacks."
+msgstr ""
+
+#: comments.php:89
+msgid "TrackBack URL"
+msgstr ""
+
+#: content-none.php:28 inc/class.page-header.php:73
+msgid "Woops! Page not found."
+msgstr ""
+
+#: content-none.php:29
+msgid "The page you are looking for may be moved or deleted."
+msgstr ""
+
+#: content-none.php:30
+msgid "Please search this serch box."
+msgstr ""
+
+#: content-none.php:39
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:48
+msgid "No posts."
+msgstr ""
+
+#: functions.php:134 inc/customizer.php:185 inc/customizer.php:446
+msgid "Global Navigation"
+msgstr ""
+
+#: functions.php:135
+msgid "Social Navigation"
+msgstr ""
+
+#: functions.php:155 functions.php:157
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:164 inc/customizer.php:160 inc/customizer.php:428
+msgid "Footer"
+msgstr ""
+
+#: functions.php:166
+msgid "Footer Widget Area"
+msgstr ""
+
+#: functions.php:215
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:220 functions.php:266
+msgid "<cite class=\"fn\">%1$s</cite> said on %2$s at %3$s"
+msgstr ""
+
+#: inc/class.breadcrumbs.php:124
+msgid "Home"
+msgstr ""
+
+#: inc/class.breadcrumbs.php:159
+msgid "Page not found"
+msgstr ""
+
+#: inc/class.breadcrumbs.php:168 inc/class.page-header.php:77
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/class.entry-meta.php:44
+msgid "Author"
+msgstr ""
+
+#: inc/class.entry-meta.php:57
+msgid "Published"
+msgstr ""
+
+#: inc/class.entry-meta.php:69
+msgid "Updated"
+msgstr ""
+
+#: inc/class.entry-meta.php:89
+msgid "Category"
+msgstr ""
+
+#: inc/class.entry-meta.php:102
+msgid "Tags"
+msgstr ""
+
+#: inc/class.related-posts.php:29
+msgid "Related posts"
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer.php:122
+msgid "General"
+msgstr ""
+
+#: inc/customizer.php:127
+msgid "Logo text color"
+msgstr ""
+
+#: inc/customizer.php:133 inc/customizer.php:177 inc/customizer.php:196
+msgid "Link text color"
+msgstr ""
+
+#: inc/customizer.php:139 inc/customizer.php:202
+msgid "Link text hover color"
+msgstr ""
+
+#: inc/customizer.php:147 inc/customizer.php:399 inc/customizer.php:404
+msgid "Header"
+msgstr ""
+
+#: inc/customizer.php:152 inc/customizer.php:165 inc/customizer.php:190
+#: inc/customizer.php:287 inc/customizer.php:306
+msgid "Background color"
+msgstr ""
+
+#: inc/customizer.php:171 inc/customizer.php:263 inc/customizer.php:312
+msgid "Text color"
+msgstr ""
+
+#: inc/customizer.php:208
+msgid "Menu background color"
+msgstr ""
+
+#: inc/customizer.php:214
+msgid "Menu background hover color"
+msgstr ""
+
+#: inc/customizer.php:220
+msgid "Sub label color"
+msgstr ""
+
+#: inc/customizer.php:226
+msgid "Sub label hover color"
+msgstr ""
+
+#: inc/customizer.php:232
+msgid "Pulldown link text color"
+msgstr ""
+
+#: inc/customizer.php:238
+msgid "Pulldown link text hover color"
+msgstr ""
+
+#: inc/customizer.php:244
+msgid "Pulldown menu background color"
+msgstr ""
+
+#: inc/customizer.php:250
+msgid "Pulldown menu background hover color"
+msgstr ""
+
+#: inc/customizer.php:258
+msgid "hamburger Button"
+msgstr ""
+
+#: inc/customizer.php:269
+msgid "Text hover color"
+msgstr ""
+
+#: inc/customizer.php:275
+msgid "Border color"
+msgstr ""
+
+#: inc/customizer.php:281
+msgid "Border hover color"
+msgstr ""
+
+#: inc/customizer.php:293
+msgid "Background hover color"
+msgstr ""
+
+#: inc/customizer.php:301
+msgid "Page Header"
+msgstr ""
+
+#: inc/customizer.php:320 inc/customizer.php:575
+msgid "Settings"
+msgstr ""
+
+#: inc/customizer.php:325
+msgid "Logo"
+msgstr ""
+
+#: inc/customizer.php:330
+msgid "Excerpt length"
+msgstr ""
+
+#: inc/customizer.php:340
+msgid "Displaying thumbnail in archive page"
+msgstr ""
+
+#: inc/customizer.php:344 inc/customizer.php:354 inc/customizer.php:364
+#: inc/customizer.php:374 inc/customizer.php:384 inc/customizer.php:420
+msgid "No"
+msgstr ""
+
+#: inc/customizer.php:345 inc/customizer.php:355 inc/customizer.php:365
+#: inc/customizer.php:375 inc/customizer.php:385 inc/customizer.php:421
+msgid "Yes"
+msgstr ""
+
+#: inc/customizer.php:350
+msgid "Displaying the Bread Crumb"
+msgstr ""
+
+#: inc/customizer.php:360
+msgid "Displaying related posts in single page"
+msgstr ""
+
+#: inc/customizer.php:370
+msgid "Displaying page header"
+msgstr ""
+
+#: inc/customizer.php:380
+msgid "Displaying lead of page header in page"
+msgstr ""
+
+#: inc/customizer.php:392
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:408
+msgid "Default"
+msgstr ""
+
+#: inc/customizer.php:409
+msgid "2 rows"
+msgstr ""
+
+#: inc/customizer.php:410
+msgid "Center Logo"
+msgstr ""
+
+#: inc/customizer.php:411
+msgid "Transparency"
+msgstr ""
+
+#: inc/customizer.php:416
+msgid "Header Fixed"
+msgstr ""
+
+#: inc/customizer.php:433
+msgid "Number of footer columns"
+msgstr ""
+
+#: inc/customizer.php:437
+msgid "2 Columns"
+msgstr ""
+
+#: inc/customizer.php:438
+msgid "3 Columns"
+msgstr ""
+
+#: inc/customizer.php:439
+msgid "4 Columns"
+msgstr ""
+
+#: inc/customizer.php:451
+msgid "Breakpoint to switch off canvas navigation"
+msgstr ""
+
+#: inc/customizer.php:455
+msgid "Always"
+msgstr ""
+
+#: inc/customizer.php:456
+msgid "Tablet size"
+msgstr ""
+
+#: inc/customizer.php:457
+msgid "Laptop size"
+msgstr ""
+
+#: inc/customizer.php:462
+msgid "Font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:472
+msgid "Sub label font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:482
+msgid "link padding ( Horizontal )"
+msgstr ""
+
+#: inc/customizer.php:492
+msgid "link padding ( Vertical )"
+msgstr ""
+
+#: inc/customizer.php:502
+msgid "Offcanvas Navigation font size ( px )"
+msgstr ""
+
+#: inc/customizer.php:512
+msgid "Offcanvas Navigation slide direction"
+msgstr ""
+
+#: inc/customizer.php:516
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:517
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:524
+msgid "Template"
+msgstr ""
+
+#: inc/customizer.php:529
+msgid "Blog Template"
+msgstr ""
+
+#: inc/customizer.php:533 inc/customizer.php:546 inc/customizer.php:559
+msgid "Right Sidebar"
+msgstr ""
+
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:534 inc/customizer.php:547 inc/customizer.php:560
+msgid "Left Sidebar"
+msgstr ""
+
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:535 inc/customizer.php:548 inc/customizer.php:561
+msgid "No Sidebar"
+msgstr ""
+
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:536 inc/customizer.php:549 inc/customizer.php:562
+msgid "Full Width ( Fixed )"
+msgstr ""
+
+#. #-#-#-#-#  habakiri.pot (habakiri 2.3.0)  #-#-#-#-#
+#. Template Name of the plugin/theme
+#: inc/customizer.php:537 inc/customizer.php:550 inc/customizer.php:563
+msgid "Full Width ( Fluid )"
+msgstr ""
+
+#: inc/customizer.php:542
+msgid "Search Template"
+msgstr ""
+
+#: inc/customizer.php:555
+msgid "404 Template"
+msgstr ""
+
+#: inc/customizer.php:570
+msgid "Front page Slider"
+msgstr ""
+
+#: inc/customizer.php:580
+msgid "Effect"
+msgstr ""
+
+#: inc/customizer.php:584
+msgid "Slide"
+msgstr ""
+
+#: inc/customizer.php:585
+msgid "Fade"
+msgstr ""
+
+#: inc/customizer.php:590
+msgid "Interval ( ms )"
+msgstr ""
+
+#: inc/customizer.php:596
+msgid "Effect Speed ( ms )"
+msgstr ""
+
+#: inc/customizer.php:602
+msgid "Overlay color"
+msgstr ""
+
+#: inc/customizer.php:608
+msgid "Overlay opacity"
+msgstr ""
+
+#: inc/customizer.php:619
+msgid "Height ( px )"
+msgstr ""
+
+#: inc/customizer.php:622
+msgid "If 0, height is auto."
+msgstr ""
+
+#: inc/customizer.php:628
+msgid "Image (%d)"
+msgstr ""
+
+#: inc/customizer.php:632
+msgid "Image"
+msgstr ""
+
+#: inc/customizer.php:636
+msgid "Content"
+msgstr ""
+
+#: inc/customizer.php:640
+msgid "URL"
+msgstr ""
+
+#: inc/customizer.php:644
+msgid "Open link in new window"
+msgstr ""
+
+#: modules/copyright.php:18
+msgid "Monkey Wrench"
+msgstr ""
+
+#: modules/copyright.php:24
+msgid "WordPress"
+msgstr ""
+
+#: modules/copyright.php:27
+msgid "Habakiri theme by %s"
+msgstr ""
+
+#: modules/copyright.php:28
+msgid "Powered by %s"
+msgstr ""
+
+#: modules/slider.php:29
+msgid ""
+"Habakiri is a simple theme based on Bootstrap3. This theme's goal is to "
+"create a responsive, bootstrap based WordPress theme quickly."
+msgstr ""
+
+#: modules/slider.php:40
+msgid "Habakiri have slider feature !"
+msgstr ""
+
+#: modules/slider.php:41
+msgid "This is sample slider. You can setting slider in Customizer."
+msgstr ""
+
+#: modules/slider.php:42
+msgid "The set sliders are displayed in Rich Front Page template."
+msgstr ""
+
+#: searchform.php:20 searchform.php:22 searchform.php:30
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:22
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:24 searchform.php:34
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "habakiri"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://habakiri.2inc.org/en/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Habakiri is the simple theme based on Bootstrap 3. This theme's goal is to "
+"create a responsive, bootstrap based WordPress theme quickly. The design is "
+"very simple, easy to create of child theme. Features are, 100% responsive "
+"layouts, the Glyphicons, Genericons, Font Awesome icons, 7 page templates, 8 "
+"header design patterns, many color settings, a lot of hooks, related posts, "
+"minified CSS and JavaScript, Sass and PHP Class in functions.php."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "inc2734"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://2inc.org"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Blank Page"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Rich Front Page"
+msgstr ""

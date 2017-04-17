@@ -1,0 +1,46 @@
+.related-posts {
+	border-top: 1px solid #ddd;
+	margin-top: 30px;
+	padding-top: 30px;
+	
+	.article {
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&__title {
+		margin: 0 0 30px
+	}
+
+	.entry {
+		&__title {
+			margin-top: 0;
+			margin-bottom: 15px;
+		}
+		
+		&--has_media {
+			&__media {
+				@media ( min-width: $screen-sm-min ) {
+					width: 130px;
+				}
+			}
+
+			&__link {
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 100px );
+				}
+			}
+				
+			&__text {
+				@media ( min-width: $screen-sm-min ) {
+					@include square( 100px );
+				}
+			}
+		}
+	}
+
+	.entry-meta {
+		margin-bottom: 0;
+	}
+}

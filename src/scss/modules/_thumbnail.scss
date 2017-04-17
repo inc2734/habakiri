@@ -1,0 +1,13 @@
+div.thumbnail {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+
+	> img {
+		text-align: center;
+	}
+	
+	.caption {
+		padding: 0;
+	}
+}

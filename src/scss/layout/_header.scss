@@ -1,0 +1,205 @@
+.header {
+	position: relative;
+	z-index: 3;
+
+	&--fixed, &.header--fixed--is_scrolled {
+		box-shadow: 0 0 3px rgba( 0, 0, 0, .2 );
+	}
+
+	&--default, &--transparency {
+		.global-nav {
+			.menu {
+				float: right;
+			}
+		}
+	}
+
+	&--center {
+		.global-nav {
+			text-align: center;
+
+			.menu {
+				display: inline-block;
+				text-align: left;
+				vertical-align: bottom;
+			}
+		}
+	}
+
+	&--transparency {
+		background-color: transparent !important;
+		box-shadow: none;
+		transition: background-color 0.2s;
+		position: absolute;
+		right: 0;
+		left: 0;
+
+		.global-nav {
+			background-color: transparent;
+			transition: background-color 0.2s;
+
+			.menu {
+				> .menu-item {
+					> a {
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
+
+	&--fixed {
+		position: absolute;
+		right: 0;
+		left: 0;
+	}
+
+	&--fixed--is_scrolled {
+		position: fixed;
+	}
+}
+
+.admin-bar {
+	.header--fixed {
+		&.header--fixed--is_scrolled {
+			top: 32px;
+
+			@media screen and ( max-width: 782px ) {
+				top: 46px;
+			}
+
+			@media screen and ( max-width: 600px ) {
+				top: 0;
+			}
+		}
+	}
+
+	&.open {
+		.header--fixed {
+			&.header--fixed--is_scrolled {
+				top: 0;
+			}
+		}
+	}
+}
+
+/**
+ * .header__content
+ */
+.header__content {
+	@include table;
+
+	.header__col {
+		@include table-cell;
+	}
+}
+
+/**
+ * .site-branding
+ */
+.site-branding {
+	padding: 20px 0;
+
+	&__heading {
+		font-size: 24px;
+		line-height: 1;
+		margin: 0;
+
+		@media ( min-width: $screen-xs-min ) {
+			font-size: 26px;
+		}
+	}
+
+	&__logo {
+		font-size: 24px;
+		line-height: 1;
+		margin: 0;
+
+		@media ( min-width: $screen-xs-min ) {
+			font-size: 26px;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+/**
+ * .global-nav
+ */
+.global-nav-wrapper {
+	position: relative;
+}
+
+.responsive-nav {
+	.menu-item {
+		text-align: center;
+	}
+
+	a {
+		text-decoration: none;
+
+		strong {
+			font-weight: normal;
+		}
+
+		small {
+			display: block;
+		}
+	}
+
+	.sub-menu, .children {
+		.menu-item {
+			text-align: left;
+		}
+
+		a {
+			padding: 10px;
+		}
+	}
+
+	ul li ul li ul {
+		left: 220px;
+
+		&.reverse-pulldown {
+			left: -220px;
+		}
+	}
+}
+
+.off-canvas-nav {
+	.menu-item {
+		text-align: left;
+	}
+
+	a {
+		strong {
+			font-weight: normal;
+		}
+
+		small {
+			display: none;
+		}
+	}
+}
+
+/**
+ * #responsive-btn
+ */
+#responsive-btn {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	transition: all 0.1s;
+	border-width: 1px;
+	border-style: solid;
+	height: 40px;
+	width: 40px;
+	font-size: 18px;
+	line-height: 18px;
+	padding: 10px;
+}

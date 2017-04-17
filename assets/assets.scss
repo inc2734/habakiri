@@ -1,0 +1,8 @@
+@import './bootstrap-variables';
+@import './bootstrap/stylesheets/bootstrap';
+
+$genericons-font-path: "../assets/genericons";
+@import './genericons/genericons';
+
+$fa-font-path: "../assets/font-awesome/fonts";
+@import './font-awesome/scss/font-awesome';

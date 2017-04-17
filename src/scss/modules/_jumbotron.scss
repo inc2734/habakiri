@@ -1,0 +1,23 @@
+.jumbotron {
+	margin-bottom: 0;
+	padding: 160px 15px;
+
+	.container &,
+	.container-fluid & {
+		border-radius: 0;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+
+	p {
+		font-size: 100%;
+	}
+
+	.btn {
+		margin: 40px 0 0;
+	}
+
+	.btn-default {
+		@extend .btn-ghost;
+	}
+}
