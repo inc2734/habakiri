@@ -351,7 +351,14 @@ div.thumbnail {
   display: table;
   margin-right: 0;
   margin-left: 0;
-  width: 100%; }
+  width: 100%;
+  /* Safari 6.1+ (10.0 is the latest version of Safari at this time) */ }
+
+@media (max-width: 991px) and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) and (1) {
+  .header__content {
+    display: block !important; }
+    .header__content .header__col {
+      width: 100%; } }
   .header__content .header__col {
     display: table-cell;
     float: none;

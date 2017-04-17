@@ -76,6 +76,7 @@ class Habakiri_Base_Functions {
 
 		add_action( 'widgets_init'      , array( $this, 'register_sidebar' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
+		add_action( 'wp_head'           , array( $this, 'styles_bugfix_for_safari' ) );
 		add_action( 'wp_footer'         , array( $this, 'wp_footer' ) );
 
 		add_filter( 'query_vars'                 , array( $this, 'query_vars' ) );
@@ -85,14 +86,14 @@ class Habakiri_Base_Functions {
 		add_filter( 'walker_nav_menu_start_el'   , array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
 		add_filter( 'excerpt_length'             , array( $this, 'excerpt_length' ), 9 );
 		add_filter( 'excerpt_mblength'           , array( $this, 'excerpt_length' ), 9 );
-		
+
 		add_filter( 'comment_form_default_fields', array( $this, 'comment_form_default_fields' ) );
 		add_filter( 'comment_form_field_comment' , array( $this, 'comment_form_field_comment' ) );
 		add_filter( 'comment_form_submit_field'  , array( $this, 'comment_form_submit_field' ) );
-		
+
 		add_filter( 'get_calendar'               , array( $this, 'get_calendar' ) );
 	}
-	
+
 	/**
 	 * Add query var for related posts
 	 *
@@ -295,7 +296,7 @@ class Habakiri_Base_Functions {
 			array(),
 			$version
 		);
-		
+
 		wp_enqueue_style(
 			get_template(),
 			$url . '/style.min.css',
@@ -320,7 +321,25 @@ class Habakiri_Base_Functions {
 			true
 		);
 	}
-	
+
+	/**
+	 * Safari 6.1+ (10.0 is the latest version of Safari at this time)
+	 * @see https://github.com/inc2734/habakiri/issues/17
+	 */
+	public function styles_bugfix_for_safari() {
+		?>
+		<style>
+		/* Safari 6.1+ (10.0 is the latest version of Safari at this time) */
+		@media (max-width: 991px) and (min-color-index: 0) and (-webkit-min-device-pixel-ratio: 0) { @media () {
+			display: block !important;
+			.header__col {
+				width: 100%;
+			}
+		}}
+		</style>
+		<?php
+	}
+
 	public function wp_footer() {
 		?>
 		<script>
@@ -352,7 +371,7 @@ class Habakiri_Base_Functions {
 	}
 
 	/**
-	 * Output hentry class  when the single page only 
+	 * Output hentry class  when the single page only
 	 *
 	 * @param array $classes
 	 * @return array
@@ -364,7 +383,7 @@ class Habakiri_Base_Functions {
 		}
 		return $classes;
 	}
-	
+
 	/**
 	 * Display description in global navigation
 	 *
@@ -382,7 +401,7 @@ class Habakiri_Base_Functions {
 		}
 		return $output;
 	}
-	
+
 	/**
 	 * Excerpt length
 	 *
@@ -392,7 +411,7 @@ class Habakiri_Base_Functions {
 	public function excerpt_length( $length ) {
 		return Habakiri::get( 'excerpt_length' );
 	}
-	
+
 	/**
 	 * Comment form text field styling
 	 *
@@ -405,7 +424,7 @@ class Habakiri_Base_Functions {
 		}
 		return $fields;
 	}
-	
+
 	/**
 	 * Comment form textarea styling
 	 *
@@ -416,7 +435,7 @@ class Habakiri_Base_Functions {
 		$comment_field = preg_replace( '/(id=".+?")/', '$1 class="form-control"', $comment_field );
 		return $comment_field;
 	}
-	
+
 	/**
 	 * Comment form button styling
 	 *
@@ -427,7 +446,7 @@ class Habakiri_Base_Functions {
 		$submit_field = str_replace( 'class="submit"', 'class="submit btn btn-primary"', $submit_field );
 		return $submit_field;
 	}
-	
+
 	/**
 	 * Calendar styling
 	 *
