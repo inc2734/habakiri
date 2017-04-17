@@ -162,6 +162,7 @@ add_filter( 'foo', 'your_filter' );
 
 = 2.5.2 =
 * Fix global navigation layout bug on Safari.
+* Fix bug that customizer default values are not refrected.
 
 = 2.5.1 =
 * Added Text Domain in style.css header.
